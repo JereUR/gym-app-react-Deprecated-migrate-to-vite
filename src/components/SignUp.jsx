@@ -1,13 +1,62 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import Loader from "./Loader";
 
 import Modal from "./Modal";
 
 export const SignUp = () => {
   const [register, setRegister] = useState(false);
+  const [nameRegister, setNameRegister] = useState("");
+  const [surnameRegister, setSurnameRegister] = useState("");
+  const [emailRegister, setEmailRegister] = useState("");
+  const [dateRegister, setDateRegister] = useState(null);
+  const [passwordRegister, setPasswordRegister] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleRegisterModal = () => {
     setRegister(!register);
+  };
+
+  const handleName = (e) => {
+    setNameRegister(e.target.value);
+  };
+
+  const handleSurname = (e) => {
+    setSurnameRegister(e.target.value);
+  };
+
+  const handleEmail = (e) => {
+    setEmailRegister(e.target.value);
+  };
+
+  const handleDate = (e) => {
+    setDateRegister(e.target.value);
+  };
+
+  const handlePassword = (e) => {
+    setPasswordRegister(e.target.value);
+  };
+
+  const handleConfirmPassword = (e) => {
+    setConfirmPassword(e.target.value);
+  };
+
+  const handleSubmitRegister = (e) => {
+    e.preventDefault();
+
+    if (passwordRegister === confirmPassword) {
+      const dataRegister = {
+        nameRegister,
+        surnameRegister,
+        emailRegister,
+        dateRegister,
+        passwordRegister,
+      };
+
+      console.log(dataRegister);
+    }
+
+    setRegister(false);
   };
 
   return (
@@ -17,16 +66,46 @@ export const SignUp = () => {
       <Modal state={register} setState={setRegister} title="Crear Cuenta">
         <Content>
           <FormContainer>
-            <Form>
-              <NameAndLastNameContainer>
-                <InputName type="text" placeholder="Ingrese su nombre" />
-                <Input type="text" placeholder="Ingrese su apellido" />
-              </NameAndLastNameContainer>
+            <Form onSubmit={handleSubmitRegister}>
+              <NameAndSurnameContainer>
+                <InputName
+                  type="text"
+                  placeholder="Ingrese su nombre"
+                  onChange={handleName}
+                  required
+                />
+                <Input
+                  type="text"
+                  placeholder="Ingrese su apellido"
+                  onChange={handleSurname}
+                  required
+                />
+              </NameAndSurnameContainer>
 
-              <Input type="email" placeholder="Ingrese su email" />
-              <Input type="date" placeholder="Ingrese su fecha de nacimiento" />
-              <Input type="password" placeholder="Ingrese su contraseña" />
-              <Input type="password" placeholder="Confirme su contraseña" />
+              <Input
+                type="email"
+                placeholder="Ingrese su email"
+                onChange={handleEmail}
+                required
+              />
+              <Input
+                type="date"
+                placeholder="Ingrese su fecha de nacimiento"
+                onChange={handleDate}
+                required
+              />
+              <Input
+                type="password"
+                placeholder="Ingrese su contraseña"
+                onChange={handlePassword}
+                required
+              />
+              <Input
+                type="password"
+                placeholder="Confirme su contraseña"
+                onChange={handleConfirmPassword}
+                required
+              />
               <ButtonSignUp>Registrarte</ButtonSignUp>
             </Form>
           </FormContainer>
@@ -68,7 +147,7 @@ const Form = styled.form`
   display: grid;
 `;
 
-const NameAndLastNameContainer = styled.div``;
+const NameAndSurnameContainer = styled.div``;
 
 const Input = styled.input`
   font-family: "Roboto", sans-serif;

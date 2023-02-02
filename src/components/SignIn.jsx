@@ -1,23 +1,117 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Toaster, toast } from "react-hot-toast";
 
 import logo from "../assets/logo.png";
+import Loader from "./Loader";
 import Modal from "./Modal";
 
 export const SignIn = () => {
   const [forgotPassword, setForgotPassword] = useState(false);
+  const [emailSignIn, setEmailSignIn] = useState("");
+  const [passwordSignIn, setPasswordSignIn] = useState("");
+  const [emailRecover, setEmailRecover] = useState("");
+  const [errorSignIn, setErrorSignIn] = useState(false);
+  const [errorRecover, setErrorRecover] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleForgotPasswordModal = () => {
     setForgotPassword(!forgotPassword);
   };
 
+  const handleEmailSignIn = (e) => {
+    setEmailSignIn(e.target.value);
+  };
+
+  const handlePassword = (e) => {
+    setPasswordSignIn(e.target.value);
+  };
+
+  const handleSubmitSignIn = (e) => {
+    e.preventDefault();
+
+    setLoading(true);
+    const dataSignIn = { emailSignIn, passwordSignIn };
+    document.getElementById("email-sign-in").value = "";
+    document.getElementById("password-sign-in").value = "";
+
+    /* try {
+      fetch()
+    } catch (error) {
+      setEmailSignIn(true);
+    } */
+
+    if (errorSignIn) {
+      toast.error("Email o contraseña incorrecto.", {
+        position: "top-right",
+        duration: 6000,
+        style: {
+          background: "rgba(250, 215, 215)",
+          fontSize: "1rem",
+          fontWeight: "500",
+        },
+      });
+    }
+
+    setLoading(false);
+  };
+
+  const handleEmailRecover = (e) => {
+    setEmailRecover(e.target.value);
+  };
+
+  const handleSubmitRecover = (e) => {
+    e.preventDefault();
+
+    const dataRecover = { emailRecover };
+
+    console.log(dataRecover);
+
+    setForgotPassword(!forgotPassword);
+
+    if (errorRecover) {
+      toast.error("Email no registado.", {
+        position: "top-right",
+        duration: 6000,
+        style: {
+          background: "rgba(250, 215, 215)",
+          fontSize: "1rem",
+          fontWeight: "500",
+        },
+      });
+    } else {
+      toast.success(`Se envió un correo a ${emailRecover}.`, {
+        position: "top-right",
+        duration: 6000,
+        style: {
+          background: "rgba(215, 250, 215)",
+          fontSize: "1rem",
+          fontWeight: "500",
+        },
+      });
+    }
+  };
+
   return (
     <FormContainer>
       <LogoForm src={logo} />
-      <Form>
-        <Input type="email" placeholder="Ingrese su email" />
-        <Input type="password" placeholder="Ingrese su contraseña" />
+      <Form onSubmit={handleSubmitSignIn}>
+        <Input
+          id="email-sign-in"
+          type="email"
+          placeholder="Ingrese su email"
+          onChange={handleEmailSignIn}
+          required
+        />
+        <Input
+          id="password-sign-in"
+          type="password"
+          placeholder="Ingrese su contraseña"
+          onChange={handlePassword}
+          required
+        />
         <ButtonSignIn>Iniciar Sesión</ButtonSignIn>
+        {loading && <Loader />}
       </Form>
       <PasswordForgot onClick={handleForgotPasswordModal}>
         ¿Olvidaste tu contraseña?
@@ -32,13 +126,19 @@ export const SignIn = () => {
             Introduzca su correo electrónico para reestablecer tu contraseña.
           </TextForgotPassword>
           <FormContainer>
-            <Form>
-              <InputRecover type="email" placeholder="Ingrese su email" />
+            <Form onSubmit={handleSubmitRecover}>
+              <InputRecover
+                type="email"
+                placeholder="Ingrese su email"
+                onChange={handleEmailRecover}
+                required
+              />
               <ButtonRecover>Enviar</ButtonRecover>
             </Form>
           </FormContainer>
         </Content>
       </Modal>
+      <Toaster />
     </FormContainer>
   );
 };
