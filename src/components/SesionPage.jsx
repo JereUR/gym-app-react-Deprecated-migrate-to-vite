@@ -66,5 +66,5 @@ const TextContent = styled.p`
 
 const FormData = styled.div`
   flex: 1;
-  margin: 20vw 30vw auto 1vw;
+  margin: 7vw 30vw auto 1vw;
 `;
