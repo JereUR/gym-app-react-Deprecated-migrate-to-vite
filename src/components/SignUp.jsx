@@ -4,58 +4,73 @@ import Loader from "./Loader";
 
 import Modal from "./Modal";
 
+const initialData = {
+  nameRegister: "",
+  surnameRegister: "",
+  emailRegister: "",
+  dateRegister: "",
+  passwordRegister: "",
+  confirmPassword: "",
+};
+
 export const SignUp = () => {
   const [register, setRegister] = useState(false);
-  const [nameRegister, setNameRegister] = useState("");
-  const [surnameRegister, setSurnameRegister] = useState("");
-  const [emailRegister, setEmailRegister] = useState("");
-  const [dateRegister, setDateRegister] = useState(null);
-  const [passwordRegister, setPasswordRegister] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [dataRegister, setDataRegister] = useState(initialData);
+  const [errors, setErrors] = useState({});
+
+  const onValidate = (form) => {
+    let errorsForm = {};
+    const regexName = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/;
+    const regexEmail = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
+
+    if (!dataRegister.nameRegister.trim()) {
+      errorsForm.nameRegister = `Este campo no debe ser vacío.`;
+    } else if (!regexName.test(dataRegister.nameRegister)) {
+      errorsForm.nameRegister = "Este campo solo acepta letras y espacios.";
+    }
+
+    if (!dataRegister.surnameRegister.trim()) {
+      errorsForm.surnameRegister = `Este campo no debe ser vacío.`;
+    } else if (!regexName.test(dataRegister.surnameRegister)) {
+      errorsForm.surnameRegister = "Este campo solo acepta letras y espacios.";
+    }
+
+    if (!dataRegister.emailRegister.trim()) {
+      errorsForm.emailRegister = `Este campo no debe ser vacío.`;
+    } else if (!regexEmail.test(dataRegister.emailRegister)) {
+      errorsForm.emailRegister = "Correo no válido.";
+    }
+
+    if (!dataRegister.dateRegister.trim()) {
+      errorsForm.dateRegister = `Este campo no debe ser vacío.`;
+    }
+
+    if (dataRegister.passwordRegister.length < 8) {
+      errorsForm.passwordRegister = `La contraseña debe tener más de 8 caracteres.`;
+    }
+
+    if (dataRegister.passwordRegister !== dataRegister.confirmPassword) {
+      errorsForm.passwordRegister = `La contraseña y su confirmación no coinciden.`;
+      errorsForm.confirmPassword = `La contraseña y su confirmación no coinciden.`;
+    }
+
+    return errorsForm;
+  };
 
   const handleRegisterModal = () => {
     setRegister(!register);
   };
 
-  const handleName = (e) => {
-    setNameRegister(e.target.value);
-  };
-
-  const handleSurname = (e) => {
-    setSurnameRegister(e.target.value);
-  };
-
-  const handleEmail = (e) => {
-    setEmailRegister(e.target.value);
-  };
-
-  const handleDate = (e) => {
-    setDateRegister(e.target.value);
-  };
-
-  const handlePassword = (e) => {
-    setPasswordRegister(e.target.value);
-  };
-
-  const handleConfirmPassword = (e) => {
-    setConfirmPassword(e.target.value);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setDataRegister({ ...dataRegister, [name]: value });
   };
 
   const handleSubmitRegister = (e) => {
     e.preventDefault();
 
-    if (passwordRegister === confirmPassword) {
-      const dataRegister = {
-        nameRegister,
-        surnameRegister,
-        emailRegister,
-        dateRegister,
-        passwordRegister,
-      };
-
-      console.log(dataRegister);
-    }
-
+    console.log(dataRegister);
+    setDataRegister(initialData);
     setRegister(false);
   };
 
@@ -71,13 +86,17 @@ export const SignUp = () => {
                 <InputName
                   type="text"
                   placeholder="Ingrese su nombre"
-                  onChange={handleName}
+                  name="nameRegister"
+                  value={dataRegister.nameRegister}
+                  onChange={handleChange}
                   required
                 />
                 <Input
                   type="text"
                   placeholder="Ingrese su apellido"
-                  onChange={handleSurname}
+                  name="surnameRegister"
+                  value={dataRegister.surnameRegister}
+                  onChange={handleChange}
                   required
                 />
               </NameAndSurnameContainer>
@@ -85,25 +104,33 @@ export const SignUp = () => {
               <Input
                 type="email"
                 placeholder="Ingrese su email"
-                onChange={handleEmail}
+                name="emailRegister"
+                value={dataRegister.emailRegister}
+                onChange={handleChange}
                 required
               />
               <Input
                 type="date"
                 placeholder="Ingrese su fecha de nacimiento"
-                onChange={handleDate}
+                name="dateRegister"
+                value={dataRegister.dateRegister}
+                onChange={handleChange}
                 required
               />
               <Input
                 type="password"
                 placeholder="Ingrese su contraseña"
-                onChange={handlePassword}
+                name="passwordRegister"
+                value={dataRegister.passwordRegister}
+                onChange={handleChange}
                 required
               />
               <Input
                 type="password"
                 placeholder="Confirme su contraseña"
-                onChange={handleConfirmPassword}
+                name="confirmPassword"
+                value={dataRegister.confirmPassword}
+                onChange={handleChange}
                 required
               />
               <ButtonSignUp>Registrarte</ButtonSignUp>
