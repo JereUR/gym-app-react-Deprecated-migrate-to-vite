@@ -18,7 +18,7 @@ export const SignUp = () => {
   const [dataRegister, setDataRegister] = useState(initialData);
   const [errors, setErrors] = useState({});
 
-  const onValidate = (form) => {
+  const onValidate = () => {
     let errorsForm = {};
     const regexName = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/;
     const regexEmail = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
@@ -69,9 +69,15 @@ export const SignUp = () => {
   const handleSubmitRegister = (e) => {
     e.preventDefault();
 
-    console.log(dataRegister);
-    setDataRegister(initialData);
-    setRegister(false);
+    const err = onValidate();
+    setErrors(err);
+
+    if (Object.keys(err).length === 0) {
+      console.log("Envio formulario");
+      console.log(dataRegister);
+      setDataRegister(initialData);
+      setRegister(false);
+    }
   };
 
   return (
@@ -83,56 +89,83 @@ export const SignUp = () => {
           <FormContainer>
             <Form onSubmit={handleSubmitRegister}>
               <NameAndSurnameContainer>
-                <InputName
-                  type="text"
-                  placeholder="Ingrese su nombre"
-                  name="nameRegister"
-                  value={dataRegister.nameRegister}
-                  onChange={handleChange}
-                  required
-                />
-                <Input
-                  type="text"
-                  placeholder="Ingrese su apellido"
-                  name="surnameRegister"
-                  value={dataRegister.surnameRegister}
-                  onChange={handleChange}
-                  required
-                />
+                <InputContainer>
+                  <InputName
+                    type="text"
+                    placeholder="Ingrese su nombre"
+                    name="nameRegister"
+                    value={dataRegister.nameRegister}
+                    onChange={handleChange}
+                  />
+                  {errors.nameRegister && (
+                    <ErrorInputNameSurname>
+                      {errors.nameRegister}
+                    </ErrorInputNameSurname>
+                  )}
+                </InputContainer>
+                <InputContainer>
+                  <Input
+                    type="text"
+                    placeholder="Ingrese su apellido"
+                    name="surnameRegister"
+                    value={dataRegister.surnameRegister}
+                    onChange={handleChange}
+                  />
+                  {errors.surnameRegister && (
+                    <ErrorInputNameSurname>
+                      {errors.surnameRegister}
+                    </ErrorInputNameSurname>
+                  )}
+                </InputContainer>
               </NameAndSurnameContainer>
-
-              <Input
-                type="email"
-                placeholder="Ingrese su email"
-                name="emailRegister"
-                value={dataRegister.emailRegister}
-                onChange={handleChange}
-                required
-              />
-              <Input
-                type="date"
-                placeholder="Ingrese su fecha de nacimiento"
-                name="dateRegister"
-                value={dataRegister.dateRegister}
-                onChange={handleChange}
-                required
-              />
-              <Input
-                type="password"
-                placeholder="Ingrese su contraseña"
-                name="passwordRegister"
-                value={dataRegister.passwordRegister}
-                onChange={handleChange}
-                required
-              />
-              <Input
-                type="password"
-                placeholder="Confirme su contraseña"
-                name="confirmPassword"
-                value={dataRegister.confirmPassword}
-                onChange={handleChange}
-                required
-              />
+              <InputContainer>
+                <Input
+                  type="email"
+                  placeholder="Ingrese su email"
+                  name="emailRegister"
+                  value={dataRegister.emailRegister}
+                  onChange={handleChange}
+                />
+                {errors.emailRegister && (
+                  <ErrorInput>{errors.emailRegister}</ErrorInput>
+                )}
+              </InputContainer>
+              <InputContainer>
+                <Input
+                  type="date"
+                  placeholder="Ingrese su fecha de nacimiento"
+                  name="dateRegister"
+                  value={dataRegister.dateRegister}
+                  onChange={handleChange}
+                />
+                {errors.dateRegister && (
+                  <ErrorInput>{errors.dateRegister}</ErrorInput>
+                )}
+              </InputContainer>
+              <InputContainer>
+                <Input
+                  type="password"
+                  placeholder="Ingrese su contraseña"
+                  name="passwordRegister"
+                  value={dataRegister.passwordRegister}
+                  onChange={handleChange}
+                />
+                {errors.passwordRegister && (
+                  <ErrorInput>{errors.passwordRegister}</ErrorInput>
+                )}
+              </InputContainer>
+              <InputContainer>
+                <Input
+                  type="password"
+                  placeholder="Confirme su contraseña"
+                  name="confirmPassword"
+                  value={dataRegister.confirmPassword}
+                  onChange={handleChange}
+                />
+                {errors.confirmPassword && (
+                  <ErrorInput>{errors.confirmPassword}</ErrorInput>
+                )}
+              </InputContainer>
               <ButtonSignUp>Registrarte</ButtonSignUp>
             </Form>
           </FormContainer>
@@ -174,7 +207,13 @@ const Form = styled.form`
   display: grid;
 `;
 
-const NameAndSurnameContainer = styled.div``;
+const InputContainer = styled.div``;
+
+const NameAndSurnameContainer = styled.div`
+  display: flex;
+  margin-left: 0.9rem;
+  margin-right: 0.9rem;
+`;
 
 const Input = styled.input`
   font-family: "Roboto", sans-serif;
@@ -185,6 +224,7 @@ const Input = styled.input`
   border: 1.5px solid rgb(150, 150, 150);
   background-color: rgb(250, 250, 250);
   color: #1f7da9;
+  width: 90%;
 `;
 
 const InputName = styled.input`
@@ -215,4 +255,20 @@ const ButtonSignUp = styled.button`
     background-color: #1b7eac;
     transform: scale(1.05);
   }
+`;
+
+const ErrorInput = styled.div`
+  font-size: 12px;
+  color: rgb(250, 90, 90);
+  margin-bottom: 1rem;
+  text-align: left;
+  margin-left: 2rem;
+`;
+
+const ErrorInputNameSurname = styled.div`
+  font-size: 12px;
+  color: rgb(250, 90, 90);
+  margin-bottom: 1rem;
+  text-align: left;
+  margin-left: 1rem;
 `;

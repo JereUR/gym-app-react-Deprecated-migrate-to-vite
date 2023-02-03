@@ -2,11 +2,12 @@ import "./App.css";
 import styled from "styled-components";
 
 import { SesionPage } from "./components/SesionPage";
+import { ResetPassword } from "./components/ResetPassword";
 
 function App() {
   return (
     <Container>
-      <SesionPage />
+      <ResetPassword />
     </Container>
   );
 }
