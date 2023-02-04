@@ -17,7 +17,7 @@ export const Footer = () => {
         <Logo src={logo} />
       </CenterContent>
       <RightContent>
-        <PoweredBy>Powered By</PoweredBy>
+        <PoweredBy>Desarrollado por</PoweredBy>
         <ByContent>
           <IconLinkedin
             href="https://www.linkedin.com/in/jeremias-dominguez-vega/"
@@ -85,10 +85,11 @@ const PoweredBy = styled.p`
   font-size: 0.9rem;
   padding-right: 2rem;
   font-weight: bold;
+  text-decoration: underline;
 `;
 
 const ByContent = styled.div`
-  margin-right: 3.5vh;
+  margin-right: 5vh;
 `;
 
 const IconLinkedin = styled.a``;
