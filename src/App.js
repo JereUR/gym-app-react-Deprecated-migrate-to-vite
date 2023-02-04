@@ -3,17 +3,21 @@ import styled from "styled-components";
 
 import { SesionPage } from "./components/SesionPage";
 import { ResetPassword } from "./components/ResetPassword";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
 
 function App() {
   return (
     <Container>
-      <ResetPassword />
+      <Header />
+      <SesionPage />
+      <Footer />
     </Container>
   );
 }
 
 const Container = styled.div`
-  display: flex;
+  display: block;
   justify-content: center;
 `;
 

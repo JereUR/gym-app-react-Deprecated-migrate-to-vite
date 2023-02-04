@@ -13,10 +13,7 @@ export const SesionPage = () => {
           <LogoImg src={frontPage} />
         </LogoContainer>
         <TextContainer>
-          <TextContent>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.
-          </TextContent>
+          <TextContent>Vive energía, vive Milenium!!</TextContent>
         </TextContainer>
       </LogoSection>
       <FormData>
@@ -61,7 +58,7 @@ const TextContent = styled.p`
   display: block;
   text-align: center;
   font-size: 20px;
-  font-weight: bold;
+  font-style: oblique;
 `;
 
 const FormData = styled.div`
