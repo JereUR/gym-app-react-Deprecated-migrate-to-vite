@@ -65,10 +65,6 @@ const NameGym = styled.p`
   margin-bottom: 25px;
 `;
 
-const InfoContent = styled.div`
-  display: flex;
-`;
-
 const Info = styled.p`
   font-size: 0.8rem;
   font-weight: bold;

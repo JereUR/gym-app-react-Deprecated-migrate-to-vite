@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Loader from "./Loader";
 
 import Modal from "./Modal";
 

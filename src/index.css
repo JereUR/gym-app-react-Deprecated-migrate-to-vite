@@ -48,3 +48,8 @@ code {
     transform: rotate(360deg);
   }
 }
+
+.active {
+  font-weight: bold;
+  color: #419dc7;
+}
