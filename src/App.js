@@ -35,7 +35,7 @@ function App() {
           {!user.login && <Route exact path="/" element={<SesionPage />} />}
           <Route element={<LoginRoute />}>
             <Route exact path="/" element={<Home />} />
-            <Route exact path="/mis-facturas" element={<Bill />} />
+            <Route exact path="/mis-pagos" element={<Bill />} />
             <Route exact path="/usuario/:username" element={<UserProfile />} />
             <Route exact path="/reset" element={<ResetPassword />} />
           </Route>

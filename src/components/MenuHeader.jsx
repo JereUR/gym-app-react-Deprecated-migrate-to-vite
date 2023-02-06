@@ -19,8 +19,8 @@ export const MenuHeader = () => {
           <NavLink to="/" activeclassname="active">
             Inicio
           </NavLink>
-          <NavLink to="/mis-facturas" activeclassname="active">
-            Mis Facturas
+          <NavLink to="/mis-pagos" activeclassname="active">
+            Mis Pagos
           </NavLink>
           <NavLink to={profilePath} activeclassname="active">
             Mi Perfil
@@ -29,10 +29,10 @@ export const MenuHeader = () => {
       )}
       {authAdmin && (
         <NavContainer>
+          <NavLink to="/admin">Admin</NavLink>
           <NavLink to={profilePath} activeclassname="active">
             Mi Perfil
           </NavLink>
-          <NavLink to="/admin">Admin</NavLink>
         </NavContainer>
       )}
     </NavContainer>
