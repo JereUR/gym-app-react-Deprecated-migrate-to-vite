@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Toaster, toast } from "react-hot-toast";
+
+import { user } from "../App";
 
 const initialData = {
   newPassword: "",
@@ -40,41 +43,51 @@ export const ResetPassword = () => {
       console.log("Envio formulario");
       console.log(dataRecovery);
       setDataRecovery(initialData);
+      toast.success("Contraseña cambiada con exito.", {
+        position: "top-right",
+        duration: 6000,
+        style: {
+          background: "rgba(215, 250, 215)",
+          fontSize: "1rem",
+          fontWeight: "500",
+        },
+      });
+      setTimeout(() => {
+        window.location.replace(`/usuario/:${user.username}`);
+      }, 2000);
     }
   };
 
   return (
-    <Container>
-      <FormContainer>
-        <TitleReset>Recuperar Contraseña</TitleReset>
-        <hr />
-        <Form onSubmit={handleSubmit}>
-          <Input
-            type="password"
-            placeholder="Nueva contraseña"
-            name="newPassword"
-            value={dataRecovery.newPassword}
-            onChange={handleChange}
-          />
-          {errors.newPassword && <ErrorInput>{errors.newPassword}</ErrorInput>}
-          <Input
-            type="password"
-            placeholder="Confirma nueva contraseña"
-            name="confirmPassword"
-            value={dataRecovery.confirmPassword}
-            onChange={handleChange}
-          />
-          {errors.confirmPassword && (
-            <ErrorInput>{errors.confirmPassword}</ErrorInput>
-          )}
-          <ButtonSend type="submit">Enviar</ButtonSend>
-        </Form>
-      </FormContainer>
-    </Container>
+    <FormContainer>
+      <TitleReset>Recuperar Contraseña</TitleReset>
+      <Form onSubmit={handleSubmit}>
+        <Input
+          type="password"
+          placeholder="Nueva contraseña"
+          name="newPassword"
+          value={dataRecovery.newPassword}
+          onChange={handleChange}
+        />
+        {errors.newPassword && <ErrorInput>{errors.newPassword}</ErrorInput>}
+        <Input
+          type="password"
+          placeholder="Confirma nueva contraseña"
+          name="confirmPassword"
+          value={dataRecovery.confirmPassword}
+          onChange={handleChange}
+        />
+        {errors.confirmPassword && (
+          <ErrorInput>{errors.confirmPassword}</ErrorInput>
+        )}
+        <ButtonSend type="submit">Enviar</ButtonSend>
+      </Form>
+      <Toaster />
+    </FormContainer>
   );
 };
 
-const Container = styled.div`
+/* const Container = styled.div`
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -85,7 +98,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 999;
-`;
+`; */
 
 const FormContainer = styled.div`
   min-height: 200px;
@@ -93,7 +106,7 @@ const FormContainer = styled.div`
   position: relative;
   border-radius: 5px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  padding: 20px;
+  padding: 11.5vw;
 `;
 
 const TitleReset = styled.h1`

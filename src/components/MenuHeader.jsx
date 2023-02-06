@@ -8,25 +8,33 @@ import { useAuth } from "./LoginRoute";
 
 export const MenuHeader = () => {
   const profilePath = `/usuario/:${user.username}`;
+  const auth = useAuth();
+  const admin = useAuthAdmin();
+  const authAdmin = auth && admin;
 
   return (
     <NavContainer>
-      {useAuth() && (
-        <NavLink to="/" activeclassname="active">
-          Inicio
-        </NavLink>
+      {!authAdmin && (
+        <NavContainer>
+          <NavLink to="/" activeclassname="active">
+            Inicio
+          </NavLink>
+          <NavLink to="/mis-facturas" activeclassname="active">
+            Mis Facturas
+          </NavLink>
+          <NavLink to={profilePath} activeclassname="active">
+            Mi Perfil
+          </NavLink>
+        </NavContainer>
       )}
-      {useAuth() && (
-        <NavLink to="/mis-facturas" activeclassname="active">
-          Mis Facturas
-        </NavLink>
+      {authAdmin && (
+        <NavContainer>
+          <NavLink to={profilePath} activeclassname="active">
+            Mi Perfil
+          </NavLink>
+          <NavLink to="/admin">Admin</NavLink>
+        </NavContainer>
       )}
-      {useAuth() && (
-        <NavLink to={profilePath} activeclassname="active">
-          Mi Perfil
-        </NavLink>
-      )}
-      {useAuthAdmin() && <NavLink to="/admin">Admin</NavLink>}
     </NavContainer>
   );
 };
@@ -38,6 +46,7 @@ const NavContainer = styled.div`
   padding-top: 60px;
 
   a {
+    font-size: 1.2rem;
     color: #d4373d;
     text-decoration: none;
     width: fit-content;

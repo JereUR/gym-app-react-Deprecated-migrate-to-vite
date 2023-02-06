@@ -13,14 +13,16 @@ import { Error404 } from "./components/Error404";
 import LoginRoute from "./components/LoginRoute";
 import AdminRoute from "./components/AdminRoute";
 import { MenuHeader } from "./components/MenuHeader";
+import { ResetPassword } from "./components/ResetPassword";
 
-export const user = {
+export let user = {
   username: "Jeremias",
   surname: "Dominguez Vega",
   email: "jeremias.jdv@gmail.com",
   date: "1994-11-29",
   login: true,
   admin: false,
+  photo: null,
 };
 
 function App() {
@@ -35,9 +37,11 @@ function App() {
             <Route exact path="/" element={<Home />} />
             <Route exact path="/mis-facturas" element={<Bill />} />
             <Route exact path="/usuario/:username" element={<UserProfile />} />
+            <Route exact path="/reset" element={<ResetPassword />} />
           </Route>
           <Route element={<AdminRoute />}>
             <Route exact path="/admin" element={<AdminPage />} />
+            <Route exact path="/reset" element={<ResetPassword />} />
           </Route>
           <Route exact path="*" element={<Error404 />} />
         </Routes>

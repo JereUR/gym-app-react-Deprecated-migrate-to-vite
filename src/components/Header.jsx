@@ -19,6 +19,7 @@ const HeaderContainer = styled.header`
 `;
 
 const Logo = styled.img`
-  width: 130px;
+  width: auto;
+  height: auto;
   margin-left: 5vw;
 `;
