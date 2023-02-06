@@ -12,6 +12,7 @@ import { AdminPage } from "./components/AdminPage";
 import { Error404 } from "./components/Error404";
 import LoginRoute from "./components/LoginRoute";
 import AdminRoute from "./components/AdminRoute";
+import { MenuHeader } from "./components/MenuHeader";
 
 export const user = {
   username: "Jeremias",
@@ -26,8 +27,8 @@ function App() {
   console.log(user.login);
   return (
     <Container>
-      {user.login && <Header />}
       <Router>
+        {user.login && <Header />}
         <Routes>
           {!user.login && <Route exact path="/" element={<SesionPage />} />}
           <Route element={<LoginRoute />}>

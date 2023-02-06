@@ -41,7 +41,7 @@ export const Footer = () => {
 
 const FooterContainer = styled.div`
   display: flex;
-  box-shadow: -10px 5px 11px 0px rgba(0, 0, 0, 0.7);
+  box-shadow: -10px 0px 11px 0px rgba(0, 0, 0, 0.7);
 `;
 
 const LeftContent = styled.div`
