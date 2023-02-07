@@ -33,6 +33,7 @@ const Banner = styled.img`
   height: 400px;
   box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.2);
   border-radius: 5px;
+  margin-top: 1rem;
 `;
 
 const RutineContainer = styled.div`

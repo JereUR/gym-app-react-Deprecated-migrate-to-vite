@@ -27,7 +27,7 @@ export let user = {
     monday: [
       {
         mount: "15 Repeticiones",
-        exercise: "xxxx",
+        exercise: "xxx",
       },
       {
         mount: "20 Repeticiones",
@@ -177,16 +177,7 @@ export let user = {
   nutricionalPlan: {
     monday: [
       {
-        breakfast: [
-          {
-            mount: "3 ud",
-            meal: "Huevo",
-          },
-          {
-            mount: "200gr",
-            meal: "Churrasco",
-          },
-        ],
+        breakfast: [],
       },
       {
         lunch: [
