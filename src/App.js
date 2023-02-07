@@ -23,7 +23,512 @@ export let user = {
   login: true,
   admin: false,
   photo: null,
+  routine: {
+    monday: [
+      {
+        mount: "15 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "20 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "15 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "20 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "15 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "20 Repeticiones",
+        exercise: "xxxx",
+      },
+    ],
+    tuesday: [
+      {
+        mount: "15 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "20 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "15 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "20 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "15 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "20 Repeticiones",
+        exercise: "xxxx",
+      },
+    ],
+    wednesday: [
+      {
+        mount: "15 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "20 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "15 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "20 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "15 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "20 Repeticiones",
+        exercise: "xxxx",
+      },
+    ],
+    thursday: [
+      {
+        mount: "15 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "20 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "15 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "20 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "15 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "20 Repeticiones",
+        exercise: "xxxx",
+      },
+    ],
+    friday: [
+      {
+        mount: "15 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "20 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "15 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "20 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "15 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "20 Repeticiones",
+        exercise: "xxxx",
+      },
+    ],
+    saturday: [
+      {
+        mount: "15 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "20 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "15 Repeticiones",
+        exercise: "xxxx",
+      },
+      {
+        mount: "20 Repeticiones",
+        exercise: "xxxx",
+      },
+    ],
+    sunday: [],
+  },
+  nutricionalPlan: {
+    monday: [
+      {
+        breakfast: [
+          {
+            mount: "3 ud",
+            meal: "Huevo",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+      {
+        lunch: [
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+      {
+        snack: [
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+      {
+        dinner: [
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+    ],
+    tuesday: [
+      {
+        breakfast: [
+          {
+            mount: "3 ud",
+            meal: "Huevo",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+      {
+        lunch: [
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+      {
+        snack: [
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+      {
+        dinner: [
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+    ],
+    wednesday: [
+      {
+        breakfast: [
+          {
+            mount: "3 ud",
+            meal: "Huevo",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+      {
+        lunch: [
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+      {
+        snack: [
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+      {
+        dinner: [
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+    ],
+    thursday: [
+      {
+        breakfast: [
+          {
+            mount: "3 ud",
+            meal: "Huevo",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+      {
+        lunch: [
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+      {
+        snack: [
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+      {
+        dinner: [
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+    ],
+    friday: [
+      {
+        breakfast: [
+          {
+            mount: "3 ud",
+            meal: "Huevo",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+      {
+        lunch: [
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+      {
+        snack: [
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+      {
+        dinner: [
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+    ],
+    saturday: [
+      {
+        breakfast: [
+          {
+            mount: "3 ud",
+            meal: "Huevo",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+      {
+        lunch: [
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+      {
+        snack: [
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+      {
+        dinner: [
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+    ],
+    sunday: [
+      {
+        breakfast: [
+          {
+            mount: "3 ud",
+            meal: "Huevo",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+      {
+        lunch: [
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+      {
+        snack: [
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+      {
+        dinner: [
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+          {
+            mount: "200gr",
+            meal: "Churrasco",
+          },
+        ],
+      },
+    ],
+  },
 };
+
+const pathUser = `/usuario/${user.username}`;
 
 function App() {
   console.log(user.login);
@@ -36,7 +541,7 @@ function App() {
           <Route element={<LoginRoute />}>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/mis-pagos" element={<Bill />} />
-            <Route exact path="/usuario/:username" element={<UserProfile />} />
+            <Route exact path={pathUser} element={<UserProfile />} />
             <Route exact path="/reset" element={<ResetPassword />} />
           </Route>
           <Route element={<AdminRoute />}>

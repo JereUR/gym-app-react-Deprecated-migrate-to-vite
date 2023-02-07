@@ -87,6 +87,28 @@ const ChangePasswordButton = styled.button`
   margin-bottom: 3vh !important;
   margin-top: 2vh !important;
   font-family: "Roboto", sans-serif;
+  background-color: #419dc7;
+  color: rgb(250, 250, 250);
+  padding: 10px;
+  margin: 10px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  transition: all 0.7s ease-in-out;
+
+  :hover {
+    cursor: pointer;
+    background-color: #1f7da9;
+    transform: scale(1.02);
+  }
+`;
+
+const SignOutContainer = styled.div``;
+
+const SignOutButton = styled.button`
+  width: 100%;
+  margin-bottom: 3vh !important;
+  font-family: "Roboto", sans-serif;
   background-color: #ee464f;
   color: rgb(250, 250, 250);
   padding: 10px;
@@ -99,28 +121,6 @@ const ChangePasswordButton = styled.button`
   :hover {
     cursor: pointer;
     background-color: #c1393f;
-    transform: scale(1.02);
-  }
-`;
-
-const SignOutContainer = styled.div``;
-
-const SignOutButton = styled.button`
-  width: 100%;
-  margin-bottom: 3vh !important;
-  font-family: "Roboto", sans-serif;
-  background-color: #419dc7;
-  color: rgb(250, 250, 250);
-  padding: 10px;
-  margin: 10px;
-  font-size: 1.5rem;
-  border: none;
-  border-radius: 0.5rem;
-  transition: all 0.7s ease-in-out;
-
-  :hover {
-    cursor: pointer;
-    background-color: #1b7eac;
     transform: scale(1.02);
   }
 `;

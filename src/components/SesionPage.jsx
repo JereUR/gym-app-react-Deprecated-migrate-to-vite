@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import frontPage from "../assets/gym-front-page2.jpg";
+import frontPage from "../assets/gym-front-page.jpg";
 import { SignIn } from "./SignIn";
 import { SignUp } from "./SignUp";
 
