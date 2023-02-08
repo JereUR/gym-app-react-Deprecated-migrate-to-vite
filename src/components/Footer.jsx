@@ -3,6 +3,9 @@ import styled from "styled-components";
 
 import linkedin from "../assets/linkedin.png";
 import logo from "../assets/logo.png";
+import { Colors } from "../constants/Colors";
+
+const { primaryBlue } = Colors;
 
 export const Footer = () => {
   return (
@@ -59,7 +62,7 @@ const RightContent = styled.div`
 `;
 
 const NameGym = styled.p`
-  color: #419dc7;
+  color: ${primaryBlue};
   font-size: 1rem;
   font-weight: bold;
   margin-bottom: 25px;

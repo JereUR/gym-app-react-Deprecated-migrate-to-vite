@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 import Modal from "./Modal";
+import { Colors } from "../constants/Colors";
+
+const { primaryBlue, secondaryBlue, colorText, errorInput } = Colors;
 
 const initialData = {
   nameRegister: "",
@@ -221,8 +224,8 @@ const Input = styled.input`
   font-size: 1.2rem;
   border-radius: 0.5rem;
   border: 1.5px solid rgb(150, 150, 150);
-  background-color: rgb(250, 250, 250);
-  color: #1f7da9;
+  background-color: ${colorText};
+  color: ${secondaryBlue};
   width: 90%;
 `;
 
@@ -234,14 +237,14 @@ const InputName = styled.input`
   font-size: 1.2rem;
   border-radius: 0.5rem;
   border: 1.5px solid rgb(150, 150, 150);
-  background-color: rgb(250, 250, 250);
-  color: #1f7da9;
+  background-color: ${colorText};
+  color: ${secondaryBlue};
 `;
 
 const ButtonSignUp = styled.button`
   font-family: "Roboto", sans-serif;
-  background-color: #419dc7;
-  color: rgb(250, 250, 250);
+  background-color: ${primaryBlue};
+  color: ${colorText};
   padding: 10px;
   margin: 10px;
   font-size: 1.5rem;
@@ -251,14 +254,14 @@ const ButtonSignUp = styled.button`
 
   :hover {
     cursor: pointer;
-    background-color: #1b7eac;
+    background-color: ${secondaryBlue};
     transform: scale(1.05);
   }
 `;
 
 const ErrorInput = styled.div`
   font-size: 12px;
-  color: rgb(250, 90, 90);
+  color: ${errorInput};
   margin-bottom: 1rem;
   text-align: left;
   margin-left: 2rem;
@@ -266,7 +269,7 @@ const ErrorInput = styled.div`
 
 const ErrorInputNameSurname = styled.div`
   font-size: 12px;
-  color: rgb(250, 90, 90);
+  color: ${errorInput};
   margin-bottom: 1rem;
   text-align: left;
   margin-left: 1rem;

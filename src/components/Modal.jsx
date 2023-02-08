@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { Colors } from "../constants/Colors";
+
+const { colorText, secondaryBlue } = Colors;
 
 const Modal = ({ children, state, setState, title }) => {
   return (
@@ -52,7 +55,7 @@ const Overlay = styled.div`
 
 const ModalContainer = styled.div`
   min-height: 200px;
-  background: rgba(250, 250, 250);
+  background: ${colorText};
   position: relative;
   border-radius: 5px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -65,13 +68,13 @@ const ModalHeader = styled.div`
   justify-content: space-between;
   margin-bottom: 20px;
   padding-bottom: 10px;
-  border-bottom: 2px groove rgba(250, 250, 250);
+  border-bottom: 2px groove ${colorText};
 
   h3 {
     margin-left: 1rem;
     font-weight: 500;
     font-size: 2rem;
-    color: #1f7da9;
+    color: ${secondaryBlue};
   }
 `;
 
@@ -86,7 +89,7 @@ const CloseButton = styled.button`
   background: none;
   transition: 0.3s ease all;
   border-radius: 5px;
-  color: #1f7da9;
+  color: ${secondaryBlue};
 
   &:hover {
     background: rgba(210, 230, 250);

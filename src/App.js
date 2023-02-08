@@ -35,7 +35,7 @@ export let user = {
       },
       {
         mount: "15 Repeticiones",
-        exercise: "xxxx",
+        exercise: "Lorem Ipsum is simply dummy text of the.",
       },
       {
         mount: "20 Repeticiones",

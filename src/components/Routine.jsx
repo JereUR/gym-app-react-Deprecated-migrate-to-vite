@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { MdArrowCircleDown } from "react-icons/md";
+import { MdArrowCircleDown, MdArrowCircleUp } from "react-icons/md";
 import { IconContext } from "react-icons";
 
 import { user } from "../App";
 import { getDayNow } from "../helpers/GetDay";
+import { Colors } from "../constants/Colors";
+
+const { backgroundText, primaryRed, primaryBlue, secondaryBlue } = Colors;
 
 export const Routine = () => {
   const [showRoutine, setShowRoutine] = useState(false);
@@ -14,7 +17,6 @@ export const Routine = () => {
   };
 
   const day = getDayNow();
-  console.log(day);
 
   return (
     <RoutineContainer>
@@ -22,7 +24,12 @@ export const Routine = () => {
         value={{ size: "1.9rem", style: { verticalAlign: "middle" } }}
       >
         <RoutineButton onClick={handleRoutine}>
-          Mis Rutinas <MdArrowCircleDown verticalAlign="middle" />
+          Mis Rutinas{" "}
+          {!showRoutine ? (
+            <MdArrowCircleDown verticalAlign="middle" />
+          ) : (
+            <MdArrowCircleUp verticalAlign="middle" />
+          )}
         </RoutineButton>
       </IconContext.Provider>
       {showRoutine && (
@@ -40,7 +47,7 @@ export const Routine = () => {
               {user.routine.monday.length > 0 ? (
                 user.routine.monday.map((el) => (
                   <InfoItem>
-                    {el.mount} - {el.exercise}
+                    <Mount>{el.mount}</Mount>- {el.exercise}
                   </InfoItem>
                 ))
               ) : (
@@ -63,7 +70,7 @@ export const Routine = () => {
               {user.routine.tuesday.length > 0 ? (
                 user.routine.tuesday.map((el, index) => (
                   <InfoItem>
-                    {el.mount} - {el.exercise}
+                    <Mount>{el.mount}</Mount>- {el.exercise}
                   </InfoItem>
                 ))
               ) : (
@@ -86,7 +93,7 @@ export const Routine = () => {
               {user.routine.wednesday.length > 0 ? (
                 user.routine.wednesday.map((el) => (
                   <InfoItem>
-                    {el.mount} - {el.exercise}
+                    <Mount>{el.mount}</Mount> - {el.exercise}
                   </InfoItem>
                 ))
               ) : (
@@ -109,7 +116,7 @@ export const Routine = () => {
               {user.routine.thursday.length > 0 ? (
                 user.routine.thursday.map((el) => (
                   <InfoItem>
-                    {el.mount} - {el.exercise}
+                    <Mount>{el.mount}</Mount> - {el.exercise}
                   </InfoItem>
                 ))
               ) : (
@@ -132,7 +139,7 @@ export const Routine = () => {
               {user.routine.friday.length > 0 ? (
                 user.routine.friday.map((el) => (
                   <InfoItem>
-                    {el.mount} - {el.exercise}
+                    <Mount>{el.mount}</Mount> - {el.exercise}
                   </InfoItem>
                 ))
               ) : (
@@ -155,7 +162,7 @@ export const Routine = () => {
               {user.routine.saturday.length > 0 ? (
                 user.routine.saturday.map((el) => (
                   <InfoItem>
-                    {el.mount} - {el.exercise}
+                    <Mount>{el.mount}</Mount> - {el.exercise}
                   </InfoItem>
                 ))
               ) : (
@@ -178,12 +185,12 @@ export const Routine = () => {
               {user.routine.sunday.length > 0 ? (
                 user.routine.sunday.map((el) => (
                   <InfoItem>
-                    {el.mount} - {el.exercise}
+                    <Mount>{el.mount}</Mount> - {el.exercise}
                   </InfoItem>
                 ))
               ) : (
                 <NoData>
-                  <TextNoData>Libre</TextNoData>
+                  <TextNoData>Sin Información</TextNoData>
                 </NoData>
               )}
             </List>
@@ -203,11 +210,11 @@ const RoutineButton = styled.button`
   font-family: "Roboto", sans-serif;
   font-weight: bold;
   background-color: #fff;
-  color: #ee464f;
+  color: ${primaryRed};
   padding: 10px;
   margin: 10px;
   font-size: 2rem;
-  box-shadow: 0 0 3px 3px #ee464f;
+  box-shadow: 0 0 3px 3px ${primaryRed};
   border: none;
   border-radius: 0.5rem;
   transition: all 0.3s ease;
@@ -227,20 +234,24 @@ const RoutineButton = styled.button`
 const RoutineData = styled.div`
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 `;
 
 const RoutineDay = styled.div`
+  color: ${primaryBlue};
+  width: max-content;
+  min-width: 20vw;
   padding: 1rem;
   margin: 1rem;
   text-align: left;
-  background-color: rgb(230, 230, 230);
+  background-color: ${backgroundText};
   border-radius: 10px;
 `;
 
 const DayWeek = styled.h1``;
 
 const DayWeekNow = styled.h1`
-  color: #ee464f;
+  color: ${primaryRed};
 `;
 
 const Today = styled.i``;
@@ -249,8 +260,23 @@ const Hr = styled.hr``;
 
 const List = styled.div``;
 
-const InfoItem = styled.li``;
+const InfoItem = styled.li`
+  color: rgb(30, 30, 30);
+  font-size: 1.5rem;
+  line-height: 3rem;
+  display: flex;
+`;
 
-const NoData = styled.div``;
+const Mount = styled(InfoItem)`
+  font-weight: bold;
+  margin-right: 0.5rem;
+  color: ${secondaryBlue};
+`;
+
+const NoData = styled.div`
+  text-align: center;
+  color: rgb(30, 30, 30);
+  font-style: italic;
+`;
 
 const TextNoData = styled.h2``;

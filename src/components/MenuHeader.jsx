@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Router } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { IconContext } from "react-icons";
 import { FaHome, FaFileInvoiceDollar, FaUserAlt } from "react-icons/fa";
@@ -7,6 +7,9 @@ import { FaHome, FaFileInvoiceDollar, FaUserAlt } from "react-icons/fa";
 import { user } from "../App";
 import { useAuthAdmin } from "./AdminRoute";
 import { useAuth } from "./LoginRoute";
+import { Colors } from "../constants/Colors";
+
+const { secondaryBlue } = Colors;
 
 export const MenuHeader = () => {
   const profilePath = `/usuario/${user.username}`;
@@ -53,7 +56,7 @@ const NavContainer = styled.div`
 
   a {
     font-size: 1.2rem;
-    color: #1f7da9;
+    color: ${secondaryBlue};
     text-decoration: none;
     width: fit-content;
     margin-left: 15vw;

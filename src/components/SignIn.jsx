@@ -5,6 +5,10 @@ import { Toaster, toast } from "react-hot-toast";
 import logo from "../assets/logo.png";
 import Loader from "./Loader";
 import Modal from "./Modal";
+import { Colors } from "../constants/Colors";
+
+const { primaryBlue, primaryRed, secondaryBlue, secondaryRed, colorText } =
+  Colors;
 
 export const SignIn = () => {
   const [forgotPassword, setForgotPassword] = useState(false);
@@ -161,13 +165,13 @@ const Input = styled.input`
   font-size: 1.2rem;
   border-radius: 0.5rem;
   border: 1.5px solid rgb(150, 150, 150);
-  background-color: rgb(250, 250, 250);
-  color: #1f7da9;
+  background-color: ${colorText};
+  color: ${secondaryBlue};
 `;
 
 const PasswordForgot = styled.p`
   font-size: 14px;
-  color: #1f7da9;
+  color: ${secondaryBlue};
 
   :hover {
     cursor: pointer;
@@ -176,8 +180,8 @@ const PasswordForgot = styled.p`
 
 const ButtonSignIn = styled.button`
   font-family: "Roboto", sans-serif;
-  background-color: #ee464f;
-  color: rgb(250, 250, 250);
+  background-color: ${primaryRed};
+  color: ${colorText};
   padding: 10px;
   margin: 10px;
   font-size: 1.5rem;
@@ -187,7 +191,7 @@ const ButtonSignIn = styled.button`
 
   :hover {
     cursor: pointer;
-    background-color: #c1393f;
+    background-color: ${secondaryRed};
     transform: scale(1.05);
   }
 `;
@@ -229,14 +233,14 @@ const InputRecover = styled.input`
   font-size: 1.2rem;
   border-radius: 0.5rem;
   border: 1.5px solid rgb(150, 150, 150);
-  background-color: rgb(250, 250, 250);
-  color: #1f7da9;
+  background-color: ${colorText};
+  color: ${secondaryBlue};
 `;
 
 const ButtonRecover = styled.button`
   font-family: "Roboto", sans-serif;
-  background-color: #419dc7;
-  color: rgb(250, 250, 250);
+  background-color: ${primaryBlue};
+  color: ${colorText};
   padding: 10px;
   margin: 10px;
   font-size: 1.5rem;
@@ -246,7 +250,7 @@ const ButtonRecover = styled.button`
 
   :hover {
     cursor: pointer;
-    background-color: #1b7eac;
+    background-color: ${secondaryBlue};
     transform: scale(1.05);
   }
 `;

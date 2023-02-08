@@ -3,6 +3,16 @@ import styled from "styled-components";
 
 import { user } from "../App";
 import defaultPhoto from "../assets/default_user.jpg";
+import { Colors } from "../constants/Colors";
+
+const {
+  primaryBlue,
+  primaryRed,
+  secondaryBlue,
+  secondaryRed,
+  backgroundText,
+  colorText,
+} = Colors;
 
 export const UserProfile = () => {
   const handleReset = () => {
@@ -19,15 +29,19 @@ export const UserProfile = () => {
         <UserPhoto src={user.photo ? user.photo : defaultPhoto} />
       </PhotoContainer>
       <InfoContainer>
+        <Label>Nombre</Label>
         <TextContainer>
           <Text>{user.username}</Text>
         </TextContainer>
+        <Label>Apellido</Label>
         <TextContainer>
           <Text>{user.surname}</Text>
         </TextContainer>
+        <Label>Fecha de Nacimiento</Label>
         <TextContainer>
           <Text>{user.date}</Text>
         </TextContainer>
+        <Label>Email</Label>
         <TextContainer>
           <Text>{user.email}</Text>
         </TextContainer>
@@ -67,11 +81,19 @@ const UserPhoto = styled.img`
 
 const InfoContainer = styled.div``;
 
+const Label = styled.h3`
+  margin-left: 5vw;
+  margin-bottom: -0.5rem;
+  font-style: italic;
+  color: ${secondaryBlue};
+`;
+
 const TextContainer = styled.div`
-  background-color: rgb(230, 230, 230);
+  background-color: ${backgroundText};
   width: 40vw;
   margin-left: 5vw;
   border-radius: 1rem;
+  color: ${secondaryRed};
 `;
 
 const Text = styled.p`
@@ -87,8 +109,8 @@ const ChangePasswordButton = styled.button`
   margin-bottom: 3vh !important;
   margin-top: 2vh !important;
   font-family: "Roboto", sans-serif;
-  background-color: #419dc7;
-  color: rgb(250, 250, 250);
+  background-color: ${primaryBlue};
+  color: ${colorText};
   padding: 10px;
   margin: 10px;
   font-size: 1.5rem;
@@ -98,7 +120,7 @@ const ChangePasswordButton = styled.button`
 
   :hover {
     cursor: pointer;
-    background-color: #1f7da9;
+    background-color: ${secondaryBlue};
     transform: scale(1.02);
   }
 `;
@@ -109,8 +131,8 @@ const SignOutButton = styled.button`
   width: 100%;
   margin-bottom: 3vh !important;
   font-family: "Roboto", sans-serif;
-  background-color: #ee464f;
-  color: rgb(250, 250, 250);
+  background-color: ${primaryRed};
+  color: ${colorText};
   padding: 10px;
   margin: 10px;
   font-size: 1.5rem;
@@ -120,7 +142,7 @@ const SignOutButton = styled.button`
 
   :hover {
     cursor: pointer;
-    background-color: #c1393f;
+    background-color: ${secondaryRed};
     transform: scale(1.02);
   }
 `;
