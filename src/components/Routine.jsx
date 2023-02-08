@@ -25,11 +25,7 @@ export const Routine = () => {
       >
         <RoutineButton onClick={handleRoutine}>
           Mis Rutinas{" "}
-          {!showRoutine ? (
-            <MdArrowCircleDown verticalAlign="middle" />
-          ) : (
-            <MdArrowCircleUp verticalAlign="middle" />
-          )}
+          {!showRoutine ? <MdArrowCircleDown /> : <MdArrowCircleUp />}
         </RoutineButton>
       </IconContext.Provider>
       {showRoutine && (
@@ -235,6 +231,7 @@ const RoutineData = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 2rem;
 `;
 
 const RoutineDay = styled.div`
@@ -262,12 +259,13 @@ const List = styled.div``;
 
 const InfoItem = styled.li`
   color: rgb(30, 30, 30);
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   line-height: 3rem;
   display: flex;
 `;
 
 const Mount = styled(InfoItem)`
+  font-size: 1.5rem;
   font-weight: bold;
   margin-right: 0.5rem;
   color: ${secondaryBlue};
@@ -279,4 +277,6 @@ const NoData = styled.div`
   font-style: italic;
 `;
 
-const TextNoData = styled.h2``;
+const TextNoData = styled.p`
+  font-size: 1.4rem;
+`;

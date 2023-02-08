@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { MdArrowCircleDown } from "react-icons/md";
+import { MdArrowCircleDown, MdArrowCircleUp } from "react-icons/md";
 import { IconContext } from "react-icons";
 
 import { user } from "../App";
 import { getDayNow } from "../helpers/GetDay";
+import { Colors } from "../constants/Colors";
+
+const { primaryBlue, primaryRed, backgroundText } = Colors;
 
 export const NutricionalPlan = () => {
   const [showPlan, setShowPlan] = useState(false);
@@ -21,7 +24,8 @@ export const NutricionalPlan = () => {
         value={{ size: "1.9rem", style: { verticalAlign: "middle" } }}
       >
         <PlanButton onClick={handlePlan}>
-          Mis Plan Nutricional <MdArrowCircleDown verticalAlign="middle" />
+          Mis Plan Nutricional{" "}
+          {!showPlan ? <MdArrowCircleDown /> : <MdArrowCircleUp />}
         </PlanButton>
       </IconContext.Provider>
       {showPlan && (
@@ -456,7 +460,10 @@ const PlanContainer = styled.div`
   padding-top: -1rem;
 `;
 
-const TextMeal = styled.h4``;
+const TextMeal = styled.p`
+  font-weight: bold;
+  font-size: 1.4rem;
+`;
 
 const PlanButton = styled.button`
   width: 90vw;
@@ -488,21 +495,25 @@ const PlanButton = styled.button`
 const PlanData = styled.div`
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
 `;
 
 const PlanDay = styled.div`
+  color: ${primaryBlue};
+  width: max-content;
+  min-width: 20vw;
   padding: 1rem;
   margin: 1rem;
-  margin-top: 0 !important;
   text-align: left;
-  background-color: rgb(230, 230, 230);
+  background-color: ${backgroundText};
   border-radius: 10px;
 `;
 
 const DayWeek = styled.h1``;
 
-const DayWeekNow = styled.h1`
-  color: #ee464f;
+const DayWeekNow = styled(DayWeek)`
+  color: ${primaryRed};
 `;
 
 const Today = styled.i``;
@@ -511,6 +522,12 @@ const Hr = styled.hr``;
 
 const List = styled.div``;
 
-const InfoItem = styled.li``;
+const InfoItem = styled.li`
+  color: rgb(30, 30, 30);
+  font-size: 1.2rem;
+  line-height: 3rem;
+  display: flex;
+  margin-left: 1rem;
+`;
 
 const NoData = styled.div``;
