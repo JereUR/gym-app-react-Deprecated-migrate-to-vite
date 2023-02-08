@@ -61,6 +61,7 @@ export const UserProfile = () => {
 const ProfileContainer = styled.div`
   display: block;
   margin: 2vw;
+  margin-bottom: 1vw !important;
 `;
 
 const PhotoContainer = styled.div``;
