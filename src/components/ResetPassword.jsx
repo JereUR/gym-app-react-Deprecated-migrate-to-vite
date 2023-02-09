@@ -3,10 +3,24 @@ import styled from "styled-components";
 import { Toaster, toast } from "react-hot-toast";
 
 import { user } from "../App";
+import { Colors } from "../constants/Colors";
 
 const initialData = {
   newPassword: "",
   confirmPassword: "",
+};
+
+const {
+  colorText,
+  primaryBlue,
+  secondaryBlue,
+  errorInput,
+  primaryRed,
+  secondaryRed,
+} = Colors;
+
+const handleBack = () => {
+  window.location.href = `/usuario/${user.username}`;
 };
 
 export const ResetPassword = () => {
@@ -81,38 +95,24 @@ export const ResetPassword = () => {
           <ErrorInput>{errors.confirmPassword}</ErrorInput>
         )}
         <ButtonSend type="submit">Enviar</ButtonSend>
+        <ButtonBack type="button" onClick={handleBack}>
+          Volver
+        </ButtonBack>
       </Form>
       <Toaster />
     </FormContainer>
   );
 };
 
-/* const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-`; */
-
 const FormContainer = styled.div`
-  min-height: 200px;
-  background: rgba(250, 250, 250);
-  position: relative;
   border-radius: 5px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  padding: 11.5vw;
+  padding: 9vw;
 `;
 
 const TitleReset = styled.h1`
   font-family: "Roboto", sans-serif;
   text-align: left;
-  color: #419dc7;
+  color: ${primaryBlue};
 `;
 
 const Form = styled.form`
@@ -126,14 +126,14 @@ const Input = styled.input`
   font-size: 1.2rem;
   border-radius: 0.5rem;
   border: 1.5px solid rgb(150, 150, 150);
-  background-color: rgb(250, 250, 250);
-  color: #1f7da9;
+  background-color: ${colorText};
+  color: ${secondaryBlue};
 `;
 
 const ButtonSend = styled.button`
   font-family: "Roboto", sans-serif;
-  background-color: #419dc7;
-  color: rgb(250, 250, 250);
+  background-color: ${primaryBlue};
+  color: ${colorText};
   padding: 10px;
   margin: 10px;
   margin-top: 2rem;
@@ -144,14 +144,23 @@ const ButtonSend = styled.button`
 
   :hover {
     cursor: pointer;
-    background-color: #1b7eac;
+    background-color: ${secondaryBlue};
     transform: scale(1.05);
+  }
+`;
+
+const ButtonBack = styled(ButtonSend)`
+  background-color: ${primaryRed};
+  margin-top: 1.5rem;
+
+  :hover {
+    background-color: ${secondaryRed};
   }
 `;
 
 const ErrorInput = styled.div`
   font-size: 12px;
-  color: rgb(250, 90, 90);
+  color: ${errorInput};
   margin-top: 5px;
   text-align: left;
   margin-left: 0.5rem;
