@@ -9,7 +9,7 @@ import { Colors } from "../constants/Colors";
 
 const { primaryBlue, primaryRed, backgroundText } = Colors;
 
-export const NutricionalPlan = () => {
+export const NutritionalPlan = () => {
   const [showPlan, setShowPlan] = useState(false);
 
   const handlePlan = () => {
@@ -467,7 +467,7 @@ const TextMeal = styled.p`
 
 const PlanButton = styled.button`
   width: 90vw;
-  margin-bottom: 5vh !important;
+  margin-bottom: 5vw !important;
   font-family: "Roboto", sans-serif;
   font-weight: bold;
   background-color: #fff;
@@ -493,16 +493,19 @@ const PlanButton = styled.button`
 `;
 
 const PlanData = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
   margin-bottom: 2rem;
+  margin-top: -4rem;
+  margin-left: 5rem;
+  margin-right: 4rem;
 `;
 
 const PlanDay = styled.div`
   color: ${primaryBlue};
-  width: max-content;
-  min-width: 20vw;
+  width: auto;
+  min-width: 26vw;
   padding: 1rem;
   margin: 1rem;
   text-align: left;

@@ -1,0 +1,28 @@
+{
+  "Zonas": [
+    "Brazos",
+    "Pecho",
+    "Abdominales",
+    "Piernas"
+  ],
+  "Brazos": [
+    "Biceps",
+    "Triceps",
+    "Interno"
+  ],
+  "Pecho": [
+    "Plancha",
+    "Plano",
+    "Lagartijas"
+  ],
+  "Abdominales": [
+    "Crunch",
+    "Rodilla al pecho",
+    "Escaleras"
+  ],
+  "Piernas": [
+    "Sentadillas",
+    "Largos",
+    "Cinta"
+  ]
+}

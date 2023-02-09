@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import styled from "styled-components";
+import { FaEdit } from "react-icons/fa";
 
 import { user } from "../App";
 import defaultPhoto from "../assets/default_user.jpg";
@@ -23,6 +24,8 @@ export const UserProfile = () => {
   const [errorInput, setErrorInput] = useState(null);
   const [changePhoto, setChangePhoto] = useState(false);
   const [preview, setPreview] = useState("");
+
+  const formData = new FormData();
 
   useEffect(() => {
     if (!changePhoto) {
@@ -53,7 +56,11 @@ export const UserProfile = () => {
   };
 
   const handleSignOut = () => {
-    console.log("Cerrando Sesión");
+    console.log("Cerrando sesión...");
+
+    setTimeout(() => {
+      window.location.replace("/");
+    }, 1000);
   };
 
   const uploadFiles = () => {
@@ -63,7 +70,9 @@ export const UserProfile = () => {
   const handlePhoto = (e) => {
     const file = e.target.files[0];
     if (file && file.type.substring(0, 5) === "image") {
+      formData.append("image", file);
       setUserPhoto(file);
+      console.log(userPhoto);
       setErrorInput(null);
     } else {
       setUserPhoto(null);
@@ -74,30 +83,31 @@ export const UserProfile = () => {
   };
 
   const handleSend = () => {
-    console.log(userPhoto);
     setChangePhoto(!changePhoto);
 
-    toast.success(`Foto de perfil actualizada. Recargando...`, {
-      position: "top-right",
-      duration: 2000,
-      style: {
-        background: "rgba(215, 250, 215)",
-        fontSize: "1rem",
-        fontWeight: "500",
-      },
-    });
+    if (userPhoto != null) {
+      toast.success(`Foto de perfil actualizada. Recargando...`, {
+        position: "top-right",
+        duration: 2000,
+        style: {
+          background: "rgba(215, 250, 215)",
+          fontSize: "1rem",
+          fontWeight: "500",
+        },
+      });
+    }
 
-    setTimeout(() => {
+    /* setTimeout(() => {
       window.location.reload();
-    }, 2000);
+    }, 2000); */
   };
 
   return (
     <ProfileContainer>
       <PhotoContainer>
         <UserPhoto src={user.photo ? user.photo : defaultPhoto} />
+        <FaEdit size="1.5rem" onClick={handleModal} />
       </PhotoContainer>
-      <ChangePhoto onClick={handleModal}>Cambiar foto de perfil</ChangePhoto>
       <Modal
         state={changePhoto}
         setState={setChangePhoto}
@@ -152,9 +162,7 @@ export const UserProfile = () => {
         </ChangePasswordButton>
       </PasswordContainer>
       <SignOutContainer>
-        <SignOutButton onClick={handleSignOut} disabled={true}>
-          Cerrar Sesión
-        </SignOutButton>
+        <SignOutButton onClick={handleSignOut}>Cerrar Sesión</SignOutButton>
       </SignOutContainer>
       <Toaster />
     </ProfileContainer>
@@ -167,34 +175,28 @@ const ProfileContainer = styled.div`
   margin-bottom: 1vw !important;
 `;
 
-const PhotoContainer = styled.div``;
+const PhotoContainer = styled.div`
+  color: ${secondaryBlue};
+
+  svg {
+    padding: 1rem;
+    transition: all 0.7s ease;
+  }
+
+  svg:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    color: ${secondaryRed};
+  }
+`;
 
 const UserPhoto = styled.img`
   width: 8vw;
   margin-left: 5vw;
   margin-bottom: 1vw;
-  border-radius: 100px;
+  border-radius: 1000px;
   box-shadow: 0px 6px 5px #ccc;
-  transition: all 0.4s ease-in-out;
-`;
-
-const ChangePhoto = styled.button`
-  font-family: "Roboto", sans-serif;
-  margin-left: 5.5vw;
-  margin-bottom: 1rem;
-  border-radius: 1rem;
-  background-color: ${backgroundText};
-  border: 1px solid #ccc;
-  padding: 0.5rem;
-  font-size: 0.7rem;
-  font-weight: bold;
-  transition: all 0.4s ease;
-  color: ${secondaryRed};
-
-  :hover {
-    cursor: pointer;
-    color: ${secondaryBlue};
-  }
+  background: ${backgroundText};
 `;
 
 const Content = styled.div`
@@ -265,10 +267,12 @@ const SendPhoto = styled.button`
   }
 `;
 
-const PasswordContainer = styled.div``;
+const PasswordContainer = styled.div`
+  text-align: center;
+`;
 
 const ChangePasswordButton = styled.button`
-  width: 100%;
+  width: 90%;
   margin-bottom: 3vh !important;
   margin-top: 2vh !important;
   font-family: "Roboto", sans-serif;
@@ -288,11 +292,11 @@ const ChangePasswordButton = styled.button`
   }
 `;
 
-const SignOutContainer = styled.div``;
+const SignOutContainer = styled(PasswordContainer)``;
 
 const SignOutButton = styled.button`
-  width: 100%;
-  margin-bottom: 3vh !important;
+  width: 90%;
+  margin-bottom: 5vh !important;
   font-family: "Roboto", sans-serif;
   background-color: ${primaryRed};
   color: ${colorText};

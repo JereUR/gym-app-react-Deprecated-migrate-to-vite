@@ -12,8 +12,10 @@ import { AdminPage } from "./components/AdminPage";
 import { Error404 } from "./components/Error404";
 import LoginRoute from "./components/LoginRoute";
 import AdminRoute from "./components/AdminRoute";
-import { MenuHeader } from "./components/MenuHeader";
 import { ResetPassword } from "./components/ResetPassword";
+
+import testPDF from "./assets/pdf-test.pdf";
+import foto from "./assets/default_user.jpg";
 
 export let user = {
   username: "Jeremias",
@@ -21,7 +23,7 @@ export let user = {
   email: "jeremias.jdv@gmail.com",
   date: "1994-11-29",
   login: true,
-  admin: false,
+  admin: true,
   photo: null,
   routine: {
     monday: [
@@ -35,7 +37,7 @@ export let user = {
       },
       {
         mount: "15 Repeticiones",
-        exercise: "Lorem Ipsum is simply dummy text of the.",
+        exercise: "Lorem Ipsum is simply dummy.",
       },
       {
         mount: "20 Repeticiones",
@@ -515,6 +517,14 @@ export let user = {
           },
         ],
       },
+    ],
+  },
+  payment: {
+    nextPayment: { day: 5, month: "Marzo", year: 2023 },
+    payments: [
+      { month: "Diciembre", year: 2022, pdf: testPDF },
+      { month: "Enero", year: 2023, pdf: testPDF },
+      { month: "Febrero", year: 2023, pdf: testPDF },
     ],
   },
 };

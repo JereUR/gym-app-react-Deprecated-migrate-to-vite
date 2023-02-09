@@ -204,12 +204,14 @@ export const Routine = () => {
   );
 };
 
-const RoutineContainer = styled.div``;
+const RoutineContainer = styled.div`
+  align-content: center;
+`;
 
 const RoutineButton = styled.button`
   width: 90vw;
-  margin-bottom: 5vh !important;
-  margin-top: 2vh !important;
+  margin-bottom: 5vw !important;
+  margin-top: 2vw !important;
   font-family: "Roboto", sans-serif;
   font-weight: bold;
   background-color: #fff;
@@ -235,16 +237,19 @@ const RoutineButton = styled.button`
 `;
 
 const RoutineData = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
   margin-bottom: 2rem;
+  margin-top: -4rem;
+  margin-left: 5rem;
+  margin-right: 4rem;
 `;
 
 const RoutineDay = styled.div`
   color: ${primaryBlue};
-  width: max-content;
-  min-width: 20vw;
+  width: auto;
+  min-width: 26vw;
   padding: 1rem;
   margin: 1rem;
   text-align: left;
@@ -266,13 +271,12 @@ const List = styled.div``;
 
 const InfoItem = styled.li`
   color: rgb(30, 30, 30);
-  font-size: 1.4rem;
-  line-height: 3rem;
+  font-size: 1.3rem;
   display: flex;
 `;
 
 const Mount = styled.p`
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: bold;
   margin-right: 0.5rem;
   color: ${secondaryBlue};

@@ -106,7 +106,7 @@ export const ResetPassword = () => {
 
 const FormContainer = styled.div`
   border-radius: 5px;
-  padding: 9vw;
+  padding: 12vw 15vw 12vw 15vw;
 `;
 
 const TitleReset = styled.h1`
