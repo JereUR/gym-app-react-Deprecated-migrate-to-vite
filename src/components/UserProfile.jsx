@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { Toaster, toast } from "react-hot-toast";
 import styled from "styled-components";
 
 import { user } from "../App";
 import defaultPhoto from "../assets/default_user.jpg";
 import { Colors } from "../constants/Colors";
+import Modal from "./Modal";
+import { UploadAnimation } from "./UploadAnimation";
 
 const {
   primaryBlue,
@@ -12,9 +15,39 @@ const {
   secondaryRed,
   backgroundText,
   colorText,
+  errorInput,
 } = Colors;
 
 export const UserProfile = () => {
+  const [userPhoto, setUserPhoto] = useState(null);
+  const [errorInput, setErrorInput] = useState(null);
+  const [changePhoto, setChangePhoto] = useState(false);
+  const [preview, setPreview] = useState("");
+
+  useEffect(() => {
+    if (!changePhoto) {
+      setUserPhoto(null);
+    }
+  }, [changePhoto]);
+
+  useEffect(() => {
+    if (userPhoto) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreview(reader.result.toString());
+      };
+      reader.readAsDataURL(userPhoto);
+    } else {
+      setPreview("");
+    }
+  }, [userPhoto]);
+
+  const reference = useRef();
+
+  const handleModal = () => {
+    setChangePhoto(!changePhoto);
+  };
+
   const handleReset = () => {
     window.location.replace("/reset");
   };
@@ -23,11 +56,78 @@ export const UserProfile = () => {
     console.log("Cerrando Sesión");
   };
 
+  const uploadFiles = () => {
+    reference.current.click();
+  };
+
+  const handlePhoto = (e) => {
+    const file = e.target.files[0];
+    if (file && file.type.substring(0, 5) === "image") {
+      setUserPhoto(file);
+      setErrorInput(null);
+    } else {
+      setUserPhoto(null);
+      setErrorInput(
+        "Archivo no compatible. Solo archivos tipo .jpg, .jpeg y .png."
+      );
+    }
+  };
+
+  const handleSend = () => {
+    console.log(userPhoto);
+    setChangePhoto(!changePhoto);
+
+    toast.success(`Foto de perfil actualizada. Recargando...`, {
+      position: "top-right",
+      duration: 2000,
+      style: {
+        background: "rgba(215, 250, 215)",
+        fontSize: "1rem",
+        fontWeight: "500",
+      },
+    });
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
+  };
+
   return (
     <ProfileContainer>
       <PhotoContainer>
         <UserPhoto src={user.photo ? user.photo : defaultPhoto} />
       </PhotoContainer>
+      <ChangePhoto onClick={handleModal}>Cambiar foto de perfil</ChangePhoto>
+      <Modal
+        state={changePhoto}
+        setState={setChangePhoto}
+        title="Seleccione foto"
+      >
+        <Content>
+          <UploadPhotoContainer>
+            <InputPhoto
+              type="file"
+              name="photo"
+              accept="'image/*"
+              style={{ display: "none" }}
+              onChange={handlePhoto}
+              ref={reference}
+            />
+            {userPhoto ? (
+              <ImagePhoto
+                src={preview}
+                onClick={uploadFiles}
+                style={{ width: "25vw", height: "30vw", cursor: "pointer" }}
+              />
+            ) : (
+              <UploadAnimation uploadFiles={uploadFiles} />
+            )}
+            {errorInput && <ErrorInput>{errorInput}</ErrorInput>}
+            <SendPhoto onClick={handleSend}>Subir Foto</SendPhoto>
+          </UploadPhotoContainer>
+        </Content>
+      </Modal>
+
       <InfoContainer>
         <Label>Nombre</Label>
         <TextContainer>
@@ -52,8 +152,11 @@ export const UserProfile = () => {
         </ChangePasswordButton>
       </PasswordContainer>
       <SignOutContainer>
-        <SignOutButton onClick={handleSignOut}>Cerrar Sesión</SignOutButton>
+        <SignOutButton onClick={handleSignOut} disabled={true}>
+          Cerrar Sesión
+        </SignOutButton>
       </SignOutContainer>
+      <Toaster />
     </ProfileContainer>
   );
 };
@@ -73,11 +176,31 @@ const UserPhoto = styled.img`
   border-radius: 100px;
   box-shadow: 0px 6px 5px #ccc;
   transition: all 0.4s ease-in-out;
+`;
+
+const ChangePhoto = styled.button`
+  font-family: "Roboto", sans-serif;
+  margin-left: 5.5vw;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  background-color: ${backgroundText};
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: bold;
+  transition: all 0.4s ease;
+  color: ${secondaryRed};
 
   :hover {
     cursor: pointer;
-    opacity: 0.7;
+    color: ${secondaryBlue};
   }
+`;
+
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const InfoContainer = styled.div``;
@@ -101,6 +224,45 @@ const Text = styled.p`
   font-size: 1.3rem;
   padding: 1rem;
   font-weight: bold;
+`;
+
+const UploadPhotoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const InputPhoto = styled.input`
+  margin-left: 2rem;
+`;
+
+const ImagePhoto = styled.img`
+  margin-bottom: 1rem;
+`;
+
+const ErrorInput = styled.div`
+  font-size: 12px;
+  color: ${errorInput};
+  margin-bottom: 1rem;
+  text-align: left;
+  margin-left: 2rem;
+`;
+
+const SendPhoto = styled.button`
+  font-family: "Roboto", sans-serif;
+  background-color: ${primaryBlue};
+  color: ${colorText};
+  padding: 10px;
+  margin: 10px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  transition: all 0.7s ease-in-out;
+
+  :hover {
+    cursor: pointer;
+    background-color: ${secondaryBlue};
+    transform: scale(1.05);
+  }
 `;
 
 const PasswordContainer = styled.div``;

@@ -41,9 +41,10 @@ export const Routine = () => {
             <Hr />
             <List>
               {user.routine.monday.length > 0 ? (
-                user.routine.monday.map((el) => (
-                  <InfoItem>
-                    <Mount>{el.mount}</Mount>- {el.exercise}
+                user.routine.monday.map((el, index) => (
+                  <InfoItem key={index}>
+                    <Mount>{el.mount}</Mount>
+                    <Exercise>- {el.exercise}</Exercise>
                   </InfoItem>
                 ))
               ) : (
@@ -65,8 +66,9 @@ export const Routine = () => {
             <List>
               {user.routine.tuesday.length > 0 ? (
                 user.routine.tuesday.map((el, index) => (
-                  <InfoItem>
-                    <Mount>{el.mount}</Mount>- {el.exercise}
+                  <InfoItem key={index}>
+                    <Mount>{el.mount}</Mount>
+                    <Exercise>- {el.exercise}</Exercise>
                   </InfoItem>
                 ))
               ) : (
@@ -87,9 +89,10 @@ export const Routine = () => {
             <Hr />
             <List>
               {user.routine.wednesday.length > 0 ? (
-                user.routine.wednesday.map((el) => (
-                  <InfoItem>
-                    <Mount>{el.mount}</Mount> - {el.exercise}
+                user.routine.wednesday.map((el, index) => (
+                  <InfoItem key={index}>
+                    <Mount>{el.mount}</Mount>
+                    <Exercise>- {el.exercise}</Exercise>
                   </InfoItem>
                 ))
               ) : (
@@ -110,9 +113,10 @@ export const Routine = () => {
             <Hr />
             <List>
               {user.routine.thursday.length > 0 ? (
-                user.routine.thursday.map((el) => (
-                  <InfoItem>
-                    <Mount>{el.mount}</Mount> - {el.exercise}
+                user.routine.thursday.map((el, index) => (
+                  <InfoItem key={index}>
+                    <Mount>{el.mount}</Mount>
+                    <Exercise>- {el.exercise}</Exercise>
                   </InfoItem>
                 ))
               ) : (
@@ -133,9 +137,10 @@ export const Routine = () => {
             <Hr />
             <List>
               {user.routine.friday.length > 0 ? (
-                user.routine.friday.map((el) => (
-                  <InfoItem>
-                    <Mount>{el.mount}</Mount> - {el.exercise}
+                user.routine.friday.map((el, index) => (
+                  <InfoItem key={index}>
+                    <Mount>{el.mount}</Mount>
+                    <Exercise>- {el.exercise}</Exercise>
                   </InfoItem>
                 ))
               ) : (
@@ -156,9 +161,10 @@ export const Routine = () => {
             <Hr />
             <List>
               {user.routine.saturday.length > 0 ? (
-                user.routine.saturday.map((el) => (
-                  <InfoItem>
-                    <Mount>{el.mount}</Mount> - {el.exercise}
+                user.routine.saturday.map((el, index) => (
+                  <InfoItem key={index}>
+                    <Mount>{el.mount}</Mount>
+                    <Exercise>- {el.exercise}</Exercise>
                   </InfoItem>
                 ))
               ) : (
@@ -179,9 +185,10 @@ export const Routine = () => {
             <Hr />
             <List>
               {user.routine.sunday.length > 0 ? (
-                user.routine.sunday.map((el) => (
-                  <InfoItem>
-                    <Mount>{el.mount}</Mount> - {el.exercise}
+                user.routine.sunday.map((el, index) => (
+                  <InfoItem key={index}>
+                    <Mount>{el.mount}</Mount>
+                    <Exercise>- {el.exercise}</Exercise>
                   </InfoItem>
                 ))
               ) : (
@@ -264,11 +271,15 @@ const InfoItem = styled.li`
   display: flex;
 `;
 
-const Mount = styled(InfoItem)`
+const Mount = styled.p`
   font-size: 1.5rem;
   font-weight: bold;
   margin-right: 0.5rem;
   color: ${secondaryBlue};
+`;
+
+const Exercise = styled.p`
+  padding-top: 1.6px;
 `;
 
 const NoData = styled.div`

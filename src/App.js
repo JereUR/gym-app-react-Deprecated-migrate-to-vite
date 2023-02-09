@@ -522,7 +522,6 @@ export let user = {
 const pathUser = `/usuario/${user.username}`;
 
 function App() {
-  console.log(user.login);
   return (
     <Container>
       <Router>

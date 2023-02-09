@@ -42,8 +42,8 @@ export const NutricionalPlan = () => {
             <List>
               <TextMeal>Desayuno</TextMeal>
               {user.nutricionalPlan.monday[0].breakfast.length > 0 ? (
-                user.nutricionalPlan.monday[0].breakfast.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.monday[0].breakfast.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -54,8 +54,8 @@ export const NutricionalPlan = () => {
               )}
               <TextMeal>Almuerzo</TextMeal>
               {user.nutricionalPlan.monday[1].lunch.length > 0 ? (
-                user.nutricionalPlan.monday[1].lunch.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.monday[1].lunch.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -66,8 +66,8 @@ export const NutricionalPlan = () => {
               )}
               <TextMeal>Merienda</TextMeal>
               {user.nutricionalPlan.monday[2].snack.length > 0 ? (
-                user.nutricionalPlan.monday[2].snack.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.monday[2].snack.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -78,8 +78,8 @@ export const NutricionalPlan = () => {
               )}
               <TextMeal>Cena</TextMeal>
               {user.nutricionalPlan.monday[3].dinner.length > 0 ? (
-                user.nutricionalPlan.monday[3].dinner.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.monday[3].dinner.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -102,8 +102,8 @@ export const NutricionalPlan = () => {
             <List>
               <TextMeal>Desayuno</TextMeal>
               {user.nutricionalPlan.tuesday[0].breakfast.length > 0 ? (
-                user.nutricionalPlan.tuesday[0].breakfast.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.tuesday[0].breakfast.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -114,8 +114,8 @@ export const NutricionalPlan = () => {
               )}
               <TextMeal>Almuerzo</TextMeal>
               {user.nutricionalPlan.tuesday[1].lunch.length > 0 ? (
-                user.nutricionalPlan.tuesday[1].lunch.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.tuesday[1].lunch.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -126,8 +126,8 @@ export const NutricionalPlan = () => {
               )}
               <TextMeal>Merienda</TextMeal>
               {user.nutricionalPlan.tuesday[2].snack.length > 0 ? (
-                user.nutricionalPlan.tuesday[2].snack.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.tuesday[2].snack.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -138,8 +138,8 @@ export const NutricionalPlan = () => {
               )}
               <TextMeal>Cena</TextMeal>
               {user.nutricionalPlan.tuesday[3].dinner.length > 0 ? (
-                user.nutricionalPlan.tuesday[3].dinner.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.tuesday[3].dinner.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -162,8 +162,8 @@ export const NutricionalPlan = () => {
             <List>
               <TextMeal>Desayuno</TextMeal>
               {user.nutricionalPlan.wednesday[0].breakfast.length > 0 ? (
-                user.nutricionalPlan.wednesday[0].breakfast.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.wednesday[0].breakfast.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -174,8 +174,8 @@ export const NutricionalPlan = () => {
               )}
               <TextMeal>Almuerzo</TextMeal>
               {user.nutricionalPlan.wednesday[1].lunch.length > 0 ? (
-                user.nutricionalPlan.wednesday[1].lunch.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.wednesday[1].lunch.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -186,8 +186,8 @@ export const NutricionalPlan = () => {
               )}
               <TextMeal>Merienda</TextMeal>
               {user.nutricionalPlan.wednesday[2].snack.length > 0 ? (
-                user.nutricionalPlan.wednesday[2].snack.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.wednesday[2].snack.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -198,8 +198,8 @@ export const NutricionalPlan = () => {
               )}
               <TextMeal>Cena</TextMeal>
               {user.nutricionalPlan.wednesday[3].dinner.length > 0 ? (
-                user.nutricionalPlan.wednesday[3].dinner.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.wednesday[3].dinner.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -222,8 +222,8 @@ export const NutricionalPlan = () => {
             <List>
               <TextMeal>Desayuno</TextMeal>
               {user.nutricionalPlan.thursday[0].breakfast.length > 0 ? (
-                user.nutricionalPlan.thursday[0].breakfast.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.thursday[0].breakfast.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -234,8 +234,8 @@ export const NutricionalPlan = () => {
               )}
               <TextMeal>Almuerzo</TextMeal>
               {user.nutricionalPlan.thursday[1].lunch.length > 0 ? (
-                user.nutricionalPlan.thursday[1].lunch.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.thursday[1].lunch.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -246,8 +246,8 @@ export const NutricionalPlan = () => {
               )}
               <TextMeal>Merienda</TextMeal>
               {user.nutricionalPlan.thursday[2].snack.length > 0 ? (
-                user.nutricionalPlan.thursday[2].snack.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.thursday[2].snack.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -258,8 +258,8 @@ export const NutricionalPlan = () => {
               )}
               <TextMeal>Cena</TextMeal>
               {user.nutricionalPlan.thursday[3].dinner.length > 0 ? (
-                user.nutricionalPlan.thursday[3].dinner.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.thursday[3].dinner.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -282,8 +282,8 @@ export const NutricionalPlan = () => {
             <List>
               <TextMeal>Desayuno</TextMeal>
               {user.nutricionalPlan.friday[0].breakfast.length > 0 ? (
-                user.nutricionalPlan.friday[0].breakfast.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.friday[0].breakfast.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -294,8 +294,8 @@ export const NutricionalPlan = () => {
               )}
               <TextMeal>Almuerzo</TextMeal>
               {user.nutricionalPlan.friday[1].lunch.length > 0 ? (
-                user.nutricionalPlan.friday[1].lunch.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.friday[1].lunch.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -306,8 +306,8 @@ export const NutricionalPlan = () => {
               )}
               <TextMeal>Merienda</TextMeal>
               {user.nutricionalPlan.friday[2].snack.length > 0 ? (
-                user.nutricionalPlan.friday[2].snack.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.friday[2].snack.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -318,8 +318,8 @@ export const NutricionalPlan = () => {
               )}
               <TextMeal>Cena</TextMeal>
               {user.nutricionalPlan.friday[3].dinner.length > 0 ? (
-                user.nutricionalPlan.friday[3].dinner.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.friday[3].dinner.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -342,8 +342,8 @@ export const NutricionalPlan = () => {
             <List>
               <TextMeal>Desayuno</TextMeal>
               {user.nutricionalPlan.saturday[0].breakfast.length > 0 ? (
-                user.nutricionalPlan.saturday[0].breakfast.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.saturday[0].breakfast.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -354,8 +354,8 @@ export const NutricionalPlan = () => {
               )}
               <TextMeal>Almuerzo</TextMeal>
               {user.nutricionalPlan.saturday[1].lunch.length > 0 ? (
-                user.nutricionalPlan.saturday[1].lunch.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.saturday[1].lunch.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -366,8 +366,8 @@ export const NutricionalPlan = () => {
               )}
               <TextMeal>Merienda</TextMeal>
               {user.nutricionalPlan.saturday[2].snack.length > 0 ? (
-                user.nutricionalPlan.saturday[2].snack.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.saturday[2].snack.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -378,8 +378,8 @@ export const NutricionalPlan = () => {
               )}
               <TextMeal>Cena</TextMeal>
               {user.nutricionalPlan.saturday[3].dinner.length > 0 ? (
-                user.nutricionalPlan.saturday[3].dinner.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.saturday[3].dinner.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -402,8 +402,8 @@ export const NutricionalPlan = () => {
             <List>
               <TextMeal>Desayuno</TextMeal>
               {user.nutricionalPlan.sunday[0].breakfast.length > 0 ? (
-                user.nutricionalPlan.sunday[0].breakfast.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.sunday[0].breakfast.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -414,8 +414,8 @@ export const NutricionalPlan = () => {
               )}
               <TextMeal>Almuerzo</TextMeal>
               {user.nutricionalPlan.sunday[1].lunch.length > 0 ? (
-                user.nutricionalPlan.sunday[1].lunch.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.sunday[1].lunch.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -426,8 +426,8 @@ export const NutricionalPlan = () => {
               )}
               <TextMeal>Merienda</TextMeal>
               {user.nutricionalPlan.sunday[2].snack.length > 0 ? (
-                user.nutricionalPlan.sunday[2].snack.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.sunday[2].snack.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
@@ -438,8 +438,8 @@ export const NutricionalPlan = () => {
               )}
               <TextMeal>Cena</TextMeal>
               {user.nutricionalPlan.sunday[3].dinner.length > 0 ? (
-                user.nutricionalPlan.sunday[3].dinner.map((el) => (
-                  <InfoItem>
+                user.nutricionalPlan.sunday[3].dinner.map((el, index) => (
+                  <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
                 ))
