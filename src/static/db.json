@@ -1,28 +1,2697 @@
 {
-  "Zonas": [
-    "Brazos",
-    "Pecho",
-    "Abdominales",
-    "Piernas"
+  "exercises": {
+    "Zonas": [
+      "Brazos",
+      "Pecho",
+      "Abdominales",
+      "Piernas"
+    ],
+    "Brazos": [
+      "Biceps",
+      "Triceps",
+      "Interno"
+    ],
+    "Pecho": [
+      "Plancha",
+      "Plano",
+      "Lagartijas"
+    ],
+    "Abdominales": [
+      "Crunch",
+      "Rodilla al pecho",
+      "Escaleras"
+    ],
+    "Piernas": [
+      "Sentadillas",
+      "Largos",
+      "Cinta"
+    ]
+  },
+  "days": [
+    {
+      "day": "Lunes",
+      "value": "monday"
+    },
+    {
+      "day": "Martes",
+      "value": "tuesday"
+    },
+    {
+      "day": "Miercoles",
+      "value": "wednesday"
+    },
+    {
+      "day": "Jueves",
+      "value": "thursday"
+    },
+    {
+      "day": "Viernes",
+      "value": "friday"
+    },
+    {
+      "day": "Sábado",
+      "value": "saturday"
+    },
+    {
+      "day": "Domingo",
+      "value": "sunday"
+    }
   ],
-  "Brazos": [
-    "Biceps",
-    "Triceps",
-    "Interno"
-  ],
-  "Pecho": [
-    "Plancha",
-    "Plano",
-    "Lagartijas"
-  ],
-  "Abdominales": [
-    "Crunch",
-    "Rodilla al pecho",
-    "Escaleras"
-  ],
-  "Piernas": [
-    "Sentadillas",
-    "Largos",
-    "Cinta"
+  "users": [
+    {
+      "username": "Jeremias",
+      "surname": "Dominguez Vega",
+      "email": "jeremias.jdv@gmail.com",
+      "date": "1994-11-29",
+      "login": true,
+      "admin": true,
+      "photo": null,
+      "routine": {
+        "monday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "Lorem Ipsum is simply dummy."
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "tuesday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "wednesday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "thursday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "friday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "saturday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "sunday": []
+      },
+      "nutricionalPlan": {
+        "monday": [
+          {
+            "breakfast": []
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "tuesday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "wednesday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "thursday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "friday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "saturday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "sunday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ]
+      },
+      "payment": {
+        "nextPayment": {
+          "day": 5,
+          "month": "Marzo",
+          "year": 2023
+        },
+        "payments": [
+          {
+            "month": "Diciembre",
+            "year": 2022,
+            "pdf": "../assets/pdf-test.pdf"
+          },
+          {
+            "month": "Enero",
+            "year": 2023,
+            "pdf": "../assets/pdf-test.pdf"
+          },
+          {
+            "month": "Febrero",
+            "year": 2023,
+            "pdf": "../assets/pdf-test.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "username": "Leandro Ariel",
+      "surname": "Libutti",
+      "email": "leanlibutti@gmail.com",
+      "date": "1994-11-29",
+      "login": true,
+      "admin": true,
+      "photo": null,
+      "routine": {
+        "monday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "Lorem Ipsum is simply dummy."
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "tuesday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "wednesday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "thursday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "friday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "saturday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "sunday": []
+      },
+      "nutricionalPlan": {
+        "monday": [
+          {
+            "breakfast": []
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "tuesday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "wednesday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "thursday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "friday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "saturday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "sunday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ]
+      },
+      "payment": {
+        "nextPayment": {
+          "day": 5,
+          "month": "Marzo",
+          "year": 2023
+        },
+        "payments": [
+          {
+            "month": "Diciembre",
+            "year": 2022,
+            "pdf": "../assets/pdf-test.pdf"
+          },
+          {
+            "month": "Enero",
+            "year": 2023,
+            "pdf": "../assets/pdf-test.pdf"
+          },
+          {
+            "month": "Febrero",
+            "year": 2023,
+            "pdf": "../assets/pdf-test.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "username": "Nicolas",
+      "surname": "lopez Linchetta",
+      "email": "nicolinche@gmail.com",
+      "date": "1994-11-29",
+      "login": true,
+      "admin": true,
+      "photo": null,
+      "routine": {
+        "monday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "Lorem Ipsum is simply dummy."
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "tuesday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "wednesday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "thursday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "friday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "saturday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "sunday": []
+      },
+      "nutricionalPlan": {
+        "monday": [
+          {
+            "breakfast": []
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "tuesday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "wednesday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "thursday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "friday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "saturday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "sunday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ]
+      },
+      "payment": {
+        "nextPayment": {
+          "day": 5,
+          "month": "Marzo",
+          "year": 2023
+        },
+        "payments": [
+          {
+            "month": "Diciembre",
+            "year": 2022,
+            "pdf": "../assets/pdf-test.pdf"
+          },
+          {
+            "month": "Enero",
+            "year": 2023,
+            "pdf": "../assets/pdf-test.pdf"
+          },
+          {
+            "month": "Febrero",
+            "year": 2023,
+            "pdf": "../assets/pdf-test.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "username": "Silvia Beatriz",
+      "surname": "Vega",
+      "email": "silve@gmail.com",
+      "date": "1994-11-29",
+      "login": true,
+      "admin": true,
+      "photo": null,
+      "routine": {
+        "monday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "Lorem Ipsum is simply dummy."
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "tuesday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "wednesday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "thursday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "friday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "saturday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "sunday": []
+      },
+      "nutricionalPlan": {
+        "monday": [
+          {
+            "breakfast": []
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "tuesday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "wednesday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "thursday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "friday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "saturday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "sunday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ]
+      },
+      "payment": {
+        "nextPayment": {
+          "day": 5,
+          "month": "Marzo",
+          "year": 2023
+        },
+        "payments": [
+          {
+            "month": "Diciembre",
+            "year": 2022,
+            "pdf": "../assets/pdf-test.pdf"
+          },
+          {
+            "month": "Enero",
+            "year": 2023,
+            "pdf": "../assets/pdf-test.pdf"
+          },
+          {
+            "month": "Febrero",
+            "year": 2023,
+            "pdf": "../assets/pdf-test.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "username": "Christian",
+      "surname": "Mellare",
+      "email": "chrismella@gmail.com",
+      "date": "1994-11-29",
+      "login": true,
+      "admin": true,
+      "photo": null,
+      "routine": {
+        "monday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "Lorem Ipsum is simply dummy."
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "tuesday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "wednesday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "thursday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "friday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "saturday": [
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "15 Repeticiones",
+            "exercise": "xxxx"
+          },
+          {
+            "mount": "20 Repeticiones",
+            "exercise": "xxxx"
+          }
+        ],
+        "sunday": []
+      },
+      "nutricionalPlan": {
+        "monday": [
+          {
+            "breakfast": []
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "tuesday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "wednesday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "thursday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "friday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "saturday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ],
+        "sunday": [
+          {
+            "breakfast": [
+              {
+                "mount": "3 ud",
+                "meal": "Huevo"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "lunch": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "snack": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          },
+          {
+            "dinner": [
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              },
+              {
+                "mount": "200gr",
+                "meal": "Churrasco"
+              }
+            ]
+          }
+        ]
+      },
+      "payment": {
+        "nextPayment": {
+          "day": 5,
+          "month": "Marzo",
+          "year": 2023
+        },
+        "payments": [
+          {
+            "month": "Diciembre",
+            "year": 2022,
+            "pdf": "../assets/pdf-test.pdf"
+          },
+          {
+            "month": "Enero",
+            "year": 2023,
+            "pdf": "../assets/pdf-test.pdf"
+          },
+          {
+            "month": "Febrero",
+            "year": 2023,
+            "pdf": "../assets/pdf-test.pdf"
+          }
+        ]
+      }
+    }
   ]
 }
