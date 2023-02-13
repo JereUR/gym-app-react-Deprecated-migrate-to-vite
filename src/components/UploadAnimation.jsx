@@ -1,11 +1,8 @@
 import React from "react";
 import Lottie from "react-lottie";
 import styled from "styled-components";
-import { Colors } from "../constants/Colors";
 
 import uploadPhoto from "../static/upload-photo.json";
-
-const { primaryRed, errorInput } = Colors;
 
 export const UploadAnimation = ({ uploadFiles }) => {
   const uploadPhotoData = {

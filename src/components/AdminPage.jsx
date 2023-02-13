@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 import { Colors } from "../constants/Colors";
+import { FormBill } from "./FormBill";
+import { FormNextPayment } from "./FormNextPayment";
 import { FormNutritionalPlan } from "./FormNutritionalPlan";
 import FormRoutine from "./FormRoutine";
 
@@ -22,9 +24,14 @@ export const AdminPage = () => {
       <Hr />
       <BillSection>
         <Title>Agregar pago</Title>
-        <FormAddBill></FormAddBill>
+        <FormBill />
         <Hr />
       </BillSection>
+      <NextPaymentSection>
+        <Title>Agregar próximo pago</Title>
+        <FormNextPayment />
+        <Hr />
+      </NextPaymentSection>
     </AdminContainer>
   );
 };
@@ -50,10 +57,8 @@ const Hr = styled.hr`
   border-radius: 100px;
 `;
 
-const AddNutritionalPlan = styled(AdminContainer)``;
+const AddNutritionalPlan = styled.div``;
 
-const BillSection = styled(AdminContainer)``;
+const BillSection = styled.div``;
 
-const FormAddBill = styled.form``;
-
-const FormAddNextPay = styled.form``;
+const NextPaymentSection = styled.div``;

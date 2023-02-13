@@ -6,13 +6,6 @@ import { Colors } from "../constants/Colors";
 import db from "../static/db.json";
 import { MealComponent } from "./MealComponent";
 
-const initialData = {
-  breakfast: [],
-  lunch: [],
-  snack: [],
-  dinner: [],
-};
-
 const { errorInput } = Colors;
 
 export const FormNutritionalPlan = () => {
@@ -26,7 +19,7 @@ export const FormNutritionalPlan = () => {
   const [lunch, setLunch] = useState([]);
   const [snack, setSnack] = useState([]);
   const [dinner, setDinner] = useState([]);
-  const [meals, setMeals] = useState(initialData);
+  const [meals, setMeals] = useState([]);
   const [errorsPlan, setErrorsPlan] = useState({});
   const [errorsMeal, setErrorsMeal] = useState({});
 
@@ -42,6 +35,13 @@ export const FormNutritionalPlan = () => {
     setCount(null);
     setMeasure(null);
     setType(null);
+  };
+
+  const clearData = () => {
+    setBreakfast([]);
+    setLunch([]);
+    setSnack([]);
+    setDinner([]);
   };
 
   const onValidateMeal = () => {
@@ -70,7 +70,11 @@ export const FormNutritionalPlan = () => {
     return errorsForm;
   };
 
-  const onValidatePlan = () => {};
+  const onValidatePlan = () => {
+    let errorsForm = {};
+
+    return errorsForm;
+  };
 
   const handleFor = (e) => {
     setForData(e.target.value);
@@ -122,29 +126,25 @@ export const FormNutritionalPlan = () => {
     if (Object.keys(err).length === 0) {
       switch (mealData) {
         case "breakfast":
-          const b = { measure, count, type, id: breakfast.length };
-          setBreakfast(breakfast.concat(b));
-          console.log(meals);
+          const bData = { measure, count, type, id: breakfast.length };
+          setBreakfast(breakfast.concat(bData));
           break;
         case "lunch":
-          const l = { measure, count, type, id: lunch.length };
-          setLunch(lunch.concat(l));
-          console.log(l);
+          const lData = { measure, count, type, id: lunch.length };
+          setLunch(lunch.concat(lData));
           break;
         case "snack":
-          const s = { measure, count, type, id: snack.length };
-          setSnack(snack.concat(s));
-          console.log(s);
+          const sData = { measure, count, type, id: snack.length };
+          setSnack(snack.concat(sData));
           break;
         case "dinner":
-          const d = { measure, count, type, id: dinner.length };
-          setDinner(dinner.concat(d));
-          console.log(d);
+          const dData = { measure, count, type, id: dinner.length };
+          setDinner(dinner.concat(dData));
           break;
-
         default:
           break;
       }
+      console.log(meals);
       clearFormMeal();
     } else {
       console.log("Error comida");
@@ -158,14 +158,18 @@ export const FormNutritionalPlan = () => {
     setErrorsPlan(err);
 
     if (Object.keys(err).length === 0) {
-      const routineDay = {
+      const planDay = {
         forData,
         dayData,
+        breakfast,
+        lunch,
+        snack,
+        dinner,
       };
 
-      console.log(routineDay);
+      clearData();
     } else {
-      console.log("Error rutina");
+      console.log("Error plan");
     }
   };
 
@@ -175,7 +179,7 @@ export const FormNutritionalPlan = () => {
         {!forData ? (
           <InputContainer>
             <Label>Para:</Label>
-            <Select onChange={handleFor}>
+            <Select onChange={handleFor} id="for-input">
               <Option value="null">Seleccione un usuario</Option>
               {db.users.map((el, index) => (
                 <Option key={index} value={el.email}>
@@ -200,7 +204,7 @@ export const FormNutritionalPlan = () => {
         {!dayData ? (
           <InputContainer>
             <Label>Día:</Label>
-            <Select onChange={handleDay}>
+            <Select onChange={handleDay} id="day-input">
               <Option value="null">Seleccione un día</Option>
               {db.days.map((el, index) => (
                 <Option value={el.value} key={index}>
@@ -227,7 +231,7 @@ export const FormNutritionalPlan = () => {
         {!mealData ? (
           <InputContainer>
             <Label>Comida:</Label>
-            <Select onChange={handleMeal}>
+            <Select onChange={handleMeal} id="meal-input">
               <Option value="null">Seleccione una comida</Option>
               {db.meals.map((el, index) => (
                 <Option value={el.value} key={index}>
@@ -284,45 +288,47 @@ export const FormNutritionalPlan = () => {
           Agregar comida
         </AddMeal>
       </DataContainer>
-      {breakfast && (
-        <MealType>
-          <Type>Desayuno:</Type>
+
+      <Type>Plan</Type>
+      {breakfast.length > 0 && (
+        <MealContainer>
+          <MealName>Desayuno:</MealName>
           <List>
             {breakfast.map((el) => (
               <MealComponent key={el.id} el={el} deleteData={deleteData} />
             ))}
           </List>
-        </MealType>
+        </MealContainer>
       )}
-      {lunch && (
-        <MealType>
-          <Type>Almuerzo:</Type>
+      {lunch.length > 0 && (
+        <MealContainer>
+          <MealName>Almuerzo:</MealName>
           <List>
             {lunch.map((el) => (
               <MealComponent key={el.id} el={el} deleteData={deleteData} />
             ))}
           </List>
-        </MealType>
+        </MealContainer>
       )}
-      {snack && (
-        <MealType>
-          <Type>Merienda:</Type>
+      {snack.length > 0 && (
+        <MealContainer>
+          <MealName>Merienda:</MealName>
           <List>
             {snack.map((el) => (
               <MealComponent key={el.id} el={el} deleteData={deleteData} />
             ))}
           </List>
-        </MealType>
+        </MealContainer>
       )}
-      {dinner && (
-        <MealType>
-          <Type>Cena:</Type>
+      {dinner.length > 0 && (
+        <MealContainer>
+          <MealName>Cena:</MealName>
           <List>
             {dinner.map((el) => (
               <MealComponent key={el.id} el={el} deleteData={deleteData} />
             ))}
           </List>
-        </MealType>
+        </MealContainer>
       )}
       {errorsPlan.meals && <ErrorInput>{errorsPlan.meals}</ErrorInput>}
       <ButtonSubmit type="submit">Enviar</ButtonSubmit>
@@ -369,10 +375,12 @@ const ErrorInput = styled.div`
 
 const AddMeal = styled.button``;
 
+const MealContainer = styled.div``;
+
+const MealName = styled.p``;
+
 const List = styled.ol``;
 
 const ButtonSubmit = styled.button``;
-
-const MealType = styled.div``;
 
 const Type = styled.p``;
