@@ -23,8 +23,8 @@ const FormRoutine = () => {
   };
 
   const clearFormRoutine = () => {
-    document.getElementById("measure").value = null;
-    document.getElementById("count").value = null;
+    document.getElementById("measureExercise").value = null;
+    document.getElementById("countExercise").value = null;
     document.getElementById("zone").value = null;
     document.getElementById("exercise").value = null;
 
@@ -191,7 +191,7 @@ const FormRoutine = () => {
         ) : (
           <ForTextContainer>
             <ForText>
-              Día {db.days.find((el) => el.value === dayData).day}
+              Día: {db.days.find((el) => el.value === dayData).day}
             </ForText>
             <ButtonForChange onClick={handleChangeDay}>
               Cambiar día
@@ -201,21 +201,26 @@ const FormRoutine = () => {
       </DayPartContainer>
       <DataContainer>
         <InputContainer>
+          <Label>Cantidad</Label>
+          <Input
+            type="number"
+            onChange={handleCount}
+            id="countExercise"
+            placeholder="Determine cantidad"
+          />
+          {errorsExercises.count && (
+            <ErrorInput>{errorsExercises.count}</ErrorInput>
+          )}
+        </InputContainer>
+        <InputContainer>
           <Label>Tipo de medida</Label>
-          <Select onChange={handleMeasure} id="measure">
+          <Select onChange={handleMeasure} id="measureExercise">
             <Option value="null">Seleccione una medida</Option>
             <Option value="Repeticiones">Repeticiones</Option>
             <Option value="Segundos">Segundos</Option>
           </Select>
           {errorsExercises.measure && (
             <ErrorInput>{errorsExercises.measure}</ErrorInput>
-          )}
-        </InputContainer>
-        <InputContainer>
-          <Label>Cantidad</Label>
-          <Input type="number" onChange={handleCount} id="count" />
-          {errorsExercises.count && (
-            <ErrorInput>{errorsExercises.count}</ErrorInput>
           )}
         </InputContainer>
         <InputContainer>
@@ -250,7 +255,7 @@ const FormRoutine = () => {
       </DataContainer>
       {exercises && (
         <List>
-          {exercises.map((el, index) => (
+          {exercises.map((el) => (
             <ExerciseComponent key={el.id} el={el} deleteData={deleteData} />
           ))}
         </List>

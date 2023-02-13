@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 import { Colors } from "../constants/Colors";
+import { FormNutritionalPlan } from "./FormNutritionalPlan";
 import FormRoutine from "./FormRoutine";
 
 const { secondaryBlue, backgroundText } = Colors;
@@ -16,15 +17,13 @@ export const AdminPage = () => {
       <Hr />
       <AddNutritionalPlan>
         <Title>Agregar plan nutricional</Title>
-        <FormNutritionalPlan></FormNutritionalPlan>
+        <FormNutritionalPlan />
       </AddNutritionalPlan>
       <Hr />
       <BillSection>
         <Title>Agregar pago</Title>
         <FormAddBill></FormAddBill>
         <Hr />
-        <Title>Agregar próximo pago</Title>
-        <FormAddNextPay></FormAddNextPay>
       </BillSection>
     </AdminContainer>
   );
@@ -52,8 +51,6 @@ const Hr = styled.hr`
 `;
 
 const AddNutritionalPlan = styled(AdminContainer)``;
-
-const FormNutritionalPlan = styled.form``;
 
 const BillSection = styled(AdminContainer)``;
 

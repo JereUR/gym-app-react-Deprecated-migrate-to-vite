@@ -57,6 +57,24 @@
       "value": "sunday"
     }
   ],
+  "meals": [
+    {
+      "meal": "Desayuno",
+      "value": "breakfast"
+    },
+    {
+      "meal": "Almuerzo",
+      "value": "lunch"
+    },
+    {
+      "meal": "Merienda",
+      "value": "snack"
+    },
+    {
+      "meal": "Cena",
+      "value": "dinner"
+    }
+  ],
   "users": [
     {
       "username": "Jeremias",
