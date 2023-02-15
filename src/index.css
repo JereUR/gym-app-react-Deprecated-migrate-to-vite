@@ -61,3 +61,7 @@ code {
   font-weight: bold;
   color: var(--primary-red) !important;
 }
+
+.drag-over {
+  background-color: #d5d5d5;
+}

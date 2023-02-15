@@ -24,7 +24,6 @@ export const AdminPage = () => {
       <BillSection>
         <Title>Agregar pago</Title>
         <FormBill />
-        <Hr />
       </BillSection>
     </AdminContainer>
   );
@@ -33,9 +32,9 @@ export const AdminPage = () => {
 const AdminContainer = styled.div``;
 
 const AddRoutineContainer = styled.div`
-  background-color: ${backgroundText};
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   padding: 1rem 1rem 3rem 1rem;
-  margin: 2vw 3vw 2vw 3vw;
+  margin: 2vw 3vw 3vw 3vw;
   border-radius: 1rem;
 `;
 
@@ -59,5 +58,3 @@ const Hr = styled.hr`
 const AddNutritionalPlan = styled(AddRoutineContainer)``;
 
 const BillSection = styled(AddRoutineContainer)``;
-
-const NextPaymentSection = styled.div``;

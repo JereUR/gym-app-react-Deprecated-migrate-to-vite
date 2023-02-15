@@ -145,7 +145,6 @@ const ButtonSend = styled.button`
   :hover {
     cursor: pointer;
     background-color: ${secondaryBlue};
-    transform: scale(1.05);
   }
 `;
 

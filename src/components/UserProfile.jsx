@@ -7,6 +7,7 @@ import uploadPhoto from "../static/upload-photo.json";
 import { user } from "../App";
 import defaultPhoto from "../assets/default_user.jpg";
 import { Colors } from "../constants/Colors";
+import { FontFamily } from "../constants/Fonts";
 import Modal from "./Modal";
 import { UploadAnimation } from "./UploadAnimation";
 
@@ -221,11 +222,11 @@ const Label = styled.h3`
 `;
 
 const TextContainer = styled.div`
-  background-color: ${backgroundText};
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   width: 40vw;
   margin-left: 5vw;
   border-radius: 1rem;
-  color: ${secondaryRed};
+  color: ${primaryRed};
 `;
 
 const Text = styled.p`
@@ -281,20 +282,19 @@ const ChangePasswordButton = styled.button`
   width: 90%;
   margin-bottom: 3vh !important;
   margin-top: 2vh !important;
-  font-family: "Roboto", sans-serif;
+  font-family: ${FontFamily};
   background-color: ${primaryBlue};
   color: ${colorText};
   padding: 10px;
   margin: 10px;
   font-size: 1.5rem;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 4px;
   transition: all 0.7s ease-in-out;
 
   :hover {
     cursor: pointer;
     background-color: ${secondaryBlue};
-    transform: scale(1.02);
   }
 `;
 
@@ -303,19 +303,18 @@ const SignOutContainer = styled(PasswordContainer)``;
 const SignOutButton = styled.button`
   width: 90%;
   margin-bottom: 5vh !important;
-  font-family: "Roboto", sans-serif;
+  font-family: ${FontFamily};
   background-color: ${primaryRed};
   color: ${colorText};
   padding: 10px;
   margin: 10px;
   font-size: 1.5rem;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 4px;
   transition: all 0.7s ease-in-out;
 
   :hover {
     cursor: pointer;
     background-color: ${secondaryRed};
-    transform: scale(1.02);
   }
 `;

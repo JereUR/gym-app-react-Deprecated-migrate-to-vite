@@ -288,19 +288,19 @@ const FormRoutine = () => {
 
 const ButtonSubmit = styled.button`
   font-family: ${FontFamily};
-  font-size: 1.8rem;
-  font-weight: 500;
-  width: 100%;
-  padding: 10px;
-  margin-top: 1rem;
-  border: none;
   background-color: ${primaryRed};
-  border-radius: 1rem;
-  transition: all 0.6s ease;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 2rem;
+  padding: 10px 20px;
+  margin-top: 2rem;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
 
   :hover {
     cursor: pointer;
-    opacity: 0.8;
+    background-color: ${primaryBlue};
   }
 `;
 
@@ -368,11 +368,17 @@ const ForTextContainer = styled.div`
 
 const Input = styled.input`
   font-family: ${FontFamily};
-  border-radius: 5px;
-  font-size: 1.1rem;
-  font-weight: 400;
-  padding: 8px;
-  background-color: ${backgroundBlue};
+  background-color: #fff;
+  border: 2px solid ${primaryBlue};
+  border-radius: 4px;
+  color: #000;
+  font-size: 1.2rem;
+  padding: 10px;
+
+  :focus {
+    border-color: ${primaryRed};
+    box-shadow: 0 0 0 3px rgba(65, 157, 199, 0.5);
+  }
 `;
 
 const InputContainer = styled.div`
@@ -391,15 +397,39 @@ const List = styled.ol``;
 const Option = styled.option``;
 
 const Select = styled.select`
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  outline: none;
+  padding: 0;
+
   font-family: ${FontFamily};
-  border-radius: 5px;
-  font-size: 1.1rem;
-  font-weight: 400;
-  padding: 8px;
-  background-color: ${backgroundBlue};
+  background-color: #fff;
+  color: #000;
+  font-size: 1.2rem;
+  width: 14vw;
+  padding: 10px;
+  border: 2px solid ${primaryBlue};
+  border-radius: 4px;
+
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+
+  :focus {
+    border-color: ${primaryRed};
+    box-shadow: 0 0 0 3px rgba(65, 157, 199, 0.5);
+  }
 
   :hover {
     cursor: pointer;
+  }
+
+  ::-ms-expand {
+    display: none;
   }
 `;
 
