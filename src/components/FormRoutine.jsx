@@ -33,6 +33,13 @@ const FormRoutine = () => {
     setTypeExercise(null);
   };
 
+  const clearData = () => {
+    setForData(null);
+    setDayData(null);
+
+    setExercises([]);
+  };
+
   const onValidateExercises = () => {
     let errorsForm = {};
 
@@ -140,7 +147,7 @@ const FormRoutine = () => {
       };
 
       console.log(routineDay);
-      setExercises([]);
+      clearData();
     } else {
       console.log("Error rutina");
     }
@@ -152,7 +159,7 @@ const FormRoutine = () => {
         {!forData ? (
           <InputContainer>
             <Label>Para:</Label>
-            <Select onChange={handleFor}>
+            <Select onChange={handleFor} id="for-data">
               <Option value="null">Seleccione un usuario</Option>
               {db.users.map((el, index) => (
                 <Option key={index} value={el.email}>

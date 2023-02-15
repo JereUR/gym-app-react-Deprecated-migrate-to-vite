@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 import { Colors } from "../constants/Colors";
 import { FormBill } from "./FormBill";
-import { FormNextPayment } from "./FormNextPayment";
 import { FormNutritionalPlan } from "./FormNutritionalPlan";
 import FormRoutine from "./FormRoutine";
 
@@ -27,11 +26,6 @@ export const AdminPage = () => {
         <FormBill />
         <Hr />
       </BillSection>
-      <NextPaymentSection>
-        <Title>Agregar próximo pago</Title>
-        <FormNextPayment />
-        <Hr />
-      </NextPaymentSection>
     </AdminContainer>
   );
 };

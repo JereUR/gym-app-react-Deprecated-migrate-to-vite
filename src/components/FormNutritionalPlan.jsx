@@ -38,6 +38,10 @@ export const FormNutritionalPlan = () => {
   };
 
   const clearData = () => {
+    setForData(null);
+    setDayData(null);
+    setMealData(null);
+
     setBreakfast([]);
     setLunch([]);
     setSnack([]);
@@ -72,6 +76,28 @@ export const FormNutritionalPlan = () => {
 
   const onValidatePlan = () => {
     let errorsForm = {};
+
+    if (forData === null) {
+      errorsForm.forData = "Debe especificar destinatario.";
+    }
+
+    if (dayData === null) {
+      errorsForm.dayData = "Debe especificar día de plan nutricional.";
+    }
+
+    if (mealData === null) {
+      errorsForm.mealData =
+        "Debe especificar tipo de comida de plan nutricional.";
+    }
+
+    if (
+      breakfast.length === 0 &&
+      lunch.length === 0 &&
+      snack.length === 0 &&
+      dinner.length === 0
+    ) {
+      errorsForm.planData = "El plan nutricional está vacio.";
+    }
 
     return errorsForm;
   };
@@ -179,7 +205,7 @@ export const FormNutritionalPlan = () => {
         {!forData ? (
           <InputContainer>
             <Label>Para:</Label>
-            <Select onChange={handleFor} id="for-input">
+            <Select onChange={handleFor}>
               <Option value="null">Seleccione un usuario</Option>
               {db.users.map((el, index) => (
                 <Option key={index} value={el.email}>
@@ -204,7 +230,7 @@ export const FormNutritionalPlan = () => {
         {!dayData ? (
           <InputContainer>
             <Label>Día:</Label>
-            <Select onChange={handleDay} id="day-input">
+            <Select onChange={handleDay}>
               <Option value="null">Seleccione un día</Option>
               {db.days.map((el, index) => (
                 <Option value={el.value} key={index}>
@@ -231,7 +257,7 @@ export const FormNutritionalPlan = () => {
         {!mealData ? (
           <InputContainer>
             <Label>Comida:</Label>
-            <Select onChange={handleMeal} id="meal-input">
+            <Select onChange={handleMeal}>
               <Option value="null">Seleccione una comida</Option>
               {db.meals.map((el, index) => (
                 <Option value={el.value} key={index}>
@@ -239,8 +265,11 @@ export const FormNutritionalPlan = () => {
                 </Option>
               ))}
             </Select>
-            {errorsPlan.MealData && (
-              <ErrorInput>{errorsPlan.MealData}</ErrorInput>
+            {errorsPlan.mealData && (
+              <ErrorInput>{errorsPlan.mealData}</ErrorInput>
+            )}
+            {errorsMeal.mealData && (
+              <ErrorInput>{errorsMeal.mealData}</ErrorInput>
             )}
           </InputContainer>
         ) : (
@@ -288,7 +317,6 @@ export const FormNutritionalPlan = () => {
           Agregar comida
         </AddMeal>
       </DataContainer>
-
       <Type>Plan</Type>
       {breakfast.length > 0 && (
         <MealContainer>
@@ -330,7 +358,7 @@ export const FormNutritionalPlan = () => {
           </List>
         </MealContainer>
       )}
-      {errorsPlan.meals && <ErrorInput>{errorsPlan.meals}</ErrorInput>}
+      {errorsPlan.planData && <ErrorInput>{errorsPlan.planData}</ErrorInput>}
       <ButtonSubmit type="submit">Enviar</ButtonSubmit>
     </Form>
   );
