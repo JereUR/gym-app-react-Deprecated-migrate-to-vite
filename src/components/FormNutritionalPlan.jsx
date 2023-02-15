@@ -1,12 +1,22 @@
 import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
+import { FaEdit } from "react-icons/fa";
+import { IoMdAddCircle } from "react-icons/io";
 
 import { Colors } from "../constants/Colors";
+import { FontFamily } from "../constants/Fonts";
 import db from "../static/db.json";
 import { MealComponent } from "./MealComponent";
 
-const { errorInput } = Colors;
+const {
+  errorInput,
+  primaryRed,
+  secondaryBlue,
+  secondaryRed,
+  backgroundBlue,
+  success,
+} = Colors;
 
 export const FormNutritionalPlan = () => {
   const [forData, setForData] = useState(null);
@@ -138,9 +148,26 @@ export const FormNutritionalPlan = () => {
     setType(e.target.value);
   };
 
-  const deleteData = (id) => {
-    let newData = meals.filter((el) => el.id !== id);
-    setMeals(newData);
+  const deleteData = (id, data) => {
+    let newData = data.filter((el) => el.id !== id);
+
+    switch (data) {
+      case breakfast:
+        setBreakfast(newData);
+        break;
+      case lunch:
+        setLunch(newData);
+        break;
+      case snack:
+        setSnack(newData);
+        break;
+      case dinner:
+        setDinner(newData);
+        break;
+
+      default:
+        break;
+    }
   };
 
   const handleAddMeal = () => {
@@ -205,14 +232,14 @@ export const FormNutritionalPlan = () => {
         {!forData ? (
           <InputContainer>
             <Label>Para:</Label>
-            <Select onChange={handleFor}>
+            <SelectFirst onChange={handleFor}>
               <Option value="null">Seleccione un usuario</Option>
               {db.users.map((el, index) => (
                 <Option key={index} value={el.email}>
                   {el.username} {el.surname} - {el.email}
                 </Option>
               ))}
-            </Select>
+            </SelectFirst>
             {errorsPlan.forData && (
               <ErrorInput>{errorsPlan.forData}</ErrorInput>
             )}
@@ -220,9 +247,7 @@ export const FormNutritionalPlan = () => {
         ) : (
           <ForTextContainer>
             <ForText>Comida para {forData}</ForText>
-            <ButtonForChange onClick={handleChangeFor}>
-              Cambiar destinatario
-            </ButtonForChange>
+            <FaEdit size="1.5rem" onClick={handleChangeFor} />
           </ForTextContainer>
         )}
       </ForPartContainer>
@@ -230,14 +255,14 @@ export const FormNutritionalPlan = () => {
         {!dayData ? (
           <InputContainer>
             <Label>Día:</Label>
-            <Select onChange={handleDay}>
+            <SelectFirst onChange={handleDay}>
               <Option value="null">Seleccione un día</Option>
               {db.days.map((el, index) => (
                 <Option value={el.value} key={index}>
                   {el.day}
                 </Option>
               ))}
-            </Select>
+            </SelectFirst>
             {errorsPlan.dayData && (
               <ErrorInput>{errorsPlan.dayData}</ErrorInput>
             )}
@@ -247,9 +272,7 @@ export const FormNutritionalPlan = () => {
             <ForText>
               Día: {db.days.find((el) => el.value === dayData).day}
             </ForText>
-            <ButtonForChange onClick={handleChangeDay}>
-              Cambiar día
-            </ButtonForChange>
+            <FaEdit size="1.5rem" onClick={handleChangeDay} />
           </ForTextContainer>
         )}
       </DayPartContainer>
@@ -257,14 +280,14 @@ export const FormNutritionalPlan = () => {
         {!mealData ? (
           <InputContainer>
             <Label>Comida:</Label>
-            <Select onChange={handleMeal}>
+            <SelectFirst onChange={handleMeal}>
               <Option value="null">Seleccione una comida</Option>
               {db.meals.map((el, index) => (
                 <Option value={el.value} key={index}>
                   {el.meal}
                 </Option>
               ))}
-            </Select>
+            </SelectFirst>
             {errorsPlan.mealData && (
               <ErrorInput>{errorsPlan.mealData}</ErrorInput>
             )}
@@ -277,9 +300,7 @@ export const FormNutritionalPlan = () => {
             <ForText>
               Comida: {db.meals.find((el) => el.value === mealData).meal}
             </ForText>
-            <ButtonForChange onClick={handleChangeMeal}>
-              Cambiar comida
-            </ButtonForChange>
+            <FaEdit size="1.5rem" onClick={handleChangeMeal} />
           </ForTextContainer>
         )}
       </MealPartContainer>
@@ -313,17 +334,23 @@ export const FormNutritionalPlan = () => {
           />
           {errorsMeal.type && <ErrorInput>{errorsMeal.type}</ErrorInput>}
         </InputContainer>
-        <AddMeal type="button" onClick={handleAddMeal}>
-          Agregar comida
-        </AddMeal>
+        <IoMdAddCircle
+          fontSize="3.5rem"
+          type="button"
+          onClick={handleAddMeal}
+        />
       </DataContainer>
-      <Type>Plan</Type>
       {breakfast.length > 0 && (
         <MealContainer>
           <MealName>Desayuno:</MealName>
           <List>
             {breakfast.map((el) => (
-              <MealComponent key={el.id} el={el} deleteData={deleteData} />
+              <MealComponent
+                key={el.id}
+                el={el}
+                deleteData={deleteData}
+                data={breakfast}
+              />
             ))}
           </List>
         </MealContainer>
@@ -333,7 +360,12 @@ export const FormNutritionalPlan = () => {
           <MealName>Almuerzo:</MealName>
           <List>
             {lunch.map((el) => (
-              <MealComponent key={el.id} el={el} deleteData={deleteData} />
+              <MealComponent
+                key={el.id}
+                el={el}
+                deleteData={deleteData}
+                data={lunch}
+              />
             ))}
           </List>
         </MealContainer>
@@ -343,7 +375,12 @@ export const FormNutritionalPlan = () => {
           <MealName>Merienda:</MealName>
           <List>
             {snack.map((el) => (
-              <MealComponent key={el.id} el={el} deleteData={deleteData} />
+              <MealComponent
+                key={el.id}
+                el={el}
+                deleteData={deleteData}
+                data={snack}
+              />
             ))}
           </List>
         </MealContainer>
@@ -353,7 +390,12 @@ export const FormNutritionalPlan = () => {
           <MealName>Cena:</MealName>
           <List>
             {dinner.map((el) => (
-              <MealComponent key={el.id} el={el} deleteData={deleteData} />
+              <MealComponent
+                key={el.id}
+                el={el}
+                deleteData={deleteData}
+                data={dinner}
+              />
             ))}
           </List>
         </MealContainer>
@@ -364,51 +406,136 @@ export const FormNutritionalPlan = () => {
   );
 };
 
-const Form = styled.form``;
+const ButtonSubmit = styled.button`
+  font-family: ${FontFamily};
+  font-size: 1.8rem;
+  font-weight: 500;
+  width: 100%;
+  padding: 10px;
+  margin-top: 1rem;
+  border: none;
+  background-color: ${primaryRed};
+  border-radius: 1rem;
+  transition: all 0.6s ease;
 
-const ForPartContainer = styled.div``;
+  :hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+`;
 
-const ForTextContainer = styled.div``;
+const DataContainer = styled.div`
+  svg {
+    position: relative;
+    top: 3vw;
+    font-weight: 500;
+    margin-left: 5vw;
+    border: none;
+    border-radius: 50px;
+    color: ${success};
+    transition: all 0.6s ease;
 
-const ButtonForChange = styled.button``;
+    :hover {
+      cursor: pointer;
+      opacity: 0.6;
+    }
+  }
+`;
 
 const DayPartContainer = styled.div``;
 
-const MealPartContainer = styled.div``;
+const ErrorInput = styled.div`
+  font-size: 15px;
+  color: ${errorInput};
+  margin-bottom: 1rem;
+  text-align: left;
+  margin-left: 1rem;
+`;
 
-const DataContainer = styled.div``;
+const Form = styled.form`
+  padding: 0 5vw 0 5vw;
+`;
+
+const ForPartContainer = styled.div``;
+
+const ForText = styled.p`
+  margin-left: 1rem;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: ${primaryRed};
+  font-style: italic;
+  border: 3px solid rgb(117, 112, 112);
+  border-radius: 1rem;
+`;
+
+const ForTextContainer = styled.div`
+  display: flex;
+
+  svg {
+    color: ${secondaryBlue};
+    padding: 1rem;
+    transition: all 0.7s ease;
+    margin-top: 2.5rem;
+  }
+
+  svg:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    color: ${secondaryRed};
+  }
+`;
+
+const Input = styled.input`
+  font-family: ${FontFamily};
+  width: 18vw;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 400;
+  padding: 8px;
+  background-color: ${backgroundBlue};
+`;
 
 const InputContainer = styled.div`
   display: inline-grid;
   margin: 1rem;
+  line-height: 2.5rem;
 `;
 
-const Label = styled.label``;
-
-const Select = styled.select``;
-
-const Option = styled.option``;
-
-const ForText = styled.p``;
-
-const Input = styled.input``;
-
-const ErrorInput = styled.div`
-  font-size: 12px;
-  color: ${errorInput};
-  margin-bottom: 1rem;
-  text-align: left;
-  margin-left: 2rem;
+const Label = styled.label`
+  font-size: 1.3rem;
+  font-weight: 500;
 `;
-
-const AddMeal = styled.button``;
-
-const MealContainer = styled.div``;
-
-const MealName = styled.p``;
 
 const List = styled.ol``;
 
-const ButtonSubmit = styled.button``;
+const MealContainer = styled.div`
+  margin-left: 3rem;
+`;
 
-const Type = styled.p``;
+const MealName = styled.p`
+  font-size: 1.2rem;
+  font-weight: 400;
+  font-style: italic;
+`;
+
+const MealPartContainer = styled.div``;
+
+const Option = styled.option``;
+
+const Select = styled.select`
+  font-family: ${FontFamily};
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 400;
+  padding: 8px;
+  background-color: ${backgroundBlue};
+
+  :hover {
+    cursor: pointer;
+  }
+`;
+
+const SelectFirst = styled(Select)`
+  width: 30vw;
+`;

@@ -4,7 +4,7 @@ import { FaTrashAlt } from "react-icons/fa";
 
 import { Colors } from "../constants/Colors";
 
-const { secondaryRed } = Colors;
+const { secondaryRed, backgroundSuccess } = Colors;
 
 export const ExerciseComponent = ({ el, deleteData }) => {
   return (
@@ -12,23 +12,35 @@ export const ExerciseComponent = ({ el, deleteData }) => {
       <ExerciseItem key={el.id}>
         {el.count} {el.measure} - {el.typeExercise}
       </ExerciseItem>
-      <FaTrashAlt onClick={() => deleteData(el.id)} />
+      <FaTrashAlt fontSize="1.1rem" onClick={() => deleteData(el.id)} />
     </ExerciseContainer>
   );
 };
 
-const ExerciseItem = styled.li``;
-
 const ExerciseContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  padding: 0 80vw 0.5vw 5vw;
+  padding: 0.5vw 2vw 0.5vw 2vw;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  background-color: ${backgroundSuccess};
+  width: max-content;
 
   svg {
     color: ${secondaryRed};
+    padding-left: 20vw;
   }
 
   svg:hover {
     cursor: pointer;
+  }
+`;
+
+const ExerciseItem = styled.li`
+  font-size: 1.1rem;
+  font-weight: 500;
+
+  ::marker {
+    font-weight: bold;
+    color: ${secondaryRed};
   }
 `;

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import styled from "styled-components";
 import { FaEdit } from "react-icons/fa";
+import uploadPhoto from "../static/upload-photo.json";
 
 import { user } from "../App";
 import defaultPhoto from "../assets/default_user.jpg";
@@ -130,7 +131,12 @@ export const UserProfile = () => {
                 style={{ width: "25vw", height: "30vw", cursor: "pointer" }}
               />
             ) : (
-              <UploadAnimation uploadFiles={uploadFiles} />
+              <UploadAnimation
+                uploadFiles={uploadFiles}
+                animation={uploadPhoto}
+                height="25vw"
+                width="30vw"
+              />
             )}
             {errorInput && <ErrorInput>{errorInput}</ErrorInput>}
             <SendPhoto onClick={handleSend}>Subir Foto</SendPhoto>

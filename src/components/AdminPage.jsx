@@ -32,13 +32,18 @@ export const AdminPage = () => {
 
 const AdminContainer = styled.div``;
 
-const AddRoutineContainer = styled.div``;
+const AddRoutineContainer = styled.div`
+  background-color: ${backgroundText};
+  padding: 1rem 1rem 3rem 1rem;
+  margin: 2vw 3vw 2vw 3vw;
+  border-radius: 1rem;
+`;
 
 const Title = styled.p`
   font-size: 2.1rem;
   font-weight: 500;
   color: ${secondaryBlue};
-  margin-left: 2vw;
+  margin-left: 1vw;
   border-radius: 1rem;
 `;
 
@@ -51,8 +56,8 @@ const Hr = styled.hr`
   border-radius: 100px;
 `;
 
-const AddNutritionalPlan = styled.div``;
+const AddNutritionalPlan = styled(AddRoutineContainer)``;
 
-const BillSection = styled.div``;
+const BillSection = styled(AddRoutineContainer)``;
 
 const NextPaymentSection = styled.div``;

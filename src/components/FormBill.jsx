@@ -296,12 +296,6 @@ export const FormBill = () => {
           </InputContainer>
           <InputContainer>
             <Label>Año</Label>
-            {/* <Input
-              type="number"
-              placeholder="Determine año de próximo pago"
-              onChange={handleYearNext}
-              id="year-next"
-            /> */}
             <Select onChange={handleYearNext} id="year-next">
               <Option value="null">
                 --- Seleccione año de pago realizado ---

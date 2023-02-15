@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
+import uploadPdf from "../static/upload-pdf.json";
 
 import { Colors } from "../constants/Colors";
 import { UploadAnimation } from "./UploadAnimation";
@@ -58,12 +59,13 @@ export const DragAndDrop = ({ pdf, setPdf, error }) => {
           <Pdf src={urlPdf} type="application/pdf" onClick={uploadFiles}></Pdf>
         ) : (
           <DropZone>
-            <P>Arrastra y suelta el archivo</P>
-            <UploadAnimation uploadFiles={uploadFiles} />
-            <P>Ó</P>
-            <ButtonSelect onClick={uploadFiles}>
-              Selecciona archivo
-            </ButtonSelect>
+            <P>Arrastra ó busca el archivo</P>
+            <UploadAnimation
+              uploadFiles={uploadFiles}
+              animation={uploadPdf}
+              height="10vw"
+              width="40vw"
+            />
           </DropZone>
         )}
 
@@ -113,7 +115,5 @@ const ErrorInput = styled.div`
   text-align: left;
   margin-left: 2rem;
 `;
-
-const ButtonSelect = styled.button``;
 
 const ButtonChange = styled.button``;

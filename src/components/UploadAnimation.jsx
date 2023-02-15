@@ -2,18 +2,16 @@ import React from "react";
 import Lottie from "react-lottie";
 import styled from "styled-components";
 
-import uploadPhoto from "../static/upload-photo.json";
-
-export const UploadAnimation = ({ uploadFiles }) => {
+export const UploadAnimation = ({ uploadFiles, animation, height, width }) => {
   const uploadPhotoData = {
     loop: true,
     autoplay: true,
-    animationData: uploadPhoto,
+    animationData: animation,
   };
 
   return (
     <AnimationContainer onClick={uploadFiles}>
-      <Lottie options={uploadPhotoData} height={"25vw"} width={"25vw"} />
+      <Lottie options={uploadPhotoData} height={height} width={width} />
     </AnimationContainer>
   );
 };

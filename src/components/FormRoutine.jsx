@@ -1,11 +1,23 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { FaEdit } from "react-icons/fa";
+import { IoMdAddCircle } from "react-icons/io";
 
 import { Colors } from "../constants/Colors";
+import { FontFamily } from "../constants/Fonts";
 import db from "../static/db.json";
 import { ExerciseComponent } from "./ExerciseComponent";
 
-const { errorInput } = Colors;
+const {
+  errorInput,
+  primaryRed,
+  primaryBlue,
+  secondaryRed,
+  secondaryBlue,
+  backgroundText,
+  backgroundBlue,
+  success,
+} = Colors;
 
 const FormRoutine = () => {
   const [forData, setForData] = useState(null);
@@ -159,14 +171,14 @@ const FormRoutine = () => {
         {!forData ? (
           <InputContainer>
             <Label>Para:</Label>
-            <Select onChange={handleFor} id="for-data">
+            <SelectFirst onChange={handleFor} id="for-data">
               <Option value="null">Seleccione un usuario</Option>
               {db.users.map((el, index) => (
                 <Option key={index} value={el.email}>
                   {el.username} {el.surname} - {el.email}
                 </Option>
               ))}
-            </Select>
+            </SelectFirst>
             {errorsRoutine.forData && (
               <ErrorInput>{errorsRoutine.forData}</ErrorInput>
             )}
@@ -174,9 +186,7 @@ const FormRoutine = () => {
         ) : (
           <ForTextContainer>
             <ForText>Rutina para {forData}</ForText>
-            <ButtonForChange onClick={handleChangeFor}>
-              Cambiar destinatario
-            </ButtonForChange>
+            <FaEdit size="1.5rem" onClick={handleChangeFor} />
           </ForTextContainer>
         )}
       </ForPartContainer>
@@ -184,14 +194,14 @@ const FormRoutine = () => {
         {!dayData ? (
           <InputContainer>
             <Label>Día:</Label>
-            <Select onChange={handleDay}>
+            <SelectFirst onChange={handleDay}>
               <Option value="null">Seleccione un día</Option>
               {db.days.map((el, index) => (
                 <Option value={el.value} key={index}>
                   {el.day}
                 </Option>
               ))}
-            </Select>
+            </SelectFirst>
             {errorsRoutine.dayData && (
               <ErrorInput>{errorsRoutine.dayData}</ErrorInput>
             )}
@@ -199,11 +209,9 @@ const FormRoutine = () => {
         ) : (
           <ForTextContainer>
             <ForText>
-              Día: {db.days.find((el) => el.value === dayData).day}
+              Para el día {db.days.find((el) => el.value === dayData).day}
             </ForText>
-            <ButtonForChange onClick={handleChangeDay}>
-              Cambiar día
-            </ButtonForChange>
+            <FaEdit size="1.5rem" onClick={handleChangeDay} />
           </ForTextContainer>
         )}
       </DayPartContainer>
@@ -257,9 +265,11 @@ const FormRoutine = () => {
             <ErrorInput>{errorsExercises.typeExercise}</ErrorInput>
           )}
         </InputContainer>
-        <AddExercise type="button" onClick={handleAddExercise}>
-          Agregar ejercicio
-        </AddExercise>
+        <IoMdAddCircle
+          fontSize="3.5rem"
+          type="button"
+          onClick={handleAddExercise}
+        />
       </DataContainer>
       {exercises && (
         <List>
@@ -276,45 +286,125 @@ const FormRoutine = () => {
   );
 };
 
-const Form = styled.form``;
+const ButtonSubmit = styled.button`
+  font-family: ${FontFamily};
+  font-size: 1.8rem;
+  font-weight: 500;
+  width: 100%;
+  padding: 10px;
+  margin-top: 1rem;
+  border: none;
+  background-color: ${primaryRed};
+  border-radius: 1rem;
+  transition: all 0.6s ease;
 
-const ForPartContainer = styled.div``;
+  :hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+`;
 
-const ForTextContainer = styled.div``;
+const DataContainer = styled.div`
+  svg {
+    position: relative;
+    top: 3vw;
+    font-weight: 500;
+    margin-left: 5vw;
+    border: none;
+    border-radius: 50px;
+    color: ${success};
+    transition: all 0.6s ease;
 
-const ButtonForChange = styled.button``;
+    :hover {
+      cursor: pointer;
+      opacity: 0.6;
+    }
+  }
+`;
 
 const DayPartContainer = styled.div``;
 
-const DataContainer = styled.div``;
+const ErrorInput = styled.div`
+  font-size: 15px;
+  color: ${errorInput};
+  margin-bottom: 1rem;
+  text-align: left;
+  margin-left: 1rem;
+`;
+
+const Form = styled.form`
+  padding: 0 5vw 0 5vw;
+`;
+
+const ForPartContainer = styled.div``;
+
+const ForText = styled.p`
+  margin-left: 1rem;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: ${primaryRed};
+  font-style: italic;
+  border: 3px solid rgb(117, 112, 112);
+  border-radius: 1rem;
+`;
+
+const ForTextContainer = styled.div`
+  display: flex;
+
+  svg {
+    color: ${secondaryBlue};
+    padding: 1rem;
+    transition: all 0.7s ease;
+    margin-top: 2.5rem;
+  }
+
+  svg:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    color: ${secondaryRed};
+  }
+`;
+
+const Input = styled.input`
+  font-family: ${FontFamily};
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 400;
+  padding: 8px;
+  background-color: ${backgroundBlue};
+`;
 
 const InputContainer = styled.div`
   display: inline-grid;
   margin: 1rem;
+  line-height: 2.5rem;
 `;
 
-const Label = styled.label``;
-
-const Select = styled.select``;
-
-const Option = styled.option``;
-
-const ForText = styled.p``;
-
-const Input = styled.input``;
-
-const ErrorInput = styled.div`
-  font-size: 12px;
-  color: ${errorInput};
-  margin-bottom: 1rem;
-  text-align: left;
-  margin-left: 2rem;
+const Label = styled.label`
+  font-size: 1.3rem;
+  font-weight: 500;
 `;
-
-const AddExercise = styled.button``;
 
 const List = styled.ol``;
 
-const ButtonSubmit = styled.button``;
+const Option = styled.option``;
+
+const Select = styled.select`
+  font-family: ${FontFamily};
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 400;
+  padding: 8px;
+  background-color: ${backgroundBlue};
+
+  :hover {
+    cursor: pointer;
+  }
+`;
+
+const SelectFirst = styled(Select)`
+  width: 30vw;
+`;
 
 export default FormRoutine;
