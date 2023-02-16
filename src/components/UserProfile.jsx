@@ -84,24 +84,46 @@ export const UserProfile = () => {
     }
   };
 
-  const handleSend = () => {
+  const handleSend = async () => {
     setChangePhoto(!changePhoto);
 
     if (userPhoto != null) {
-      toast.success(`Foto de perfil actualizada. Recargando...`, {
-        position: "top-right",
-        duration: 2000,
-        style: {
-          background: "rgba(215, 250, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
-      });
-    }
+      /* try {
+        const resp = await fetch("/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ dataSignIn }),
+        });
 
-    /* setTimeout(() => {
-      window.location.reload();
-    }, 2000); */
+        toast.success("Foto de perfil actualizada. Recargando...", {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(215, 250, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
+
+        console.log(resp);
+
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
+      } catch (error) {
+        toast.error("error.", {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
+      } */
+    }
   };
 
   return (

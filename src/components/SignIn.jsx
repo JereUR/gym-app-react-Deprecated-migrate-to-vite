@@ -20,6 +20,11 @@ export const SignIn = () => {
   const [errorRecover, setErrorRecover] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const clearForm = () => {
+    document.getElementById("email-sign-in").value = "";
+    document.getElementById("password-sign-in").value = "";
+  };
+
   const handleForgotPasswordModal = () => {
     setForgotPassword(!forgotPassword);
   };
@@ -32,22 +37,23 @@ export const SignIn = () => {
     setPasswordSignIn(e.target.value);
   };
 
-  const handleSubmitSignIn = (e) => {
+  const handleSubmitSignIn = async (e) => {
     e.preventDefault();
 
     setLoading(true);
     const dataSignIn = { emailSignIn, passwordSignIn };
-    document.getElementById("email-sign-in").value = "";
-    document.getElementById("password-sign-in").value = "";
 
     /* try {
-      fetch()
+      const resp = await fetch("/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ dataSignIn }),
+      });
+      console.log(resp);
     } catch (error) {
-      setEmailSignIn(true);
-    } */
-
-    if (errorSignIn) {
-      toast.error("Email o contraseña incorrecto.", {
+      toast.error("error.", {
         position: "top-right",
         duration: 6000,
         style: {
@@ -56,7 +62,9 @@ export const SignIn = () => {
           fontWeight: "500",
         },
       });
-    }
+    } */
+
+    clearForm();
 
     setLoading(false);
   };

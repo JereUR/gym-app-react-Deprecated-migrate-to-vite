@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { FaEdit } from "react-icons/fa";
+import { Toaster, toast } from "react-hot-toast";
 
 import db from "../static/db.json";
 import { DragAndDrop } from "./DragAndDrop";
@@ -121,7 +122,7 @@ export const FormBill = () => {
     setYearNext(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const err = onValidate();
@@ -143,10 +144,37 @@ export const FormBill = () => {
           yearNext,
         };
 
-        console.log(payment);
+        /* try {
+          const resp = await fetch("/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ payment }),
+          });
+          console.log(resp);
+
+           toast.success("Pago enviado.", {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(215, 250, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          });
+        } catch (error) {
+          toast.error("error.", {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(250, 215, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          });
+        } */
         clearForm();
-      } else {
-        console.log("Error pago con próximo.");
       }
     } else {
       setErrorsNext({});
@@ -163,10 +191,37 @@ export const FormBill = () => {
           yearNext,
         };
 
-        console.log(payment);
+        /* try {
+          const resp = await fetch("/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ payment }),
+          });
+          console.log(resp);
+
+          toast.success("Pago enviado.", {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(215, 250, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          });
+        } catch (error) {
+          toast.error("error.", {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(250, 215, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          });
+        } */
         clearForm();
-      } else {
-        console.log("Error pago sin próximo.");
       }
     }
   };
@@ -314,6 +369,7 @@ export const FormBill = () => {
         </NextPaymentContainer>
         <ButtonSend type="submit">Enviar</ButtonSend>
       </PaymentContainer>
+      <Toaster />
     </FormAddBill>
   );
 };

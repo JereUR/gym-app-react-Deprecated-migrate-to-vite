@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Toaster, toast } from "react-hot-toast";
 
 import Modal from "./Modal";
 import { Colors } from "../constants/Colors";
@@ -70,15 +71,43 @@ export const SignUp = () => {
     setDataRegister({ ...dataRegister, [name]: value });
   };
 
-  const handleSubmitRegister = (e) => {
+  const handleSubmitRegister = async (e) => {
     e.preventDefault();
 
     const err = onValidate();
     setErrors(err);
 
     if (Object.keys(err).length === 0) {
-      console.log("Envio formulario");
-      console.log(dataRegister);
+      /* try {
+          const resp = await fetch("/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({dataRegister }),
+          });
+          toast.success("Registro exitoso.", {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(215, 250, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          });
+          console.log(resp);
+        } catch (error) {
+          toast.error("error.", {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(250, 215, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          });
+        } */
+
       setDataRegister(initialData);
       setRegister(false);
     }
@@ -175,6 +204,7 @@ export const SignUp = () => {
           </FormContainer>
         </Content>
       </Modal>
+      <Toaster />
     </FormContainer>
   );
 };

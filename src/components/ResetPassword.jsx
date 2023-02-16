@@ -48,25 +48,46 @@ export const ResetPassword = () => {
     setDataRecovery({ ...dataRecovery, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const err = onValidate();
     setErrors(err);
 
     if (Object.keys(err).length === 0) {
-      console.log("Envio formulario");
-      console.log(dataRecovery);
+      /* try {
+          const resp = await fetch("/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ dataRecovery }),
+          });
+          console.log(resp);
+
+           toast.success("Contraseña cambiada con exito.", {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(215, 250, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          });
+        } catch (error) {
+          toast.error("error.", {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(250, 215, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          });
+        } */
+
       setDataRecovery(initialData);
-      toast.success("Contraseña cambiada con exito.", {
-        position: "top-right",
-        duration: 6000,
-        style: {
-          background: "rgba(215, 250, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
-      });
+
       setTimeout(() => {
         window.location.replace(`/usuario/:${user.username}`);
       }, 2000);

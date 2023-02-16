@@ -6,14 +6,8 @@ import { Colors } from "../constants/Colors";
 import { GrDocumentPdf } from "react-icons/gr";
 import { FiDownload } from "react-icons/fi";
 
-const {
-  primaryRed,
-  primaryBlue,
-  secondaryBlue,
-  secondaryRed,
-  backgroundText,
-  colorText,
-} = Colors;
+const { primaryRed, primaryBlue, secondaryBlue, secondaryRed, colorText } =
+  Colors;
 
 export const Bill = () => {
   return (
