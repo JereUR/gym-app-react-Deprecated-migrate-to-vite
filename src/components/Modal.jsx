@@ -39,18 +39,27 @@ const Modal = ({ children, state, setState, title }) => {
 
 export default Modal;
 
-const Overlay = styled.div`
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
+const CloseButton = styled.button`
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+  border: none;
+  width: 50px;
+  height: 50px;
+  background: none;
+  transition: 0.3s ease all;
+  border-radius: 5px;
+  color: ${secondaryBlue};
+
+  &:hover {
+    background: rgba(210, 230, 250);
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const ModalContainer = styled.div`
@@ -78,25 +87,16 @@ const ModalHeader = styled.div`
   }
 `;
 
-const CloseButton = styled.button`
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  cursor: pointer;
-  border: none;
-  width: 50px;
-  height: 50px;
-  background: none;
-  transition: 0.3s ease all;
-  border-radius: 5px;
-  color: ${secondaryBlue};
-
-  &:hover {
-    background: rgba(210, 230, 250);
-  }
-
-  svg {
-    width: 100%;
-    height: 100%;
-  }
+const Overlay = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
 `;

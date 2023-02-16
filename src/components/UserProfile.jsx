@@ -176,108 +176,6 @@ export const UserProfile = () => {
   );
 };
 
-const ProfileContainer = styled.div`
-  display: block;
-  margin: 2vw;
-  margin-bottom: 1vw !important;
-`;
-
-const PhotoContainer = styled.div`
-  color: ${secondaryBlue};
-
-  svg {
-    padding: 1rem;
-    transition: all 0.7s ease;
-  }
-
-  svg:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-    color: ${secondaryRed};
-  }
-`;
-
-const UserPhoto = styled.img`
-  width: 8vw;
-  margin-left: 5vw;
-  margin-bottom: 1vw;
-  border-radius: 1000px;
-  box-shadow: 0px 6px 5px #ccc;
-  background: ${backgroundText};
-`;
-
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const InfoContainer = styled.div``;
-
-const Label = styled.h3`
-  margin-left: 5vw;
-  margin-bottom: -0.5rem;
-  font-style: italic;
-  color: ${secondaryBlue};
-`;
-
-const TextContainer = styled.div`
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  width: 40vw;
-  margin-left: 5vw;
-  border-radius: 1rem;
-  color: ${primaryRed};
-`;
-
-const Text = styled.p`
-  font-size: 1.3rem;
-  padding: 1rem;
-  font-weight: bold;
-`;
-
-const UploadPhotoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const InputPhoto = styled.input`
-  margin-left: 2rem;
-`;
-
-const ImagePhoto = styled.img`
-  margin-bottom: 1rem;
-`;
-
-const ErrorInput = styled.div`
-  font-size: 12px;
-  color: ${errorInput};
-  margin-bottom: 1rem;
-  text-align: left;
-  margin-left: 2rem;
-`;
-
-const SendPhoto = styled.button`
-  font-family: "Roboto", sans-serif;
-  background-color: ${primaryBlue};
-  color: ${colorText};
-  padding: 10px;
-  margin: 10px;
-  font-size: 1.5rem;
-  border: none;
-  border-radius: 0.5rem;
-  transition: all 0.7s ease-in-out;
-
-  :hover {
-    cursor: pointer;
-    background-color: ${secondaryBlue};
-    transform: scale(1.05);
-  }
-`;
-
-const PasswordContainer = styled.div`
-  text-align: center;
-`;
-
 const ChangePasswordButton = styled.button`
   width: 90%;
   margin-bottom: 3vh !important;
@@ -298,7 +196,77 @@ const ChangePasswordButton = styled.button`
   }
 `;
 
-const SignOutContainer = styled(PasswordContainer)``;
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const ErrorInput = styled.div`
+  font-size: 12px;
+  color: ${errorInput};
+  margin-bottom: 1rem;
+  text-align: left;
+  margin-left: 2rem;
+`;
+
+const ImagePhoto = styled.img`
+  margin-bottom: 1rem;
+`;
+
+const InfoContainer = styled.div``;
+
+const InputPhoto = styled.input`
+  margin-left: 2rem;
+`;
+
+const Label = styled.h3`
+  margin-left: 5vw;
+  margin-bottom: -0.5rem;
+  font-style: italic;
+  color: ${secondaryBlue};
+`;
+
+const PasswordContainer = styled.div`
+  text-align: center;
+`;
+
+const PhotoContainer = styled.div`
+  color: ${secondaryBlue};
+
+  svg {
+    padding: 1rem;
+    transition: all 0.5s ease-in-out;
+  }
+
+  svg:hover {
+    cursor: pointer;
+    color: ${secondaryRed};
+  }
+`;
+
+const ProfileContainer = styled.div`
+  display: block;
+  margin: 2vw;
+  margin-bottom: 1vw !important;
+`;
+
+const SendPhoto = styled.button`
+  font-family: ${FontFamily};
+  background-color: ${primaryBlue};
+  color: ${colorText};
+  padding: 10px;
+  margin: 10px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  transition: all 0.7s ease-in-out;
+
+  :hover {
+    cursor: pointer;
+    background-color: ${secondaryBlue};
+  }
+`;
 
 const SignOutButton = styled.button`
   width: 90%;
@@ -317,4 +285,35 @@ const SignOutButton = styled.button`
     cursor: pointer;
     background-color: ${secondaryRed};
   }
+`;
+
+const SignOutContainer = styled(PasswordContainer)``;
+
+const Text = styled.p`
+  font-size: 1.3rem;
+  padding: 1rem;
+  font-weight: bold;
+`;
+
+const TextContainer = styled.div`
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  width: 40vw;
+  margin-left: 5vw;
+  margin-bottom: 2vw;
+  border-radius: 1rem;
+  color: ${primaryRed};
+`;
+
+const UploadPhotoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const UserPhoto = styled.img`
+  width: 8vw;
+  margin-left: 5vw;
+  margin-bottom: 1vw;
+  border-radius: 1000px;
+  box-shadow: 0px 6px 5px #ccc;
+  background: ${backgroundText};
 `;

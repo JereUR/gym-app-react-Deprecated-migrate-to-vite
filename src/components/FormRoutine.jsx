@@ -14,8 +14,6 @@ const {
   primaryBlue,
   secondaryRed,
   secondaryBlue,
-  backgroundText,
-  backgroundBlue,
   success,
 } = Colors;
 

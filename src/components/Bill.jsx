@@ -54,12 +54,50 @@ export const Bill = () => {
 
 const BillContainer = styled.div``;
 
+const BillItem = styled.a`
+  margin-top: 1.3rem;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+
+  svg {
+    margin-left: 5px;
+  }
+
+  :hover {
+    color: ${primaryRed};
+  }
+`;
+
+const BillItemContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  background-color: ${colorText};
+  margin: 2vw 5vw 1vw 5vw;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 10px #ccc;
+`;
+
+const NamePayment = styled.p`
+  font-size: 1.3rem;
+
+  svg {
+    margin-right: 1rem;
+  }
+`;
+
 const NextPaymentContainer = styled.div`
   margin: 7vw 12vw 7vw 12vw;
   padding: 2vw;
   border-radius: 2rem;
-  background-color: ${backgroundText};
-  box-shadow: 0 0 4px 4px ${secondaryRed};
+  box-shadow: 0 0 10px ${secondaryRed};
+`;
+
+const NoData = styled.p`
+  margin-top: 2rem;
+  margin-left: 4vw;
+  font-size: 1.3rem;
+  font-style: italic;
 `;
 
 const NoticeTitleNext = styled.h1`
@@ -73,44 +111,10 @@ const Notice = styled.p`
   font-style: italic;
 `;
 
-const NoData = styled.p`
-  margin-top: 2rem;
-  margin-left: 4vw;
-  font-size: 1.3rem;
-  font-style: italic;
-`;
-
-const PaymentsContainer = styled(NextPaymentContainer)`
-  box-shadow: 0 0 4px 4px ${secondaryBlue};
-`;
-
 const NoticeTitlePayment = styled(NoticeTitleNext)`
   color: ${primaryBlue};
 `;
 
-const BillItemContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  background-color: ${colorText};
-  margin: 2vw 5vw 1vw 5vw;
-  padding: 1rem;
-  border-radius: 1rem;
-  box-shadow: 0px 6px 5px #ccc;
-`;
-
-const NamePayment = styled.p`
-  font-size: 1.3rem;
-
-  svg {
-    margin-right: 1rem;
-  }
-`;
-
-const BillItem = styled.a`
-  margin-top: 1.3rem;
-  text-decoration: none;
-
-  svg {
-    margin-left: 5px;
-  }
+const PaymentsContainer = styled(NextPaymentContainer)`
+  box-shadow: 0 0 10px ${secondaryBlue};
 `;

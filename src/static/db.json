@@ -82,7 +82,7 @@
       "email": "jeremias.jdv@gmail.com",
       "date": "1994-11-29",
       "login": true,
-      "admin": true,
+      "admin": false,
       "photo": null,
       "routine": {
         "monday": [

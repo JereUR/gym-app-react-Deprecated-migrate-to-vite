@@ -15,7 +15,6 @@ const {
   primaryBlue,
   secondaryBlue,
   secondaryRed,
-  backgroundBlue,
   success,
 } = Colors;
 
@@ -30,7 +29,6 @@ export const FormNutritionalPlan = () => {
   const [lunch, setLunch] = useState([]);
   const [snack, setSnack] = useState([]);
   const [dinner, setDinner] = useState([]);
-  const [meals, setMeals] = useState([]);
   const [errorsPlan, setErrorsPlan] = useState({});
   const [errorsMeal, setErrorsMeal] = useState({});
 
@@ -198,7 +196,6 @@ export const FormNutritionalPlan = () => {
         default:
           break;
       }
-      console.log(meals);
       clearFormMeal();
     } else {
       console.log("Error comida");

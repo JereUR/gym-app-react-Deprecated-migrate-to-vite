@@ -6,8 +6,9 @@ import { IconContext } from "react-icons";
 import { user } from "../App";
 import { getDayNow } from "../helpers/GetDay";
 import { Colors } from "../constants/Colors";
+import { FontFamily } from "../constants/Fonts";
 
-const { primaryBlue, primaryRed, backgroundText } = Colors;
+const { primaryBlue, secondaryBlue, primaryRed, backgroundText } = Colors;
 
 export const NutritionalPlan = () => {
   const [showPlan, setShowPlan] = useState(false);
@@ -24,7 +25,7 @@ export const NutritionalPlan = () => {
         value={{ size: "1.9rem", style: { verticalAlign: "middle" } }}
       >
         <PlanButton onClick={handlePlan}>
-          Mis Plan Nutricional{" "}
+          Mis Planes Nutricionales{" "}
           {!showPlan ? <MdArrowCircleDown /> : <MdArrowCircleUp />}
         </PlanButton>
       </IconContext.Provider>
@@ -456,40 +457,50 @@ export const NutritionalPlan = () => {
   );
 };
 
-const PlanContainer = styled.div`
-  padding-top: -1rem;
+const DayWeek = styled.h1``;
+
+const DayWeekNow = styled(DayWeek)`
+  color: ${primaryRed};
 `;
 
-const TextMeal = styled.p`
-  font-weight: bold;
-  font-size: 1.4rem;
+const Hr = styled.hr``;
+
+const InfoItem = styled.li`
+  color: rgb(30, 30, 30);
+  font-size: 1.2rem;
+  line-height: 3rem;
+  display: flex;
+  margin-left: 1rem;
 `;
+
+const List = styled.div``;
+
+const NoData = styled.div``;
 
 const PlanButton = styled.button`
   width: 90vw;
   margin-bottom: 5vw !important;
-  font-family: "Roboto", sans-serif;
+  font-family: ${FontFamily};
   font-weight: bold;
   background-color: #fff;
-  color: #ee464f;
+  color: ${primaryRed};
   padding: 10px;
   margin: 10px;
   font-size: 2rem;
-  box-shadow: 0 0 3px 3px #ee464f;
+  box-shadow: 0 0 3px 3px ${primaryRed};
   border: none;
   border-radius: 0.5rem;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease-in-out;
 
   :hover {
     cursor: pointer;
-    background-color: rgb(250, 220, 220);
-    box-shadow: 0 0 3px 3px rgb(30, 30, 30);
-    color: rgb(30, 30, 30);
-
-    path {
-      transform: scale(1.1);
-    }
+    box-shadow: 0 0 3px 3px ${secondaryBlue};
+    color: ${secondaryBlue};
   }
+`;
+
+const PlanContainer = styled.div`
+  padding-top: -1rem;
 `;
 
 const PlanData = styled.div`
@@ -509,28 +520,13 @@ const PlanDay = styled.div`
   padding: 1rem;
   margin: 1rem;
   text-align: left;
-  background-color: ${backgroundText};
+  box-shadow: 0px 0px 5px ${primaryBlue};
   border-radius: 10px;
 `;
 
-const DayWeek = styled.h1``;
-
-const DayWeekNow = styled(DayWeek)`
-  color: ${primaryRed};
+const TextMeal = styled.p`
+  font-weight: bold;
+  font-size: 1.4rem;
 `;
 
 const Today = styled.i``;
-
-const Hr = styled.hr``;
-
-const List = styled.div``;
-
-const InfoItem = styled.li`
-  color: rgb(30, 30, 30);
-  font-size: 1.2rem;
-  line-height: 3rem;
-  display: flex;
-  margin-left: 1rem;
-`;
-
-const NoData = styled.div``;

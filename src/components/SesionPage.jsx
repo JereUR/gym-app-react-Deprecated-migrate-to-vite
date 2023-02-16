@@ -30,13 +30,9 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const LogoSection = styled.div`
+const FormData = styled.div`
   flex: 1;
-  margin: 5vw 1vw auto 20vw;
-  width: 100%;
-  height: 50%;
-  padding: 4vw;
-  border-radius: 10px;
+  margin: 7vw 30vw auto 1vw;
 `;
 
 const LogoContainer = styled.div`
@@ -50,6 +46,15 @@ const LogoImg = styled.img`
   border-radius: 1.5rem;
 `;
 
+const LogoSection = styled.div`
+  flex: 1;
+  margin: 5vw 1vw auto 20vw;
+  width: 100%;
+  height: 50%;
+  padding: 4vw;
+  border-radius: 10px;
+`;
+
 const TextContainer = styled.div`
   width: 20vw;
 `;
@@ -59,9 +64,4 @@ const TextContent = styled.p`
   text-align: center;
   font-size: 20px;
   font-style: oblique;
-`;
-
-const FormData = styled.div`
-  flex: 1;
-  margin: 7vw 30vw auto 1vw;
 `;

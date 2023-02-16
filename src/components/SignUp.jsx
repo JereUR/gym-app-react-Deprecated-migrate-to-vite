@@ -3,8 +3,10 @@ import styled from "styled-components";
 
 import Modal from "./Modal";
 import { Colors } from "../constants/Colors";
+import { FontFamily } from "../constants/Fonts";
 
-const { primaryBlue, secondaryBlue, colorText, errorInput } = Colors;
+const { primaryBlue, primaryRed, secondaryBlue, colorText, errorInput } =
+  Colors;
 
 const initialData = {
   nameRegister: "",
@@ -177,9 +179,21 @@ export const SignUp = () => {
   );
 };
 
-const FormContainer = styled.div`
-  display: block;
-  text-align: center;
+const ButtonSignUp = styled.button`
+  font-family: ${FontFamily};
+  background-color: ${primaryBlue};
+  color: ${colorText};
+  padding: 10px;
+  margin: 10px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  transition: all 0.7s ease-in-out;
+
+  :hover {
+    cursor: pointer;
+    background-color: ${secondaryBlue};
+  }
 `;
 
 const Content = styled.div`
@@ -205,60 +219,6 @@ const Content = styled.div`
   }
 `;
 
-const Form = styled.form`
-  display: grid;
-`;
-
-const InputContainer = styled.div``;
-
-const NameAndSurnameContainer = styled.div`
-  display: flex;
-  margin-left: 0.9rem;
-  margin-right: 0.9rem;
-`;
-
-const Input = styled.input`
-  font-family: "Roboto", sans-serif;
-  margin-bottom: 1rem;
-  padding: 10px;
-  font-size: 1.2rem;
-  border-radius: 0.5rem;
-  border: 1.5px solid rgb(150, 150, 150);
-  background-color: ${colorText};
-  color: ${secondaryBlue};
-  width: 90%;
-`;
-
-const InputName = styled.input`
-  font-family: "Roboto", sans-serif;
-  margin-bottom: 1rem;
-  margin-right: 1rem;
-  padding: 10px;
-  font-size: 1.2rem;
-  border-radius: 0.5rem;
-  border: 1.5px solid rgb(150, 150, 150);
-  background-color: ${colorText};
-  color: ${secondaryBlue};
-`;
-
-const ButtonSignUp = styled.button`
-  font-family: "Roboto", sans-serif;
-  background-color: ${primaryBlue};
-  color: ${colorText};
-  padding: 10px;
-  margin: 10px;
-  font-size: 1.5rem;
-  border: none;
-  border-radius: 0.5rem;
-  transition: all 0.7s ease-in-out;
-
-  :hover {
-    cursor: pointer;
-    background-color: ${secondaryBlue};
-    transform: scale(1.05);
-  }
-`;
-
 const ErrorInput = styled.div`
   font-size: 12px;
   color: ${errorInput};
@@ -273,4 +233,51 @@ const ErrorInputNameSurname = styled.div`
   margin-bottom: 1rem;
   text-align: left;
   margin-left: 1rem;
+`;
+
+const Form = styled.form`
+  display: grid;
+  margin-top: 1rem;
+`;
+
+const FormContainer = styled.div`
+  display: block;
+  text-align: center;
+`;
+
+const Input = styled.input`
+  font-family: ${FontFamily};
+  background-color: #fff;
+  border: 2px solid ${primaryBlue};
+  border-radius: 4px;
+  color: #000;
+  font-size: 1.2rem;
+  padding: 10px;
+  margin-bottom: 1rem;
+  width: 90%;
+
+  :focus {
+    border-color: ${primaryRed};
+    box-shadow: 0 0 0 3px rgba(65, 157, 199, 0.5);
+  }
+`;
+
+const InputContainer = styled.div``;
+
+const InputName = styled.input`
+  font-family: ${FontFamily};
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  padding: 10px;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  border: 2px solid ${primaryBlue};
+  background-color: #fff;
+  color: #000;
+`;
+
+const NameAndSurnameContainer = styled.div`
+  display: flex;
+  margin-left: 0.9rem;
+  margin-right: 0.9rem;
 `;

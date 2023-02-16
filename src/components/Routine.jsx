@@ -204,8 +204,37 @@ export const Routine = () => {
   );
 };
 
-const RoutineContainer = styled.div`
-  align-content: center;
+const DayWeek = styled.h1``;
+
+const DayWeekNow = styled.h1`
+  color: ${primaryRed};
+`;
+
+const Exercise = styled.p`
+  padding-top: 1.6px;
+`;
+
+const Hr = styled.hr``;
+
+const InfoItem = styled.li`
+  color: rgb(30, 30, 30);
+  font-size: 1.3rem;
+  display: flex;
+`;
+
+const List = styled.div``;
+
+const Mount = styled.p`
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-right: 0.5rem;
+  color: ${secondaryBlue};
+`;
+
+const NoData = styled.div`
+  text-align: center;
+  color: rgb(30, 30, 30);
+  font-style: italic;
 `;
 
 const RoutineButton = styled.button`
@@ -222,18 +251,17 @@ const RoutineButton = styled.button`
   box-shadow: 0 0 3px 3px ${primaryRed};
   border: none;
   border-radius: 0.5rem;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease-in-out;
 
   :hover {
     cursor: pointer;
-    background-color: rgb(250, 220, 220);
-    box-shadow: 0 0 3px 3px rgb(30, 30, 30);
-    color: rgb(30, 30, 30);
-
-    path {
-      transform: scale(1.1);
-    }
+    box-shadow: 0 0 3px 3px ${secondaryBlue};
+    color: ${secondaryBlue};
   }
+`;
+
+const RoutineContainer = styled.div`
+  align-content: center;
 `;
 
 const RoutineData = styled.div`
@@ -253,45 +281,12 @@ const RoutineDay = styled.div`
   padding: 1rem;
   margin: 1rem;
   text-align: left;
-  background-color: ${backgroundText};
+  box-shadow: 0px 0px 5px ${primaryBlue};
   border-radius: 10px;
-`;
-
-const DayWeek = styled.h1``;
-
-const DayWeekNow = styled.h1`
-  color: ${primaryRed};
-`;
-
-const Today = styled.i``;
-
-const Hr = styled.hr``;
-
-const List = styled.div``;
-
-const InfoItem = styled.li`
-  color: rgb(30, 30, 30);
-  font-size: 1.3rem;
-  display: flex;
-`;
-
-const Mount = styled.p`
-  font-size: 1.4rem;
-  font-weight: bold;
-  margin-right: 0.5rem;
-  color: ${secondaryBlue};
-`;
-
-const Exercise = styled.p`
-  padding-top: 1.6px;
-`;
-
-const NoData = styled.div`
-  text-align: center;
-  color: rgb(30, 30, 30);
-  font-style: italic;
 `;
 
 const TextNoData = styled.p`
   font-size: 1.4rem;
 `;
+
+const Today = styled.i``;

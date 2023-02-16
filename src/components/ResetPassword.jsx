@@ -4,6 +4,7 @@ import { Toaster, toast } from "react-hot-toast";
 
 import { user } from "../App";
 import { Colors } from "../constants/Colors";
+import { FontFamily } from "../constants/Fonts";
 
 const initialData = {
   newPassword: "",
@@ -104,34 +105,8 @@ export const ResetPassword = () => {
   );
 };
 
-const FormContainer = styled.div`
-  border-radius: 5px;
-  padding: 12vw 15vw 12vw 15vw;
-`;
-
-const TitleReset = styled.h1`
-  font-family: "Roboto", sans-serif;
-  text-align: left;
-  color: ${primaryBlue};
-`;
-
-const Form = styled.form`
-  display: grid;
-`;
-
-const Input = styled.input`
-  font-family: "Roboto", sans-serif;
-  margin-top: 1rem;
-  padding: 10px;
-  font-size: 1.2rem;
-  border-radius: 0.5rem;
-  border: 1.5px solid rgb(150, 150, 150);
-  background-color: ${colorText};
-  color: ${secondaryBlue};
-`;
-
 const ButtonSend = styled.button`
-  font-family: "Roboto", sans-serif;
+  font-family: ${FontFamily};
   background-color: ${primaryBlue};
   color: ${colorText};
   padding: 10px;
@@ -163,4 +138,34 @@ const ErrorInput = styled.div`
   margin-top: 5px;
   text-align: left;
   margin-left: 0.5rem;
+`;
+
+const Form = styled.form`
+  display: grid;
+`;
+
+const FormContainer = styled.div`
+  border-radius: 5px;
+  padding: 12vw 15vw 12vw 15vw;
+`;
+
+const Input = styled.input`
+  font-family: ${FontFamily};
+  background-color: #fff;
+  border: 2px solid ${primaryBlue};
+  border-radius: 4px;
+  color: #000;
+  font-size: 1.2rem;
+  padding: 10px;
+  margin-bottom: 1rem;
+
+  :focus {
+    box-shadow: 0 0 0 3px rgba(65, 157, 199, 0.5);
+  }
+`;
+
+const TitleReset = styled.h1`
+  font-family: ${FontFamily};
+  text-align: left;
+  color: ${primaryBlue};
 `;

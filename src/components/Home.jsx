@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
-import banner from "../assets/banner_home2.jpg";
+import banner from "../assets/banner_home.jpg";
 import { Colors } from "../constants/Colors";
 import { NutritionalPlan } from "./NutritionalPlan";
 import { Routine } from "./Routine";
@@ -24,25 +24,25 @@ export const Home = () => {
   );
 };
 
-const HomeContainer = styled.div``;
+const Banner = styled.img`
+  width: 100%;
+  height: 400px;
+  box-shadow: 6px 2px 6px 5px ${backgroundText};
+  border-radius: 5px;
+  margin-top: 2vw;
+`;
 
 const BannerContainer = styled.div`
   margin: 2vw 2vw 3vw 2vw;
   text-align: center;
 `;
 
-const Banner = styled.img`
-  width: 100%;
-  height: 400px;
-  box-shadow: 6px 2px 6px 5px ${backgroundText};
-  border-radius: 5px;
-  margin-top: 1rem;
-`;
+const HomeContainer = styled.div``;
 
-const RutineContainer = styled.div`
+const NutritionalPlanContainer = styled.div`
   text-align: center;
 `;
 
-const NutritionalPlanContainer = styled.div`
+const RutineContainer = styled.div`
   text-align: center;
 `;

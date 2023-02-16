@@ -42,30 +42,23 @@ export const Footer = () => {
   );
 };
 
+const ByContent = styled.div`
+  margin-right: 5vh;
+`;
+
+const CenterContent = styled.div``;
+
 const FooterContainer = styled.div`
   display: flex;
   box-shadow: -10px 5px 11px 0px rgba(0, 0, 0, 0.7);
 `;
 
-const LeftContent = styled.div`
-  flex: 1;
-  padding-left: 3rem;
-  line-height: 5px;
-`;
+const IconLinkedin = styled.a``;
 
-const CenterContent = styled.div``;
-
-const RightContent = styled.div`
-  flex: 1;
-  text-align: end;
-  padding-right: 1rem;
-`;
-
-const NameGym = styled.p`
-  color: ${primaryBlue};
-  font-size: 1rem;
-  font-weight: bold;
-  margin-bottom: 25px;
+const Img = styled.img`
+  width: 25px;
+  border-radius: 50px;
+  margin: 5px;
 `;
 
 const Info = styled.p`
@@ -75,9 +68,22 @@ const Info = styled.p`
   margin-left: 10px;
 `;
 
+const LeftContent = styled.div`
+  flex: 1;
+  padding-left: 3rem;
+  line-height: 5px;
+`;
+
 const Logo = styled.img`
   width: 110px;
   margin-top: 1rem;
+`;
+
+const NameGym = styled.p`
+  color: ${primaryBlue};
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 25px;
 `;
 
 const PoweredBy = styled.p`
@@ -87,14 +93,8 @@ const PoweredBy = styled.p`
   text-decoration: underline;
 `;
 
-const ByContent = styled.div`
-  margin-right: 5vh;
-`;
-
-const IconLinkedin = styled.a``;
-
-const Img = styled.img`
-  width: 25px;
-  border-radius: 50px;
-  margin: 5px;
+const RightContent = styled.div`
+  flex: 1;
+  text-align: end;
+  padding-right: 1rem;
 `;

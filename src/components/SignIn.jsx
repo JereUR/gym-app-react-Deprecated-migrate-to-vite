@@ -6,6 +6,7 @@ import logo from "../assets/logo.png";
 import Loader from "./Loader";
 import Modal from "./Modal";
 import { Colors } from "../constants/Colors";
+import { FontFamily } from "../constants/Fonts";
 
 const { primaryBlue, primaryRed, secondaryBlue, secondaryRed, colorText } =
   Colors;
@@ -147,39 +148,25 @@ export const SignIn = () => {
   );
 };
 
-const FormContainer = styled.div`
-  display: block;
-  text-align: center;
-`;
-
-const LogoForm = styled.img``;
-
-const Form = styled.form`
-  display: grid;
-`;
-
-const Input = styled.input`
-  font-family: "Roboto", sans-serif;
-  margin-bottom: 1rem;
+const ButtonRecover = styled.button`
+  font-family: ${FontFamily};
+  background-color: ${primaryBlue};
+  color: ${colorText};
   padding: 10px;
-  font-size: 1.2rem;
+  margin: 10px;
+  font-size: 1.5rem;
+  border: none;
   border-radius: 0.5rem;
-  border: 1.5px solid rgb(150, 150, 150);
-  background-color: ${colorText};
-  color: ${secondaryBlue};
-`;
-
-const PasswordForgot = styled.p`
-  font-size: 14px;
-  color: ${secondaryBlue};
+  transition: all 0.7s ease-in-out;
 
   :hover {
     cursor: pointer;
+    background-color: ${secondaryBlue};
   }
 `;
 
 const ButtonSignIn = styled.button`
-  font-family: "Roboto", sans-serif;
+  font-family: ${FontFamily};
   background-color: ${primaryRed};
   color: ${colorText};
   padding: 10px;
@@ -192,7 +179,6 @@ const ButtonSignIn = styled.button`
   :hover {
     cursor: pointer;
     background-color: ${secondaryRed};
-    transform: scale(1.05);
   }
 `;
 
@@ -219,38 +205,60 @@ const Content = styled.div`
   }
 `;
 
+const Form = styled.form`
+  display: grid;
+`;
+
+const FormContainer = styled.div`
+  display: block;
+  text-align: center;
+`;
+
+const Input = styled.input`
+  font-family: ${FontFamily};
+  background-color: #fff;
+  border: 2px solid ${primaryBlue};
+  border-radius: 4px;
+  color: #000;
+  font-size: 1.2rem;
+  padding: 10px;
+  margin-bottom: 1rem;
+
+  :focus {
+    border-color: ${primaryRed};
+    box-shadow: 0 0 0 3px rgba(65, 157, 199, 0.5);
+  }
+`;
+
+const InputRecover = styled.input`
+  font-family: ${FontFamily};
+  background-color: #fff;
+  border: 2px solid ${primaryBlue};
+  border-radius: 4px;
+  color: #000;
+  font-size: 1.2rem;
+  padding: 10px;
+  margin-bottom: 1rem;
+
+  :focus {
+    border-color: ${primaryRed};
+    box-shadow: 0 0 0 3px rgba(65, 157, 199, 0.5);
+  }
+`;
+
+const LogoForm = styled.img``;
+
+const PasswordForgot = styled.p`
+  font-size: 14px;
+  color: ${secondaryBlue};
+
+  :hover {
+    cursor: pointer;
+  }
+`;
+
 const TextForgotPassword = styled.div`
   font-weight: bold;
   margin-top: 1rem;
   margin-bottom: 2rem;
-`;
-
-const InputRecover = styled.input`
-  font-family: "Roboto", sans-serif;
-  width: 20vw;
-  margin-bottom: 1rem;
-  padding: 10px;
-  font-size: 1.2rem;
-  border-radius: 0.5rem;
-  border: 1.5px solid rgb(150, 150, 150);
-  background-color: ${colorText};
-  color: ${secondaryBlue};
-`;
-
-const ButtonRecover = styled.button`
-  font-family: "Roboto", sans-serif;
-  background-color: ${primaryBlue};
-  color: ${colorText};
-  padding: 10px;
-  margin: 10px;
-  font-size: 1.5rem;
-  border: none;
-  border-radius: 0.5rem;
-  transition: all 0.7s ease-in-out;
-
-  :hover {
-    cursor: pointer;
-    background-color: ${secondaryBlue};
-    transform: scale(1.05);
-  }
 `;

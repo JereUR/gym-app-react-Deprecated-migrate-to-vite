@@ -440,7 +440,7 @@ const Select = styled.select`
   background-position: right 10px center;
 
   :focus {
-    border-color: ${primaryRed};
+    border-color: 2px solid ${primaryRed};
     box-shadow: 0 0 0 3px rgba(65, 157, 199, 0.5);
   }
 
