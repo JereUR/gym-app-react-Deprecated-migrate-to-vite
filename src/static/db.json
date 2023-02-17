@@ -81,7 +81,7 @@
       "surname": "Dominguez Vega",
       "email": "jeremias.jdv@gmail.com",
       "date": "1994-11-29",
-      "login": true,
+      "login": false,
       "admin": true,
       "photo": null,
       "routine": {

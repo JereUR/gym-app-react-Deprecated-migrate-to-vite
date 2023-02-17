@@ -18,7 +18,7 @@ export const SesionPage = () => {
       </LogoSection>
       <FormData>
         <SignIn />
-        <hr />
+        <Hr />
         <SignUp />
       </FormData>
     </Container>
@@ -28,11 +28,48 @@ export const SesionPage = () => {
 const Container = styled.div`
   display: flex;
   justify-content: center;
+
+  @media screen and (max-width: 450px) {
+    display: block;
+    height: auto;
+  }
 `;
 
 const FormData = styled.div`
   flex: 1;
   margin: 7vw 30vw auto 1vw;
+
+  @media screen and (max-width: 450px) {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 350px;
+    height: 500px;
+    text-align: center;
+    margin: 35% 2rem;
+    height: 70vh;
+  }
+
+  @media screen and (max-width: 400px) {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 350px;
+    height: 500px;
+    text-align: center;
+    margin: 50% 1rem;
+  }
+`;
+
+const Hr = styled.hr`
+  @media screen and (max-width: 450px) {
+    width: 80%;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+  }
+
+  @media screen and (max-width: 450px) {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+  }
 `;
 
 const LogoContainer = styled.div`
@@ -53,6 +90,10 @@ const LogoSection = styled.div`
   height: 50%;
   padding: 4vw;
   border-radius: 10px;
+
+  @media screen and (max-width: 450px) {
+    display: none;
+  }
 `;
 
 const TextContainer = styled.div`

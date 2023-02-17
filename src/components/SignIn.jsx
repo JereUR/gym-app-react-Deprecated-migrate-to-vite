@@ -136,7 +136,7 @@ export const SignIn = () => {
       >
         <Content>
           <TextForgotPassword>
-            Introduzca su correo electrónico para reestablecer tu contraseña.
+            Introduzca su correo electrónico para reestablecer su contraseña.
           </TextForgotPassword>
           <FormContainer>
             <Form onSubmit={handleSubmitRecover}>
@@ -171,6 +171,10 @@ const ButtonRecover = styled.button`
     cursor: pointer;
     background-color: ${secondaryBlue};
   }
+
+  @media screen and (max-width: 450px) {
+    width: 60%;
+  }
 `;
 
 const ButtonSignIn = styled.button`
@@ -187,6 +191,16 @@ const ButtonSignIn = styled.button`
   :hover {
     cursor: pointer;
     background-color: ${secondaryRed};
+  }
+
+  @media screen and (max-width: 450px) {
+    margin-bottom: 3vh;
+    width: 60vw;
+  }
+
+  @media screen and (max-width: 400px) {
+    margin-bottom: 1vh;
+    width: 60vw;
   }
 `;
 
@@ -215,6 +229,10 @@ const Content = styled.div`
 
 const Form = styled.form`
   display: grid;
+
+  @media screen and (max-width: 450px) {
+    display: block;
+  }
 `;
 
 const FormContainer = styled.div`
@@ -236,6 +254,15 @@ const Input = styled.input`
     border-color: ${primaryRed};
     box-shadow: 0 0 0 3px rgba(65, 157, 199, 0.5);
   }
+
+  @media screen and (max-width: 450px) {
+    width: 80%;
+    margin-bottom: 3vh;
+  }
+
+  @media screen and (max-width: 400px) {
+    margin-bottom: 1vh;
+  }
 `;
 
 const InputRecover = styled.input`
@@ -252,9 +279,23 @@ const InputRecover = styled.input`
     border-color: ${primaryRed};
     box-shadow: 0 0 0 3px rgba(65, 157, 199, 0.5);
   }
+
+  @media screen and (max-width: 450px) {
+    width: 90%;
+  }
 `;
 
-const LogoForm = styled.img``;
+const LogoForm = styled.img`
+  @media screen and (max-width: 450px) {
+    margin-bottom: 3vh !important;
+    margin-top: 3vh !important;
+  }
+
+  @media screen and (max-width: 450px) {
+    margin-top: 1vh !important;
+    margin-bottom: 1vh !important;
+  }
+`;
 
 const PasswordForgot = styled.p`
   font-size: 14px;
