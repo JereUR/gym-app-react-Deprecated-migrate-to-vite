@@ -22,4 +22,5 @@ const Logo = styled.img`
   width: auto;
   height: auto;
   margin-left: 5vw;
+  z-index: 2;
 `;

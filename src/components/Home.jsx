@@ -30,11 +30,19 @@ const Banner = styled.img`
   box-shadow: 6px 2px 6px 5px ${backgroundText};
   border-radius: 5px;
   margin-top: 2vw;
+
+  @media screen and (max-width: 450px) {
+    height: 200px;
+  }
 `;
 
 const BannerContainer = styled.div`
   margin: 2vw 2vw 3vw 2vw;
   text-align: center;
+
+  @media screen and (max-width: 450px) {
+    margin: 4vw 4vw 5vw 4vw;
+  }
 `;
 
 const HomeContainer = styled.div``;
