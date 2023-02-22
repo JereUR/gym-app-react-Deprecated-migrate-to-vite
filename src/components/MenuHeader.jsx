@@ -10,7 +10,7 @@ import { useAuth } from "./LoginRoute";
 import { Colors } from "../constants/Colors";
 import { BurgerButton } from "./BurgerButton";
 
-const { secondaryBlue } = Colors;
+const { secondaryBlue, colorText } = Colors;
 
 export const MenuHeader = () => {
   const profilePath = `/usuario/${user.username}`;
@@ -80,7 +80,7 @@ export const MenuHeader = () => {
 
 const BgDiv = styled.div`
   position: absolute;
-  background-color: #333;
+  background-color: ${colorText};
   top: -700px;
   right: -2000px;
   z-index: 1;
@@ -92,6 +92,7 @@ const BgDiv = styled.div`
     right: 0;
     width: 100%;
     height: 50%;
+    box-shadow: 0px 5px 11px -10px rgba(0, 0, 0, 0.7);
   }
 `;
 
@@ -133,7 +134,7 @@ const NavContainer = styled.div`
 
     a {
       display: block;
-      font-size: 2rem;
+      font-size: 1.5rem;
       margin-bottom: 2rem;
     }
 
@@ -154,8 +155,8 @@ const NavContainer = styled.div`
     position: absolute;
     margin-left: auto;
     margin-right: auto;
-    top: 20%;
-    left: 30%;
+    top: 25%;
+    left: 35%;
     right: 0;
     text-align: center;
   }
