@@ -50,7 +50,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
               <TextMeal>Almuerzo</TextMeal>
@@ -62,7 +62,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
               <TextMeal>Merienda</TextMeal>
@@ -74,7 +74,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
               <TextMeal>Cena</TextMeal>
@@ -86,7 +86,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
             </List>
@@ -110,7 +110,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
               <TextMeal>Almuerzo</TextMeal>
@@ -122,7 +122,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
               <TextMeal>Merienda</TextMeal>
@@ -134,7 +134,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
               <TextMeal>Cena</TextMeal>
@@ -146,7 +146,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
             </List>
@@ -170,7 +170,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
               <TextMeal>Almuerzo</TextMeal>
@@ -182,7 +182,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
               <TextMeal>Merienda</TextMeal>
@@ -194,7 +194,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
               <TextMeal>Cena</TextMeal>
@@ -206,7 +206,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
             </List>
@@ -230,7 +230,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
               <TextMeal>Almuerzo</TextMeal>
@@ -242,7 +242,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
               <TextMeal>Merienda</TextMeal>
@@ -254,7 +254,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
               <TextMeal>Cena</TextMeal>
@@ -266,7 +266,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
             </List>
@@ -290,7 +290,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
               <TextMeal>Almuerzo</TextMeal>
@@ -302,7 +302,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
               <TextMeal>Merienda</TextMeal>
@@ -314,7 +314,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
               <TextMeal>Cena</TextMeal>
@@ -326,7 +326,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
             </List>
@@ -350,7 +350,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
               <TextMeal>Almuerzo</TextMeal>
@@ -362,7 +362,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
               <TextMeal>Merienda</TextMeal>
@@ -374,7 +374,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
               <TextMeal>Cena</TextMeal>
@@ -386,7 +386,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
             </List>
@@ -410,7 +410,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
               <TextMeal>Almuerzo</TextMeal>
@@ -422,7 +422,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
               <TextMeal>Merienda</TextMeal>
@@ -434,7 +434,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
               <TextMeal>Cena</TextMeal>
@@ -446,7 +446,7 @@ export const NutritionalPlan = () => {
                 ))
               ) : (
                 <NoData>
-                  <InfoItem>Sin Información.</InfoItem>
+                  <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
             </List>
@@ -475,7 +475,11 @@ const InfoItem = styled.li`
 
 const List = styled.div``;
 
-const NoData = styled.div``;
+const NoData = styled.div`
+  text-align: center;
+  color: rgb(30, 30, 30);
+  font-style: italic;
+`;
 
 const PlanButton = styled.button`
   width: 90vw;
@@ -497,6 +501,10 @@ const PlanButton = styled.button`
     box-shadow: 0 0 3px 3px ${secondaryBlue};
     color: ${secondaryBlue};
   }
+
+  @media (max-width: 450px) {
+    margin-bottom: 15vw !important;
+  }
 `;
 
 const PlanContainer = styled.div`
@@ -507,10 +515,13 @@ const PlanData = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
-  margin-bottom: 2rem;
-  margin-top: -4rem;
-  margin-left: 5rem;
-  margin-right: 4rem;
+  margin: -4rem 4rem 2rem 5rem;
+
+  @media (max-width: 450px) {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 0;
+    margin: -1.5rem 1rem 2rem 1rem;
+  }
 `;
 
 const PlanDay = styled.div`
@@ -522,11 +533,24 @@ const PlanDay = styled.div`
   text-align: left;
   box-shadow: 0px 0px 5px ${primaryBlue};
   border-radius: 10px;
+
+  @media (max-width: 450px) {
+    margin: 0.1rem 0.1rem 1rem 0.1rem;
+    padding: 0.9rem;
+  }
 `;
 
 const TextMeal = styled.p`
   font-weight: bold;
   font-size: 1.4rem;
+`;
+
+const TextNoData = styled.p`
+  font-size: 1.4rem;
+
+  @media (max-width: 450px) {
+    font-size: 1.1rem;
+  }
 `;
 
 const Today = styled.i``;

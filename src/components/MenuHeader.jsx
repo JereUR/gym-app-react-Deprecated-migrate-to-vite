@@ -84,7 +84,7 @@ const BgDiv = styled.div`
   top: -700px;
   right: -2000px;
   z-index: 1;
-  transition: all 0.6s ease;
+  transition: all 0.3s ease;
 
   &.active {
     border-radius: 0 0 0 80%;
@@ -164,5 +164,5 @@ const NavContainer = styled.div`
 
 const NavLinks = styled.div`
   z-index: 2;
-  transition: all 0.5s ease;
+  transition: all 0.2s ease-in-out;
 `;

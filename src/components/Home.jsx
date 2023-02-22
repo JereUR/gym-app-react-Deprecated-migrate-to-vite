@@ -41,7 +41,7 @@ const BannerContainer = styled.div`
   text-align: center;
 
   @media screen and (max-width: 450px) {
-    margin: 4vw 4vw 5vw 4vw;
+    margin: 10vw 4vw 5vw 4vw;
   }
 `;
 

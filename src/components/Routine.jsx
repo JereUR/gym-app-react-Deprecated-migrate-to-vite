@@ -220,6 +220,10 @@ const InfoItem = styled.li`
   color: rgb(30, 30, 30);
   font-size: 1.3rem;
   display: flex;
+
+  @media (max-width: 450px) {
+    font-size: 0.8rem;
+  }
 `;
 
 const List = styled.div``;
@@ -229,6 +233,10 @@ const Mount = styled.p`
   font-weight: bold;
   margin-right: 0.5rem;
   color: ${secondaryBlue};
+
+  @media (max-width: 450px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const NoData = styled.div`
@@ -258,6 +266,11 @@ const RoutineButton = styled.button`
     box-shadow: 0 0 3px 3px ${secondaryBlue};
     color: ${secondaryBlue};
   }
+
+  @media (max-width: 450px) {
+    margin-top: 12vw !important;
+    margin-bottom: 15vw !important;
+  }
 `;
 
 const RoutineContainer = styled.div`
@@ -268,10 +281,13 @@ const RoutineData = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
-  margin-bottom: 2rem;
-  margin-top: -4rem;
-  margin-left: 5rem;
-  margin-right: 4rem;
+  margin: -4rem 4rem 2rem 5rem;
+
+  @media (max-width: 450px) {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 0;
+    margin: -1.5rem 1rem 2rem 1rem;
+  }
 `;
 
 const RoutineDay = styled.div`
@@ -283,10 +299,19 @@ const RoutineDay = styled.div`
   text-align: left;
   box-shadow: 0px 0px 5px ${primaryBlue};
   border-radius: 10px;
+
+  @media (max-width: 450px) {
+    margin: 0.1rem 0.1rem 1rem 0.1rem;
+    padding: 0.9rem;
+  }
 `;
 
 const TextNoData = styled.p`
   font-size: 1.4rem;
+
+  @media (max-width: 450px) {
+    font-size: 1.1rem;
+  }
 `;
 
 const Today = styled.i``;
