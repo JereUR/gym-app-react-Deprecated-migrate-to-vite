@@ -10,7 +10,7 @@ import { useAuth } from "./LoginRoute";
 import { Colors } from "../constants/Colors";
 import { BurgerButton } from "./BurgerButton";
 
-const { secondaryBlue, colorText, backgroundText } = Colors;
+const { secondaryBlue, secondaryRed, colorText, backgroundText } = Colors;
 
 export const MenuHeader = () => {
   const profilePath = `/usuario/${user.username}`;
@@ -81,19 +81,19 @@ export const MenuHeader = () => {
 
 const BgDiv = styled.div`
   position: absolute;
-  background-color: rgb(238, 70, 79, 0.7);
+  background-color: ${colorText};
   top: -700px;
   right: -2000px;
   z-index: 1;
   transition: all 0.3s ease;
 
   &.active {
-    border-radius: 0 0 0 80%;
+    border-radius: 100% 0 0 10%;
     top: 0;
     right: 0;
-    width: 100%;
-    height: 50%;
-    box-shadow: 0px 5px 11px -10px rgba(0, 0, 0, 0.7);
+    width: 60%;
+    height: 45%;
+    box-shadow: 0px 0px 5px ${secondaryRed};
   }
 `;
 
@@ -139,26 +139,18 @@ const NavContainer = styled.div`
       margin-bottom: 1rem;
 
       @media (max-width: 450px) {
-        background-color: ${colorText};
+        background-color: ${backgroundText};
         padding: 2vw !important;
         border-radius: 5px;
         width: 35% !important;
         font-size: 1.2rem;
-
-        :hover {
-          background-color: ${backgroundText};
-        }
       }
 
       @media (max-width: 1150px) {
-        background-color: ${colorText};
+        background-color: ${backgroundText};
         padding: 1vw;
         border-radius: 5px;
         width: 20%;
-
-        :hover {
-          background-color: ${backgroundText};
-        }
       }
     }
 
