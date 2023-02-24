@@ -60,7 +60,7 @@ const ButtonHome = styled.button`
   border-radius: 4px;
   transition: all 0.7s ease-in-out;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     width: 70%;
     font-size: 1.3rem;
     margin-top: 0 !important;
@@ -86,7 +86,7 @@ const OopsContainer = styled.div`
   text-align: center;
   padding: 1rem;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     padding: 0;
   }
 `;
@@ -94,7 +94,7 @@ const OopsContainer = styled.div`
 const OopsPhoto = styled.img`
   width: 20vw;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     width: 80vw;
   }
 `;
@@ -102,7 +102,7 @@ const OopsPhoto = styled.img`
 const Text = styled.p`
   font-size: 1.2rem;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     font-size: 1.1rem;
   }
 `;
@@ -113,7 +113,7 @@ const TextContainer = styled.div`
   width: 40%;
   padding: 0 1rem 1rem 1rem;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     width: 90%;
     margin-left: 0;
     padding: 0 1rem 0.5rem 1rem;
@@ -129,7 +129,7 @@ const TitleContainer = styled.div`
   text-align: center;
   padding: 1rem;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     padding: 0;
   }
 `;

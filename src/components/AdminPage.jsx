@@ -34,8 +34,12 @@ const AdminContainer = styled.div``;
 const AddRoutineContainer = styled.div`
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   padding: 1rem 1rem 3rem 1rem;
-  margin: 2vw 3vw 3vw 3vw;
+  margin: 3vw 3vw 3vw 3vw;
   border-radius: 1rem;
+
+  @media (max-width: 480px) {
+    margin: 7vw 4vw 7vw 4vw;
+  }
 `;
 
 const AddNutritionalPlan = styled(AddRoutineContainer)``;
@@ -47,7 +51,6 @@ const Hr = styled.hr`
   border: 0;
   height: 0.1rem;
   width: 90%;
-  margin-bottom: 4rem;
   border-radius: 100px;
 `;
 

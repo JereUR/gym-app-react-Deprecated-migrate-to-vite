@@ -501,11 +501,11 @@ const PlanButton = styled.button`
     color: ${secondaryBlue};
   }
 
-  @media (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     margin-bottom: 15vw !important;
   }
 
-  @media (max-width: 1380px) {
+  @media screen and (max-width: 1380px) {
     margin-bottom: 6vw;
   }
 `;
@@ -520,13 +520,13 @@ const PlanData = styled.div`
   grid-gap: 10px;
   margin: -4rem 4rem 2rem 5rem;
 
-  @media (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 0;
     margin: -1.5rem 1rem 2rem 1rem;
   }
 
-  @media (max-width: 1380px) {
+  @media screen and (max-width: 1380px) {
     grid-gap: 0;
     margin: -1.5rem 1rem 2rem 1rem;
   }
@@ -542,7 +542,7 @@ const PlanDay = styled.div`
   box-shadow: 0px 0px 5px ${primaryBlue};
   border-radius: 10px;
 
-  @media (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     margin: 0.1rem 0.1rem 1rem 0.1rem;
     padding: 0.9rem;
   }
@@ -556,7 +556,7 @@ const TextMeal = styled.p`
 const TextNoData = styled.p`
   font-size: 1.4rem;
 
-  @media (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     font-size: 1.1rem;
   }
 `;

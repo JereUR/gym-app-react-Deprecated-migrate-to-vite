@@ -386,6 +386,10 @@ const ButtonSend = styled.button`
   width: 100%;
   transition: all 0.5s ease-in-out;
 
+  @media screen and (max-width: 480px) {
+    font-size: 1.5rem;
+  }
+
   :hover {
     cursor: pointer;
     background-color: ${primaryBlue};
@@ -398,6 +402,12 @@ const ErrorInput = styled.div`
   margin-bottom: 1rem;
   text-align: left;
   margin-left: 2rem;
+
+  @media screen and (max-width: 480px) {
+    margin-bottom: 0 !important;
+    line-height: 1rem;
+    margin-top: 1rem;
+  }
 `;
 
 const FormAddBill = styled.form`
@@ -415,6 +425,10 @@ const ForText = styled.p`
   font-style: italic;
   border: 3px solid rgb(117, 112, 112);
   border-radius: 1rem;
+
+  @media screen and (max-width: 480px) {
+    font-size: 1rem;
+  }
 `;
 
 const ForTextContainer = styled.div`
@@ -425,6 +439,10 @@ const ForTextContainer = styled.div`
     padding: 1rem;
     transition: all 0.7s ease;
     margin-top: 2.5rem;
+
+    @media screen and (max-width: 480px) {
+      margin-top: 3rem;
+    }
   }
 
   svg:hover {
@@ -436,6 +454,10 @@ const ForTextContainer = styled.div`
 
 const Input = styled.input`
   cursor: pointer;
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.1rem;
+  }
 
   :checked + span {
     color: ${primaryBlue};
@@ -451,6 +473,10 @@ const InputContainer = styled.div`
 const Label = styled.label`
   font-size: 1.3rem;
   font-weight: 500;
+
+  @media screen and (max-width: 480px) {
+    margin-left: -5vw;
+  }
 `;
 
 const LabelRadio = styled.div``;
@@ -458,6 +484,10 @@ const LabelRadio = styled.div``;
 const MonthContainer = styled.div`
   display: inline-grid;
   margin: 1rem;
+
+  @media screen and (max-width: 480px) {
+    margin: 0 1rem 0 0;
+  }
 `;
 
 const NextPaymentContainer = styled.div``;
@@ -468,7 +498,11 @@ const NextPaymentChoose = styled.div`
   align-items: center;
 `;
 
-const Option = styled.option``;
+const Option = styled.option`
+  @media screen and (max-width: 480px) {
+    font-size: 0.8rem;
+  }
+`;
 
 const PaymentContainer = styled.div``;
 
@@ -495,6 +529,12 @@ const Select = styled.select`
   background-repeat: no-repeat;
   background-position: right 10px center;
 
+  @media screen and (max-width: 480px) {
+    width: 80vw;
+    font-size: 1.1rem;
+    margin-left: -5vw;
+  }
+
   :focus {
     border-color: 2px solid ${primaryRed};
     box-shadow: 0 0 0 3px rgba(65, 157, 199, 0.5);
@@ -511,6 +551,10 @@ const Select = styled.select`
 
 const SelectFirst = styled(Select)`
   width: 30vw;
+
+  @media screen and (max-width: 480px) {
+    width: 80vw;
+  }
 `;
 
 const Span = styled.span`
@@ -522,4 +566,8 @@ const Span = styled.span`
 const YearContainer = styled.div`
   display: inline-grid;
   margin: 1rem 1rem 1rem 2rem;
+
+  @media screen and (max-width: 480px) {
+    margin: 0 1rem 0 0;
+  }
 `;

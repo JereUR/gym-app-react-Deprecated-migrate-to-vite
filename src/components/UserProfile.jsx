@@ -219,7 +219,7 @@ const ChangePasswordButton = styled.button`
   border-radius: 4px;
   transition: all 0.7s ease-in-out;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     font-size: 1.3rem;
   }
 
@@ -240,7 +240,7 @@ const ChangePhoto = styled.button`
   border-radius: 0.5rem;
   transition: all 0.7s ease-in-out;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     font-size: 1.3rem;
   }
 
@@ -267,7 +267,7 @@ const ErrorInput = styled.div`
 const ImagePhoto = styled.img`
   margin-bottom: 1rem;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     width: 60vw !important;
     height: 70vw !important;
   }
@@ -285,7 +285,7 @@ const Label = styled.h3`
   font-style: italic;
   color: ${secondaryBlue};
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     margin-left: 8vw;
     margin-bottom: 1rem;
   }
@@ -298,7 +298,7 @@ const PasswordContainer = styled.div`
 const PhotoContainer = styled.div`
   color: ${secondaryBlue};
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     margin-top: 10vw;
     margin-bottom: 10vw;
   }
@@ -307,7 +307,7 @@ const PhotoContainer = styled.div`
     padding: 1rem;
     transition: all 0.5s ease-in-out;
 
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 480px) {
       padding: 1rem 1rem 0 0.5rem;
     }
   }
@@ -335,7 +335,7 @@ const SendPhoto = styled.button`
   border-radius: 0.5rem;
   transition: all 0.7s ease-in-out;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     font-size: 1.3rem;
   }
 
@@ -358,7 +358,7 @@ const SignOutButton = styled.button`
   border-radius: 4px;
   transition: all 0.7s ease-in-out;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     font-size: 1.3rem;
   }
 
@@ -375,7 +375,7 @@ const Text = styled.p`
   padding: 1rem;
   font-weight: bold;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     font-size: 1.1rem;
   }
 `;
@@ -388,7 +388,7 @@ const TextContainer = styled.div`
   border-radius: 1rem;
   color: ${primaryRed};
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     width: 80vw;
     margin-bottom: 5vw;
     margin-left: 8vw;
@@ -408,8 +408,8 @@ const UserPhoto = styled.img`
   box-shadow: 0px 6px 5px #ccc;
   background: ${backgroundText};
 
-  @media screen and (max-width: 450px) {
-    width: 25vw;
+  @media screen and (max-width: 480px) {
+    width: 25vw !important;
   }
 
   @media screen and (max-width: 1050px) {

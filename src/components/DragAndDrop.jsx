@@ -80,9 +80,11 @@ export const DragAndDrop = ({ pdf, setPdf, error }) => {
           {error && <ErrorInput>{error}</ErrorInput>}
         </InputContainer>
 
-        <ButtonChange type="button" onClick={changePdf}>
-          Cambiar pdf
-        </ButtonChange>
+        {pdf && (
+          <ButtonChange type="button" onClick={changePdf}>
+            Cambiar pdf
+          </ButtonChange>
+        )}
       </UploadArea>
     </DragContainer>
   );
@@ -102,6 +104,11 @@ const ButtonChange = styled.button`
   margin-top: 1vw;
   cursor: pointer;
   transition: background-color 0.3s ease;
+
+  @media screen and (max-width: 480px) {
+    width: 50%;
+    margin-bottom: 5vw;
+  }
 
   :hover {
     background-color: #c53137;
@@ -148,8 +155,8 @@ const P = styled.p`
 `;
 
 const Pdf = styled.embed`
-  width: 60vw;
-  height: 30vw;
+  width: 80vw;
+  height: 40vw;
 `;
 
 const UploadArea = styled.div`

@@ -53,7 +53,7 @@ const BillItem = styled.a`
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     margin-left: 30%;
   }
 
@@ -75,7 +75,7 @@ const BillItemContainer = styled.div`
   border-radius: 1rem;
   box-shadow: 0px 0px 10px #ccc;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     margin: 8vw 1vw 5vw 1vw;
     display: block;
   }
@@ -84,7 +84,7 @@ const BillItemContainer = styled.div`
 const NamePayment = styled.p`
   font-size: 1.3rem;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     font-size: 1rem;
   }
 
@@ -99,7 +99,7 @@ const NextPaymentContainer = styled.div`
   border-radius: 2rem;
   box-shadow: 0 0 10px ${secondaryRed};
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     padding: 5vw;
     margin: 17vw 5vw 17vw 5vw;
   }
@@ -117,7 +117,7 @@ const NoticeTitleNext = styled.p`
   font-size: 2rem;
   font-weight: bold;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     font-size: 1.5rem;
   }
 `;
@@ -128,7 +128,7 @@ const Notice = styled.p`
   margin-left: 4vw;
   font-style: italic;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     font-size: 1.1rem;
   }
 `;

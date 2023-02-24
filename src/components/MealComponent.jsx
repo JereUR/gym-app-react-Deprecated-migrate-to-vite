@@ -25,9 +25,20 @@ const MealContainer = styled.div`
   background-color: ${backgroundSuccess};
   width: max-content;
 
+  @media screen and (max-width: 480px) {
+    padding: 1.5vw;
+    margin-left: -5vw;
+  }
+
   svg {
     color: ${secondaryRed};
     padding-left: 20vw;
+
+    @media screen and (max-width: 480px) {
+      font-size: 1rem;
+      padding-left: 15vw;
+      padding-right: 2vw;
+    }
   }
 
   svg:hover {
@@ -38,6 +49,10 @@ const MealContainer = styled.div`
 const MealItem = styled.li`
   font-size: 1.1rem;
   font-weight: 500;
+
+  @media screen and (max-width: 480px) {
+    font-size: 1rem;
+  }
 
   ::marker {
     font-weight: bold;

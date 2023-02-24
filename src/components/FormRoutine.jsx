@@ -298,6 +298,7 @@ const FormRoutine = () => {
           fontSize="3.5rem"
           type="button"
           onClick={handleAddExercise}
+          className="add-btn"
         />
       </DataContainer>
       {exercises && (
@@ -327,6 +328,10 @@ const ButtonSubmit = styled.button`
   margin-top: 2rem;
   width: 100%;
   transition: all 0.5s ease-in-out;
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.5rem;
+  }
 
   :hover {
     cursor: pointer;
@@ -360,6 +365,10 @@ const ErrorInput = styled.div`
   margin-bottom: 1rem;
   text-align: left;
   margin-left: 1rem;
+
+  @media screen and (max-width: 480px) {
+    margin-bottom: 0 !important;
+  }
 `;
 
 const Form = styled.form`
@@ -377,6 +386,10 @@ const ForText = styled.p`
   font-style: italic;
   border: 3px solid rgb(117, 112, 112);
   border-radius: 1rem;
+
+  @media screen and (max-width: 480px) {
+    font-size: 1rem;
+  }
 `;
 
 const ForTextContainer = styled.div`
@@ -387,6 +400,10 @@ const ForTextContainer = styled.div`
     padding: 1rem;
     transition: all 0.7s ease;
     margin-top: 2.5rem;
+
+    @media screen and (max-width: 480px) {
+      margin-top: 3rem;
+    }
   }
 
   svg:hover {
@@ -404,6 +421,11 @@ const Input = styled.input`
   color: #000;
   font-size: 1.2rem;
   padding: 10px;
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.1rem;
+    width: 55vw;
+  }
 
   :focus {
     border-color: ${primaryRed};
@@ -424,7 +446,11 @@ const Label = styled.label`
 
 const List = styled.ol``;
 
-const Option = styled.option``;
+const Option = styled.option`
+  @media screen and (max-width: 480px) {
+    font-size: 0.8rem;
+  }
+`;
 
 const Select = styled.select`
   -webkit-appearance: none;
@@ -449,6 +475,12 @@ const Select = styled.select`
   background-repeat: no-repeat;
   background-position: right 10px center;
 
+  @media screen and (max-width: 480px) {
+    width: 60vw;
+    font-size: 1.1rem;
+    max-width: 60vw;
+  }
+
   :focus {
     border-color: ${primaryRed};
     box-shadow: 0 0 0 3px rgba(65, 157, 199, 0.5);
@@ -465,6 +497,10 @@ const Select = styled.select`
 
 const SelectFirst = styled(Select)`
   width: 30vw;
+
+  @media screen and (max-width: 480px) {
+    width: 60vw;
+  }
 `;
 
 export default FormRoutine;

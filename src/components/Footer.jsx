@@ -45,13 +45,13 @@ export const Footer = () => {
 const ByContent = styled.div`
   margin-right: 5vh;
 
-  @media (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     margin-right: 2vh;
   }
 `;
 
 const CenterContent = styled.div`
-  @media (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     grid-column: 1;
     grid-row: 2;
   }
@@ -61,7 +61,7 @@ const FooterContainer = styled.div`
   display: flex;
   box-shadow: -10px 5px 11px 0px rgba(0, 0, 0, 0.7);
 
-  @media (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr auto;
@@ -88,7 +88,7 @@ const LeftContent = styled.div`
   padding-left: 3rem;
   line-height: 5px;
 
-  @media (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     padding-left: 1rem;
     grid-column: 1 / span 2;
     grid-row: 1;
@@ -99,7 +99,7 @@ const Logo = styled.img`
   width: 110px;
   margin-top: 1rem;
 
-  @media (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     margin-left: 55%;
   }
 `;
@@ -117,7 +117,7 @@ const PoweredBy = styled.p`
   font-weight: bold;
   color: ${primaryBlue};
 
-  @media (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     padding-right: 0;
   }
 `;
@@ -127,7 +127,7 @@ const RightContent = styled.div`
   text-align: end;
   padding-right: 1rem;
 
-  @media (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     margin-top: -23vw;
   }
 `;

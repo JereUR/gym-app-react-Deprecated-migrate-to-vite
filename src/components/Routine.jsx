@@ -221,7 +221,7 @@ const InfoItem = styled.li`
   font-size: 1.3rem;
   display: flex;
 
-  @media (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     font-size: 0.8rem;
   }
 `;
@@ -234,7 +234,7 @@ const Mount = styled.p`
   margin-right: 0.5rem;
   color: ${secondaryBlue};
 
-  @media (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     font-size: 0.9rem;
   }
 `;
@@ -267,7 +267,7 @@ const RoutineButton = styled.button`
     color: ${secondaryBlue};
   }
 
-  @media (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     margin-top: 12vw !important;
     margin-bottom: 15vw !important;
   }
@@ -283,13 +283,13 @@ const RoutineData = styled.div`
   grid-gap: 10px;
   margin: -4rem 4rem 2rem 5rem;
 
-  @media (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 0;
     margin: -1.5rem 1rem 2rem 1rem;
   }
 
-  @media (max-width: 1380px) {
+  @media screen and (max-width: 1380px) {
     grid-gap: 0;
     margin: -1.5rem 1rem 2rem 1rem;
   }
@@ -305,7 +305,7 @@ const RoutineDay = styled.div`
   box-shadow: 0px 0px 5px ${primaryBlue};
   border-radius: 10px;
 
-  @media (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     margin: 0.1rem 0.1rem 1rem 0.1rem;
     padding: 0.9rem;
   }
@@ -314,7 +314,7 @@ const RoutineDay = styled.div`
 const TextNoData = styled.p`
   font-size: 1.4rem;
 
-  @media (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     font-size: 1.1rem;
   }
 `;

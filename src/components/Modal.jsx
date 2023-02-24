@@ -70,7 +70,7 @@ const ModalContainer = styled.div`
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 20px;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     width: 80%;
     position: absolute;
   }
@@ -90,7 +90,7 @@ const ModalHeader = styled.div`
     font-size: 2rem;
     color: ${secondaryBlue};
 
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 480px) {
       font-size: 1.6rem;
     }
   }
@@ -109,7 +109,7 @@ const Overlay = styled.div`
   justify-content: center;
   z-index: 999;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     padding: 0;
   }
 

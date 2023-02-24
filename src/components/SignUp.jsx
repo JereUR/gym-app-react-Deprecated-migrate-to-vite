@@ -225,7 +225,7 @@ const ButtonSignUp = styled.button`
     background-color: ${secondaryBlue};
   }
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     width: 60vw;
     margin-top: 5vh;
     margin-left: 1.2rem;
@@ -237,7 +237,7 @@ const ButtonSignUp = styled.button`
 `;
 
 const ButtonSignUpModal = styled(ButtonSignUp)`
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     width: 70vw;
     margin-top: 2vh;
     margin-left: 1.2rem;
@@ -313,7 +313,7 @@ const Input = styled.input`
     box-shadow: 0 0 0 3px rgba(65, 157, 199, 0.5);
   }
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     font-size: 0.9rem;
     margin-bottom: 2vh;
   }
@@ -336,7 +336,7 @@ const InputName = styled.input`
   background-color: #fff;
   color: #000;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     width: 30vw;
     margin-left: -0.6rem;
     font-size: 0.9rem;

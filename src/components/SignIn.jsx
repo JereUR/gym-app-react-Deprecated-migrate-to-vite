@@ -172,7 +172,7 @@ const ButtonRecover = styled.button`
     background-color: ${secondaryBlue};
   }
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     width: 60%;
   }
 `;
@@ -193,7 +193,7 @@ const ButtonSignIn = styled.button`
     background-color: ${secondaryRed};
   }
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     margin-bottom: 3vh;
     width: 60vw;
   }
@@ -230,7 +230,7 @@ const Content = styled.div`
 const Form = styled.form`
   display: grid;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     display: block;
   }
 `;
@@ -260,7 +260,7 @@ const Input = styled.input`
     box-shadow: 0 0 0 3px rgba(65, 157, 199, 0.5);
   }
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     width: 80%;
     margin-bottom: 3vh;
   }
@@ -285,18 +285,18 @@ const InputRecover = styled.input`
     box-shadow: 0 0 0 3px rgba(65, 157, 199, 0.5);
   }
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     width: 90%;
   }
 `;
 
 const LogoForm = styled.img`
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     margin-bottom: 3vh !important;
     margin-top: 3vh !important;
   }
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     margin-top: 1vh !important;
     margin-bottom: 1vh !important;
   }

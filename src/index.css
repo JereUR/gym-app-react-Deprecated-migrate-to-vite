@@ -65,3 +65,9 @@ code {
 .drag-over {
   background-color: #d5d5d5;
 }
+
+@media screen and (max-width: 480px) {
+  .add-btn {
+    margin-bottom: 1rem;
+  }
+}

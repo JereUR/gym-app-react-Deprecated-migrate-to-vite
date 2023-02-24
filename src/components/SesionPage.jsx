@@ -31,7 +31,7 @@ const Container = styled.div`
   margin-top: 5vw;
   margin-left: 2vw;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     display: block;
     height: auto;
   }
@@ -46,7 +46,7 @@ const FormData = styled.div`
   flex: 1;
   margin: 7vw 30vw auto 1vw;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     width: 350px;
@@ -67,13 +67,13 @@ const FormData = styled.div`
 `;
 
 const Hr = styled.hr`
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     width: 80%;
     margin-top: 3vh;
     margin-bottom: 3vh;
   }
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     margin-top: 1vh;
     margin-bottom: 1vh;
   }
@@ -102,7 +102,7 @@ const LogoSection = styled.div`
   padding: 4vw;
   border-radius: 10px;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     display: none;
   }
 `;

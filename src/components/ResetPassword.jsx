@@ -138,7 +138,7 @@ const ButtonSend = styled.button`
   border-radius: 0.5rem;
   transition: all 0.7s ease-in-out;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     margin-top: 0;
     font-size: 1.3rem;
   }
@@ -174,7 +174,7 @@ const FormContainer = styled.div`
   border-radius: 5px;
   padding: 12vw 15vw 12vw 15vw;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     padding: 20vw 8vw 20vw 8vw;
   }
 `;
@@ -189,7 +189,7 @@ const Input = styled.input`
   padding: 10px;
   margin-bottom: 1rem;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     margin-bottom: 8vw;
   }
 
@@ -203,7 +203,7 @@ const TitleReset = styled.h1`
   text-align: left;
   color: ${primaryBlue};
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 480px) {
     margin-bottom: 10vw;
   }
 `;

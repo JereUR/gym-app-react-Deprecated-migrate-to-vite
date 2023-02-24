@@ -91,8 +91,8 @@ const BgDiv = styled.div`
     border-radius: 100% 0 0 10%;
     top: 0;
     right: 0;
-    width: 60%;
-    height: 45%;
+    width: 50%;
+    height: 40%;
     box-shadow: 0px 0px 5px ${secondaryRed};
   }
 `;
@@ -119,7 +119,7 @@ const NavContainer = styled.div`
     right: 5vw;
     margin-top: 5vw;
 
-    @media (min-width: 1150px) {
+    @media screen and (min-width: 1150px) {
       display: none;
     }
   }
@@ -138,7 +138,7 @@ const NavContainer = styled.div`
       font-size: 1.5rem;
       margin-bottom: 1rem;
 
-      @media (max-width: 450px) {
+      @media screen and (max-width: 480px) {
         background-color: ${backgroundText};
         padding: 2vw !important;
         border-radius: 5px;
@@ -146,7 +146,7 @@ const NavContainer = styled.div`
         font-size: 1.2rem;
       }
 
-      @media (max-width: 1150px) {
+      @media screen and (max-width: 1150px) {
         background-color: ${backgroundText};
         padding: 1vw;
         border-radius: 5px;
@@ -154,12 +154,12 @@ const NavContainer = styled.div`
       }
     }
 
-    @media (min-width: 1150px) {
+    @media screen and (min-width: 1150px) {
       position: initial !important;
       margin: 0;
 
       a {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         display: inline !important;
       }
     }
