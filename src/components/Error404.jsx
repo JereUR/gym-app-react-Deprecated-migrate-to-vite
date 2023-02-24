@@ -47,7 +47,7 @@ export const Error404 = () => {
 };
 
 const ButtonHome = styled.button`
-  width: 20%;
+  width: 25%;
   margin-bottom: 3vh !important;
   margin-top: 2vh !important;
   font-family: ${FontFamily};
@@ -59,6 +59,13 @@ const ButtonHome = styled.button`
   border: none;
   border-radius: 4px;
   transition: all 0.7s ease-in-out;
+
+  @media screen and (max-width: 450px) {
+    width: 70%;
+    font-size: 1.3rem;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
 
   :hover {
     cursor: pointer;
@@ -78,14 +85,26 @@ const ErrorContainer = styled.div`
 const OopsContainer = styled.div`
   text-align: center;
   padding: 1rem;
+
+  @media screen and (max-width: 450px) {
+    padding: 0;
+  }
 `;
 
 const OopsPhoto = styled.img`
   width: 20vw;
+
+  @media screen and (max-width: 450px) {
+    width: 80vw;
+  }
 `;
 
 const Text = styled.p`
   font-size: 1.2rem;
+
+  @media screen and (max-width: 450px) {
+    font-size: 1.1rem;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -93,6 +112,12 @@ const TextContainer = styled.div`
   margin-left: 24vw;
   width: 40%;
   padding: 0 1rem 1rem 1rem;
+
+  @media screen and (max-width: 450px) {
+    width: 90%;
+    margin-left: 0;
+    padding: 0 1rem 0.5rem 1rem;
+  }
 `;
 
 const Title = styled.p`
@@ -103,4 +128,8 @@ const Title = styled.p`
 const TitleContainer = styled.div`
   text-align: center;
   padding: 1rem;
+
+  @media screen and (max-width: 450px) {
+    padding: 0;
+  }
 `;

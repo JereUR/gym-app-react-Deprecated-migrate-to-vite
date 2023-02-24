@@ -84,6 +84,10 @@ export const UserProfile = () => {
     }
   };
 
+  const handleChange = () => {
+    setUserPhoto(null);
+  };
+
   const handleSend = async () => {
     setChangePhoto(!changePhoto);
 
@@ -162,6 +166,9 @@ export const UserProfile = () => {
               />
             )}
             {errorInput && <ErrorInput>{errorInput}</ErrorInput>}
+            {userPhoto && (
+              <ChangePhoto onClick={handleChange}>Cambiar Foto</ChangePhoto>
+            )}
             <SendPhoto onClick={handleSend}>Subir Foto</SendPhoto>
           </UploadPhotoContainer>
         </Content>
@@ -212,9 +219,34 @@ const ChangePasswordButton = styled.button`
   border-radius: 4px;
   transition: all 0.7s ease-in-out;
 
+  @media screen and (max-width: 450px) {
+    font-size: 1.3rem;
+  }
+
   :hover {
     cursor: pointer;
     background-color: ${secondaryBlue};
+  }
+`;
+
+const ChangePhoto = styled.button`
+  font-family: ${FontFamily};
+  background-color: ${primaryRed};
+  color: ${colorText};
+  padding: 10px;
+  margin: 10px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  transition: all 0.7s ease-in-out;
+
+  @media screen and (max-width: 450px) {
+    font-size: 1.3rem;
+  }
+
+  :hover {
+    cursor: pointer;
+    background-color: ${secondaryRed};
   }
 `;
 
@@ -234,6 +266,11 @@ const ErrorInput = styled.div`
 
 const ImagePhoto = styled.img`
   margin-bottom: 1rem;
+
+  @media screen and (max-width: 450px) {
+    width: 60vw !important;
+    height: 70vw !important;
+  }
 `;
 
 const InfoContainer = styled.div``;
@@ -247,6 +284,11 @@ const Label = styled.h3`
   margin-bottom: -0.5rem;
   font-style: italic;
   color: ${secondaryBlue};
+
+  @media screen and (max-width: 450px) {
+    margin-left: 8vw;
+    margin-bottom: 1rem;
+  }
 `;
 
 const PasswordContainer = styled.div`
@@ -256,9 +298,18 @@ const PasswordContainer = styled.div`
 const PhotoContainer = styled.div`
   color: ${secondaryBlue};
 
+  @media screen and (max-width: 450px) {
+    margin-top: 10vw;
+    margin-bottom: 10vw;
+  }
+
   svg {
     padding: 1rem;
     transition: all 0.5s ease-in-out;
+
+    @media screen and (max-width: 450px) {
+      padding: 1rem 1rem 0 0.5rem;
+    }
   }
 
   svg:hover {
@@ -284,6 +335,10 @@ const SendPhoto = styled.button`
   border-radius: 0.5rem;
   transition: all 0.7s ease-in-out;
 
+  @media screen and (max-width: 450px) {
+    font-size: 1.3rem;
+  }
+
   :hover {
     cursor: pointer;
     background-color: ${secondaryBlue};
@@ -303,6 +358,10 @@ const SignOutButton = styled.button`
   border-radius: 4px;
   transition: all 0.7s ease-in-out;
 
+  @media screen and (max-width: 450px) {
+    font-size: 1.3rem;
+  }
+
   :hover {
     cursor: pointer;
     background-color: ${secondaryRed};
@@ -315,6 +374,10 @@ const Text = styled.p`
   font-size: 1.3rem;
   padding: 1rem;
   font-weight: bold;
+
+  @media screen and (max-width: 450px) {
+    font-size: 1.1rem;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -324,6 +387,12 @@ const TextContainer = styled.div`
   margin-bottom: 2vw;
   border-radius: 1rem;
   color: ${primaryRed};
+
+  @media screen and (max-width: 450px) {
+    width: 80vw;
+    margin-bottom: 5vw;
+    margin-left: 8vw;
+  }
 `;
 
 const UploadPhotoContainer = styled.div`
@@ -338,4 +407,12 @@ const UserPhoto = styled.img`
   border-radius: 1000px;
   box-shadow: 0px 6px 5px #ccc;
   background: ${backgroundText};
+
+  @media screen and (max-width: 450px) {
+    width: 25vw;
+  }
+
+  @media screen and (max-width: 1050px) {
+    width: 15vw;
+  }
 `;

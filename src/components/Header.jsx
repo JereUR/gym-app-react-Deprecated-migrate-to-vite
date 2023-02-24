@@ -5,9 +5,13 @@ import logo from "../assets/logo.png";
 import { MenuHeader } from "./MenuHeader";
 
 export const Header = () => {
+  const redirectHome = () => {
+    window.location.assign("/");
+  };
+
   return (
     <HeaderContainer>
-      <Logo src={logo} />
+      <Logo src={logo} onClick={redirectHome} />
       <MenuHeader />
     </HeaderContainer>
   );
@@ -23,4 +27,8 @@ const Logo = styled.img`
   height: auto;
   margin-left: 5vw;
   z-index: 2;
+
+  :hover {
+    cursor: pointer;
+  }
 `;

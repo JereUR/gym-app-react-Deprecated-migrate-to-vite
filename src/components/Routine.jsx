@@ -288,6 +288,11 @@ const RoutineData = styled.div`
     grid-gap: 0;
     margin: -1.5rem 1rem 2rem 1rem;
   }
+
+  @media (max-width: 1380px) {
+    grid-gap: 0;
+    margin: -1.5rem 1rem 2rem 1rem;
+  }
 `;
 
 const RoutineDay = styled.div`

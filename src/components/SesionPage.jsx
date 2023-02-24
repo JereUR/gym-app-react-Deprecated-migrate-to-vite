@@ -28,10 +28,17 @@ export const SesionPage = () => {
 const Container = styled.div`
   display: flex;
   justify-content: center;
+  margin-top: 5vw;
+  margin-left: 2vw;
 
   @media screen and (max-width: 450px) {
     display: block;
     height: auto;
+  }
+
+  @media screen and (max-width: 1380px) {
+    margin-top: 15vw;
+    margin-left: 5vw;
   }
 `;
 
@@ -45,7 +52,7 @@ const FormData = styled.div`
     width: 350px;
     height: 500px;
     text-align: center;
-    margin: 35% 2rem;
+    margin: 35% 2vw;
     height: 70vh;
   }
 
@@ -55,7 +62,7 @@ const FormData = styled.div`
     width: 350px;
     height: 500px;
     text-align: center;
-    margin: 50% 1rem;
+    margin: 30% -1vw;
   }
 `;
 
@@ -81,6 +88,10 @@ const LogoImg = styled.img`
   width: 20vw;
   height: auto;
   border-radius: 1.5rem;
+
+  @media screen and (max-width: 1380px) {
+    width: 25vw;
+  }
 `;
 
 const LogoSection = styled.div`
@@ -105,4 +116,8 @@ const TextContent = styled.p`
   text-align: center;
   font-size: 20px;
   font-style: oblique;
+
+  @media screen and (max-width: 1380px) {
+    margin-left: 5vw;
+  }
 `;

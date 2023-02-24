@@ -238,6 +238,11 @@ const Form = styled.form`
 const FormContainer = styled.div`
   display: block;
   text-align: center;
+  margin-top: 4vw;
+
+  @media screen and (max-width: 1380px) {
+    margin-top: 2vw;
+  }
 `;
 
 const Input = styled.input`

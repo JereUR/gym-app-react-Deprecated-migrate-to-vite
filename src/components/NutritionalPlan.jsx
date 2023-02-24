@@ -483,13 +483,12 @@ const NoData = styled.div`
 
 const PlanButton = styled.button`
   width: 90vw;
-  margin-bottom: 5vw !important;
   font-family: ${FontFamily};
   font-weight: bold;
   background-color: #fff;
   color: ${primaryRed};
   padding: 10px;
-  margin: 10px;
+  margin: 10px 10px 5vw 10px;
   font-size: 2rem;
   box-shadow: 0 0 3px 3px ${primaryRed};
   border: none;
@@ -505,6 +504,10 @@ const PlanButton = styled.button`
   @media (max-width: 450px) {
     margin-bottom: 15vw !important;
   }
+
+  @media (max-width: 1380px) {
+    margin-bottom: 6vw;
+  }
 `;
 
 const PlanContainer = styled.div`
@@ -519,6 +522,11 @@ const PlanData = styled.div`
 
   @media (max-width: 450px) {
     grid-template-columns: repeat(1, 1fr);
+    grid-gap: 0;
+    margin: -1.5rem 1rem 2rem 1rem;
+  }
+
+  @media (max-width: 1380px) {
     grid-gap: 0;
     margin: -1.5rem 1rem 2rem 1rem;
   }

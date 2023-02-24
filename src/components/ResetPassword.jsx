@@ -138,6 +138,11 @@ const ButtonSend = styled.button`
   border-radius: 0.5rem;
   transition: all 0.7s ease-in-out;
 
+  @media screen and (max-width: 450px) {
+    margin-top: 0;
+    font-size: 1.3rem;
+  }
+
   :hover {
     cursor: pointer;
     background-color: ${secondaryBlue};
@@ -168,6 +173,10 @@ const Form = styled.form`
 const FormContainer = styled.div`
   border-radius: 5px;
   padding: 12vw 15vw 12vw 15vw;
+
+  @media screen and (max-width: 450px) {
+    padding: 20vw 8vw 20vw 8vw;
+  }
 `;
 
 const Input = styled.input`
@@ -180,6 +189,10 @@ const Input = styled.input`
   padding: 10px;
   margin-bottom: 1rem;
 
+  @media screen and (max-width: 450px) {
+    margin-bottom: 8vw;
+  }
+
   :focus {
     box-shadow: 0 0 0 3px rgba(65, 157, 199, 0.5);
   }
@@ -189,4 +202,8 @@ const TitleReset = styled.h1`
   font-family: ${FontFamily};
   text-align: left;
   color: ${primaryBlue};
+
+  @media screen and (max-width: 450px) {
+    margin-bottom: 10vw;
+  }
 `;

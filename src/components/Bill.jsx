@@ -26,7 +26,7 @@ export const Bill = () => {
       </NextPaymentContainer>
       <PaymentsContainer>
         <NoticeTitlePayment>Pagos realizados:</NoticeTitlePayment>
-        {user.payment.payments.length > 0 ? (
+        {user.payment.payments ? (
           user.payment.payments.map((el, index) => (
             <BillItemContainer key={index}>
               <NamePayment>
@@ -53,6 +53,10 @@ const BillItem = styled.a`
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 
+  @media screen and (max-width: 450px) {
+    margin-left: 30%;
+  }
+
   svg {
     margin-left: 5px;
   }
@@ -70,13 +74,22 @@ const BillItemContainer = styled.div`
   padding: 1rem;
   border-radius: 1rem;
   box-shadow: 0px 0px 10px #ccc;
+
+  @media screen and (max-width: 450px) {
+    margin: 8vw 1vw 5vw 1vw;
+    display: block;
+  }
 `;
 
 const NamePayment = styled.p`
   font-size: 1.3rem;
 
+  @media screen and (max-width: 450px) {
+    font-size: 1rem;
+  }
+
   svg {
-    margin-right: 1rem;
+    margin-right: 0.5rem;
   }
 `;
 
@@ -85,6 +98,11 @@ const NextPaymentContainer = styled.div`
   padding: 2vw;
   border-radius: 2rem;
   box-shadow: 0 0 10px ${secondaryRed};
+
+  @media screen and (max-width: 450px) {
+    padding: 5vw;
+    margin: 17vw 5vw 17vw 5vw;
+  }
 `;
 
 const NoData = styled.p`
@@ -94,8 +112,14 @@ const NoData = styled.p`
   font-style: italic;
 `;
 
-const NoticeTitleNext = styled.h1`
+const NoticeTitleNext = styled.p`
   color: ${primaryRed};
+  font-size: 2rem;
+  font-weight: bold;
+
+  @media screen and (max-width: 450px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const Notice = styled.p`
@@ -103,6 +127,10 @@ const Notice = styled.p`
   margin-top: 2rem;
   margin-left: 4vw;
   font-style: italic;
+
+  @media screen and (max-width: 450px) {
+    font-size: 1.1rem;
+  }
 `;
 
 const NoticeTitlePayment = styled(NoticeTitleNext)`

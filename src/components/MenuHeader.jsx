@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { IconContext } from "react-icons";
@@ -10,7 +10,7 @@ import { useAuth } from "./LoginRoute";
 import { Colors } from "../constants/Colors";
 import { BurgerButton } from "./BurgerButton";
 
-const { secondaryBlue, colorText } = Colors;
+const { secondaryBlue, colorText, backgroundText } = Colors;
 
 export const MenuHeader = () => {
   const profilePath = `/usuario/${user.username}`;
@@ -21,8 +21,9 @@ export const MenuHeader = () => {
   const [clicked, setClicked] = useState(false);
 
   const handleClick = () => {
-    setClicked(!clicked);
-    console.log("click");
+    if (window.innerWidth <= 1150) {
+      setClicked(!clicked);
+    }
   };
 
   return (
@@ -56,8 +57,8 @@ export const MenuHeader = () => {
       )}
       {authAdmin && (
         <NavContainer>
-          <NavLinks>
-            <NavLink to="/admin" onClick={handleClick}>
+          <NavLinks className={`links ${clicked ? "active" : ""}`}>
+            <NavLink to="/admin" onClick={handleClick} activeclassname="active">
               Admin
             </NavLink>
             <NavLink
@@ -80,7 +81,7 @@ export const MenuHeader = () => {
 
 const BgDiv = styled.div`
   position: absolute;
-  background-color: ${colorText};
+  background-color: rgb(238, 70, 79, 0.7);
   top: -700px;
   right: -2000px;
   z-index: 1;
@@ -135,7 +136,30 @@ const NavContainer = styled.div`
     a {
       display: block;
       font-size: 1.5rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
+
+      @media (max-width: 450px) {
+        background-color: ${colorText};
+        padding: 2vw !important;
+        border-radius: 5px;
+        width: 35% !important;
+        font-size: 1.2rem;
+
+        :hover {
+          background-color: ${backgroundText};
+        }
+      }
+
+      @media (max-width: 1150px) {
+        background-color: ${colorText};
+        padding: 1vw;
+        border-radius: 5px;
+        width: 20%;
+
+        :hover {
+          background-color: ${backgroundText};
+        }
+      }
     }
 
     @media (min-width: 1150px) {
@@ -155,8 +179,8 @@ const NavContainer = styled.div`
     position: absolute;
     margin-left: auto;
     margin-right: auto;
-    top: 25%;
-    left: 35%;
+    top: 22%;
+    left: 40%;
     right: 0;
     text-align: center;
   }
