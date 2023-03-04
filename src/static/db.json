@@ -82,8 +82,30 @@
       "email": "jeremias.jdv@gmail.com",
       "date": "1994-11-29",
       "login": true,
-      "admin": false,
+      "admin": true,
       "photo": null,
+      "weight": null,
+      "height": null,
+      "medication": [
+        "med1",
+        "med2",
+        "med3"
+      ],
+      "injuries": [
+        {
+          "injury": "Esguince tobillo",
+          "treatment": null
+        }
+      ],
+      "diseases": [
+        {
+          "disease": "Diabetes",
+          "medication": [
+            "med1",
+            "med2"
+          ]
+        }
+      ],
       "routine": {
         "monday": [
           {
@@ -611,6 +633,28 @@
       "login": true,
       "admin": true,
       "photo": null,
+      "weight": null,
+      "height": null,
+      "medication": [
+        "med1",
+        "med2",
+        "med3"
+      ],
+      "injuries": [
+        {
+          "injury": "Esqguince tobillo",
+          "treatment": "Reposo 15 días"
+        }
+      ],
+      "diseases": [
+        {
+          "disease": "Diabetes",
+          "medication": [
+            "med1",
+            "med2"
+          ]
+        }
+      ],
       "routine": {
         "monday": [
           {
@@ -1138,6 +1182,25 @@
       "login": true,
       "admin": true,
       "photo": null,
+      "weight": null,
+      "height": null,
+      "medication": [
+        "med1",
+        "med2",
+        "med3"
+      ],
+      "injuries": [
+        {
+          "injury": "Esguince tobillo",
+          "treatment": "Reposo 15 días"
+        }
+      ],
+      "diseases": [
+        {
+          "disease": "Diabetes",
+          "medication": []
+        }
+      ],
       "routine": {
         "monday": [
           {
@@ -1665,6 +1728,15 @@
       "login": true,
       "admin": true,
       "photo": null,
+      "weight": null,
+      "height": null,
+      "medication": [
+        "med1",
+        "med2",
+        "med3"
+      ],
+      "injuries": [],
+      "diseases": [],
       "routine": {
         "monday": [
           {
@@ -2192,6 +2264,28 @@
       "login": true,
       "admin": true,
       "photo": null,
+      "weight": null,
+      "height": null,
+      "medication": [
+        "med1",
+        "med2",
+        "med3"
+      ],
+      "injuries": [
+        {
+          "injury": "Esguince tobillo",
+          "treatment": "Reposo 15 días"
+        }
+      ],
+      "diseases": [
+        {
+          "disease": "Diabetes",
+          "medication": [
+            "med1",
+            "med2"
+          ]
+        }
+      ],
       "routine": {
         "monday": [
           {

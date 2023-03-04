@@ -16,7 +16,7 @@ import { ResetPassword } from "./components/ResetPassword";
 
 import db from "./static/db.json";
 
-export let user = db.users[0];
+export let user = db.users[2];
 
 const pathUser = `/usuario/${user.username}`;
 

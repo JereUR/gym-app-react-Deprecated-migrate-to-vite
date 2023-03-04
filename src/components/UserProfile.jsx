@@ -10,6 +10,7 @@ import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 import Modal from "./Modal";
 import { UploadAnimation } from "./UploadAnimation";
+import { UserInfo } from "./UserInfo";
 
 const {
   primaryBlue,
@@ -46,6 +47,16 @@ export const UserProfile = () => {
       setPreview("");
     }
   }, [userPhoto]);
+
+  const getYears = () => {
+    var actDate = new Date();
+
+    var fechaNac = new Date(user.date);
+
+    var dif = actDate.getTime() - fechaNac.getTime();
+
+    return Math.floor(dif / (1000 * 60 * 60 * 24 * 365.25));
+  };
 
   const reference = useRef();
 
@@ -173,25 +184,7 @@ export const UserProfile = () => {
           </UploadPhotoContainer>
         </Content>
       </Modal>
-
-      <InfoContainer>
-        <Label>Nombre</Label>
-        <TextContainer>
-          <Text>{user.username}</Text>
-        </TextContainer>
-        <Label>Apellido</Label>
-        <TextContainer>
-          <Text>{user.surname}</Text>
-        </TextContainer>
-        <Label>Fecha de Nacimiento</Label>
-        <TextContainer>
-          <Text>{user.date}</Text>
-        </TextContainer>
-        <Label>Email</Label>
-        <TextContainer>
-          <Text>{user.email}</Text>
-        </TextContainer>
-      </InfoContainer>
+      <UserInfo user={user} />
       <PasswordContainer>
         <ChangePasswordButton onClick={handleReset}>
           Cambiar Contraseña
@@ -273,22 +266,8 @@ const ImagePhoto = styled.img`
   }
 `;
 
-const InfoContainer = styled.div``;
-
 const InputPhoto = styled.input`
   margin-left: 2rem;
-`;
-
-const Label = styled.h3`
-  margin-left: 5vw;
-  margin-bottom: -0.5rem;
-  font-style: italic;
-  color: ${secondaryBlue};
-
-  @media screen and (max-width: 480px) {
-    margin-left: 8vw;
-    margin-bottom: 1rem;
-  }
 `;
 
 const PasswordContainer = styled.div`
@@ -369,31 +348,6 @@ const SignOutButton = styled.button`
 `;
 
 const SignOutContainer = styled(PasswordContainer)``;
-
-const Text = styled.p`
-  font-size: 1.3rem;
-  padding: 1rem;
-  font-weight: bold;
-
-  @media screen and (max-width: 480px) {
-    font-size: 1.1rem;
-  }
-`;
-
-const TextContainer = styled.div`
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  width: 40vw;
-  margin-left: 5vw;
-  margin-bottom: 2vw;
-  border-radius: 1rem;
-  color: ${primaryRed};
-
-  @media screen and (max-width: 480px) {
-    width: 80vw;
-    margin-bottom: 5vw;
-    margin-left: 8vw;
-  }
-`;
 
 const UploadPhotoContainer = styled.div`
   display: flex;
