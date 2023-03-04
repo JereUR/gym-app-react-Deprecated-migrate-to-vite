@@ -84,8 +84,8 @@
       "login": true,
       "admin": true,
       "photo": null,
-      "weight": null,
-      "height": null,
+      "weight": 80,
+      "height": 173,
       "medication": [
         "med1",
         "med2",
@@ -1183,7 +1183,7 @@
       "admin": true,
       "photo": null,
       "weight": null,
-      "height": null,
+      "height": 170,
       "medication": [
         "med1",
         "med2",

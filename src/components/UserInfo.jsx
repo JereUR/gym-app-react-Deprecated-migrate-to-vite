@@ -5,22 +5,89 @@ import { FaEdit } from "react-icons/fa";
 
 import { Colors } from "../constants/Colors";
 import Modal from "./Modal";
+import { FormAditionalInfo } from "./FormAditionalInfo";
 
 const {
   primaryBlue,
   primaryRed,
   secondaryBlue,
   secondaryRed,
-  backgroundText,
-  colorText,
+  success,
   errorInput,
+  backgroundSuccess,
 } = Colors;
 
 export const UserInfo = ({ user }) => {
+  const initialForm = {
+    height: user.height,
+    weight: user.weight,
+    medication: user.medication,
+    injuries: user.injuries,
+    diseases: user.diseases,
+  };
+
   const [changeInfo, setChangeInfo] = useState(false);
+  const [form, setForm] = useState(initialForm);
+  const [newMedication, setNewMedication] = useState(null);
+  const [errorMedication, setErrorMedication] = useState(null);
+  const [newMedications, setNewMedications] = useState(initialForm.medication);
+  const [errors, setErrors] = useState({});
+
+  const timeout = (delay) => {
+    return new Promise((res) => setTimeout(res, delay));
+  };
+
+  const onValidateMedication = () => {
+    let errors = null;
+
+    if (newMedication === null) {
+      errors = "El campo no debe estar vacío.";
+    }
+
+    if (newMedications.includes(newMedication)) {
+      errors = `El medicamento "${newMedication}" ya ha sido agregado.`;
+    }
+
+    return errors;
+  };
 
   const handleModal = () => {
     setChangeInfo(!changeInfo);
+    setNewMedications(initialForm.medication);
+    setErrorMedication(null);
+  };
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleChangeMedication = (e) => {
+    setNewMedication(e.target.value);
+  };
+
+  const handleAddMedication = () => {
+    timeout(2000);
+
+    const err = onValidateMedication();
+    setErrorMedication(err);
+
+    if (err === null) {
+      const m = newMedication;
+      setNewMedications(newMedications.concat(m));
+    } else {
+      console.log("Error ejercicio");
+    }
+
+    document.getElementById("medication").value = null;
+    setNewMedication(null);
+  };
+
+  const deleteMedication = (med) => {
+    let newData = newMedications.filter((el) => el !== med);
+    setNewMedications(newData);
   };
 
   return (
@@ -31,7 +98,18 @@ export const UserInfo = ({ user }) => {
         title="Cambiar información adicional"
       >
         <Content>
-          <UploadInfoContainer></UploadInfoContainer>
+          <UploadInfoContainer>
+            <FormAditionalInfo
+              handleChange={handleChange}
+              form={form}
+              errors={errors}
+              handleChangeMedication={handleChangeMedication}
+              handleAddMedication={handleAddMedication}
+              errorMedication={errorMedication}
+              newMedications={newMedications}
+              deleteMedication={deleteMedication}
+            />
+          </UploadInfoContainer>
         </Content>
       </Modal>
       <FirstInfo>
@@ -60,17 +138,17 @@ export const UserInfo = ({ user }) => {
         <Label>Peso</Label>
         <TextContainer>
           {user.weight ? (
-            <Text>{user.weight}Kg.</Text>
+            <Text>{user.weight} Kg.</Text>
           ) : (
-            <Text>Sin información</Text>
+            <TextNoData>*Agregar información</TextNoData>
           )}
         </TextContainer>
         <Label>Altura</Label>
         <TextContainer>
           {user.height ? (
-            <Text>{user.height}Cm.</Text>
+            <Text>{user.height} Cm.</Text>
           ) : (
-            <Text>Sin información</Text>
+            <TextNoData>*Agregar información</TextNoData>
           )}
         </TextContainer>
         <Label>Medicación</Label>
@@ -146,7 +224,6 @@ const AdInfoTitle = styled.h2`
 const Content = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
 `;
 
 const FirstInfo = styled.div``;
@@ -188,6 +265,11 @@ const TextMed = styled(Text)`
   padding-left: 1rem;
 `;
 
+const TextNoData = styled(Text)`
+  font-style: italic;
+  font-weight: 400;
+`;
+
 const TextContainer = styled.div`
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   width: 40vw;
@@ -204,6 +286,5 @@ const TextContainer = styled.div`
 `;
 
 const UploadInfoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: block;
 `;

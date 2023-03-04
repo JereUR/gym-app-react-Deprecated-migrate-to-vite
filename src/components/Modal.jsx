@@ -64,11 +64,13 @@ const CloseButton = styled.button`
 
 const ModalContainer = styled.div`
   min-height: 200px;
+  max-height: 900px;
   background: ${colorText};
   position: relative;
   border-radius: 5px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 20px;
+  overflow-y: scroll;
 
   @media screen and (max-width: 480px) {
     width: 80%;
@@ -89,6 +91,7 @@ const ModalHeader = styled.div`
     font-weight: 500;
     font-size: 2rem;
     color: ${secondaryBlue};
+    padding-top: 1rem;
 
     @media screen and (max-width: 480px) {
       font-size: 1.6rem;
