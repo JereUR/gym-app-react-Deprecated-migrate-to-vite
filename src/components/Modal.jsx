@@ -64,7 +64,7 @@ const CloseButton = styled.button`
 
 const ModalContainer = styled.div`
   min-height: 200px;
-  max-height: 900px;
+  max-height: 800px;
   background: ${colorText};
   position: relative;
   border-radius: 5px;

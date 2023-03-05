@@ -31,6 +31,10 @@ export const UserInfo = ({ user }) => {
   const [newMedication, setNewMedication] = useState(null);
   const [errorMedication, setErrorMedication] = useState(null);
   const [newMedications, setNewMedications] = useState(initialForm.medication);
+  const [newInjury, setNewInjury] = useState(null);
+  const [newTreatment, setNewTreatment] = useState(null);
+  const [errorInjury, setErrorInjury] = useState({});
+  const [newInjuries, setNewInjuries] = useState(initialForm.injuries);
   const [errors, setErrors] = useState({});
 
   const timeout = (delay) => {
@@ -46,6 +50,24 @@ export const UserInfo = ({ user }) => {
 
     if (newMedications.includes(newMedication)) {
       errors = `El medicamento "${newMedication}" ya ha sido agregado.`;
+    }
+
+    return errors;
+  };
+
+  const onValidateInjury = () => {
+    let errors = {};
+
+    if (newInjury === null) {
+      errors.injury = "El campo no debe estar vacío.";
+    }
+
+    if (typeof newInjury === String) {
+      errors.injury = "El campo solo debe contener letras.";
+    }
+
+    if (newInjuries.includes(newInjury)) {
+      errors.injury = `La lesión "${newInjury}" ya ha sido agregada.`;
     }
 
     return errors;
@@ -78,7 +100,7 @@ export const UserInfo = ({ user }) => {
       const m = newMedication;
       setNewMedications(newMedications.concat(m));
     } else {
-      console.log("Error ejercicio");
+      console.log("Error medicamento");
     }
 
     document.getElementById("medication").value = null;
@@ -88,6 +110,39 @@ export const UserInfo = ({ user }) => {
   const deleteMedication = (med) => {
     let newData = newMedications.filter((el) => el !== med);
     setNewMedications(newData);
+  };
+
+  const handleChangeInjury = (e) => {
+    setNewInjury(e.target.value);
+  };
+
+  const handleChangeTreatment = (e) => {
+    setNewTreatment(e.target.value);
+  };
+
+  const handleAddInjury = () => {
+    timeout(2000);
+
+    const err = onValidateInjury();
+    setErrorInjury(err);
+
+    if (Object.keys(err).length === 0) {
+      const i = { injury: newInjury, treatment: newTreatment };
+      setNewInjuries(newInjuries.concat(i));
+    } else {
+      console.log("Error lesión");
+    }
+
+    document.getElementById("injury").value = null;
+    setNewInjury(null);
+    document.getElementById("treatment").value = null;
+    setNewTreatment(null);
+  };
+
+  const deleteInjury = (i) => {
+    let newData = newInjuries.filter((el) => el.injury !== i);
+    console.log(newData);
+    setNewInjuries(newData);
   };
 
   return (
@@ -108,6 +163,12 @@ export const UserInfo = ({ user }) => {
               errorMedication={errorMedication}
               newMedications={newMedications}
               deleteMedication={deleteMedication}
+              handleChangeInjury={handleChangeInjury}
+              handleChangeTreatment={handleChangeTreatment}
+              handleAddInjury={handleAddInjury}
+              errorInjury={errorInjury}
+              newInjuries={newInjuries}
+              deleteInjury={deleteInjury}
             />
           </UploadInfoContainer>
         </Content>
