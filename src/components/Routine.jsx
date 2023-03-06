@@ -7,7 +7,7 @@ import { user } from "../App";
 import { getDayNow } from "../helpers/GetDay";
 import { Colors } from "../constants/Colors";
 
-const { backgroundText, primaryRed, primaryBlue, secondaryBlue } = Colors;
+const { primaryRed, primaryBlue, secondaryBlue } = Colors;
 
 export const Routine = () => {
   const [showRoutine, setShowRoutine] = useState(false);
@@ -43,8 +43,20 @@ export const Routine = () => {
               {user.routine.monday.length > 0 ? (
                 user.routine.monday.map((el, index) => (
                   <InfoItem key={index}>
-                    <Mount>{el.mount}</Mount>
-                    <Exercise>- {el.exercise}</Exercise>
+                    <Mount>
+                      {el.series} x{el.count} {el.measure}
+                    </Mount>
+                    <ExerciseContainer></ExerciseContainer>
+                    <Exercise>
+                      <TypeExercise>{el.exercise}</TypeExercise>
+                      <ExtraInfo>
+                        {el.rest && `${el.rest} segundos de descanso`}{" "}
+                        {el.description && `- ${el.description}`}
+                        {el.rest === null &&
+                          el.description === null &&
+                          "Sin información adicional."}
+                      </ExtraInfo>
+                    </Exercise>
                   </InfoItem>
                 ))
               ) : (
@@ -67,8 +79,20 @@ export const Routine = () => {
               {user.routine.tuesday.length > 0 ? (
                 user.routine.tuesday.map((el, index) => (
                   <InfoItem key={index}>
-                    <Mount>{el.mount}</Mount>
-                    <Exercise>- {el.exercise}</Exercise>
+                    <Mount>
+                      {el.series} x{el.count} {el.measure}
+                    </Mount>
+                    <ExerciseContainer></ExerciseContainer>
+                    <Exercise>
+                      <TypeExercise>{el.exercise}</TypeExercise>
+                      <ExtraInfo>
+                        {el.rest && `${el.rest} segundos de descanso`}{" "}
+                        {el.description && `- ${el.description}`}
+                        {el.rest === null &&
+                          el.description === null &&
+                          "Sin información adicional."}
+                      </ExtraInfo>
+                    </Exercise>
                   </InfoItem>
                 ))
               ) : (
@@ -91,8 +115,20 @@ export const Routine = () => {
               {user.routine.wednesday.length > 0 ? (
                 user.routine.wednesday.map((el, index) => (
                   <InfoItem key={index}>
-                    <Mount>{el.mount}</Mount>
-                    <Exercise>- {el.exercise}</Exercise>
+                    <Mount>
+                      {el.series} x{el.count} {el.measure}
+                    </Mount>
+                    <ExerciseContainer></ExerciseContainer>
+                    <Exercise>
+                      <TypeExercise>{el.exercise}</TypeExercise>
+                      <ExtraInfo>
+                        {el.rest && `${el.rest} segundos de descanso`}{" "}
+                        {el.description && `- ${el.description}`}
+                        {el.rest === null &&
+                          el.description === null &&
+                          "Sin información adicional."}
+                      </ExtraInfo>
+                    </Exercise>
                   </InfoItem>
                 ))
               ) : (
@@ -115,8 +151,20 @@ export const Routine = () => {
               {user.routine.thursday.length > 0 ? (
                 user.routine.thursday.map((el, index) => (
                   <InfoItem key={index}>
-                    <Mount>{el.mount}</Mount>
-                    <Exercise>- {el.exercise}</Exercise>
+                    <Mount>
+                      {el.series} x{el.count} {el.measure}
+                    </Mount>
+                    <ExerciseContainer></ExerciseContainer>
+                    <Exercise>
+                      <TypeExercise>{el.exercise}</TypeExercise>
+                      <ExtraInfo>
+                        {el.rest && `${el.rest} segundos de descanso`}{" "}
+                        {el.description && `- ${el.description}`}
+                        {el.rest === null &&
+                          el.description === null &&
+                          "Sin información adicional."}
+                      </ExtraInfo>
+                    </Exercise>
                   </InfoItem>
                 ))
               ) : (
@@ -139,8 +187,20 @@ export const Routine = () => {
               {user.routine.friday.length > 0 ? (
                 user.routine.friday.map((el, index) => (
                   <InfoItem key={index}>
-                    <Mount>{el.mount}</Mount>
-                    <Exercise>- {el.exercise}</Exercise>
+                    <Mount>
+                      {el.series} x{el.count} {el.measure}
+                    </Mount>
+                    <ExerciseContainer></ExerciseContainer>
+                    <Exercise>
+                      <TypeExercise>{el.exercise}</TypeExercise>
+                      <ExtraInfo>
+                        {el.rest && `${el.rest} segundos de descanso`}{" "}
+                        {el.description && `- ${el.description}`}
+                        {el.rest === null &&
+                          el.description === null &&
+                          "Sin información adicional."}
+                      </ExtraInfo>
+                    </Exercise>
                   </InfoItem>
                 ))
               ) : (
@@ -163,8 +223,20 @@ export const Routine = () => {
               {user.routine.saturday.length > 0 ? (
                 user.routine.saturday.map((el, index) => (
                   <InfoItem key={index}>
-                    <Mount>{el.mount}</Mount>
-                    <Exercise>- {el.exercise}</Exercise>
+                    <Mount>
+                      {el.series} x{el.count} {el.measure}
+                    </Mount>
+                    <ExerciseContainer></ExerciseContainer>
+                    <Exercise>
+                      <TypeExercise>{el.exercise}</TypeExercise>
+                      <ExtraInfo>
+                        {el.rest && `${el.rest} segundos de descanso`}{" "}
+                        {el.description && `- ${el.description}`}
+                        {el.rest === null &&
+                          el.description === null &&
+                          "Sin información adicional."}
+                      </ExtraInfo>
+                    </Exercise>
                   </InfoItem>
                 ))
               ) : (
@@ -187,8 +259,20 @@ export const Routine = () => {
               {user.routine.sunday.length > 0 ? (
                 user.routine.sunday.map((el, index) => (
                   <InfoItem key={index}>
-                    <Mount>{el.mount}</Mount>
-                    <Exercise>- {el.exercise}</Exercise>
+                    <Mount>
+                      {el.series} x{el.count} {el.measure}
+                    </Mount>
+                    <ExerciseContainer></ExerciseContainer>
+                    <Exercise>
+                      <TypeExercise>{el.exercise}</TypeExercise>
+                      <ExtraInfo>
+                        {el.rest && `${el.rest} segundos de descanso`}{" "}
+                        {el.description && `- ${el.description}`}
+                        {el.rest === null &&
+                          el.description === null &&
+                          "Sin información adicional."}
+                      </ExtraInfo>
+                    </Exercise>
                   </InfoItem>
                 ))
               ) : (
@@ -210,15 +294,22 @@ const DayWeekNow = styled.h1`
   color: ${primaryRed};
 `;
 
-const Exercise = styled.p`
-  padding-top: 1.6px;
+const Exercise = styled.p``;
+
+const ExerciseContainer = styled.div`
+  display: block;
+  border-left: 3px solid ${primaryBlue};
+  margin: 1rem;
+`;
+
+const ExtraInfo = styled.p`
+  font-style: italic;
 `;
 
 const Hr = styled.hr``;
 
 const InfoItem = styled.li`
   color: rgb(30, 30, 30);
-  font-size: 1.3rem;
   display: flex;
 
   @media screen and (max-width: 480px) {
@@ -229,13 +320,16 @@ const InfoItem = styled.li`
 const List = styled.div``;
 
 const Mount = styled.p`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1.4rem;
   font-weight: bold;
   margin-right: 0.5rem;
   color: ${secondaryBlue};
 
   @media screen and (max-width: 480px) {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 `;
 
@@ -320,3 +414,13 @@ const TextNoData = styled.p`
 `;
 
 const Today = styled.i``;
+
+const TypeExercise = styled.p`
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: ${secondaryBlue};
+
+  @media screen and (max-width: 480px) {
+    font-size: 1rem;
+  }
+`;

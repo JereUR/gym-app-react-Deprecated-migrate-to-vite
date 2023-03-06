@@ -22,9 +22,12 @@ const FormRoutine = () => {
   const [forData, setForData] = useState(null);
   const [dayData, setDayData] = useState(null);
   const [measure, setMeasure] = useState(null);
+  const [series, setSeries] = useState(null);
   const [count, setCount] = useState(null);
   const [zone, setZone] = useState(null);
   const [typeExercise, setTypeExercise] = useState(null);
+  const [rest, setRest] = useState(null);
+  const [description, setDescription] = useState(null);
   const [exercises, setExercises] = useState([]);
   const [errorsExercises, setErrorsExercises] = useState({});
   const [errorsRoutine, setErrorsRoutine] = useState({});
@@ -34,14 +37,20 @@ const FormRoutine = () => {
   };
 
   const clearFormRoutine = () => {
+    document.getElementById("seriesExercise").value = null;
     document.getElementById("measureExercise").value = null;
     document.getElementById("countExercise").value = null;
     document.getElementById("zone").value = null;
     document.getElementById("exercise").value = null;
+    document.getElementById("rest").value = null;
+    document.getElementById("description").value = null;
 
+    setSeries(null);
     setMeasure(null);
     setCount(null);
     setTypeExercise(null);
+    setRest(null);
+    setDescription(null);
   };
 
   const clearData = () => {
@@ -53,6 +62,14 @@ const FormRoutine = () => {
 
   const onValidateExercises = () => {
     let errorsForm = {};
+
+    if (series === null) {
+      errorsForm.series = "Debe especificar series.";
+    }
+
+    if (series <= 0 && series != null) {
+      errorsForm.series = "El número de series debe ser mayor a 0.";
+    }
 
     if (measure === null) {
       errorsForm.measure = "Debe especificar tipo de medida.";
@@ -111,6 +128,10 @@ const FormRoutine = () => {
     setMeasure(e.target.value);
   };
 
+  const handleSeries = (e) => {
+    setSeries(e.target.value);
+  };
+
   const handleCount = (e) => {
     setCount(e.target.value);
   };
@@ -124,6 +145,14 @@ const FormRoutine = () => {
     setTypeExercise(e.target.value);
   };
 
+  const handleRest = (e) => {
+    setRest(e.target.value);
+  };
+
+  const handleDescription = (e) => {
+    setDescription(e.target.value);
+  };
+
   const handleAddExercise = () => {
     timeout(2000);
 
@@ -131,7 +160,15 @@ const FormRoutine = () => {
     setErrorsExercises(err);
 
     if (Object.keys(err).length === 0) {
-      const e = { measure, count, typeExercise, id: exercises.length };
+      const e = {
+        series,
+        measure,
+        count,
+        typeExercise,
+        rest,
+        description,
+        id: exercises.length,
+      };
       setExercises(exercises.concat(e));
       clearFormRoutine();
     } else {
@@ -156,6 +193,7 @@ const FormRoutine = () => {
         dayData,
         exercises,
       };
+      console.log(routineDay);
 
       /* try {
           const resp = await fetch("/", {
@@ -246,6 +284,18 @@ const FormRoutine = () => {
       </DayPartContainer>
       <DataContainer>
         <InputContainer>
+          <Label>Series</Label>
+          <Input
+            type="number"
+            onChange={handleSeries}
+            id="seriesExercise"
+            placeholder="Determine series"
+          />
+          {errorsExercises.series && (
+            <ErrorInput>{errorsExercises.series}</ErrorInput>
+          )}
+        </InputContainer>
+        <InputContainer>
           <Label>Cantidad</Label>
           <Input
             type="number"
@@ -293,6 +343,23 @@ const FormRoutine = () => {
           {errorsExercises.typeExercise && (
             <ErrorInput>{errorsExercises.typeExercise}</ErrorInput>
           )}
+        </InputContainer>
+        <InputContainer>
+          <Label>Descanso (En seg.)</Label>
+          <Input
+            type="number"
+            onChange={handleRest}
+            id="rest"
+            placeholder="Determine tiempo de descanso"
+          />
+        </InputContainer>
+        <InputContainer>
+          <Label>Descripción</Label>
+          <TextArea
+            onChange={handleDescription}
+            id="description"
+            placeholder="Descripción adicional"
+          />
         </InputContainer>
         <IoMdAddCircle
           fontSize="3.5rem"
@@ -500,6 +567,24 @@ const SelectFirst = styled(Select)`
 
   @media screen and (max-width: 480px) {
     width: 60vw;
+  }
+`;
+
+const TextArea = styled.textarea`
+  border: 2px solid ${primaryBlue};
+  border-radius: 10px;
+  box-shadow: none;
+  font-family: ${FontFamily};
+  font-size: 16px;
+  line-height: 1.5;
+  height: 1vw;
+  width: 15vw;
+  padding: 10px;
+  transition: border-color 0.3s ease-in-out;
+
+  :focus {
+    border-color: ${primaryRed};
+    outline: none;
   }
 `;
 

@@ -8,7 +8,7 @@ import { getDayNow } from "../helpers/GetDay";
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 
-const { primaryBlue, secondaryBlue, primaryRed, backgroundText } = Colors;
+const { primaryBlue, secondaryBlue, primaryRed } = Colors;
 
 export const NutritionalPlan = () => {
   const [showPlan, setShowPlan] = useState(false);
@@ -89,6 +89,54 @@ export const NutritionalPlan = () => {
                   <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
+              <TextMeal>Post-cena</TextMeal>
+              {user.nutricionalPlan.monday[4].afterDinner.length > 0 ? (
+                user.nutricionalPlan.monday[4].afterDinner.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Pre-entreno</TextMeal>
+              {user.nutricionalPlan.monday[5].preWorkout.length > 0 ? (
+                user.nutricionalPlan.monday[5].preWorkout.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Post-entreno</TextMeal>
+              {user.nutricionalPlan.monday[6].postWorkout.length > 0 ? (
+                user.nutricionalPlan.monday[6].postWorkout.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Colación</TextMeal>
+              {user.nutricionalPlan.monday[7].collation.length > 0 ? (
+                user.nutricionalPlan.monday[7].collation.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
             </List>
           </PlanDay>
           <PlanDay>
@@ -140,6 +188,54 @@ export const NutritionalPlan = () => {
               <TextMeal>Cena</TextMeal>
               {user.nutricionalPlan.tuesday[3].dinner.length > 0 ? (
                 user.nutricionalPlan.tuesday[3].dinner.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Post-cena</TextMeal>
+              {user.nutricionalPlan.tuesday[4].afterDinner.length > 0 ? (
+                user.nutricionalPlan.tuesday[4].afterDinner.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Pre-entreno</TextMeal>
+              {user.nutricionalPlan.tuesday[5].preWorkout.length > 0 ? (
+                user.nutricionalPlan.tuesday[5].preWorkout.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Post-entreno</TextMeal>
+              {user.nutricionalPlan.tuesday[6].postWorkout.length > 0 ? (
+                user.nutricionalPlan.tuesday[6].postWorkout.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Colación</TextMeal>
+              {user.nutricionalPlan.tuesday[7].collation.length > 0 ? (
+                user.nutricionalPlan.tuesday[7].collation.map((el, index) => (
                   <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
@@ -209,6 +305,60 @@ export const NutritionalPlan = () => {
                   <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
+              <TextMeal>Post-cena</TextMeal>
+              {user.nutricionalPlan.wednesday[4].afterDinner.length > 0 ? (
+                user.nutricionalPlan.wednesday[4].afterDinner.map(
+                  (el, index) => (
+                    <InfoItem key={index}>
+                      {el.mount} - {el.meal}
+                    </InfoItem>
+                  )
+                )
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Pre-entreno</TextMeal>
+              {user.nutricionalPlan.wednesday[5].preWorkout.length > 0 ? (
+                user.nutricionalPlan.wednesday[5].preWorkout.map(
+                  (el, index) => (
+                    <InfoItem key={index}>
+                      {el.mount} - {el.meal}
+                    </InfoItem>
+                  )
+                )
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Post-entreno</TextMeal>
+              {user.nutricionalPlan.wednesday[6].postWorkout.length > 0 ? (
+                user.nutricionalPlan.wednesday[6].postWorkout.map(
+                  (el, index) => (
+                    <InfoItem key={index}>
+                      {el.mount} - {el.meal}
+                    </InfoItem>
+                  )
+                )
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Colación</TextMeal>
+              {user.nutricionalPlan.wednesday[7].collation.length > 0 ? (
+                user.nutricionalPlan.wednesday[7].collation.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
             </List>
           </PlanDay>
           <PlanDay>
@@ -260,6 +410,58 @@ export const NutritionalPlan = () => {
               <TextMeal>Cena</TextMeal>
               {user.nutricionalPlan.thursday[3].dinner.length > 0 ? (
                 user.nutricionalPlan.thursday[3].dinner.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Post-cena</TextMeal>
+              {user.nutricionalPlan.thursday[4].afterDinner.length > 0 ? (
+                user.nutricionalPlan.thursday[4].afterDinner.map(
+                  (el, index) => (
+                    <InfoItem key={index}>
+                      {el.mount} - {el.meal}
+                    </InfoItem>
+                  )
+                )
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Pre-entreno</TextMeal>
+              {user.nutricionalPlan.thursday[5].preWorkout.length > 0 ? (
+                user.nutricionalPlan.thursday[5].preWorkout.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Post-entreno</TextMeal>
+              {user.nutricionalPlan.thursday[6].postWorkout.length > 0 ? (
+                user.nutricionalPlan.thursday[6].postWorkout.map(
+                  (el, index) => (
+                    <InfoItem key={index}>
+                      {el.mount} - {el.meal}
+                    </InfoItem>
+                  )
+                )
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Colación</TextMeal>
+              {user.nutricionalPlan.thursday[7].collation.length > 0 ? (
+                user.nutricionalPlan.thursday[7].collation.map((el, index) => (
                   <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>
@@ -329,6 +531,54 @@ export const NutritionalPlan = () => {
                   <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
+              <TextMeal>Post-cena</TextMeal>
+              {user.nutricionalPlan.friday[4].afterDinner.length > 0 ? (
+                user.nutricionalPlan.friday[4].afterDinner.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Pre-entreno</TextMeal>
+              {user.nutricionalPlan.friday[5].preWorkout.length > 0 ? (
+                user.nutricionalPlan.friday[5].preWorkout.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Post-entreno</TextMeal>
+              {user.nutricionalPlan.friday[6].postWorkout.length > 0 ? (
+                user.nutricionalPlan.friday[6].postWorkout.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Colación</TextMeal>
+              {user.nutricionalPlan.friday[7].collation.length > 0 ? (
+                user.nutricionalPlan.friday[7].collation.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
             </List>
           </PlanDay>
           <PlanDay>
@@ -389,6 +639,58 @@ export const NutritionalPlan = () => {
                   <TextNoData>Sin Información.</TextNoData>
                 </NoData>
               )}
+              <TextMeal>Post-cena</TextMeal>
+              {user.nutricionalPlan.saturday[4].afterDinner.length > 0 ? (
+                user.nutricionalPlan.saturday[4].afterDinner.map(
+                  (el, index) => (
+                    <InfoItem key={index}>
+                      {el.mount} - {el.meal}
+                    </InfoItem>
+                  )
+                )
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Pre-entreno</TextMeal>
+              {user.nutricionalPlan.saturday[5].preWorkout.length > 0 ? (
+                user.nutricionalPlan.saturday[5].preWorkout.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Post-entreno</TextMeal>
+              {user.nutricionalPlan.saturday[6].postWorkout.length > 0 ? (
+                user.nutricionalPlan.saturday[6].postWorkout.map(
+                  (el, index) => (
+                    <InfoItem key={index}>
+                      {el.mount} - {el.meal}
+                    </InfoItem>
+                  )
+                )
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Colación</TextMeal>
+              {user.nutricionalPlan.saturday[7].collation.length > 0 ? (
+                user.nutricionalPlan.saturday[7].collation.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
             </List>
           </PlanDay>
           <PlanDay>
@@ -440,6 +742,54 @@ export const NutritionalPlan = () => {
               <TextMeal>Cena</TextMeal>
               {user.nutricionalPlan.sunday[3].dinner.length > 0 ? (
                 user.nutricionalPlan.sunday[3].dinner.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Post-cena</TextMeal>
+              {user.nutricionalPlan.sunday[4].afterDinner.length > 0 ? (
+                user.nutricionalPlan.sunday[4].afterDinner.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Pre-entreno</TextMeal>
+              {user.nutricionalPlan.sunday[5].preWorkout.length > 0 ? (
+                user.nutricionalPlan.sunday[5].preWorkout.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Post-entreno</TextMeal>
+              {user.nutricionalPlan.sunday[6].postWorkout.length > 0 ? (
+                user.nutricionalPlan.sunday[6].postWorkout.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Colación</TextMeal>
+              {user.nutricionalPlan.sunday[7].collation.length > 0 ? (
+                user.nutricionalPlan.sunday[7].collation.map((el, index) => (
                   <InfoItem key={index}>
                     {el.mount} - {el.meal}
                   </InfoItem>

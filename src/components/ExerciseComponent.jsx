@@ -10,7 +10,9 @@ export const ExerciseComponent = ({ el, deleteData }) => {
   return (
     <ExerciseContainer>
       <ExerciseItem key={el.id}>
-        {el.count} {el.measure} - {el.typeExercise}
+        {el.series} x {el.count} {el.measure} - {el.typeExercise} -{" "}
+        {el.rest ? `${el.rest} seg. de descanso` : "Sin descanso estipulado"} -{" "}
+        {el.description ? `${el.description}` : "Sin información adicional"}
       </ExerciseItem>
       <FaTrashAlt fontSize="1.1rem" onClick={() => deleteData(el.id)} />
     </ExerciseContainer>

@@ -30,6 +30,10 @@ export const FormNutritionalPlan = () => {
   const [lunch, setLunch] = useState([]);
   const [snack, setSnack] = useState([]);
   const [dinner, setDinner] = useState([]);
+  const [afterDinner, setAfterDinner] = useState([]);
+  const [preWorkout, setPreWorkout] = useState([]);
+  const [postWorkout, setPostWorkout] = useState([]);
+  const [collation, setCollation] = useState([]);
   const [errorsPlan, setErrorsPlan] = useState({});
   const [errorsMeal, setErrorsMeal] = useState({});
 
@@ -56,6 +60,10 @@ export const FormNutritionalPlan = () => {
     setLunch([]);
     setSnack([]);
     setDinner([]);
+    setAfterDinner([]);
+    setPreWorkout([]);
+    setPostWorkout([]);
+    setCollation([]);
   };
 
   const onValidateMeal = () => {
@@ -106,7 +114,8 @@ export const FormNutritionalPlan = () => {
       snack.length === 0 &&
       dinner.length === 0
     ) {
-      errorsForm.planData = "El plan nutricional está vacio.";
+      errorsForm.planData =
+        "El plan nutricional debe contener como mínimo  desayuno, almuerzo, merienda y cena.";
     }
 
     return errorsForm;
@@ -164,7 +173,18 @@ export const FormNutritionalPlan = () => {
       case dinner:
         setDinner(newData);
         break;
-
+      case afterDinner:
+        setAfterDinner(newData);
+        break;
+      case preWorkout:
+        setPreWorkout(newData);
+        break;
+      case postWorkout:
+        setPostWorkout(newData);
+        break;
+      case collation:
+        setCollation(newData);
+        break;
       default:
         break;
     }
@@ -194,6 +214,22 @@ export const FormNutritionalPlan = () => {
           const dData = { measure, count, type, id: dinner.length };
           setDinner(dinner.concat(dData));
           break;
+        case "after-dinner":
+          const aData = { measure, count, type, id: afterDinner.length };
+          setAfterDinner(afterDinner.concat(aData));
+          break;
+        case "pre-workout":
+          const preData = { measure, count, type, id: preWorkout.length };
+          setPreWorkout(preWorkout.concat(preData));
+          break;
+        case "post-workout":
+          const postData = { measure, count, type, id: postWorkout.length };
+          setPostWorkout(postWorkout.concat(postData));
+          break;
+        case "collation":
+          const cData = { measure, count, type, id: collation.length };
+          setCollation(collation.concat(cData));
+          break;
         default:
           break;
       }
@@ -217,7 +253,13 @@ export const FormNutritionalPlan = () => {
         lunch,
         snack,
         dinner,
+        afterDinner,
+        preWorkout,
+        postWorkout,
+        collation,
       };
+
+      console.log(planDay);
 
       /* try {
           const resp = await fetch("/", {
@@ -423,6 +465,66 @@ export const FormNutritionalPlan = () => {
                 el={el}
                 deleteData={deleteData}
                 data={dinner}
+              />
+            ))}
+          </List>
+        </MealContainer>
+      )}
+      {afterDinner.length > 0 && (
+        <MealContainer>
+          <MealName>Post-cena:</MealName>
+          <List>
+            {afterDinner.map((el) => (
+              <MealComponent
+                key={el.id}
+                el={el}
+                deleteData={deleteData}
+                data={afterDinner}
+              />
+            ))}
+          </List>
+        </MealContainer>
+      )}
+      {preWorkout.length > 0 && (
+        <MealContainer>
+          <MealName>Pre-entreno:</MealName>
+          <List>
+            {preWorkout.map((el) => (
+              <MealComponent
+                key={el.id}
+                el={el}
+                deleteData={deleteData}
+                data={preWorkout}
+              />
+            ))}
+          </List>
+        </MealContainer>
+      )}
+      {postWorkout.length > 0 && (
+        <MealContainer>
+          <MealName>Post-entreno:</MealName>
+          <List>
+            {postWorkout.map((el) => (
+              <MealComponent
+                key={el.id}
+                el={el}
+                deleteData={deleteData}
+                data={postWorkout}
+              />
+            ))}
+          </List>
+        </MealContainer>
+      )}
+      {collation.length > 0 && (
+        <MealContainer>
+          <MealName>Colación:</MealName>
+          <List>
+            {collation.map((el) => (
+              <MealComponent
+                key={el.id}
+                el={el}
+                deleteData={deleteData}
+                data={collation}
               />
             ))}
           </List>

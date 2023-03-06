@@ -7,15 +7,7 @@ import { Colors } from "../constants/Colors";
 import Modal from "./Modal";
 import { FormAditionalInfo } from "./FormAditionalInfo";
 
-const {
-  primaryBlue,
-  primaryRed,
-  secondaryBlue,
-  secondaryRed,
-  success,
-  errorInput,
-  backgroundSuccess,
-} = Colors;
+const { primaryRed, secondaryBlue, secondaryRed } = Colors;
 
 export const UserInfo = ({ user }) => {
   const initialForm = {
@@ -317,6 +309,10 @@ export const UserInfo = ({ user }) => {
         <Label>Fecha de Nacimiento</Label>
         <TextContainer>
           <Text>{user.date}</Text>
+        </TextContainer>
+        <Label>Sexo</Label>
+        <TextContainer>
+          <Text>{user.gender}</Text>
         </TextContainer>
         <Label>Email</Label>
         <TextContainer>

@@ -13,6 +13,7 @@ const initialData = {
   nameRegister: "",
   surnameRegister: "",
   emailRegister: "",
+  gender: "",
   dateRegister: "",
   passwordRegister: "",
   confirmPassword: "",
@@ -46,6 +47,10 @@ export const SignUp = () => {
       errorsForm.emailRegister = "Correo no válido.";
     }
 
+    if (dataRegister.gender === "") {
+      errorsForm.gender = `Este campo no debe ser vacío.`;
+    }
+
     if (!dataRegister.dateRegister.trim()) {
       errorsForm.dateRegister = `Este campo no debe ser vacío.`;
     }
@@ -64,6 +69,8 @@ export const SignUp = () => {
 
   const handleRegisterModal = () => {
     setRegister(!register);
+    setErrors({});
+    setDataRegister(initialData);
   };
 
   const handleChange = (e) => {
@@ -163,6 +170,40 @@ export const SignUp = () => {
                   <ErrorInput>{errors.emailRegister}</ErrorInput>
                 )}
               </InputContainer>
+              <InputRadioContainer>
+                <Label>Sexo</Label>
+                <LabelRadio htmlFor="male">
+                  <Span>Masculino</Span>
+                  <InputRadio
+                    type="radio"
+                    id="male"
+                    name="gender"
+                    onChange={handleChange}
+                    value="Masculino"
+                  />
+                </LabelRadio>
+                <LabelRadio htmlFor="female">
+                  <Span>Femenino</Span>
+                  <InputRadio
+                    type="radio"
+                    id="female"
+                    name="gender"
+                    onChange={handleChange}
+                    value="Femenino"
+                  />
+                </LabelRadio>
+                <LabelRadio htmlFor="other">
+                  <Span>Otro</Span>
+                  <InputRadio
+                    type="radio"
+                    id="other"
+                    name="gender"
+                    onChange={handleChange}
+                    value="Otro"
+                  />
+                </LabelRadio>
+              </InputRadioContainer>
+              {errors.gender && <ErrorInput>{errors.gender}</ErrorInput>}
               <InputContainer>
                 <Input
                   type="date"
@@ -323,7 +364,27 @@ const Input = styled.input`
   }
 `;
 
+const InputRadio = styled.input`
+  font-family: ${FontFamily};
+  padding: 10px;
+  margin-bottom: 1rem;
+  width: 90%;
+
+  :checked + span {
+    color: ${primaryBlue};
+  }
+
+  :hover {
+    cursor: pointer;
+  }
+`;
+
 const InputContainer = styled.div``;
+
+const InputRadioContainer = styled.div`
+  display: flex;
+  margin: 1rem 0;
+`;
 
 const InputName = styled.input`
   font-family: ${FontFamily};
@@ -347,8 +408,28 @@ const InputName = styled.input`
   }
 `;
 
+const Label = styled.label`
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0.5rem 4rem 0 2rem;
+  font-style: italic;
+  color: ${secondaryBlue};
+
+  @media screen and (max-width: 480px) {
+    margin-left: 8vw;
+    margin-bottom: 1rem;
+  }
+`;
+
+const LabelRadio = styled.div``;
+
 const NameAndSurnameContainer = styled.div`
   display: flex;
   margin-left: 0.9rem;
   margin-right: 0.9rem;
+`;
+
+const Span = styled.span`
+  font-weight: 500;
+  color: rgb(130, 130, 130);
 `;
