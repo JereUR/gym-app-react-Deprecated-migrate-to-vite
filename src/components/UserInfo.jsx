@@ -111,6 +111,7 @@ export const UserInfo = ({ user }) => {
 
   const handleModal = () => {
     setChangeInfo(!changeInfo);
+    setForm(initialForm);
     setNewMedications(initialForm.medication);
     setErrorMedication(null);
     setNewInjuries(initialForm.injuries);
