@@ -35,10 +35,28 @@ export const UserInfo = ({ user }) => {
   const [newTreatment, setNewTreatment] = useState(null);
   const [errorInjury, setErrorInjury] = useState({});
   const [newInjuries, setNewInjuries] = useState(initialForm.injuries);
+  const [newDisease, setNewDisease] = useState(null);
+  const [newMedicationDisease, setNewMedicationDisease] = useState(null);
+  const [errorDisease, setErrorDisease] = useState({});
+  const [newDiseases, setNewDiseases] = useState(initialForm.diseases);
   const [errors, setErrors] = useState({});
 
   const timeout = (delay) => {
     return new Promise((res) => setTimeout(res, delay));
+  };
+
+  const onValidateForm = () => {
+    let errors = {};
+
+    if (form.weight <= 0) {
+      errors.weight = "El valor debe ser mayor a 0.";
+    }
+
+    if (form.height <= 0) {
+      errors.height = "El valor debe ser mayor a 0.";
+    }
+
+    return errors;
   };
 
   const onValidateMedication = () => {
@@ -66,8 +84,26 @@ export const UserInfo = ({ user }) => {
       errors.injury = "El campo solo debe contener letras.";
     }
 
-    if (newInjuries.includes(newInjury)) {
+    if (newInjuries.some((el) => el.injury === newInjury)) {
       errors.injury = `La lesión "${newInjury}" ya ha sido agregada.`;
+    }
+
+    return errors;
+  };
+
+  const onValidateDisease = () => {
+    let errors = {};
+
+    if (newDisease === null) {
+      errors.disease = "El campo no debe estar vacío.";
+    }
+
+    if (typeof newDisease === String) {
+      errors.disease = "El campo solo debe contener letras.";
+    }
+
+    if (newDiseases.some((el) => el.disease === newDisease)) {
+      errors.disease = `La enfermedad "${newDisease}" ya ha sido agregada.`;
     }
 
     return errors;
@@ -77,6 +113,10 @@ export const UserInfo = ({ user }) => {
     setChangeInfo(!changeInfo);
     setNewMedications(initialForm.medication);
     setErrorMedication(null);
+    setNewInjuries(initialForm.injuries);
+    setErrorInjury({});
+    setNewDiseases(initialForm.diseases);
+    setErrorDisease({});
   };
 
   const handleChange = (e) => {
@@ -140,9 +180,93 @@ export const UserInfo = ({ user }) => {
   };
 
   const deleteInjury = (i) => {
-    let newData = newInjuries.filter((el) => el.injury !== i);
-    console.log(newData);
+    let newData = newInjuries.filter((el) => el.injury !== i.injury);
     setNewInjuries(newData);
+  };
+
+  const handleChangeDisease = (e) => {
+    setNewDisease(e.target.value);
+  };
+
+  const handleChangeMedicationDisease = (e) => {
+    setNewMedicationDisease(e.target.value);
+  };
+
+  const handleAddDisease = () => {
+    timeout(2000);
+
+    const err = onValidateDisease();
+    setErrorDisease(err);
+
+    if (Object.keys(err).length === 0) {
+      const d = { disease: newDisease, medication: newMedicationDisease };
+      setNewDiseases(newDiseases.concat(d));
+    } else {
+      console.log("Error enfermedad");
+    }
+
+    document.getElementById("disease").value = null;
+    setNewDisease(null);
+    document.getElementById("medication-disease").value = null;
+    setNewMedicationDisease(null);
+  };
+
+  const deleteDisease = (d) => {
+    console.log(newDiseases);
+    let newData = newDiseases.filter((el) => el.disease !== d.disease);
+    setNewDiseases(newData);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const err = onValidateForm();
+    setErrors(err);
+
+    if (Object.keys(err).length === 0) {
+      const data = {
+        weight: form.weight,
+        height: form.height,
+        newMedications,
+        newInjuries,
+        newDiseases,
+      };
+
+      /* try {
+          const resp = await fetch("/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ data }),
+          });
+          console.log(resp);
+
+          toast.success("Cambios guardados.", {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(215, 250, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          });
+        } catch (error) {
+          toast.error("error.", {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(250, 215, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          });
+        } */
+
+      setChangeInfo(!changeInfo);
+    } else {
+      console.log("Error enfermedad");
+    }
   };
 
   return (
@@ -169,6 +293,13 @@ export const UserInfo = ({ user }) => {
               errorInjury={errorInjury}
               newInjuries={newInjuries}
               deleteInjury={deleteInjury}
+              handleChangeDisease={handleChangeDisease}
+              handleChangeMedicationDisease={handleChangeMedicationDisease}
+              handleAddDisease={handleAddDisease}
+              errorDisease={errorDisease}
+              newDiseases={newDiseases}
+              deleteDisease={deleteDisease}
+              handleSubmit={handleSubmit}
             />
           </UploadInfoContainer>
         </Content>
