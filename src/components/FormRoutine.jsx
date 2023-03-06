@@ -581,10 +581,16 @@ const TextArea = styled.textarea`
   width: 15vw;
   padding: 10px;
   transition: border-color 0.3s ease-in-out;
+  overflow-y: scroll;
 
   :focus {
     border-color: ${primaryRed};
     outline: none;
+  }
+
+  @media screen and (max-width: 480px) {
+    height: 25vw;
+    width: 55vw;
   }
 `;
 
