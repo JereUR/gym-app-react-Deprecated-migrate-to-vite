@@ -3,14 +3,13 @@ import styled from "styled-components";
 import { MdArrowCircleDown, MdArrowCircleUp } from "react-icons/md";
 import { IconContext } from "react-icons";
 
-import { user } from "../App";
 import { getDayNow } from "../helpers/GetDay";
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 
 const { primaryBlue, secondaryBlue, primaryRed } = Colors;
 
-export const NutritionalPlan = () => {
+export const NutritionalPlan = ({ user, title }) => {
   const [showPlan, setShowPlan] = useState(false);
 
   const handlePlan = () => {
@@ -25,8 +24,7 @@ export const NutritionalPlan = () => {
         value={{ size: "1.9rem", style: { verticalAlign: "middle" } }}
       >
         <PlanButton onClick={handlePlan}>
-          Mis Planes Nutricionales{" "}
-          {!showPlan ? <MdArrowCircleDown /> : <MdArrowCircleUp />}
+          {title} {!showPlan ? <MdArrowCircleDown /> : <MdArrowCircleUp />}
         </PlanButton>
       </IconContext.Provider>
       {showPlan && (

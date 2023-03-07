@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { FaEdit } from "react-icons/fa";
 import uploadPhoto from "../static/upload-photo.json";
 
-import { user } from "../App";
 import defaultPhoto from "../assets/default_user.jpg";
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
@@ -22,7 +21,7 @@ const {
   errorInput,
 } = Colors;
 
-export const UserProfile = () => {
+export const UserProfile = ({ user }) => {
   const [userPhoto, setUserPhoto] = useState(null);
   const [errorInput, setErrorInput] = useState(null);
   const [changePhoto, setChangePhoto] = useState(false);

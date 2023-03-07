@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { FaEdit } from "react-icons/fa";
 import { Toaster, toast } from "react-hot-toast";
 
-import db from "../static/db.json";
 import { DragAndDrop } from "./DragAndDrop";
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
@@ -11,7 +10,7 @@ import { FontFamily } from "../constants/Fonts";
 const { errorInput, primaryRed, primaryBlue, secondaryRed, secondaryBlue } =
   Colors;
 
-export const FormBill = () => {
+export const FormBill = ({ db }) => {
   const [forData, setForData] = useState(null);
   const [month, setMonth] = useState(null);
   const [year, setYear] = useState(null);

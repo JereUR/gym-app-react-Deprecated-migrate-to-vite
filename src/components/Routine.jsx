@@ -3,13 +3,12 @@ import styled from "styled-components";
 import { MdArrowCircleDown, MdArrowCircleUp } from "react-icons/md";
 import { IconContext } from "react-icons";
 
-import { user } from "../App";
 import { getDayNow } from "../helpers/GetDay";
 import { Colors } from "../constants/Colors";
 
 const { primaryRed, primaryBlue, secondaryBlue } = Colors;
 
-export const Routine = () => {
+export const Routine = ({ user, title }) => {
   const [showRoutine, setShowRoutine] = useState(false);
 
   const handleRoutine = () => {
@@ -24,8 +23,7 @@ export const Routine = () => {
         value={{ size: "1.9rem", style: { verticalAlign: "middle" } }}
       >
         <RoutineButton onClick={handleRoutine}>
-          Mis Rutinas{" "}
-          {!showRoutine ? <MdArrowCircleDown /> : <MdArrowCircleUp />}
+          {title} {!showRoutine ? <MdArrowCircleDown /> : <MdArrowCircleUp />}
         </RoutineButton>
       </IconContext.Provider>
       {showRoutine && (
@@ -294,7 +292,7 @@ const DayWeekNow = styled.h1`
   color: ${primaryRed};
 `;
 
-const Exercise = styled.p``;
+const Exercise = styled.div``;
 
 const ExerciseContainer = styled.div`
   display: block;

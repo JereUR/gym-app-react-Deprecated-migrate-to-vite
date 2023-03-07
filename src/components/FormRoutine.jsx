@@ -6,7 +6,6 @@ import { Toaster, toast } from "react-hot-toast";
 
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
-import db from "../static/db.json";
 import { ExerciseComponent } from "./ExerciseComponent";
 
 const {
@@ -18,7 +17,7 @@ const {
   success,
 } = Colors;
 
-const FormRoutine = () => {
+const FormRoutine = ({ db }) => {
   const [forData, setForData] = useState(null);
   const [dayData, setDayData] = useState(null);
   const [measure, setMeasure] = useState(null);

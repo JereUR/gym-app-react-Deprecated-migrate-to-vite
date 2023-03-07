@@ -8,17 +8,17 @@ import { Routine } from "./Routine";
 
 const { backgroundText } = Colors;
 
-export const Home = () => {
+export const Home = ({ user }) => {
   return (
     <HomeContainer>
       <BannerContainer>
         <Banner src={banner} />
       </BannerContainer>
       <RutineContainer>
-        <Routine />
+        <Routine user={user} title="Mis Rutinas" />
       </RutineContainer>
       <NutritionalPlanContainer>
-        <NutritionalPlan />
+        <NutritionalPlan user={user} title="Mis Rutinas" />
       </NutritionalPlanContainer>
     </HomeContainer>
   );

@@ -450,15 +450,6 @@ const Text = styled.p`
   }
 `;
 
-const TextMed = styled(Text)`
-  padding-left: 1rem;
-`;
-
-const TextNoData = styled(Text)`
-  font-style: italic;
-  font-weight: 400;
-`;
-
 const TextContainer = styled.div`
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   width: 40vw;
@@ -472,6 +463,15 @@ const TextContainer = styled.div`
     margin-bottom: 5vw;
     margin-left: 8vw;
   }
+`;
+
+const TextMed = styled(Text)`
+  padding-left: 1rem;
+`;
+
+const TextNoData = styled(Text)`
+  font-style: italic;
+  font-weight: 400;
 `;
 
 const UploadInfoContainer = styled.div`
