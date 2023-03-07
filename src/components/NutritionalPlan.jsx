@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { MdArrowCircleDown, MdArrowCircleUp } from "react-icons/md";
+import { RiErrorWarningLine } from "react-icons/ri";
 import { IconContext } from "react-icons";
 
 import { getDayNow } from "../helpers/GetDay";
@@ -9,7 +10,7 @@ import { FontFamily } from "../constants/Fonts";
 
 const { primaryBlue, secondaryBlue, primaryRed } = Colors;
 
-export const NutritionalPlan = ({ user, title }) => {
+export const NutritionalPlan = ({ user, title, addInfo }) => {
   const [showPlan, setShowPlan] = useState(false);
 
   const handlePlan = () => {
@@ -24,7 +25,18 @@ export const NutritionalPlan = ({ user, title }) => {
         value={{ size: "1.9rem", style: { verticalAlign: "middle" } }}
       >
         <PlanButton onClick={handlePlan}>
-          {title} {!showPlan ? <MdArrowCircleDown /> : <MdArrowCircleUp />}
+          <TextContent>
+            {title}
+            {!showPlan ? <MdArrowCircleDown /> : <MdArrowCircleUp />}{" "}
+            {addInfo && (
+              <LogoContainer>
+                <RiErrorWarningLine className="report" />{" "}
+                <Span className="tooltip">
+                  Debes completar tu información en "Mi Perfil"
+                </Span>
+              </LogoContainer>
+            )}
+          </TextContent>
         </PlanButton>
       </IconContext.Provider>
       {showPlan && (
@@ -823,6 +835,64 @@ const InfoItem = styled.li`
 
 const List = styled.div``;
 
+const LogoContainer = styled.div`
+  color: rgb(255, 69, 0);
+
+  svg {
+    cursor: pointer;
+    transition: all 0.6s ease;
+
+    :hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .tooltip {
+    visibility: hidden;
+    position: absolute;
+    transform: translate(147%, -85%);
+    background-color: black;
+    color: white;
+    padding: 0.7rem;
+    border-radius: 15px 15px 0 15px;
+    font-size: 0.8rem;
+
+    @media screen and (max-width: 1600px) {
+      transform: translate(50%, -100%);
+      border-radius: 15px 15px 0 15px;
+    }
+
+    @media screen and (max-width: 1200px) {
+      transform: translate(10%, -100%);
+      border-radius: 15px 15px 0 15px;
+    }
+
+    @media screen and (max-width: 1000px) {
+      transform: translate(-5%, -100%);
+      border-radius: 15px 15px 0 15px;
+    }
+
+    @media screen and (max-width: 900px) {
+      transform: translate(-30%, -100%);
+      border-radius: 15px 15px 0 15px;
+    }
+
+    @media screen and (max-width: 480px) {
+      transform: translate(-90%, -100%);
+      width: max-content;
+    }
+
+    @media screen and (max-width: 400px) {
+      transform: translate(-95%, -100%);
+      width: max-content;
+    }
+  }
+
+  :hover .tooltip {
+    visibility: visible;
+  }
+`;
+
 const NoData = styled.div`
   text-align: center;
   color: rgb(30, 30, 30);
@@ -851,6 +921,7 @@ const PlanButton = styled.button`
 
   @media screen and (max-width: 480px) {
     margin-bottom: 15vw !important;
+    font-size: 1.5rem;
   }
 
   @media screen and (max-width: 1380px) {
@@ -893,6 +964,31 @@ const PlanDay = styled.div`
   @media screen and (max-width: 480px) {
     margin: 0.1rem 0.1rem 1rem 0.1rem;
     padding: 0.9rem;
+  }
+`;
+
+const Span = styled.span``;
+
+const TextContent = styled.div`
+  display: inline-flex;
+  text-align: center;
+
+  .report {
+    color: black;
+    position: absolute;
+    margin-left: 35%;
+
+    @media screen and (max-width: 1700px) {
+      margin-left: 25%;
+    }
+
+    @media screen and (max-width: 900px) {
+      margin-left: 15%;
+    }
+
+    @media screen and (max-width: 480px) {
+      margin-left: 5%;
+    }
   }
 `;
 

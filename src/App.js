@@ -28,7 +28,11 @@ function App() {
         <Routes>
           {!user.login && <Route exact path="/" element={<SesionPage />} />}
           <Route element={<LoginRoute />}>
-            <Route exact path="/" element={<Home user={user} />} />
+            <Route
+              exact
+              path="/"
+              element={<Home user={user} months={db.months} />}
+            />
             <Route exact path="/mis-pagos" element={<Bill />} />
             <Route
               exact

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { AiOutlineArrowDown } from "react-icons/ai";
+import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 import { RiErrorWarningLine } from "react-icons/ri";
 
 import { Colors } from "../constants/Colors";
@@ -14,34 +14,77 @@ const { secondaryBlue, backgroundText, primaryBlue, primaryRed } = Colors;
 
 export const AdminPage = ({ db }) => {
   const [debtorUsers, setDebtorUsers] = useState([]);
+  const [viewDebtors, setViewDebtors] = useState(false);
 
   const handleDebtors = () => {
-    const today = new Date();
-    let debtors = [];
+    if (!viewDebtors) {
+      const today = new Date();
+      let debtors = [];
 
-    db.users.forEach((el) => {
-      let month = db.months.find(
-        (mo) => mo.month === el.payment.nextPayment.month
-      );
+      db.users.forEach((el) => {
+        let month = db.months.find(
+          (mo) => mo.month === el.payment.nextPayment.month
+        );
 
-      let userDate = new Date(
-        el.payment.nextPayment.year,
-        month.value,
-        el.payment.nextPayment.day
-      );
+        let userDate = new Date(
+          el.payment.nextPayment.year,
+          month.value,
+          el.payment.nextPayment.day
+        );
 
-      if (userDate < today) {
-        let newData = {
-          username: el.username,
-          surname: el.surname,
-          email: el.email,
-        };
+        if (userDate < today) {
+          let newData = {
+            username: el.username,
+            surname: el.surname,
+            email: el.email,
+          };
 
-        debtors.push(newData);
-      }
-    });
+          debtors.push(newData);
+        }
+      });
+      setViewDebtors(true);
+      setDebtorUsers(debtors);
+    } else {
+      setDebtorUsers([]);
+      setViewDebtors(false);
+    }
+  };
 
-    setDebtorUsers(debtors);
+  const handleReport = (user) => {
+    /* try {
+          const resp = await fetch("/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ user.email }),
+          });
+          console.log(resp);*/
+
+    let newDebtors = debtorUsers.filter((el) => el.email !== user.email);
+
+    setDebtorUsers(newDebtors);
+    /*
+          toast.success("Reporte enviado.", {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(215, 250, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          });
+        } catch (error) {
+          toast.error("error.", {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(250, 215, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          });
+        } */
   };
 
   return (
@@ -67,7 +110,12 @@ export const AdminPage = ({ db }) => {
       <DebtorsContainer>
         <Title>Reportar deudores</Title>
         <ButtonDebtors type="button" onClick={handleDebtors}>
-          Ver Deudores <AiOutlineArrowDown fontSize="2.5rem" />
+          Ver Deudores{" "}
+          {viewDebtors ? (
+            <AiOutlineArrowUp fontSize="2.5rem" />
+          ) : (
+            <AiOutlineArrowDown fontSize="2.5rem" />
+          )}
         </ButtonDebtors>
         {debtorUsers.length > 0 && (
           <DebtorsResult>
@@ -77,7 +125,11 @@ export const AdminPage = ({ db }) => {
                   {el.username} {el.surname} - {el.email}
                 </DebtorInfo>
                 <LogoContainer>
-                  <RiErrorWarningLine fontSize="2rem" />
+                  <RiErrorWarningLine
+                    fontSize="2.5rem"
+                    onClick={() => handleReport(el)}
+                  />
+                  <Span className="tooltip">Enviar reporte a {el.email}</Span>
                 </LogoContainer>
               </DebtorItem>
             ))}
@@ -112,6 +164,7 @@ const ButtonDebtors = styled.button`
   font-size: 2rem;
   padding: 10px 20px;
   margin-top: 2rem;
+  margin-bottom: 2rem;
   width: 50%;
   transition: all 0.5s ease-in-out;
 
@@ -137,7 +190,11 @@ const ButtonDebtors = styled.button`
 
 const BillSection = styled(AddRoutineContainer)``;
 
-const DebtorInfo = styled.p``;
+const DebtorInfo = styled.p`
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: ${secondaryBlue};
+`;
 
 const DebtorItem = styled.div`
   display: flex;
@@ -145,11 +202,13 @@ const DebtorItem = styled.div`
   background-color: rgb(255, 210, 210);
   margin: 2.5vw 5vw 0 5vw;
   padding: 0.5vw 2vw;
-  border-radius: 5px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 3px 3px ${primaryRed};
 
   svg {
     position: relative;
-    top: 0.5vw;
+    top: 0.8vw;
   }
 `;
 
@@ -182,9 +241,36 @@ const LogoContainer = styled.div`
       transform: scale(1.1);
     }
   }
+
+  .tooltip {
+    visibility: hidden;
+    position: absolute;
+    transform: translate(-2%, -75%);
+    background-color: black;
+    color: white;
+    padding: 0.7rem;
+    border-radius: 15px 15px 15px 0;
+    font-size: 0.8rem;
+
+    @media screen and (max-width: 1350px) {
+      transform: translate(-120%, -90%);
+      border-radius: 15px 15px 0 15px;
+    }
+
+    @media screen and (max-width: 480px) {
+      transform: translate(-120%, -90%);
+      border-radius: 15px 15px 0 15px;
+    }
+  }
+
+  :hover .tooltip {
+    visibility: visible;
+  }
 `;
 
 const SeeUserSection = styled(AddRoutineContainer)``;
+
+const Span = styled.span``;
 
 const Title = styled.p`
   font-size: 2.1rem;

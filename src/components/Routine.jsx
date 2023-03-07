@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { MdArrowCircleDown, MdArrowCircleUp } from "react-icons/md";
+import { RiErrorWarningLine } from "react-icons/ri";
 import { IconContext } from "react-icons";
 
 import { getDayNow } from "../helpers/GetDay";
@@ -8,7 +9,7 @@ import { Colors } from "../constants/Colors";
 
 const { primaryRed, primaryBlue, secondaryBlue } = Colors;
 
-export const Routine = ({ user, title }) => {
+export const Routine = ({ user, title, addInfo }) => {
   const [showRoutine, setShowRoutine] = useState(false);
 
   const handleRoutine = () => {
@@ -23,7 +24,17 @@ export const Routine = ({ user, title }) => {
         value={{ size: "1.9rem", style: { verticalAlign: "middle" } }}
       >
         <RoutineButton onClick={handleRoutine}>
-          {title} {!showRoutine ? <MdArrowCircleDown /> : <MdArrowCircleUp />}
+          <TextContent>
+            {title} {!showRoutine ? <MdArrowCircleDown /> : <MdArrowCircleUp />}{" "}
+            {addInfo && (
+              <LogoContainer>
+                <RiErrorWarningLine className="report" />{" "}
+                <Span className="tooltip">
+                  Debes completar tu información en "Mi Perfil"
+                </Span>
+              </LogoContainer>
+            )}
+          </TextContent>
         </RoutineButton>
       </IconContext.Provider>
       {showRoutine && (
@@ -317,6 +328,59 @@ const InfoItem = styled.li`
 
 const List = styled.div``;
 
+const LogoContainer = styled.div`
+  color: rgb(255, 69, 0);
+
+  svg {
+    cursor: pointer;
+    transition: all 0.6s ease;
+
+    :hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .tooltip {
+    visibility: hidden;
+    position: absolute;
+    transform: translate(165%, -85%);
+    background-color: black;
+    color: white;
+    padding: 0.7rem;
+    border-radius: 15px 15px 0 15px;
+    font-size: 0.8rem;
+
+    @media screen and (max-width: 1600px) {
+      transform: translate(50%, -100%);
+      border-radius: 15px 15px 0 15px;
+    }
+
+    @media screen and (max-width: 1200px) {
+      transform: translate(10%, -100%);
+      border-radius: 15px 15px 0 15px;
+    }
+
+    @media screen and (max-width: 1000px) {
+      transform: translate(-5%, -100%);
+      border-radius: 15px 15px 0 15px;
+    }
+
+    @media screen and (max-width: 900px) {
+      transform: translate(-30%, -100%);
+      border-radius: 15px 15px 0 15px;
+    }
+
+    @media screen and (max-width: 480px) {
+      transform: translate(-85%, -100%);
+      width: max-content;
+    }
+  }
+
+  :hover .tooltip {
+    visibility: visible;
+  }
+`;
+
 const Mount = styled.p`
   display: flex;
   justify-content: center;
@@ -362,6 +426,7 @@ const RoutineButton = styled.button`
   @media screen and (max-width: 480px) {
     margin-top: 12vw !important;
     margin-bottom: 15vw !important;
+    font-size: 1.5rem;
   }
 `;
 
@@ -400,6 +465,31 @@ const RoutineDay = styled.div`
   @media screen and (max-width: 480px) {
     margin: 0.1rem 0.1rem 1rem 0.1rem;
     padding: 0.9rem;
+  }
+`;
+
+const Span = styled.span``;
+
+const TextContent = styled.div`
+  display: inline-flex;
+  text-align: center;
+
+  .report {
+    color: black;
+    position: absolute;
+    margin-left: 37.5%;
+
+    @media screen and (max-width: 1700px) {
+      margin-left: 30%;
+    }
+
+    @media screen and (max-width: 900px) {
+      margin-left: 25%;
+    }
+
+    @media screen and (max-width: 480px) {
+      margin-left: 10%;
+    }
   }
 `;
 
