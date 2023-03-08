@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import { user } from "../App";
 import { Colors } from "../constants/Colors";
 import { GrDocumentPdf } from "react-icons/gr";
 import { FiDownload } from "react-icons/fi";
@@ -9,16 +8,20 @@ import { FiDownload } from "react-icons/fi";
 const { primaryRed, primaryBlue, secondaryBlue, secondaryRed, colorText } =
   Colors;
 
-export const Bill = () => {
+export const Bill = ({ user, months }) => {
   return (
     <BillContainer>
       <NextPaymentContainer>
         <NoticeTitleNext>Próximo Pago:</NoticeTitleNext>
         {user.payment.nextPayment ? (
           <Notice>
-            El próximo deberá realizarse el día {user.payment.nextPayment.day}{" "}
-            de {user.payment.nextPayment.month} del año{" "}
-            {user.payment.nextPayment.year}.
+            El próximo pago deberá realizarse el día{" "}
+            {user.payment.nextPayment.day} de{" "}
+            {
+              months.find((m) => m.value === user.payment.nextPayment.month)
+                .month
+            }{" "}
+            del año {user.payment.nextPayment.year}.
           </Notice>
         ) : (
           <NoData>Sin información.</NoData>

@@ -47,16 +47,6 @@ export const UserProfile = ({ user }) => {
     }
   }, [userPhoto]);
 
-  const getYears = () => {
-    var actDate = new Date();
-
-    var fechaNac = new Date(user.date);
-
-    var dif = actDate.getTime() - fechaNac.getTime();
-
-    return Math.floor(dif / (1000 * 60 * 60 * 24 * 365.25));
-  };
-
   const reference = useRef();
 
   const handleModal = () => {

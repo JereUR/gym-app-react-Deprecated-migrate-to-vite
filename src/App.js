@@ -33,7 +33,11 @@ function App() {
               path="/"
               element={<Home user={user} months={db.months} />}
             />
-            <Route exact path="/mis-pagos" element={<Bill />} />
+            <Route
+              exact
+              path="/mis-pagos"
+              element={<Bill user={user} months={db.months} />}
+            />
             <Route
               exact
               path={pathUser}

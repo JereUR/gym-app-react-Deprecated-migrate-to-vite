@@ -27,7 +27,11 @@ export const NutritionalPlan = ({ user, title, addInfo }) => {
         <PlanButton onClick={handlePlan}>
           <TextContent>
             {title}
-            {!showPlan ? <MdArrowCircleDown /> : <MdArrowCircleUp />}{" "}
+            {!showPlan ? (
+              <MdArrowCircleDown className="arrow" />
+            ) : (
+              <MdArrowCircleUp className="arrow" />
+            )}{" "}
             {addInfo && (
               <LogoContainer>
                 <RiErrorWarningLine className="report" />{" "}
@@ -973,6 +977,14 @@ const TextContent = styled.div`
   display: inline-flex;
   text-align: center;
 
+  .arrow {
+    margin: 5px 0 5px 10px;
+
+    @media screen and (max-width: 480px) {
+      margin: 0 0 0 10px;
+    }
+  }
+
   .report {
     color: black;
     position: absolute;
@@ -988,6 +1000,10 @@ const TextContent = styled.div`
 
     @media screen and (max-width: 480px) {
       margin-left: 5%;
+    }
+
+    @media screen and (max-width: 380px) {
+      margin-left: 1%;
     }
   }
 `;

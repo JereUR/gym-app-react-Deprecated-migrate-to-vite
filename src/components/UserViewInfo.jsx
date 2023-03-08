@@ -3,20 +3,20 @@ import styled from "styled-components";
 
 import defaultPhoto from "../assets/default_user.jpg";
 import { Colors } from "../constants/Colors";
-import { FontFamily } from "../constants/Fonts";
-import { UserInfo } from "./UserInfo";
 
-const {
-  primaryBlue,
-  primaryRed,
-  secondaryBlue,
-  secondaryRed,
-  backgroundText,
-  colorText,
-  errorInput,
-} = Colors;
+const { primaryRed, secondaryBlue, secondaryRed, backgroundText } = Colors;
 
 export const UserViewInfo = ({ user }) => {
+  const getYears = () => {
+    var actDate = new Date();
+
+    var fechaNac = new Date(user.date);
+
+    var dif = actDate.getTime() - fechaNac.getTime();
+
+    return Math.floor(dif / (1000 * 60 * 60 * 24 * 365.25));
+  };
+
   return (
     <ProfileContainer>
       <PhotoContainer>
@@ -34,7 +34,9 @@ export const UserViewInfo = ({ user }) => {
           </TextContainer>
           <Label>Fecha de Nacimiento</Label>
           <TextContainer>
-            <Text>{user.date}</Text>
+            <Text>
+              {user.date} ({getYears()} años)
+            </Text>
           </TextContainer>
           <Label>Sexo</Label>
           <TextContainer>

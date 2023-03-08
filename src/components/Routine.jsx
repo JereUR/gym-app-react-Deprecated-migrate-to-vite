@@ -25,7 +25,12 @@ export const Routine = ({ user, title, addInfo }) => {
       >
         <RoutineButton onClick={handleRoutine}>
           <TextContent>
-            {title} {!showRoutine ? <MdArrowCircleDown /> : <MdArrowCircleUp />}{" "}
+            {title}{" "}
+            {!showRoutine ? (
+              <MdArrowCircleDown className="arrow" />
+            ) : (
+              <MdArrowCircleUp className="arrow" />
+            )}{" "}
             {addInfo && (
               <LogoContainer>
                 <RiErrorWarningLine className="report" />{" "}
@@ -473,6 +478,14 @@ const Span = styled.span``;
 const TextContent = styled.div`
   display: inline-flex;
   text-align: center;
+
+  .arrow {
+    margin: 5px 0 5px 10px;
+
+    @media screen and (max-width: 480px) {
+      margin: 0 0 0 10px;
+    }
+  }
 
   .report {
     color: black;
