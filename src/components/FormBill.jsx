@@ -14,12 +14,23 @@ export const FormBill = ({ db }) => {
   const [day, setDay] = useState(null);
   const [month, setMonth] = useState(null);
   const [year, setYear] = useState(null);
+  const [mount, setMount] = useState(null);
   const [monthNext, setMonthNext] = useState(null);
   const [errors, setErrors] = useState({});
 
-  const getYear = () => {
+  const getYearNow = () => {
     return new Date().getFullYear();
   };
+
+  function getDayNow() {
+    const now = new Date();
+    return now.getDate();
+  }
+
+  function getMonthNow() {
+    const now = new Date();
+    return now.getMonth();
+  }
 
   const getMonth = (month) => {
     return db.months.find((m) => m.month === month).value;
@@ -29,16 +40,38 @@ export const FormBill = ({ db }) => {
     document.getElementById("day").value = null;
     document.getElementById("month").value = null;
     document.getElementById("year").value = null;
+    document.getElementById("mount").value = null;
 
     setForData(null);
     setDay(null);
     setMonth(null);
     setYear(null);
+    setMount(null);
     setErrors({});
   };
 
   const onValidate = () => {
     const errorsForm = {};
+    const user = db.users.find((u) => u.email === forData);
+    console.log("Mes actual:", getMonthNow());
+    console.log("Mes Ingresado:", getMonth(month));
+
+    if (getYearNow() === year) {
+      if (getMonthNow() < getMonth(month)) {
+        errorsForm.form = `La fecha determinada todavía no ha llegado (${day} de ${month} del ${year})`;
+      }
+      if (getMonthNow() === getMonth(month)) {
+        if (getDayNow() < day) {
+          errorsForm.form = `La fecha determinada todavía no ha llegado (${day} de ${month} del ${year})`;
+        }
+      }
+    }
+
+    if (
+      user.payment.payments.some((p) => p.month === month && p.year === year)
+    ) {
+      errorsForm.form = `Ya se ha agregado un pago para el mes ${month} del año ${year} a ${forData}`;
+    }
 
     if (forData === null) {
       errorsForm.forData = "Debe especificar destinatario.";
@@ -56,8 +89,16 @@ export const FormBill = ({ db }) => {
       errorsForm.year = "Debe especificar año de pago realizado.";
     }
 
-    if (year > getYear()) {
-      errorsForm.year = "Ese año todavía no llega.";
+    if (isNaN(mount)) {
+      errorsForm.mount = "Debe ingresar un monto válido.";
+    }
+
+    if (mount <= 0) {
+      errorsForm.mount = "El monto debe ser mayor 0.";
+    }
+
+    if (mount === null) {
+      errorsForm.mount = "Debe especificar monto de pago realizado.";
     }
 
     return errorsForm;
@@ -72,7 +113,7 @@ export const FormBill = ({ db }) => {
   };
 
   const handleDay = (e) => {
-    setDay(e.target.value);
+    setDay(parseInt(e.target.value));
   };
 
   const handleMonth = (e) => {
@@ -87,7 +128,11 @@ export const FormBill = ({ db }) => {
   };
 
   const handleYear = (e) => {
-    setYear(e.target.value);
+    setYear(parseInt(e.target.value));
+  };
+
+  const handleMount = (e) => {
+    setMount(parseFloat(e.target.value.replace(",", ".")));
   };
 
   const handleSubmit = async (e) => {
@@ -121,7 +166,7 @@ export const FormBill = ({ db }) => {
         };
       }
 
-      console.log(payment);
+      /* console.log(payment); */
 
       /* try {
           const resp = await fetch("/", {
@@ -232,6 +277,19 @@ export const FormBill = ({ db }) => {
             {errors.year && <ErrorInput>{errors.year}</ErrorInput>}
           </InputContainer>
         </YearContainer>
+        <MountContainer>
+          <InputContainer>
+            <Label>Monto del pago</Label>
+            <Input
+              type="text"
+              placeholder="Especifique monto del pago"
+              id="mount"
+              onChange={handleMount}
+            />
+            {errors.mount && <ErrorInput>{errors.mount}</ErrorInput>}
+          </InputContainer>
+        </MountContainer>
+        {errors.form && <ErrorInput>{errors.form}</ErrorInput>}
         <ButtonSend type="submit">Enviar</ButtonSend>
       </PaymentContainer>
       <Toaster />
@@ -327,14 +385,23 @@ const ForTextContainer = styled.div`
 `;
 
 const Input = styled.input`
-  cursor: pointer;
+  font-family: ${FontFamily};
+  background-color: #fff;
+  border: 2px solid ${primaryBlue};
+  border-radius: 4px;
+  color: #000;
+  font-size: 1.2rem;
+  padding: 10px;
+  width: 15vw;
 
   @media screen and (max-width: 480px) {
     font-size: 1.1rem;
+    width: 55vw;
   }
 
-  :checked + span {
-    color: ${primaryBlue};
+  :focus {
+    border-color: ${primaryRed};
+    box-shadow: 0 0 0 3px rgba(65, 157, 199, 0.5);
   }
 `;
 
@@ -353,17 +420,9 @@ const Label = styled.label`
   }
 `;
 
-const LabelRadio = styled.div``;
-
 const MonthContainer = styled(DayContainer)``;
 
-const NextPaymentContainer = styled.div``;
-
-const NextPaymentChoose = styled.div`
-  display: flex;
-  justify-content: left;
-  align-items: center;
-`;
+const MountContainer = styled(DayContainer)``;
 
 const Option = styled.option`
   @media screen and (max-width: 480px) {
@@ -422,12 +481,6 @@ const SelectFirst = styled(Select)`
   @media screen and (max-width: 480px) {
     width: 80vw;
   }
-`;
-
-const Span = styled.span`
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: ${primaryRed};
 `;
 
 const YearContainer = styled(DayContainer)``;
