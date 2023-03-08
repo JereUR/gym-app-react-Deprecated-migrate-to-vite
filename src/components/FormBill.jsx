@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { FaEdit } from "react-icons/fa";
 import { Toaster, toast } from "react-hot-toast";
 
-import { DragAndDrop } from "./DragAndDrop";
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 
@@ -12,36 +11,29 @@ const { errorInput, primaryRed, primaryBlue, secondaryRed, secondaryBlue } =
 
 export const FormBill = ({ db }) => {
   const [forData, setForData] = useState(null);
+  const [day, setDay] = useState(null);
   const [month, setMonth] = useState(null);
   const [year, setYear] = useState(null);
-  const [pdf, setPdf] = useState(null);
-  const [nextPayment, setNextPayment] = useState(true);
-  const [dayNext, setDayNext] = useState(null);
   const [monthNext, setMonthNext] = useState(null);
-  const [yearNext, setYearNext] = useState(null);
   const [errors, setErrors] = useState({});
-  const [errorsNext, setErrorsNext] = useState({});
 
   const getYear = () => {
     return new Date().getFullYear();
   };
 
+  const getMonth = (month) => {
+    return db.months.find((m) => m.month === month).value;
+  };
+
   const clearForm = () => {
+    document.getElementById("day").value = null;
     document.getElementById("month").value = null;
     document.getElementById("year").value = null;
-    document.getElementById("pdf-input").value = null;
-    document.getElementById("day-next").value = null;
-    document.getElementById("month-next").value = null;
-    document.getElementById("year-next").value = null;
-    document.getElementById("next-true").checked = true;
 
     setForData(null);
+    setDay(null);
     setMonth(null);
     setYear(null);
-    setPdf(null);
-    setDayNext(null);
-    setMonthNext(null);
-    setYearNext(null);
     setErrors({});
   };
 
@@ -50,6 +42,10 @@ export const FormBill = ({ db }) => {
 
     if (forData === null) {
       errorsForm.forData = "Debe especificar destinatario.";
+    }
+
+    if (day === null) {
+      errorsForm.day = "Debe especificar día de pago realizado.";
     }
 
     if (month === null) {
@@ -64,28 +60,6 @@ export const FormBill = ({ db }) => {
       errorsForm.year = "Ese año todavía no llega.";
     }
 
-    if (pdf === null) {
-      errorsForm.pdf = "Debe seleccionar un archivo pdf con el pago realizado.";
-    }
-
-    return errorsForm;
-  };
-
-  const onValidateNextPayment = () => {
-    const errorsForm = {};
-
-    if (dayNext === null) {
-      errorsForm.dayNext = "Debe especificar día de próximo pago";
-    }
-
-    if (monthNext === null) {
-      errorsForm.monthNext = "Debe especificar mes de próximo pago";
-    }
-
-    if (yearNext === null) {
-      errorsForm.yearNext = "Debe especificar año de próximo pago";
-    }
-
     return errorsForm;
   };
 
@@ -97,28 +71,23 @@ export const FormBill = ({ db }) => {
     setForData(null);
   };
 
+  const handleDay = (e) => {
+    setDay(e.target.value);
+  };
+
   const handleMonth = (e) => {
     setMonth(e.target.value);
+
+    if (e.target.value === "Diciembre") {
+      setMonthNext(0);
+    } else {
+      const numberMonth = getMonth(e.target.value);
+      setMonthNext(numberMonth + 1);
+    }
   };
 
   const handleYear = (e) => {
     setYear(e.target.value);
-  };
-
-  const handleNextPayment = (e) => {
-    setNextPayment(!nextPayment);
-  };
-
-  const handleDayNext = (e) => {
-    setDayNext(e.target.value);
-  };
-
-  const handleMonthNext = (e) => {
-    setMonthNext(e.target.value);
-  };
-
-  const handleYearNext = (e) => {
-    setYearNext(e.target.value);
   };
 
   const handleSubmit = async (e) => {
@@ -126,24 +95,35 @@ export const FormBill = ({ db }) => {
 
     const err = onValidate();
     setErrors(err);
-    console.log(nextPayment);
 
-    if (nextPayment) {
-      const errNext = onValidateNextPayment();
-      setErrorsNext(errNext);
+    if (Object.keys(err).length === 0) {
+      let payment;
 
-      if (Object.keys(err).length === 0 && Object.keys(errNext).length === 0) {
-        const payment = {
+      if (monthNext === 0) {
+        payment = {
           forData,
+          day,
           month,
           year,
-          pdf,
-          dayNext,
+          dayNext: day,
           monthNext,
-          yearNext,
+          yearNext: (parseInt(year) + 1).toString(),
         };
+      } else {
+        payment = {
+          forData,
+          day,
+          month,
+          year,
+          dayNext: day,
+          monthNext,
+          yearNext: year,
+        };
+      }
 
-        /* try {
+      console.log(payment);
+
+      /* try {
           const resp = await fetch("/", {
             method: "POST",
             headers: {
@@ -173,55 +153,7 @@ export const FormBill = ({ db }) => {
             },
           });
         } */
-        clearForm();
-      }
-    } else {
-      setErrorsNext({});
-      console.log(errorsNext);
-
-      if (Object.keys(err).length === 0) {
-        const payment = {
-          forData,
-          month,
-          year,
-          pdf,
-          dayNext,
-          monthNext,
-          yearNext,
-        };
-
-        /* try {
-          const resp = await fetch("/", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ payment }),
-          });
-          console.log(resp);
-
-          toast.success("Pago enviado.", {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(215, 250, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          });
-        } catch (error) {
-          toast.error("error.", {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          });
-        } */
-        clearForm();
-      }
+      clearForm();
     }
   };
 
@@ -249,9 +181,23 @@ export const FormBill = ({ db }) => {
         )}
       </ForPartContainer>
       <PaymentContainer>
+        <DayContainer>
+          <InputContainer>
+            <Label>Día del pago</Label>
+            <Select onChange={handleDay} id="day">
+              <Option value="null">Seleccione día de pago realizado</Option>
+              {[...Array(31).keys()].map((d, index) => (
+                <Option value={d + 1} key={index}>
+                  {d + 1}
+                </Option>
+              ))}
+            </Select>
+            {errors.day && <ErrorInput>{errors.day}</ErrorInput>}
+          </InputContainer>
+        </DayContainer>
         <MonthContainer>
           <InputContainer>
-            <Label>Mes</Label>
+            <Label>Mes del pago</Label>
             <Select onChange={handleMonth} id="month">
               <Option value="null">Seleccione mes de pago realizado</Option>
               <Option value="Enero">Enero</Option>
@@ -272,7 +218,7 @@ export const FormBill = ({ db }) => {
         </MonthContainer>
         <YearContainer>
           <InputContainer>
-            <Label>Año</Label>
+            <Label>Año del pago</Label>
             <Select onChange={handleYear} id="year">
               <Option value="null">Seleccione año de pago realizado</Option>
               {[...Array(new Date().getFullYear() - 2000).keys()].map(
@@ -286,86 +232,6 @@ export const FormBill = ({ db }) => {
             {errors.year && <ErrorInput>{errors.year}</ErrorInput>}
           </InputContainer>
         </YearContainer>
-        <DragAndDrop pdf={pdf} setPdf={setPdf} error={errors.pdf} />
-        <Label>¿Quieres agregar próximo pago?</Label>
-        <NextPaymentChoose>
-          <InputContainer>
-            <LabelRadio htmlFor="next-true">
-              <Input
-                type="radio"
-                id="next-true"
-                name="choose"
-                onChange={handleNextPayment}
-                defaultChecked
-              />
-              <Span>Si</Span>
-            </LabelRadio>
-          </InputContainer>
-          <InputContainer>
-            <LabelRadio htmlFor="next-false">
-              <Input
-                type="radio"
-                id="next-false"
-                name="choose"
-                onChange={handleNextPayment}
-              />
-              <Span>No</Span>
-            </LabelRadio>
-          </InputContainer>
-        </NextPaymentChoose>
-        <NextPaymentContainer>
-          <InputContainer>
-            <Label>Día</Label>
-            <Select onChange={handleDayNext} id="day-next">
-              <Option value="null">Seleccione día de pago realizado</Option>
-              {[...Array(31).keys()].map((d, index) => (
-                <Option value={d + 1} key={index}>
-                  {d + 1}
-                </Option>
-              ))}
-            </Select>
-            {errorsNext.dayNext && (
-              <ErrorInput>{errorsNext.dayNext}</ErrorInput>
-            )}
-          </InputContainer>
-          <InputContainer>
-            <Label>Mes</Label>
-            <SelectFirst onChange={handleMonthNext} id="month-next">
-              <Option value="null">Seleccione mes de pago realizado</Option>
-              <Option value="Enero">Enero</Option>
-              <Option value="Febrero">Febrero</Option>
-              <Option value="Marzo">Marzo</Option>
-              <Option value="Abril">Abril</Option>
-              <Option value="Mayo">Mayo</Option>
-              <Option value="Junio">Junio</Option>
-              <Option value="Julio">Julio</Option>
-              <Option value="Agosto">Agosto</Option>
-              <Option value="Septiembre">Septiembre</Option>
-              <Option value="Octubre">Octubre</Option>
-              <Option value="Noviembre">Noviembre</Option>
-              <Option value="Diciembre">Diciembre</Option>
-            </SelectFirst>
-            {errorsNext.monthNext && (
-              <ErrorInput>{errorsNext.monthNext}</ErrorInput>
-            )}
-          </InputContainer>
-          <InputContainer>
-            <Label>Año</Label>
-            <Select onChange={handleYearNext} id="year-next">
-              <Option value="null">Seleccione año de pago realizado</Option>
-              {[...Array(new Date().getFullYear() - 2000).keys()].map(
-                (d, index) => (
-                  <Option value={d + 2001} key={index}>
-                    {d + 2001}
-                  </Option>
-                )
-              )}
-            </Select>
-            {errorsNext.yearNext && (
-              <ErrorInput>{errorsNext.yearNext}</ErrorInput>
-            )}
-          </InputContainer>
-        </NextPaymentContainer>
         <ButtonSend type="submit">Enviar</ButtonSend>
       </PaymentContainer>
       <Toaster />
@@ -392,6 +258,15 @@ const ButtonSend = styled.button`
   :hover {
     cursor: pointer;
     background-color: ${primaryBlue};
+  }
+`;
+
+const DayContainer = styled.div`
+  display: inline-grid;
+  margin: 1rem 1rem 1rem 0;
+
+  @media screen and (max-width: 480px) {
+    margin: 0 1rem 0 0;
   }
 `;
 
@@ -480,14 +355,7 @@ const Label = styled.label`
 
 const LabelRadio = styled.div``;
 
-const MonthContainer = styled.div`
-  display: inline-grid;
-  margin: 1rem;
-
-  @media screen and (max-width: 480px) {
-    margin: 0 1rem 0 0;
-  }
-`;
+const MonthContainer = styled(DayContainer)``;
 
 const NextPaymentContainer = styled.div``;
 
@@ -562,11 +430,4 @@ const Span = styled.span`
   color: ${primaryRed};
 `;
 
-const YearContainer = styled.div`
-  display: inline-grid;
-  margin: 1rem 1rem 1rem 2rem;
-
-  @media screen and (max-width: 480px) {
-    margin: 0 1rem 0 0;
-  }
-`;
+const YearContainer = styled(DayContainer)``;
