@@ -76,6 +76,7 @@ const Burger = styled.div`
 
 const Div = styled.div`
   z-index: 2;
+  margin: 1vw;
 `;
 
 const Span = styled.span``;

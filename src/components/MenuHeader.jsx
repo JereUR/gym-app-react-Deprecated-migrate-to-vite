@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { IconContext } from "react-icons";
@@ -10,7 +10,7 @@ import { useAuth } from "./LoginRoute";
 import { Colors } from "../constants/Colors";
 import { BurgerButton } from "./BurgerButton";
 
-const { secondaryBlue, secondaryRed, colorText, backgroundText } = Colors;
+const { secondaryBlue, colorText } = Colors;
 
 export const MenuHeader = () => {
   const profilePath = `/usuario/${user.username}`;
@@ -74,7 +74,7 @@ export const MenuHeader = () => {
       <BurgerContainer className="burger">
         <BurgerButton clicked={clicked} handleClick={handleClick} />
       </BurgerContainer>
-      <BgDiv className={`initial ${clicked ? "active" : ""}`}></BgDiv>
+      <BgDiv className={`initial ${clicked ? "active" : ""}`} />
     </NavContainer>
   );
 };
@@ -86,14 +86,29 @@ const BgDiv = styled.div`
   right: -2000px;
   z-index: 1;
   transition: all 0.3s ease;
+  border-radius: 15px 0 15px 15px;
 
   &.active {
-    border-radius: 100% 0 0 10%;
     top: 0;
     right: 0;
-    width: 50%;
+    width: 30%;
     height: 40%;
-    box-shadow: 0px 0px 5px ${secondaryRed};
+    box-shadow: 0px 0px 6px ${secondaryBlue};
+
+    @media screen and (max-width: 12000px) {
+      width: 30%;
+      height: 50%;
+    }
+
+    @media screen and (max-width: 480px) {
+      width: 40%;
+      height: 40%;
+    }
+
+    @media screen and (max-width: 380px) {
+      width: 40%;
+      height: 45%;
+    }
   }
 `;
 
@@ -131,6 +146,7 @@ const NavContainer = styled.div`
     right: -2000px;
     margin-left: auto;
     margin-right: auto;
+    width: fit-content;
     text-align: center;
 
     a {
@@ -139,15 +155,14 @@ const NavContainer = styled.div`
       margin-bottom: 1rem;
 
       @media screen and (max-width: 480px) {
-        background-color: ${backgroundText};
         padding: 2vw !important;
         border-radius: 5px;
-        width: 35% !important;
-        font-size: 1.2rem;
+        width: 25% !important;
+        font-size: 0.9rem;
       }
 
       @media screen and (max-width: 1150px) {
-        background-color: ${backgroundText};
+        box-shadow: 0px 0px 6px ${secondaryBlue};
         padding: 1vw;
         border-radius: 5px;
         width: 20%;
@@ -172,9 +187,13 @@ const NavContainer = styled.div`
     margin-left: auto;
     margin-right: auto;
     top: 22%;
-    left: 40%;
+    left: 60%;
     right: 0;
     text-align: center;
+
+    @media screen and (max-width: 480px) {
+      left: 50%;
+    }
   }
 `;
 
