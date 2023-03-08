@@ -6,7 +6,6 @@ import { Routine } from "./Routine";
 import { UserViewInfo } from "./UserViewInfo";
 
 export const ViewUserInfo = ({ user }) => {
-  console.log(user);
   return (
     <InfoUser>
       <InfoContainer>

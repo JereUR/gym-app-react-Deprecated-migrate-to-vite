@@ -105,7 +105,7 @@ export const AdminPage = ({ db }) => {
       </BillSection>
       <SeeUserSection>
         <Title>Ver detalles de usuario</Title>
-        <SeeUser />
+        <SeeUser db={db} />
       </SeeUserSection>
       <DebtorsContainer>
         <Title>Reportar deudores</Title>

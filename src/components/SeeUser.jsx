@@ -1,22 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { FaEdit } from "react-icons/fa";
 
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
-import db from "../static/db.json";
 import { ViewUserInfo } from "./ViewUserInfo";
 
-const {
-  errorInput,
-  primaryRed,
-  primaryBlue,
-  secondaryRed,
-  secondaryBlue,
-  success,
-} = Colors;
+const { errorInput, primaryRed, primaryBlue } = Colors;
 
-export const SeeUser = () => {
+export const SeeUser = ({ db }) => {
   const [forData, setForData] = useState(null);
   const [error, setError] = useState(null);
   const [viewDetails, setViewDetails] = useState(false);
