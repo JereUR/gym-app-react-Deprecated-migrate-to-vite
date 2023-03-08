@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 import { RiErrorWarningLine } from "react-icons/ri";

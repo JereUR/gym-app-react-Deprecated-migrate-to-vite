@@ -8,7 +8,7 @@ import { Colors } from "../constants/Colors";
 import { NutritionalPlan } from "./NutritionalPlan";
 import { Routine } from "./Routine";
 
-const { backgroundText, secondaryRed } = Colors;
+const { backgroundText } = Colors;
 
 export const Home = ({ user, months }) => {
   const [debtor, setDebtor] = useState(false);
@@ -34,7 +34,7 @@ export const Home = ({ user, months }) => {
     if (user.weight === null || user.height === null) {
       setAddInfo(true);
     }
-  }, [user]);
+  }, [user, months]);
 
   return (
     <HomeContainer>
