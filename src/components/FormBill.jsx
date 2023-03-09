@@ -2,9 +2,18 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { FaEdit } from "react-icons/fa";
 import { Toaster, toast } from "react-hot-toast";
-import { Document, Page, Text, View, Image, usePDF } from "@react-pdf/renderer";
+import {
+  Document,
+  Page,
+  Text,
+  View,
+  Image,
+  usePDF,
+  BlobProvider,
+} from "@react-pdf/renderer";
 
 import logo from "../assets/logo.png";
+import seal from "../assets/payment-seal.png";
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 
@@ -48,42 +57,53 @@ export const FormBill = ({ db }) => {
           <Image
             src={logo}
             alt="random image"
-            style={{ maxWidth: "150px", maxHeight: "auto" }}
+            style={{ maxWidth: "150px", maxHeight: "auto", top: "-10vw" }}
           />
           <Text
             style={{
-              color: "#3388af",
+              color: `${primaryBlue}`,
               fontSize: "36px",
               alignItems: "center",
+              margin: "auto auto 10vw auto",
+              fontWeight: "bold",
             }}
           >
-            Pago {month} {year}
+            Pago {month} - {year}
           </Text>
 
-          <Text style={{ textAlign: "justify", marginTop: "18px" }}>
-            Destinatario: {name} {surname}
+          <Text style={{ textAlign: "justify", marginTop: "30px" }}>
+            Destinatario: {name} {surname}.
           </Text>
-          <Text style={{ textAlign: "justify", marginTop: "18px" }}>
-            Email: {forData}
+          <Text style={{ textAlign: "justify", marginTop: "30px" }}>
+            Email: {forData}.
           </Text>
-          <Text style={{ textAlign: "justify", marginTop: "18px" }}>
-            Día: {day}.
+          <Text style={{ textAlign: "justify", marginTop: "30px" }}>
+            Fecha: {day} de {month} del {year}.
           </Text>
-          <Text style={{ textAlign: "justify", marginTop: "18px" }}>
-            Mes: {month}.
+          <Text style={{ textAlign: "justify", marginTop: "30px" }}>
+            Monto: ${mount}.
           </Text>
-          <Text style={{ textAlign: "justify", marginTop: "18px" }}>
-            Año: {year}.
-          </Text>
-          <Text style={{ textAlign: "justify", marginTop: "18px" }}>
-            Monto: ${mount}
-          </Text>
+          <Image
+            src={seal}
+            alt="random image"
+            style={{
+              maxWidth: "120px",
+              maxHeight: "120px",
+              marginLeft: "60%",
+            }}
+          />
         </View>
       </Page>
     </Document>
   );
 
   const [instance, updateInstance] = usePDF({ document: MyDoc });
+
+  const generatePdfBlob = () => {
+    const pdfBlob = new Blob([MyDoc], { type: "application/pdf" });
+    pdfBlob.fileName = `${name} ${surname} - ${month} - ${year}`;
+    return pdfBlob;
+  };
 
   const getYearNow = () => {
     return new Date().getFullYear();
@@ -225,6 +245,9 @@ export const FormBill = ({ db }) => {
 
     if (Object.keys(err).length === 0) {
       let payment;
+      const PDF = (
+        <BlobProvider document={generatePdfBlob()}>{MyDoc}</BlobProvider>
+      );
 
       if (monthNext === 0) {
         payment = {
@@ -235,7 +258,7 @@ export const FormBill = ({ db }) => {
           dayNext: day,
           monthNext,
           yearNext: (parseInt(year) + 1).toString(),
-          pdf: instance.blob,
+          pdf: PDF.props.document,
         };
       } else {
         payment = {
@@ -246,7 +269,7 @@ export const FormBill = ({ db }) => {
           dayNext: day,
           monthNext,
           yearNext: year,
-          pdf: instance.blob,
+          pdf: PDF.props.document,
         };
       }
 
@@ -304,7 +327,7 @@ export const FormBill = ({ db }) => {
           </InputContainer>
         ) : (
           <ForTextContainer>
-            <ForText>Pago realizado para {forData}</ForText>
+            <ForText>Cargar pago para {forData}</ForText>
             <FaEdit size="1.5rem" onClick={handleChangeFor} />
           </ForTextContainer>
         )}
@@ -350,10 +373,10 @@ export const FormBill = ({ db }) => {
             <Label>Año del pago</Label>
             <Select onChange={handleYear} id="year">
               <Option value="null">Seleccione año de pago realizado</Option>
-              {[...Array(new Date().getFullYear() - 2000).keys()].map(
+              {[...Array(new Date().getFullYear() - 2010).keys()].map(
                 (d, index) => (
-                  <Option value={d + 2001} key={index}>
-                    {d + 2001}
+                  <Option value={d + 2011} key={index}>
+                    {d + 2011}
                   </Option>
                 )
               )}
