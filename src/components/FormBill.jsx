@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { FaEdit } from "react-icons/fa";
 import { Toaster, toast } from "react-hot-toast";
+import { Document, Page, Text, View, Image, usePDF } from "@react-pdf/renderer";
 
+import logo from "../assets/logo.png";
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 
@@ -16,7 +18,72 @@ export const FormBill = ({ db }) => {
   const [year, setYear] = useState(null);
   const [mount, setMount] = useState(null);
   const [monthNext, setMonthNext] = useState(null);
+  const [name, setName] = useState(null);
+  const [surname, setSurname] = useState(null);
   const [errors, setErrors] = useState({});
+  const [viewPdf, setViewPdf] = useState(false);
+
+  const MyDoc = (
+    <Document>
+      <Page
+        size="A5"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "white",
+        }}
+      >
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "flex-start",
+            textAlign: "center",
+            backgroundColor: "white",
+            padding: 1,
+          }}
+        >
+          <Image
+            src={logo}
+            alt="random image"
+            style={{ maxWidth: "150px", maxHeight: "auto" }}
+          />
+          <Text
+            style={{
+              color: "#3388af",
+              fontSize: "36px",
+              alignItems: "center",
+            }}
+          >
+            Pago {month} {year}
+          </Text>
+
+          <Text style={{ textAlign: "justify", marginTop: "18px" }}>
+            Destinatario: {name} {surname}
+          </Text>
+          <Text style={{ textAlign: "justify", marginTop: "18px" }}>
+            Email: {forData}
+          </Text>
+          <Text style={{ textAlign: "justify", marginTop: "18px" }}>
+            Día: {day}.
+          </Text>
+          <Text style={{ textAlign: "justify", marginTop: "18px" }}>
+            Mes: {month}.
+          </Text>
+          <Text style={{ textAlign: "justify", marginTop: "18px" }}>
+            Año: {year}.
+          </Text>
+          <Text style={{ textAlign: "justify", marginTop: "18px" }}>
+            Monto: ${mount}
+          </Text>
+        </View>
+      </Page>
+    </Document>
+  );
+
+  const [instance, updateInstance] = usePDF({ document: MyDoc });
 
   const getYearNow = () => {
     return new Date().getFullYear();
@@ -48,13 +115,12 @@ export const FormBill = ({ db }) => {
     setYear(null);
     setMount(null);
     setErrors({});
+    setViewPdf(false);
   };
 
   const onValidate = () => {
     const errorsForm = {};
     const user = db.users.find((u) => u.email === forData);
-    console.log("Mes actual:", getMonthNow());
-    console.log("Mes Ingresado:", getMonth(month));
 
     if (getYearNow() === year) {
       if (getMonthNow() < getMonth(month)) {
@@ -66,11 +132,12 @@ export const FormBill = ({ db }) => {
         }
       }
     }
-
-    if (
-      user.payment.payments.some((p) => p.month === month && p.year === year)
-    ) {
-      errorsForm.form = `Ya se ha agregado un pago para el mes ${month} del año ${year} a ${forData}`;
+    if (forData !== null) {
+      if (
+        user.payment.payments.some((p) => p.month === month && p.year === year)
+      ) {
+        errorsForm.form = `Ya se ha agregado un pago para el mes ${month} del año ${year} a ${forData}`;
+      }
     }
 
     if (forData === null) {
@@ -106,6 +173,11 @@ export const FormBill = ({ db }) => {
 
   const handleFor = (e) => {
     setForData(e.target.value);
+
+    const user = db.users.find((u) => u.email === e.target.value);
+
+    setName(user.username);
+    setSurname(user.surname);
   };
 
   const handleChangeFor = () => {
@@ -135,6 +207,16 @@ export const FormBill = ({ db }) => {
     setMount(parseFloat(e.target.value.replace(",", ".")));
   };
 
+  const handlePdf = () => {
+    const err = onValidate();
+    setErrors(err);
+
+    if (Object.keys(err).length === 0) {
+      updateInstance({ document: MyDoc });
+      setViewPdf(true);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -153,6 +235,7 @@ export const FormBill = ({ db }) => {
           dayNext: day,
           monthNext,
           yearNext: (parseInt(year) + 1).toString(),
+          pdf: instance.blob,
         };
       } else {
         payment = {
@@ -163,10 +246,11 @@ export const FormBill = ({ db }) => {
           dayNext: day,
           monthNext,
           yearNext: year,
+          pdf: instance.blob,
         };
       }
 
-      /* console.log(payment); */
+      console.log(payment);
 
       /* try {
           const resp = await fetch("/", {
@@ -290,6 +374,14 @@ export const FormBill = ({ db }) => {
           </InputContainer>
         </MountContainer>
         {errors.form && <ErrorInput>{errors.form}</ErrorInput>}
+        <ButtonPdf type="button" onClick={handlePdf}>
+          Generar PDF
+        </ButtonPdf>
+        {viewPdf && (
+          <PdfContainer>
+            <Pdf src={instance.url} type="application/pdf"></Pdf>
+          </PdfContainer>
+        )}
         <ButtonSend type="submit">Enviar</ButtonSend>
       </PaymentContainer>
       <Toaster />
@@ -297,21 +389,31 @@ export const FormBill = ({ db }) => {
   );
 };
 
-const ButtonSend = styled.button`
+const ButtonPdf = styled.button`
   font-family: ${FontFamily};
-  background-color: ${primaryRed};
+  background-color: ${primaryBlue};
   border: none;
   border-radius: 4px;
   color: #fff;
   font-size: 2rem;
   padding: 10px 20px;
   margin-top: 2rem;
+  margin-bottom: 1rem;
   width: 100%;
   transition: all 0.5s ease-in-out;
 
   @media screen and (max-width: 480px) {
     font-size: 1.5rem;
   }
+
+  :hover {
+    cursor: pointer;
+    background-color: ${secondaryBlue};
+  }
+`;
+
+const ButtonSend = styled(ButtonPdf)`
+  background-color: ${primaryRed};
 
   :hover {
     cursor: pointer;
@@ -431,6 +533,15 @@ const Option = styled.option`
 `;
 
 const PaymentContainer = styled.div``;
+
+const Pdf = styled.embed`
+  width: 80vw;
+  height: 40vw;
+`;
+
+const PdfContainer = styled.div`
+  text-align: center;
+`;
 
 const Select = styled.select`
   -webkit-appearance: none;

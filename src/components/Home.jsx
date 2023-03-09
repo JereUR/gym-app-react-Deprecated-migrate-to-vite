@@ -15,24 +15,22 @@ export const Home = ({ user, months }) => {
   const [addInfo, setAddInfo] = useState(false);
 
   useEffect(() => {
-    let today = new Date();
+    if (user !== null || user !== undefined) {
+      let today = new Date();
 
-    let month = months.find(
-      (mo) => mo.month === user.payment.nextPayment.month
-    );
+      let userDate = new Date(
+        user.payment.nextPayment.year,
+        user.payment.nextPayment.month,
+        user.payment.nextPayment.day
+      );
 
-    let userDate = new Date(
-      user.payment.nextPayment.year,
-      month.value,
-      user.payment.nextPayment.day
-    );
+      if (userDate < today) {
+        setDebtor(true);
+      }
 
-    if (userDate < today) {
-      setDebtor(true);
-    }
-
-    if (user.weight === null || user.height === null) {
-      setAddInfo(true);
+      if (user.weight === null || user.height === null) {
+        setAddInfo(true);
+      }
     }
   }, [user, months]);
 
@@ -45,8 +43,11 @@ export const Home = ({ user, months }) => {
         <ReportPaymentContainer>
           <MessageDebtor>
             ¡Tienes un pago atrasado del día {user.payment.nextPayment.day} de{" "}
-            {user.payment.nextPayment.month} del año{" "}
-            {user.payment.nextPayment.year}!
+            {
+              months.find((m) => m.value === user.payment.nextPayment.month)
+                .month
+            }{" "}
+            del año {user.payment.nextPayment.year}!
           </MessageDebtor>
         </ReportPaymentContainer>
       )}
