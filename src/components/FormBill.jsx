@@ -273,7 +273,7 @@ export const FormBill = ({ db }) => {
         };
       }
 
-      console.log(payment);
+      /* console.log(payment); */
 
       /* try {
           const resp = await fetch("/", {

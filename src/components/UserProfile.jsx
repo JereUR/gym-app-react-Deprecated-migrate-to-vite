@@ -58,7 +58,7 @@ export const UserProfile = ({ user }) => {
   };
 
   const handleSignOut = () => {
-    console.log("Cerrando sesión...");
+    /* console.log("Cerrando sesión..."); */
 
     setTimeout(() => {
       window.location.replace("/");
@@ -74,7 +74,7 @@ export const UserProfile = ({ user }) => {
     if (file && file.type.substring(0, 5) === "image") {
       formData.append("image", file);
       setUserPhoto(file);
-      console.log(userPhoto);
+      /* console.log(userPhoto); */
       setErrorInput(null);
     } else {
       setUserPhoto(null);

@@ -78,7 +78,7 @@ export const SignIn = () => {
 
     const dataRecover = { emailRecover };
 
-    console.log(dataRecover);
+    /* console.log(dataRecover); */
 
     setForgotPassword(!forgotPassword);
 

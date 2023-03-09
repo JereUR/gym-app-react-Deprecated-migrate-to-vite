@@ -234,7 +234,7 @@ export const FormNutritionalPlan = ({ db }) => {
       }
       clearFormMeal();
     } else {
-      console.log("Error comida");
+      /* console.log("Error comida"); */
     }
   };
 
@@ -258,7 +258,7 @@ export const FormNutritionalPlan = ({ db }) => {
         collation,
       };
 
-      console.log(planDay);
+     /*  console.log(planDay); */
 
       /* try {
           const resp = await fetch("/", {

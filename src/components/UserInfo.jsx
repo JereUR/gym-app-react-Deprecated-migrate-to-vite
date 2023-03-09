@@ -133,7 +133,7 @@ export const UserInfo = ({ user }) => {
       const m = newMedication;
       setNewMedications(newMedications.concat(m));
     } else {
-      console.log("Error medicamento");
+      /* console.log("Error medicamento"); */
     }
 
     document.getElementById("medication").value = null;
@@ -163,7 +163,7 @@ export const UserInfo = ({ user }) => {
       const i = { injury: newInjury, treatment: newTreatment };
       setNewInjuries(newInjuries.concat(i));
     } else {
-      console.log("Error lesión");
+      /* console.log("Error lesión"); */
     }
 
     document.getElementById("injury").value = null;
@@ -195,7 +195,7 @@ export const UserInfo = ({ user }) => {
       const d = { disease: newDisease, medication: newMedicationDisease };
       setNewDiseases(newDiseases.concat(d));
     } else {
-      console.log("Error enfermedad");
+      /* console.log("Error enfermedad"); */
     }
 
     document.getElementById("disease").value = null;
@@ -205,7 +205,7 @@ export const UserInfo = ({ user }) => {
   };
 
   const deleteDisease = (d) => {
-    console.log(newDiseases);
+    /* console.log(newDiseases); */
     let newData = newDiseases.filter((el) => el.disease !== d.disease);
     setNewDiseases(newData);
   };
@@ -258,7 +258,7 @@ export const UserInfo = ({ user }) => {
 
       setChangeInfo(!changeInfo);
     } else {
-      console.log("Error enfermedad");
+      /* console.log("Error enfermedad"); */
     }
   };
 

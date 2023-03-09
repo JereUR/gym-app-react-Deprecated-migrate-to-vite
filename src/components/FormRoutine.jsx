@@ -171,7 +171,7 @@ const FormRoutine = ({ db }) => {
       setExercises(exercises.concat(e));
       clearFormRoutine();
     } else {
-      console.log("Error ejercicio");
+      /* console.log("Error ejercicio"); */
     }
   };
 
@@ -192,7 +192,7 @@ const FormRoutine = ({ db }) => {
         dayData,
         exercises,
       };
-      console.log(routineDay);
+      /* console.log(routineDay); */
 
       /* try {
           const resp = await fetch("/", {
@@ -227,7 +227,7 @@ const FormRoutine = ({ db }) => {
 
       clearData();
     } else {
-      console.log("Error rutina");
+      /* console.log("Error rutina"); */
     }
   };
 
