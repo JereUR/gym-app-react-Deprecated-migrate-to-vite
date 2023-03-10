@@ -4,11 +4,8 @@ import { useEffect } from "react";
 import styled from "styled-components";
 
 import banner from "../assets/home-photo.jpg";
-import { Colors } from "../constants/Colors";
 import { NutritionalPlan } from "./NutritionalPlan";
 import { Routine } from "./Routine";
-
-const { backgroundText } = Colors;
 
 export const Home = ({ user, months }) => {
   const [debtor, setDebtor] = useState(false);

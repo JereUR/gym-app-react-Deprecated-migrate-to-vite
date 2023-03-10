@@ -839,6 +839,11 @@ const LogoContainer = styled.div`
     position: absolute;
     margin-left: 2vw;
     margin-right: 1vw;
+
+    @media screen and (max-width: 480px) {
+      margin-left: 0;
+      margin-right: 5vw;
+    }
   }
 
   .tooltip {
@@ -898,6 +903,10 @@ const PlanContainer = styled.div`
   align-content: center;
   border-left: 4px solid ${secondaryRed};
   margin: 5vw 2vw 5vw 5vw;
+
+  @media screen and (max-width: 480px) {
+    margin: 10vw 3vw 5vw 1vw;
+  }
 `;
 
 const PlanData = styled.div`
@@ -929,9 +938,9 @@ const PlanDay = styled.div`
   border-radius: 10px;
 
   @media screen and (max-width: 480px) {
-    max-width: 80vw;
-    margin: 10vw -10vw 0.5vw 5vw;
-    padding: 0.9rem;
+    max-width: 90vw;
+    margin: 10vw -8vw 0.5vw 2vw;
+    padding: 2vw;
   }
 `;
 

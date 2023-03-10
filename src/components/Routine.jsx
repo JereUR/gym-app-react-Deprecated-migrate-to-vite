@@ -343,7 +343,7 @@ const LogoContainer = styled.div`
     }
 
     @media screen and (max-width: 480px) {
-      margin-left: 10%;
+      margin-left: 5vw;
     }
   }
 
@@ -420,7 +420,7 @@ const RoutineContainer = styled.div`
   margin: 5vw 2vw 5vw 5vw;
 
   @media screen and (max-width: 480px) {
-    margin: 10vw 2vw 5vw 5vw;
+    margin: 10vw 3vw 5vw 1vw;
   }
 `;
 
@@ -453,9 +453,9 @@ const RoutineDay = styled.div`
   border-radius: 10px;
 
   @media screen and (max-width: 480px) {
-    max-width: 80vw;
-    margin: 10vw -10vw 0.5vw 5vw;
-    padding: 0.9rem;
+    max-width: 90vw;
+    margin: 10vw -8vw 0.5vw 2vw;
+    padding: 2vw;
   }
 `;
 

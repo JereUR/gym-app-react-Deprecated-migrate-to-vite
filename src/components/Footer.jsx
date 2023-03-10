@@ -59,7 +59,6 @@ const CenterContent = styled.div`
 
 const FooterContainer = styled.div`
   display: flex;
-  box-shadow: -10px 5px 11px 0px rgba(0, 0, 0, 0.7);
 
   @media screen and (max-width: 480px) {
     display: grid;
