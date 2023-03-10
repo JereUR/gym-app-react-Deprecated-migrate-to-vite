@@ -17,7 +17,7 @@ export const Home = ({ user, months }) => {
   const handleNavigation = (scroll) => {
     const $scrollBtn = document.querySelector(".scroll-top-btn");
 
-    if (scroll > 1200) {
+    if (scroll > 2000) {
       if ($scrollBtn.classList.contains("hidden")) {
         $scrollBtn.classList.remove("hidden");
       }
@@ -141,7 +141,11 @@ const ButtonUp = styled.button`
   transition: all 0.3s ease-out;
 
   svg {
-    margin: 1vw;
+    margin: 0.5vw;
+
+    @media screen and (max-width: 480px) {
+      margin: 1vw;
+    }
   }
 
   :hover {
