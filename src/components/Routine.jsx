@@ -4,14 +4,17 @@ import { RiErrorWarningLine } from "react-icons/ri";
 
 import { getDayNow } from "../helpers/GetDay";
 import { Colors } from "../constants/Colors";
+import { useIntersection } from "./useIntersection";
 
 const { primaryRed, primaryBlue, secondaryBlue, secondaryRed } = Colors;
 
 export const Routine = ({ user, title, addInfo }) => {
   const day = getDayNow();
 
+  const [routineRef, isIntersecting] = useIntersection({ threshold: 0.5 });
+
   return (
-    <RoutineContainer data-aos="fade-left">
+    <RoutineContainer>
       <TitleContainer>
         <TextDiv>
           <Title>{title} </Title>
@@ -26,7 +29,10 @@ export const Routine = ({ user, title, addInfo }) => {
         )}
       </TitleContainer>
       {user.routine ? (
-        <RoutineData>
+        <RoutineData
+          ref={routineRef}
+          className={isIntersecting ? "visible" : "right"}
+        >
           <RoutineDay>
             {day === 1 ? (
               <DayWeekNow>
@@ -429,6 +435,15 @@ const RoutineContainer = styled.div`
   @media screen and (max-width: 480px) {
     margin: 10vw 3vw 5vw 1vw;
   }
+
+  .visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .right {
+    transform: translateX(200px);
+  }
 `;
 
 const RoutineData = styled.div`
@@ -436,6 +451,9 @@ const RoutineData = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   margin: -4vw 1vw 2vw 5vw;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 1s ease-in-out;
 
   @media screen and (max-width: 1380px) {
     grid-template-columns: repeat(2, 1fr);

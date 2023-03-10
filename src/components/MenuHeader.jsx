@@ -102,14 +102,14 @@ const NavContainer = styled.div`
   display: flex;
   flex-direction: row;
   padding-top: 60px;
+  margin-bottom: 0.5vw;
 
   a {
     font-size: 1.2rem;
     color: ${secondaryBlue};
     text-decoration: none;
     width: fit-content;
-    margin-left: 15vw;
-    margin-right: 1rem;
+    margin: 0 1vw 0vw 15vw;
   }
 
   .burger {

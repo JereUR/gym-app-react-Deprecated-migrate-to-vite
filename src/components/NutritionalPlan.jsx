@@ -4,11 +4,14 @@ import { RiErrorWarningLine } from "react-icons/ri";
 
 import { getDayNow } from "../helpers/GetDay";
 import { Colors } from "../constants/Colors";
+import { useIntersection } from "./useIntersection";
 
 const { primaryBlue, secondaryBlue, primaryRed, secondaryRed } = Colors;
 
 export const NutritionalPlan = ({ user, title, addInfo }) => {
   const day = getDayNow();
+
+  const [planRef, isIntersecting] = useIntersection({ threshold: 0.5 });
 
   return (
     <PlanContainer>
@@ -26,7 +29,10 @@ export const NutritionalPlan = ({ user, title, addInfo }) => {
         )}
       </TitleContainer>
       {user.nutricionalPlan ? (
-        <PlanData>
+        <PlanData
+          ref={planRef}
+          className={isIntersecting ? "visible" : "right"}
+        >
           <PlanDay>
             {day === 1 ? (
               <DayWeekNow>
@@ -921,6 +927,15 @@ const PlanContainer = styled.div`
   @media screen and (max-width: 480px) {
     margin: 10vw 3vw 5vw 1vw;
   }
+
+  .visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .right {
+    transform: translateX(200px);
+  }
 `;
 
 const PlanData = styled.div`
@@ -928,6 +943,9 @@ const PlanData = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   margin: -4vw 1vw 2vw 5vw;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 1s ease-in-out;
 
   @media screen and (max-width: 1380px) {
     grid-template-columns: repeat(2, 1fr);

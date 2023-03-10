@@ -106,23 +106,14 @@ export const Home = ({ user, months }) => {
 };
 
 const Banner = styled.img`
-  width: 90%;
+  width: 100%;
   height: auto;
-  box-shadow: 0px 0px 10px #ccc;
-  border-radius: 5px;
-
-  @media screen and (max-width: 480px) {
-    width: 90%;
-  }
+  box-shadow: 5px 5px 5px #ccc;
 `;
 
 const BannerContainer = styled.div`
-  margin: 2vw 2vw 3vw 2vw;
+  margin: 2vw 0vw 3vw 0vw;
   text-align: center;
-
-  @media screen and (max-width: 480px) {
-    margin: 2vw -2vw 3vw 2vw;
-  }
 `;
 
 const ButtonUp = styled.button`
@@ -161,6 +152,8 @@ const ButtonUp = styled.button`
 `;
 
 const HomeContainer = styled.div`
+  overflow-x: hidden;
+
   .hidden {
     visibility: hidden;
     opacity: 0;
