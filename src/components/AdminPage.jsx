@@ -22,13 +22,9 @@ export const AdminPage = ({ db }) => {
       let debtors = [];
 
       db.users.forEach((el) => {
-        let month = db.months.find(
-          (mo) => mo.month === el.payment.nextPayment.month
-        );
-
         let userDate = new Date(
           el.payment.nextPayment.year,
-          month.value,
+          el.payment.nextPayment.month,
           el.payment.nextPayment.day
         );
 
@@ -62,6 +58,10 @@ export const AdminPage = ({ db }) => {
           console.log(resp);*/
 
     let newDebtors = debtorUsers.filter((el) => el.email !== user.email);
+
+    if (newDebtors.length === 0) {
+      setViewDebtors(false);
+    }
 
     setDebtorUsers(newDebtors);
     /*

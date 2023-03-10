@@ -20,6 +20,7 @@ const {
 
 export const FormNutritionalPlan = ({ db }) => {
   const [forData, setForData] = useState(null);
+  const [errorFor, setErrorFor] = useState(null);
   const [dayData, setDayData] = useState(null);
   const [mealData, setMealData] = useState(null);
   const [count, setCount] = useState(null);
@@ -108,9 +109,9 @@ export const FormNutritionalPlan = ({ db }) => {
     }
 
     if (
-      breakfast.length === 0 &&
-      lunch.length === 0 &&
-      snack.length === 0 &&
+      breakfast.length === 0 ||
+      lunch.length === 0 ||
+      snack.length === 0 ||
       dinner.length === 0
     ) {
       errorsForm.planData =
@@ -122,6 +123,16 @@ export const FormNutritionalPlan = ({ db }) => {
 
   const handleFor = (e) => {
     setForData(e.target.value);
+
+    const user = db.users.find((u) => u.email === e.target.value);
+
+    if (user.weight === null || user.height === null) {
+      setErrorFor(
+        `${e.target.value} no ha completado su información adicional. No es posible agregar un plan nutricional al mismo.`
+      );
+    } else {
+      setErrorFor(null);
+    }
   };
 
   const handleChangeFor = () => {
@@ -244,7 +255,7 @@ export const FormNutritionalPlan = ({ db }) => {
     const err = onValidatePlan();
     setErrorsPlan(err);
 
-    if (Object.keys(err).length === 0) {
+    if (Object.keys(err).length === 0 && errorFor === null) {
       const planDay = {
         forData,
         dayData,
@@ -319,6 +330,7 @@ export const FormNutritionalPlan = ({ db }) => {
             <FaEdit size="1.5rem" onClick={handleChangeFor} />
           </ForTextContainer>
         )}
+        {errorFor && <ErrorInput>{errorFor}</ErrorInput>}
       </ForPartContainer>
       <DayPartContainer>
         {!dayData ? (

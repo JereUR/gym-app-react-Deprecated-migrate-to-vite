@@ -49,7 +49,7 @@ export const FormAditionalInfo = ({
             type="number"
             name="weight"
             onChange={handleChange}
-            value={form.weight}
+            value={form.weight ? form.weight : ""}
           />
           {errors.weight && (
             <ErrorInput className="error-input">{errors.weight}</ErrorInput>
@@ -61,7 +61,7 @@ export const FormAditionalInfo = ({
             type="number"
             name="height"
             onChange={handleChange}
-            value={form.height}
+            value={form.height ? form.height : ""}
           />
           {errors.height && (
             <ErrorInput className="error-input">{errors.height}</ErrorInput>

@@ -7,14 +7,14 @@ import { Colors } from "../constants/Colors";
 
 const { primaryRed, primaryBlue, secondaryBlue, secondaryRed } = Colors;
 
-export const Routine = ({ user, addInfo }) => {
+export const Routine = ({ user, title, addInfo }) => {
   const day = getDayNow();
 
   return (
     <RoutineContainer data-aos="fade-left">
       <TitleContainer>
         <TextDiv>
-          <Title>Mis Rutinas </Title>
+          <Title>{title} </Title>
         </TextDiv>
         {addInfo && (
           <LogoContainer>
@@ -334,14 +334,6 @@ const LogoContainer = styled.div`
     position: absolute;
     margin-left: 2vw;
 
-    @media screen and (max-width: 1700px) {
-      margin-left: 30%;
-    }
-
-    @media screen and (max-width: 900px) {
-      margin-left: 25%;
-    }
-
     @media screen and (max-width: 480px) {
       margin-left: 5vw;
     }
@@ -378,7 +370,7 @@ const LogoContainer = styled.div`
     }
 
     @media screen and (max-width: 480px) {
-      transform: translate(-85%, -100%);
+      transform: translate(-95%, -100%);
       width: max-content;
     }
   }
@@ -396,6 +388,10 @@ const Mount = styled.p`
   font-weight: bold;
   margin-right: 0.5rem;
   color: ${secondaryBlue};
+
+  @media screen and (max-width: 1380px) {
+    font-size: 1.2rem;
+  }
 
   @media screen and (max-width: 480px) {
     font-size: 1rem;
@@ -419,6 +415,10 @@ const RoutineContainer = styled.div`
   border-left: 4px solid ${secondaryRed};
   margin: 5vw 2vw 5vw 5vw;
 
+  @media screen and (max-width: 1380px) {
+    margin: 10vw -2vw 5vw 1vw;
+  }
+
   @media screen and (max-width: 480px) {
     margin: 10vw 3vw 5vw 1vw;
   }
@@ -430,13 +430,14 @@ const RoutineData = styled.div`
   grid-gap: 10px;
   margin: -4vw 1vw 2vw 5vw;
 
-  @media screen and (max-width: 480px) {
-    grid-template-columns: repeat(1, 1fr);
+  @media screen and (max-width: 1380px) {
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 0;
     margin: -1.5rem 1rem 2rem 1rem;
   }
 
-  @media screen and (max-width: 1380px) {
+  @media screen and (max-width: 480px) {
+    grid-template-columns: repeat(1, 1fr);
     grid-gap: 0;
     margin: -1.5rem 1rem 2rem 1rem;
   }
@@ -452,6 +453,10 @@ const RoutineDay = styled.div`
   box-shadow: 0px 0px 5px ${primaryBlue};
   border-radius: 10px;
 
+  @media screen and (max-width: 1380px) {
+    max-width: 70vw;
+  }
+
   @media screen and (max-width: 480px) {
     max-width: 90vw;
     margin: 10vw -8vw 0.5vw 2vw;
@@ -466,6 +471,10 @@ const TextDiv = styled.div``;
 const TextNoData = styled.p`
   font-size: 1.4rem;
 
+  @media screen and (max-width: 1380px) {
+    font-size: 1.2rem;
+  }
+
   @media screen and (max-width: 480px) {
     font-size: 1.1rem;
   }
@@ -478,6 +487,10 @@ const Title = styled.p`
   font-weight: bold;
   text-align: start;
   margin: 0 -1vw 5vw 5vw;
+
+  @media screen and (max-width: 1380px) {
+    font-size: 2.8rem;
+  }
 `;
 
 const TitleContainer = styled.div`
@@ -490,6 +503,10 @@ const TypeExercise = styled.p`
   font-size: 1.4rem;
   font-weight: bold;
   color: ${secondaryBlue};
+
+  @media screen and (max-width: 1380px) {
+    font-size: 1.2rem;
+  }
 
   @media screen and (max-width: 480px) {
     font-size: 1rem;

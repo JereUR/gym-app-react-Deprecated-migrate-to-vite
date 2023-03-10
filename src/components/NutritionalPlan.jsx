@@ -7,14 +7,14 @@ import { Colors } from "../constants/Colors";
 
 const { primaryBlue, secondaryBlue, primaryRed, secondaryRed } = Colors;
 
-export const NutritionalPlan = ({ user, addInfo }) => {
+export const NutritionalPlan = ({ user, title, addInfo }) => {
   const day = getDayNow();
 
   return (
     <PlanContainer>
       <TitleContainer>
         <TextDiv>
-          <Title>Mi Plan Nutricional </Title>
+          <Title>{title} </Title>
         </TextDiv>
         {addInfo && (
           <LogoContainer>
@@ -819,6 +819,10 @@ const InfoItem = styled.li`
   line-height: 3rem;
   display: flex;
   margin-left: 1rem;
+
+  @media screen and (max-width: 1380px) {
+    font-size: 1.1rem;
+  }
 `;
 
 const List = styled.div``;
@@ -841,8 +845,7 @@ const LogoContainer = styled.div`
     margin-right: 1vw;
 
     @media screen and (max-width: 480px) {
-      margin-left: 0;
-      margin-right: 5vw;
+      margin-left: -2vw;
     }
   }
 
@@ -877,7 +880,7 @@ const LogoContainer = styled.div`
     }
 
     @media screen and (max-width: 480px) {
-      transform: translate(-85%, -100%);
+      transform: translate(-105%, -100%);
       width: max-content;
     }
   }
@@ -904,6 +907,10 @@ const PlanContainer = styled.div`
   border-left: 4px solid ${secondaryRed};
   margin: 5vw 2vw 5vw 5vw;
 
+  @media screen and (max-width: 1380px) {
+    margin: 10vw -2vw 5vw 1vw;
+  }
+
   @media screen and (max-width: 480px) {
     margin: 10vw 3vw 5vw 1vw;
   }
@@ -915,13 +922,14 @@ const PlanData = styled.div`
   grid-gap: 10px;
   margin: -4vw 1vw 2vw 5vw;
 
-  @media screen and (max-width: 480px) {
-    grid-template-columns: repeat(1, 1fr);
+  @media screen and (max-width: 1380px) {
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 0;
     margin: -1.5rem 1rem 2rem 1rem;
   }
 
-  @media screen and (max-width: 1380px) {
+  @media screen and (max-width: 480px) {
+    grid-template-columns: repeat(1, 1fr);
     grid-gap: 0;
     margin: -1.5rem 1rem 2rem 1rem;
   }
@@ -937,6 +945,10 @@ const PlanDay = styled.div`
   box-shadow: 0px 0px 5px ${primaryBlue};
   border-radius: 10px;
 
+  @media screen and (max-width: 1380px) {
+    max-width: 70vw;
+  }
+
   @media screen and (max-width: 480px) {
     max-width: 90vw;
     margin: 10vw -8vw 0.5vw 2vw;
@@ -949,12 +961,20 @@ const Span = styled.span``;
 const TextMeal = styled.p`
   font-weight: bold;
   font-size: 1.4rem;
+
+  @media screen and (max-width: 1380px) {
+    font-size: 1.3rem;
+  }
 `;
 
 const TextDiv = styled.div``;
 
 const TextNoData = styled.p`
   font-size: 1.4rem;
+
+  @media screen and (max-width: 1380px) {
+    font-size: 1.2rem;
+  }
 
   @media screen and (max-width: 480px) {
     font-size: 1.1rem;

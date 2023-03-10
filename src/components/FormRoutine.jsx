@@ -19,6 +19,7 @@ const {
 
 const FormRoutine = ({ db }) => {
   const [forData, setForData] = useState(null);
+  const [errorFor, setErrorFor] = useState(null);
   const [dayData, setDayData] = useState(null);
   const [measure, setMeasure] = useState(null);
   const [series, setSeries] = useState(null);
@@ -109,6 +110,16 @@ const FormRoutine = ({ db }) => {
 
   const handleFor = (e) => {
     setForData(e.target.value);
+
+    const user = db.users.find((u) => u.email === e.target.value);
+
+    if (user.weight === null || user.height === null) {
+      setErrorFor(
+        `${e.target.value} no ha completado su información adicional. No es posible agregar una rutina al mismo.`
+      );
+    } else {
+      setErrorFor(null);
+    }
   };
 
   const handleChangeFor = () => {
@@ -186,7 +197,7 @@ const FormRoutine = ({ db }) => {
     const err = onValidateRoutine();
     setErrorsRoutine(err);
 
-    if (Object.keys(err).length === 0) {
+    if (Object.keys(err).length === 0 && errorFor === null) {
       const routineDay = {
         forData,
         dayData,
@@ -255,6 +266,7 @@ const FormRoutine = ({ db }) => {
             <FaEdit size="1.5rem" onClick={handleChangeFor} />
           </ForTextContainer>
         )}
+        {errorFor && <ErrorInput>{errorFor}</ErrorInput>}
       </ForPartContainer>
       <DayPartContainer>
         {!dayData ? (

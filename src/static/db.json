@@ -149,7 +149,7 @@
       "date": "1994-11-29",
       "gender": "Masculino",
       "login": true,
-      "admin": false,
+      "admin": true,
       "photo": null,
       "weight": null,
       "height": 173,
@@ -1135,8 +1135,8 @@
       "login": true,
       "admin": true,
       "photo": null,
-      "weight": null,
-      "height": null,
+      "weight": 190,
+      "height": 80,
       "medication": [
         "med1",
         "med2",
@@ -1936,7 +1936,7 @@
       "payment": {
         "nextPayment": {
           "day": 5,
-          "month": "Marzo",
+          "month": 1,
           "year": 2023
         },
         "payments": [
@@ -2765,7 +2765,7 @@
       "payment": {
         "nextPayment": {
           "day": 5,
-          "month": "Marzo",
+          "month": 5,
           "year": 2023
         },
         "payments": [
@@ -3584,7 +3584,7 @@
       "payment": {
         "nextPayment": {
           "day": 5,
-          "month": "Marzo",
+          "month": 3,
           "year": 2023
         },
         "payments": [
@@ -4416,7 +4416,7 @@
       "payment": {
         "nextPayment": {
           "day": 5,
-          "month": "Marzo",
+          "month": 2,
           "year": 2023
         },
         "payments": [

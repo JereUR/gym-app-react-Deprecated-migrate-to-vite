@@ -49,11 +49,15 @@ export const Home = ({ user, months }) => {
         </ReportPaymentContainer>
       )}
       <RutineContainer>
-        <Routine user={user} addInfo={addInfo} />
+        <Routine user={user} title="Mis Rutinas" addInfo={addInfo} />
       </RutineContainer>
       <Hr />
       <NutritionalPlanContainer>
-        <NutritionalPlan user={user} addInfo={addInfo} />
+        <NutritionalPlan
+          user={user}
+          title="MiPlan Nutricional"
+          addInfo={addInfo}
+        />
       </NutritionalPlanContainer>
     </HomeContainer>
   );
@@ -66,7 +70,7 @@ const Banner = styled.img`
   border-radius: 5px;
 
   @media screen and (max-width: 480px) {
-    width: 100%;
+    width: 90%;
   }
 `;
 
