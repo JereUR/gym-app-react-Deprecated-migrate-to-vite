@@ -287,9 +287,16 @@ export const Routine = ({ user, title, addInfo }) => {
   );
 };
 
-const DayWeek = styled.h1``;
+const DayWeek = styled.p`
+  font-size: 2rem;
+  font-weight: bold;
 
-const DayWeekNow = styled.h1`
+  @media screen and (max-width: 480px) {
+    font-size: 1.5rem;
+  }
+`;
+
+const DayWeekNow = styled(DayWeek)`
   color: ${primaryRed};
 `;
 
@@ -490,6 +497,10 @@ const Title = styled.p`
 
   @media screen and (max-width: 1380px) {
     font-size: 2.8rem;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 2rem;
   }
 `;
 

@@ -91,6 +91,10 @@ const Hr = styled.hr`
   border-top: 1px solid #ccc;
   height: 1px;
   background: linear-gradient(to right, #ccc, #333, #ccc);
+
+  @media screen and (max-width: 480px) {
+    width: 85%;
+  }
 `;
 
 const MessageDebtor = styled.p`

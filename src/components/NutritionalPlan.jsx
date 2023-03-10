@@ -805,7 +805,14 @@ export const NutritionalPlan = ({ user, title, addInfo }) => {
   );
 };
 
-const DayWeek = styled.h1``;
+const DayWeek = styled.p`
+  font-size: 2rem;
+  font-weight: bold;
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.5rem;
+  }
+`;
 
 const DayWeekNow = styled(DayWeek)`
   color: ${primaryRed};
@@ -988,6 +995,14 @@ const Title = styled.p`
   font-weight: bold;
   text-align: start;
   margin: 0 -1vw 5vw 5vw;
+
+  @media screen and (max-width: 1380px) {
+    font-size: 2.8rem;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 2rem;
+  }
 `;
 
 const TitleContainer = styled.div`

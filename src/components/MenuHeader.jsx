@@ -21,7 +21,7 @@ export const MenuHeader = () => {
   const [clicked, setClicked] = useState(false);
 
   const handleClick = () => {
-    if (window.innerWidth <= 1150) {
+    if (window.innerWidth <= 1300) {
       setClicked(!clicked);
     }
   };
@@ -86,29 +86,12 @@ const BgDiv = styled.div`
   right: -2000px;
   z-index: 1;
   transition: all 0.3s ease;
-  border-radius: 15px 0 15px 15px;
 
   &.active {
     top: 0;
     right: 0;
-    width: 30%;
-    height: 40%;
-    box-shadow: 0px 0px 6px ${secondaryBlue};
-
-    @media screen and (max-width: 12000px) {
-      width: 30%;
-      height: 50%;
-    }
-
-    @media screen and (max-width: 480px) {
-      width: 40%;
-      height: 40%;
-    }
-
-    @media screen and (max-width: 380px) {
-      width: 40%;
-      height: 45%;
-    }
+    width: 100%;
+    height: 110%;
   }
 `;
 
@@ -134,7 +117,7 @@ const NavContainer = styled.div`
     right: 5vw;
     margin-top: 5vw;
 
-    @media screen and (min-width: 1150px) {
+    @media screen and (min-width: 1300px) {
       display: none;
     }
   }
@@ -155,15 +138,24 @@ const NavContainer = styled.div`
       margin-bottom: 1rem;
 
       @media screen and (max-width: 480px) {
-        padding: 2vw !important;
+        padding: 4vw !important;
+        margin-bottom: 5vw !important;
         border-radius: 5px;
-        width: 25% !important;
-        font-size: 0.9rem;
+        min-width: 60vw;
+      }
+
+      @media screen and (max-width: 900px) {
+        box-shadow: 0px 0px 6px ${secondaryBlue};
+        padding: 2vw;
+        margin-bottom: 4vw;
+        border-radius: 5px;
+        min-width: 50vw;
       }
 
       @media screen and (max-width: 1150px) {
         box-shadow: 0px 0px 6px ${secondaryBlue};
-        padding: 1vw;
+        padding: 2vw;
+        margin-bottom: 3vw;
         border-radius: 5px;
         width: 20%;
       }
@@ -186,13 +178,17 @@ const NavContainer = styled.div`
     position: absolute;
     margin-left: auto;
     margin-right: auto;
-    top: 22%;
-    left: 60%;
+    top: 40%;
+    left: 25%;
     right: 0;
     text-align: center;
 
+    @media screen and (max-width: 900px) {
+      left: 10%;
+    }
+
     @media screen and (max-width: 480px) {
-      left: 50%;
+      left: 5%;
     }
   }
 `;
