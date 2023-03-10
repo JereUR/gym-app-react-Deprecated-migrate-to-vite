@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import styled from "styled-components";
 
-import banner from "../assets/banner_home.jpg";
+import banner from "../assets/home-photo.jpg";
 import { Colors } from "../constants/Colors";
 import { NutritionalPlan } from "./NutritionalPlan";
 import { Routine } from "./Routine";
@@ -52,28 +52,24 @@ export const Home = ({ user, months }) => {
         </ReportPaymentContainer>
       )}
       <RutineContainer>
-        <Routine user={user} title="Mis Rutinas" addInfo={addInfo} />
+        <Routine user={user} addInfo={addInfo} />
       </RutineContainer>
+      <Hr />
       <NutritionalPlanContainer>
-        <NutritionalPlan
-          user={user}
-          title="Mi Plan Nutricional"
-          addInfo={addInfo}
-        />
+        <NutritionalPlan user={user} addInfo={addInfo} />
       </NutritionalPlanContainer>
     </HomeContainer>
   );
 };
 
 const Banner = styled.img`
-  width: 100%;
-  height: 400px;
-  box-shadow: 6px 2px 6px 5px ${backgroundText};
+  width: 90%;
+  height: auto;
+  box-shadow: 0px 0px 10px #ccc;
   border-radius: 5px;
-  margin-top: 2vw;
 
   @media screen and (max-width: 480px) {
-    height: 200px;
+    width: 100%;
   }
 `;
 
@@ -82,25 +78,24 @@ const BannerContainer = styled.div`
   text-align: center;
 
   @media screen and (max-width: 480px) {
-    margin: 10vw 4vw 5vw 4vw;
-  }
-
-  @media screen and (max-width: 900px) {
-    margin: 5vw 4vw 5vw 4vw;
+    margin: 2vw -2vw 3vw 2vw;
   }
 `;
 
 const HomeContainer = styled.div``;
 
+const Hr = styled.hr`
+  width: 95%;
+  border: none;
+  border-top: 1px solid #ccc;
+  height: 1px;
+  background: linear-gradient(to right, #ccc, #333, #ccc);
+`;
+
 const MessageDebtor = styled.p`
   font-size: 1.5rem;
   font-weight: bold;
-  background-color: rgb(255, 210, 210);
   padding: 1vw 1vw;
-  margin: 1vw 25vw;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0 2px 2px black;
 
   @media screen and (max-width: 480px) {
     font-size: 1.1rem;
@@ -117,15 +112,10 @@ const NutritionalPlanContainer = styled.div`
 `;
 
 const ReportPaymentContainer = styled.div`
+  background-color: #ffc107;
+  color: black;
   text-align: center;
-  margin-bottom: 2vw;
-
-  svg {
-    position: relative;
-    top: 0.3vw;
-    color: rgb(255, 20, 0);
-    margin: 0 1vw;
-  }
+  padding: 0.5vw;
 
   @media screen and (max-width: 480px) {
     margin-bottom: 0;

@@ -149,7 +149,7 @@
       "date": "1994-11-29",
       "gender": "Masculino",
       "login": true,
-      "admin": true,
+      "admin": false,
       "photo": null,
       "weight": null,
       "height": 173,
@@ -179,9 +179,9 @@
             "series": 3,
             "count": 15,
             "measure": "Repeticiones",
-            "exercise": "pimba pimba",
+            "exercise": "pimba pimba pimba pimba pimba pimba",
             "rest": 30,
-            "description": "Lorem Ipsum is simply dummy."
+            "description": "Lorem Ipsum is simply dummy.Lorem Ipsum is simply dummy.Lorem Ipsum is simply dummy."
           },
           {
             "series": 3,
@@ -1104,7 +1104,7 @@
       "payment": {
         "nextPayment": {
           "day": 5,
-          "month": 2,
+          "month": 4,
           "year": 2023
         },
         "payments": [

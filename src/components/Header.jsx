@@ -19,7 +19,6 @@ export const Header = () => {
 
 const HeaderContainer = styled.header`
   display: flex;
-  box-shadow: 0px 5px 11px -10px rgba(0, 0, 0, 0.7);
 `;
 
 const Logo = styled.img`

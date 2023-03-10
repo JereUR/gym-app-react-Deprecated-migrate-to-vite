@@ -258,7 +258,7 @@ export const FormNutritionalPlan = ({ db }) => {
         collation,
       };
 
-     /*  console.log(planDay); */
+      /*  console.log(planDay); */
 
       /* try {
           const resp = await fetch("/", {
@@ -642,6 +642,7 @@ const Input = styled.input`
   color: #000;
   font-size: 1.2rem;
   padding: 10px;
+  width: 21vw;
 
   @media screen and (max-width: 480px) {
     font-size: 1.1rem;

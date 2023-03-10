@@ -1,49 +1,31 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { MdArrowCircleDown, MdArrowCircleUp } from "react-icons/md";
 import { RiErrorWarningLine } from "react-icons/ri";
-import { IconContext } from "react-icons";
 
 import { getDayNow } from "../helpers/GetDay";
 import { Colors } from "../constants/Colors";
-import { FontFamily } from "../constants/Fonts";
 
-const { primaryBlue, secondaryBlue, primaryRed } = Colors;
+const { primaryBlue, secondaryBlue, primaryRed, secondaryRed } = Colors;
 
-export const NutritionalPlan = ({ user, title, addInfo }) => {
-  const [showPlan, setShowPlan] = useState(false);
-
-  const handlePlan = () => {
-    setShowPlan(!showPlan);
-  };
-
+export const NutritionalPlan = ({ user, addInfo }) => {
   const day = getDayNow();
 
   return (
     <PlanContainer>
-      <IconContext.Provider
-        value={{ size: "1.9rem", style: { verticalAlign: "middle" } }}
-      >
-        <PlanButton onClick={handlePlan}>
-          <TextContent>
-            {title}
-            {!showPlan ? (
-              <MdArrowCircleDown className="arrow" />
-            ) : (
-              <MdArrowCircleUp className="arrow" />
-            )}{" "}
-            {addInfo && (
-              <LogoContainer>
-                <RiErrorWarningLine className="report" />{" "}
-                <Span className="tooltip">
-                  Debes completar tu información en "Mi Perfil"
-                </Span>
-              </LogoContainer>
-            )}
-          </TextContent>
-        </PlanButton>
-      </IconContext.Provider>
-      {showPlan && (
+      <TitleContainer>
+        <TextDiv>
+          <Title>Mi Plan Nutricional </Title>
+        </TextDiv>
+        {addInfo && (
+          <LogoContainer>
+            <RiErrorWarningLine className="report" />{" "}
+            <Span className="tooltip">
+              Debes completar tu información en "Mi Perfil"
+            </Span>
+          </LogoContainer>
+        )}
+      </TitleContainer>
+      {user.nutricionalPlan ? (
         <PlanData>
           <PlanDay>
             {day === 1 ? (
@@ -816,6 +798,8 @@ export const NutritionalPlan = ({ user, title, addInfo }) => {
             </List>
           </PlanDay>
         </PlanData>
+      ) : (
+        <NoPlan>Sin Información.</NoPlan>
       )}
     </PlanContainer>
   );
@@ -840,8 +824,6 @@ const InfoItem = styled.li`
 const List = styled.div``;
 
 const LogoContainer = styled.div`
-  color: rgb(255, 69, 0);
-
   svg {
     cursor: pointer;
     transition: all 0.6s ease;
@@ -851,14 +833,22 @@ const LogoContainer = styled.div`
     }
   }
 
+  .report {
+    font-size: 2rem;
+    color: black;
+    position: absolute;
+    margin-left: 2vw;
+    margin-right: 1vw;
+  }
+
   .tooltip {
     visibility: hidden;
     position: absolute;
-    transform: translate(147%, -85%);
+    transform: translate(23%, -110%);
     background-color: black;
     color: white;
     padding: 0.7rem;
-    border-radius: 15px 15px 0 15px;
+    border-radius: 15px 15px 15px 0;
     font-size: 0.8rem;
 
     @media screen and (max-width: 1600px) {
@@ -882,12 +872,7 @@ const LogoContainer = styled.div`
     }
 
     @media screen and (max-width: 480px) {
-      transform: translate(-90%, -100%);
-      width: max-content;
-    }
-
-    @media screen and (max-width: 400px) {
-      transform: translate(-95%, -100%);
+      transform: translate(-85%, -100%);
       width: max-content;
     }
   }
@@ -903,45 +888,23 @@ const NoData = styled.div`
   font-style: italic;
 `;
 
-const PlanButton = styled.button`
-  width: 90vw;
-  font-family: ${FontFamily};
-  font-weight: bold;
-  background-color: #fff;
-  color: ${primaryRed};
-  padding: 10px;
-  margin: 10px 10px 5vw 10px;
+const NoPlan = styled.p`
   font-size: 2rem;
-  box-shadow: 0 0 3px 3px ${primaryRed};
-  border: none;
-  border-radius: 0.5rem;
-  transition: all 0.5s ease-in-out;
-
-  :hover {
-    cursor: pointer;
-    box-shadow: 0 0 3px 3px ${secondaryBlue};
-    color: ${secondaryBlue};
-  }
-
-  @media screen and (max-width: 480px) {
-    margin-bottom: 15vw !important;
-    font-size: 1.5rem;
-  }
-
-  @media screen and (max-width: 1380px) {
-    margin-bottom: 6vw;
-  }
+  margin-top: -2vw;
+  padding-bottom: 2vw;
 `;
 
 const PlanContainer = styled.div`
-  padding-top: -1rem;
+  align-content: center;
+  border-left: 4px solid ${secondaryRed};
+  margin: 5vw 2vw 5vw 5vw;
 `;
 
 const PlanData = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
-  margin: -4rem 4rem 2rem 5rem;
+  margin: -4vw 1vw 2vw 5vw;
 
   @media screen and (max-width: 480px) {
     grid-template-columns: repeat(1, 1fr);
@@ -958,60 +921,28 @@ const PlanData = styled.div`
 const PlanDay = styled.div`
   color: ${primaryBlue};
   width: auto;
-  min-width: 26vw;
+  max-width: 30vw;
   padding: 1rem;
-  margin: 1rem;
+  margin: 2vw 1vw 2vw 1vw;
   text-align: left;
   box-shadow: 0px 0px 5px ${primaryBlue};
   border-radius: 10px;
 
   @media screen and (max-width: 480px) {
-    margin: 0.1rem 0.1rem 1rem 0.1rem;
+    max-width: 80vw;
+    margin: 10vw -10vw 0.5vw 5vw;
     padding: 0.9rem;
   }
 `;
 
 const Span = styled.span``;
 
-const TextContent = styled.div`
-  display: inline-flex;
-  text-align: center;
-
-  .arrow {
-    margin: 5px 0 5px 10px;
-
-    @media screen and (max-width: 480px) {
-      margin: 0 0 0 10px;
-    }
-  }
-
-  .report {
-    color: black;
-    position: absolute;
-    margin-left: 35%;
-
-    @media screen and (max-width: 1700px) {
-      margin-left: 25%;
-    }
-
-    @media screen and (max-width: 900px) {
-      margin-left: 15%;
-    }
-
-    @media screen and (max-width: 480px) {
-      margin-left: 5%;
-    }
-
-    @media screen and (max-width: 380px) {
-      margin-left: 1%;
-    }
-  }
-`;
-
 const TextMeal = styled.p`
   font-weight: bold;
   font-size: 1.4rem;
 `;
+
+const TextDiv = styled.div``;
 
 const TextNoData = styled.p`
   font-size: 1.4rem;
@@ -1019,6 +950,19 @@ const TextNoData = styled.p`
   @media screen and (max-width: 480px) {
     font-size: 1.1rem;
   }
+`;
+
+const Title = styled.p`
+  display: flex;
+  font-size: 3rem;
+  color: ${secondaryBlue};
+  font-weight: bold;
+  text-align: start;
+  margin: 0 -1vw 5vw 5vw;
+`;
+
+const TitleContainer = styled.div`
+  display: flex;
 `;
 
 const Today = styled.i``;

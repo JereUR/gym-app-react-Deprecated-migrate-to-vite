@@ -574,9 +574,9 @@ const TextArea = styled.textarea`
   border-radius: 10px;
   box-shadow: none;
   font-family: ${FontFamily};
-  font-size: 16px;
+  font-size: 1.2rem;
   line-height: 1.5;
-  height: 1vw;
+  height: 1.2vw;
   width: 15vw;
   padding: 10px;
   transition: border-color 0.3s ease-in-out;

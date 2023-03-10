@@ -580,7 +580,7 @@ const Select = styled.select`
   background-color: #fff;
   color: #000;
   font-size: 1.2rem;
-  width: 18vw;
+  width: 20vw;
   padding: 10px;
   border: 2px solid ${primaryBlue};
   border-radius: 4px;

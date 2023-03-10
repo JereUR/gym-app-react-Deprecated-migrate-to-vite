@@ -1,1 +1,2 @@
-export const FontFamily = '"Roboto", sans-serif';
+export const FontFamily2 = "Roboto";
+export const FontFamily = "Montserrat";
