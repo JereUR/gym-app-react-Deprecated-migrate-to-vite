@@ -1,15 +1,50 @@
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import { React, useState, useEffect } from "react";
 import styled from "styled-components";
+import { AiOutlineArrowUp } from "react-icons/ai";
 
 import banner from "../assets/home-photo.jpg";
 import { NutritionalPlan } from "./NutritionalPlan";
 import { Routine } from "./Routine";
+import { Colors } from "../constants/Colors";
+
+const { secondaryBlue, secondaryRed } = Colors;
 
 export const Home = ({ user, months }) => {
   const [debtor, setDebtor] = useState(false);
   const [addInfo, setAddInfo] = useState(false);
+  const [scrollTop, setScrollTop] = useState(0);
+
+  const handleNavigation = (scroll) => {
+    const $scrollBtn = document.querySelector(".scroll-top-btn");
+
+    if (scroll > 1200) {
+      if ($scrollBtn.classList.contains("hidden")) {
+        $scrollBtn.classList.remove("hidden");
+      }
+    } else {
+      if (!$scrollBtn.classList.contains("hidden")) {
+        $scrollBtn.classList.add("hidden");
+      }
+    }
+  };
+
+  useEffect(() => {
+    const onScroll = (event) => {
+      setScrollTop(event.target.documentElement.scrollTop);
+    };
+
+    window.addEventListener("scroll", onScroll);
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => handleNavigation(scrollTop));
+
+    return () => {
+      window.removeEventListener("scroll", () => handleNavigation(scrollTop));
+    };
+  }, [scrollTop]);
 
   useEffect(() => {
     if (user !== null || user !== undefined) {
@@ -30,6 +65,10 @@ export const Home = ({ user, months }) => {
       }
     }
   }, [user, months]);
+
+  const handleClickScroll = () => {
+    document.querySelector("header").scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <HomeContainer>
@@ -59,6 +98,9 @@ export const Home = ({ user, months }) => {
           addInfo={addInfo}
         />
       </NutritionalPlanContainer>
+      <ButtonUp onClick={handleClickScroll} className="scroll-top-btn hidden">
+        <AiOutlineArrowUp />
+      </ButtonUp>
     </HomeContainer>
   );
 };
@@ -83,7 +125,43 @@ const BannerContainer = styled.div`
   }
 `;
 
-const HomeContainer = styled.div``;
+const ButtonUp = styled.button`
+  position: fixed;
+  z-index: 999;
+  margin-bottom: 5vw;
+  bottom: 0vh;
+  right: calc(4.25rem + 1vw);
+  font-size: 3rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: none;
+  background-color: ${secondaryBlue};
+  transition: all 0.3s ease-out;
+
+  svg {
+    margin: 1vw;
+  }
+
+  :hover {
+    background-color: ${secondaryRed};
+  }
+
+  @media screen and (max-width: 480px) {
+    margin-bottom: 50px;
+    bottom: -5vh;
+    right: calc(2rem + 1vw);
+    font-size: 2.5rem;
+  }
+`;
+
+const HomeContainer = styled.div`
+  .hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+`;
 
 const Hr = styled.hr`
   width: 95%;
