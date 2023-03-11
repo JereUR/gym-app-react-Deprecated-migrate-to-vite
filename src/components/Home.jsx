@@ -2,7 +2,7 @@ import { React, useState, useEffect } from "react";
 import styled from "styled-components";
 import { AiOutlineArrowUp } from "react-icons/ai";
 
-import banner from "../assets/home-photo.jpg";
+import banner from "../assets/banner_home.jpg";
 import { NutritionalPlan } from "./NutritionalPlan";
 import { Routine } from "./Routine";
 import { Colors } from "../constants/Colors";
@@ -94,7 +94,7 @@ export const Home = ({ user, months }) => {
       <NutritionalPlanContainer>
         <NutritionalPlan
           user={user}
-          title="MiPlan Nutricional"
+          title="Mi Plan Nutricional"
           addInfo={addInfo}
         />
       </NutritionalPlanContainer>

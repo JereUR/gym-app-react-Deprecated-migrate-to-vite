@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { RiErrorWarningLine } from "react-icons/ri";
+import { BsArrowBarUp, BsArrowBarDown } from "react-icons/bs";
 
 import { getDayNow } from "../helpers/GetDay";
 import { Colors } from "../constants/Colors";
@@ -9,15 +10,27 @@ import { useIntersection } from "./useIntersection";
 const { primaryRed, primaryBlue, secondaryBlue, secondaryRed } = Colors;
 
 export const Routine = ({ user, title, addInfo }) => {
+  const [viewData, setViewData] = useState(true);
   const day = getDayNow();
 
   const [routineRef, isIntersecting] = useIntersection({ threshold: 0.5 });
+
+  const handleView = () => {
+    setViewData(!viewData);
+  };
 
   return (
     <RoutineContainer>
       <TitleContainer>
         <TextDiv>
-          <Title>{title} </Title>
+          <Title>
+            {viewData ? (
+              <BsArrowBarUp onClick={handleView} />
+            ) : (
+              <BsArrowBarDown onClick={handleView} />
+            )}{" "}
+            {title}{" "}
+          </Title>
         </TextDiv>
         {addInfo && (
           <LogoContainer>
@@ -28,267 +41,268 @@ export const Routine = ({ user, title, addInfo }) => {
           </LogoContainer>
         )}
       </TitleContainer>
-      {user.routine ? (
-        <RoutineData
-          ref={routineRef}
-          className={isIntersecting ? "visible" : "right"}
-        >
-          <RoutineDay>
-            {day === 1 ? (
-              <DayWeekNow>
-                Lunes <Today>(Hoy)</Today>
-              </DayWeekNow>
-            ) : (
-              <DayWeek>Lunes</DayWeek>
-            )}
-            <Hr />
-            <List>
-              {user.routine.monday.length > 0 ? (
-                user.routine.monday.map((el, index) => (
-                  <InfoItem key={index}>
-                    <Mount>
-                      {el.series} x{el.count} {el.measure}
-                    </Mount>
-                    <ExerciseContainer></ExerciseContainer>
-                    <Exercise>
-                      <TypeExercise>{el.exercise}</TypeExercise>
-                      <ExtraInfo>
-                        {el.rest && `${el.rest} segundos de descanso`}{" "}
-                        {el.description && `- ${el.description}`}
-                        {el.rest === null &&
-                          el.description === null &&
-                          "Sin información adicional."}
-                      </ExtraInfo>
-                    </Exercise>
-                  </InfoItem>
-                ))
+      {viewData &&
+        (user.routine ? (
+          <RoutineData
+            ref={routineRef}
+            className={isIntersecting ? "visible" : "right"}
+          >
+            <RoutineDay>
+              {day === 1 ? (
+                <DayWeekNow>
+                  Lunes <Today>(Hoy)</Today>
+                </DayWeekNow>
               ) : (
-                <NoData>
-                  <TextNoData>Libre</TextNoData>
-                </NoData>
+                <DayWeek>Lunes</DayWeek>
               )}
-            </List>
-          </RoutineDay>
-          <RoutineDay>
-            {day === 2 ? (
-              <DayWeekNow>
-                Martes <Today>(Hoy)</Today>
-              </DayWeekNow>
-            ) : (
-              <DayWeek>Martes</DayWeek>
-            )}
-            <Hr />
-            <List>
-              {user.routine.tuesday.length > 0 ? (
-                user.routine.tuesday.map((el, index) => (
-                  <InfoItem key={index}>
-                    <Mount>
-                      {el.series} x{el.count} {el.measure}
-                    </Mount>
-                    <ExerciseContainer></ExerciseContainer>
-                    <Exercise>
-                      <TypeExercise>{el.exercise}</TypeExercise>
-                      <ExtraInfo>
-                        {el.rest && `${el.rest} segundos de descanso`}{" "}
-                        {el.description && `- ${el.description}`}
-                        {el.rest === null &&
-                          el.description === null &&
-                          "Sin información adicional."}
-                      </ExtraInfo>
-                    </Exercise>
-                  </InfoItem>
-                ))
+              <Hr />
+              <List>
+                {user.routine.monday.length > 0 ? (
+                  user.routine.monday.map((el, index) => (
+                    <InfoItem key={index}>
+                      <Mount>
+                        {el.series} x{el.count} {el.measure}
+                      </Mount>
+                      <ExerciseContainer></ExerciseContainer>
+                      <Exercise>
+                        <TypeExercise>{el.exercise}</TypeExercise>
+                        <ExtraInfo>
+                          {el.rest && `${el.rest} segundos de descanso`}{" "}
+                          {el.description && `- ${el.description}`}
+                          {el.rest === null &&
+                            el.description === null &&
+                            "Sin información adicional."}
+                        </ExtraInfo>
+                      </Exercise>
+                    </InfoItem>
+                  ))
+                ) : (
+                  <NoData>
+                    <TextNoData>Libre</TextNoData>
+                  </NoData>
+                )}
+              </List>
+            </RoutineDay>
+            <RoutineDay>
+              {day === 2 ? (
+                <DayWeekNow>
+                  Martes <Today>(Hoy)</Today>
+                </DayWeekNow>
               ) : (
-                <NoData>
-                  <TextNoData>Libre</TextNoData>
-                </NoData>
+                <DayWeek>Martes</DayWeek>
               )}
-            </List>
-          </RoutineDay>
-          <RoutineDay>
-            {day === 3 ? (
-              <DayWeekNow>
-                Miércoles <Today>(Hoy)</Today>
-              </DayWeekNow>
-            ) : (
-              <DayWeek>Miércoles</DayWeek>
-            )}
-            <Hr />
-            <List>
-              {user.routine.wednesday.length > 0 ? (
-                user.routine.wednesday.map((el, index) => (
-                  <InfoItem key={index}>
-                    <Mount>
-                      {el.series} x{el.count} {el.measure}
-                    </Mount>
-                    <ExerciseContainer></ExerciseContainer>
-                    <Exercise>
-                      <TypeExercise>{el.exercise}</TypeExercise>
-                      <ExtraInfo>
-                        {el.rest && `${el.rest} segundos de descanso`}{" "}
-                        {el.description && `- ${el.description}`}
-                        {el.rest === null &&
-                          el.description === null &&
-                          "Sin información adicional."}
-                      </ExtraInfo>
-                    </Exercise>
-                  </InfoItem>
-                ))
+              <Hr />
+              <List>
+                {user.routine.tuesday.length > 0 ? (
+                  user.routine.tuesday.map((el, index) => (
+                    <InfoItem key={index}>
+                      <Mount>
+                        {el.series} x{el.count} {el.measure}
+                      </Mount>
+                      <ExerciseContainer></ExerciseContainer>
+                      <Exercise>
+                        <TypeExercise>{el.exercise}</TypeExercise>
+                        <ExtraInfo>
+                          {el.rest && `${el.rest} segundos de descanso`}{" "}
+                          {el.description && `- ${el.description}`}
+                          {el.rest === null &&
+                            el.description === null &&
+                            "Sin información adicional."}
+                        </ExtraInfo>
+                      </Exercise>
+                    </InfoItem>
+                  ))
+                ) : (
+                  <NoData>
+                    <TextNoData>Libre</TextNoData>
+                  </NoData>
+                )}
+              </List>
+            </RoutineDay>
+            <RoutineDay>
+              {day === 3 ? (
+                <DayWeekNow>
+                  Miércoles <Today>(Hoy)</Today>
+                </DayWeekNow>
               ) : (
-                <NoData>
-                  <TextNoData>Libre</TextNoData>
-                </NoData>
+                <DayWeek>Miércoles</DayWeek>
               )}
-            </List>
-          </RoutineDay>
-          <RoutineDay>
-            {day === 4 ? (
-              <DayWeekNow>
-                Jueves <Today>(Hoy)</Today>
-              </DayWeekNow>
-            ) : (
-              <DayWeek>Jueves</DayWeek>
-            )}
-            <Hr />
-            <List>
-              {user.routine.thursday.length > 0 ? (
-                user.routine.thursday.map((el, index) => (
-                  <InfoItem key={index}>
-                    <Mount>
-                      {el.series} x{el.count} {el.measure}
-                    </Mount>
-                    <ExerciseContainer></ExerciseContainer>
-                    <Exercise>
-                      <TypeExercise>{el.exercise}</TypeExercise>
-                      <ExtraInfo>
-                        {el.rest && `${el.rest} segundos de descanso`}{" "}
-                        {el.description && `- ${el.description}`}
-                        {el.rest === null &&
-                          el.description === null &&
-                          "Sin información adicional."}
-                      </ExtraInfo>
-                    </Exercise>
-                  </InfoItem>
-                ))
+              <Hr />
+              <List>
+                {user.routine.wednesday.length > 0 ? (
+                  user.routine.wednesday.map((el, index) => (
+                    <InfoItem key={index}>
+                      <Mount>
+                        {el.series} x{el.count} {el.measure}
+                      </Mount>
+                      <ExerciseContainer></ExerciseContainer>
+                      <Exercise>
+                        <TypeExercise>{el.exercise}</TypeExercise>
+                        <ExtraInfo>
+                          {el.rest && `${el.rest} segundos de descanso`}{" "}
+                          {el.description && `- ${el.description}`}
+                          {el.rest === null &&
+                            el.description === null &&
+                            "Sin información adicional."}
+                        </ExtraInfo>
+                      </Exercise>
+                    </InfoItem>
+                  ))
+                ) : (
+                  <NoData>
+                    <TextNoData>Libre</TextNoData>
+                  </NoData>
+                )}
+              </List>
+            </RoutineDay>
+            <RoutineDay>
+              {day === 4 ? (
+                <DayWeekNow>
+                  Jueves <Today>(Hoy)</Today>
+                </DayWeekNow>
               ) : (
-                <NoData>
-                  <TextNoData>Libre</TextNoData>
-                </NoData>
+                <DayWeek>Jueves</DayWeek>
               )}
-            </List>
-          </RoutineDay>
-          <RoutineDay>
-            {day === 5 ? (
-              <DayWeekNow>
-                Viernes <Today>(Hoy)</Today>
-              </DayWeekNow>
-            ) : (
-              <DayWeek>Viernes</DayWeek>
-            )}
-            <Hr />
-            <List>
-              {user.routine.friday.length > 0 ? (
-                user.routine.friday.map((el, index) => (
-                  <InfoItem key={index}>
-                    <Mount>
-                      {el.series} x{el.count} {el.measure}
-                    </Mount>
-                    <ExerciseContainer></ExerciseContainer>
-                    <Exercise>
-                      <TypeExercise>{el.exercise}</TypeExercise>
-                      <ExtraInfo>
-                        {el.rest && `${el.rest} segundos de descanso`}{" "}
-                        {el.description && `- ${el.description}`}
-                        {el.rest === null &&
-                          el.description === null &&
-                          "Sin información adicional."}
-                      </ExtraInfo>
-                    </Exercise>
-                  </InfoItem>
-                ))
+              <Hr />
+              <List>
+                {user.routine.thursday.length > 0 ? (
+                  user.routine.thursday.map((el, index) => (
+                    <InfoItem key={index}>
+                      <Mount>
+                        {el.series} x{el.count} {el.measure}
+                      </Mount>
+                      <ExerciseContainer></ExerciseContainer>
+                      <Exercise>
+                        <TypeExercise>{el.exercise}</TypeExercise>
+                        <ExtraInfo>
+                          {el.rest && `${el.rest} segundos de descanso`}{" "}
+                          {el.description && `- ${el.description}`}
+                          {el.rest === null &&
+                            el.description === null &&
+                            "Sin información adicional."}
+                        </ExtraInfo>
+                      </Exercise>
+                    </InfoItem>
+                  ))
+                ) : (
+                  <NoData>
+                    <TextNoData>Libre</TextNoData>
+                  </NoData>
+                )}
+              </List>
+            </RoutineDay>
+            <RoutineDay>
+              {day === 5 ? (
+                <DayWeekNow>
+                  Viernes <Today>(Hoy)</Today>
+                </DayWeekNow>
               ) : (
-                <NoData>
-                  <TextNoData>Libre</TextNoData>
-                </NoData>
+                <DayWeek>Viernes</DayWeek>
               )}
-            </List>
-          </RoutineDay>
-          <RoutineDay>
-            {day === 6 ? (
-              <DayWeekNow>
-                Sábado <Today>(Hoy)</Today>
-              </DayWeekNow>
-            ) : (
-              <DayWeek>Sábado</DayWeek>
-            )}
-            <Hr />
-            <List>
-              {user.routine.saturday.length > 0 ? (
-                user.routine.saturday.map((el, index) => (
-                  <InfoItem key={index}>
-                    <Mount>
-                      {el.series} x{el.count} {el.measure}
-                    </Mount>
-                    <ExerciseContainer></ExerciseContainer>
-                    <Exercise>
-                      <TypeExercise>{el.exercise}</TypeExercise>
-                      <ExtraInfo>
-                        {el.rest && `${el.rest} segundos de descanso`}{" "}
-                        {el.description && `- ${el.description}`}
-                        {el.rest === null &&
-                          el.description === null &&
-                          "Sin información adicional."}
-                      </ExtraInfo>
-                    </Exercise>
-                  </InfoItem>
-                ))
+              <Hr />
+              <List>
+                {user.routine.friday.length > 0 ? (
+                  user.routine.friday.map((el, index) => (
+                    <InfoItem key={index}>
+                      <Mount>
+                        {el.series} x{el.count} {el.measure}
+                      </Mount>
+                      <ExerciseContainer></ExerciseContainer>
+                      <Exercise>
+                        <TypeExercise>{el.exercise}</TypeExercise>
+                        <ExtraInfo>
+                          {el.rest && `${el.rest} segundos de descanso`}{" "}
+                          {el.description && `- ${el.description}`}
+                          {el.rest === null &&
+                            el.description === null &&
+                            "Sin información adicional."}
+                        </ExtraInfo>
+                      </Exercise>
+                    </InfoItem>
+                  ))
+                ) : (
+                  <NoData>
+                    <TextNoData>Libre</TextNoData>
+                  </NoData>
+                )}
+              </List>
+            </RoutineDay>
+            <RoutineDay>
+              {day === 6 ? (
+                <DayWeekNow>
+                  Sábado <Today>(Hoy)</Today>
+                </DayWeekNow>
               ) : (
-                <NoData>
-                  <TextNoData>Libre</TextNoData>
-                </NoData>
+                <DayWeek>Sábado</DayWeek>
               )}
-            </List>
-          </RoutineDay>
-          <RoutineDay>
-            {day === 0 ? (
-              <DayWeekNow>
-                Domingo <Today>(Hoy)</Today>
-              </DayWeekNow>
-            ) : (
-              <DayWeek>Domingo</DayWeek>
-            )}
-            <Hr />
-            <List>
-              {user.routine.sunday.length > 0 ? (
-                user.routine.sunday.map((el, index) => (
-                  <InfoItem key={index}>
-                    <Mount>
-                      {el.series} x{el.count} {el.measure}
-                    </Mount>
-                    <ExerciseContainer></ExerciseContainer>
-                    <Exercise>
-                      <TypeExercise>{el.exercise}</TypeExercise>
-                      <ExtraInfo>
-                        {el.rest && `${el.rest} segundos de descanso`}{" "}
-                        {el.description && `- ${el.description}`}
-                        {el.rest === null &&
-                          el.description === null &&
-                          "Sin información adicional."}
-                      </ExtraInfo>
-                    </Exercise>
-                  </InfoItem>
-                ))
+              <Hr />
+              <List>
+                {user.routine.saturday.length > 0 ? (
+                  user.routine.saturday.map((el, index) => (
+                    <InfoItem key={index}>
+                      <Mount>
+                        {el.series} x{el.count} {el.measure}
+                      </Mount>
+                      <ExerciseContainer></ExerciseContainer>
+                      <Exercise>
+                        <TypeExercise>{el.exercise}</TypeExercise>
+                        <ExtraInfo>
+                          {el.rest && `${el.rest} segundos de descanso`}{" "}
+                          {el.description && `- ${el.description}`}
+                          {el.rest === null &&
+                            el.description === null &&
+                            "Sin información adicional."}
+                        </ExtraInfo>
+                      </Exercise>
+                    </InfoItem>
+                  ))
+                ) : (
+                  <NoData>
+                    <TextNoData>Libre</TextNoData>
+                  </NoData>
+                )}
+              </List>
+            </RoutineDay>
+            <RoutineDay>
+              {day === 0 ? (
+                <DayWeekNow>
+                  Domingo <Today>(Hoy)</Today>
+                </DayWeekNow>
               ) : (
-                <NoData>
-                  <TextNoData>Sin Información</TextNoData>
-                </NoData>
+                <DayWeek>Domingo</DayWeek>
               )}
-            </List>
-          </RoutineDay>
-        </RoutineData>
-      ) : (
-        <NoRoutine>Sin Información.</NoRoutine>
-      )}
+              <Hr />
+              <List>
+                {user.routine.sunday.length > 0 ? (
+                  user.routine.sunday.map((el, index) => (
+                    <InfoItem key={index}>
+                      <Mount>
+                        {el.series} x{el.count} {el.measure}
+                      </Mount>
+                      <ExerciseContainer></ExerciseContainer>
+                      <Exercise>
+                        <TypeExercise>{el.exercise}</TypeExercise>
+                        <ExtraInfo>
+                          {el.rest && `${el.rest} segundos de descanso`}{" "}
+                          {el.description && `- ${el.description}`}
+                          {el.rest === null &&
+                            el.description === null &&
+                            "Sin información adicional."}
+                        </ExtraInfo>
+                      </Exercise>
+                    </InfoItem>
+                  ))
+                ) : (
+                  <NoData>
+                    <TextNoData>Sin Información</TextNoData>
+                  </NoData>
+                )}
+              </List>
+            </RoutineDay>
+          </RoutineData>
+        ) : (
+          <NoRoutine>Sin Información.</NoRoutine>
+        ))}
     </RoutineContainer>
   );
 };
@@ -511,7 +525,19 @@ const Title = styled.p`
   color: ${secondaryBlue};
   font-weight: bold;
   text-align: start;
-  margin: 0 -1vw 5vw 5vw;
+  margin: 0 -1vw 5vw 10vw;
+
+  svg {
+    cursor: pointer;
+    position: absolute;
+    font-size: 3.5rem;
+    left: 11vw;
+    transition: all 0.5s ease-in-out;
+
+    :hover {
+      transform: scale(1.1);
+    }
+  }
 
   @media screen and (max-width: 1380px) {
     font-size: 2.8rem;
