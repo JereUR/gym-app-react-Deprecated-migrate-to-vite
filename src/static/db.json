@@ -151,7 +151,7 @@
       "login": true,
       "admin": false,
       "photo": null,
-      "weight": null,
+      "weight": 80,
       "height": 173,
       "medication": [
         "med1",

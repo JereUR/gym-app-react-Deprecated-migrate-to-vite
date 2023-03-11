@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { IconContext } from "react-icons";
 import { FaHome, FaFileInvoiceDollar, FaUserAlt } from "react-icons/fa";
+import { MdAdminPanelSettings } from "react-icons/md";
 
 import { user } from "../App";
 import { useAuthAdmin } from "./AdminRoute";
@@ -58,16 +59,22 @@ export const MenuHeader = () => {
       {authAdmin && (
         <NavContainer>
           <NavLinks className={`links ${clicked ? "active" : ""}`}>
-            <NavLink to="/admin" onClick={handleClick} activeclassname="active">
-              Admin
-            </NavLink>
-            <NavLink
-              to={profilePath}
-              activeclassname="active"
-              onClick={handleClick}
-            >
-              Mi Perfil
-            </NavLink>
+            <IconContext.Provider value={{ style: { verticalAlign: "top" } }}>
+              <NavLink
+                to="/admin"
+                onClick={handleClick}
+                activeclassname="active"
+              >
+                <MdAdminPanelSettings fontSize="1.7rem" /> Admin
+              </NavLink>
+              <NavLink
+                to={profilePath}
+                activeclassname="active"
+                onClick={handleClick}
+              >
+                <FaUserAlt fontSize="1.3rem" /> Mi Perfil
+              </NavLink>
+            </IconContext.Provider>
           </NavLinks>
         </NavContainer>
       )}
@@ -102,7 +109,6 @@ const NavContainer = styled.div`
   display: flex;
   flex-direction: row;
   padding-top: 60px;
-  margin-bottom: 0.5vw;
 
   a {
     font-size: 1.2rem;

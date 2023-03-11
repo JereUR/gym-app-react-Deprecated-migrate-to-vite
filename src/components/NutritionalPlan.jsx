@@ -965,7 +965,7 @@ const NoPlan = styled.p`
 
 const PlanContainer = styled.div`
   align-content: center;
-  border-left: 4px solid ${secondaryRed};
+  border-left: 4px solid ${primaryRed};
   margin: 5vw 2vw 5vw 5vw;
 
   @media screen and (max-width: 1380px) {
@@ -1072,14 +1072,24 @@ const Title = styled.p`
     :hover {
       transform: scale(1.1);
     }
+
+    @media screen and (max-width: 1380px) {
+      font-size: 3.2rem;
+    }
+
+    @media screen and (max-width: 480px) {
+      font-size: 2.5rem;
+    }
   }
 
   @media screen and (max-width: 1380px) {
     font-size: 2.8rem;
+    margin-left: 13vw;
   }
 
   @media screen and (max-width: 480px) {
     font-size: 2rem;
+    margin-left: 18vw;
   }
 `;
 
