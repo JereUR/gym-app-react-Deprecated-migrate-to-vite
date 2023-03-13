@@ -203,7 +203,7 @@ const FormRoutine = ({ db }) => {
         dayData,
         exercises,
       };
-      /* console.log(routineDay); */
+      console.log(routineDay);
 
       /* try {
           const resp = await fetch("/", {
@@ -544,7 +544,7 @@ const Select = styled.select`
   background-color: #fff;
   color: #000;
   font-size: 1.2rem;
-  width: 14vw;
+  width: 15vw;
   padding: 10px;
   border: 2px solid ${primaryBlue};
   border-radius: 4px;
