@@ -14,6 +14,7 @@ export const ExerciseComponent = ({ el, deleteData }) => {
         {el.rest ? `${el.rest} seg. de descanso` : "Sin descanso estipulado"} -{" "}
         {el.description ? `${el.description}` : "Sin información adicional"}
       </ExerciseItem>
+      <ExercisePhoto src={el.photo} />
       <FaTrashAlt fontSize="1.1rem" onClick={() => deleteData(el.id)} />
     </ExerciseContainer>
   );
@@ -21,11 +22,12 @@ export const ExerciseComponent = ({ el, deleteData }) => {
 
 const ExerciseContainer = styled.div`
   display: flex;
+  justify-content: space-between;
   padding: 0.5vw 2vw 0.5vw 2vw;
   margin-bottom: 1rem;
   border-radius: 1rem;
   background-color: ${backgroundSuccess};
-  width: max-content;
+  display: flex;
 
   @media screen and (max-width: 480px) {
     padding: 1.5vw;
@@ -34,12 +36,9 @@ const ExerciseContainer = styled.div`
 
   svg {
     color: ${secondaryRed};
-    padding-left: 20vw;
 
     @media screen and (max-width: 480px) {
       font-size: 1rem;
-      padding-left: 15vw;
-      padding-right: 2vw;
     }
   }
 
@@ -51,6 +50,8 @@ const ExerciseContainer = styled.div`
 const ExerciseItem = styled.li`
   font-size: 1.1rem;
   font-weight: 500;
+  max-width: 60%;
+  word-wrap: break-word;
 
   @media screen and (max-width: 480px) {
     font-size: 1rem;
@@ -59,5 +60,16 @@ const ExerciseItem = styled.li`
   ::marker {
     font-weight: bold;
     color: ${secondaryRed};
+  }
+`;
+
+const ExercisePhoto = styled.img`
+  margin-left: 2vw;
+  height: 100px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px black;
+
+  @media screen and (max-width: 480px) {
+    height: 50px;
   }
 `;

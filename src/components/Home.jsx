@@ -17,13 +17,15 @@ export const Home = ({ user, months }) => {
   const handleNavigation = (scroll) => {
     const $scrollBtn = document.querySelector(".scroll-top-btn");
 
-    if (scroll > 2000) {
-      if ($scrollBtn.classList.contains("hidden")) {
-        $scrollBtn.classList.remove("hidden");
-      }
-    } else {
-      if (!$scrollBtn.classList.contains("hidden")) {
-        $scrollBtn.classList.add("hidden");
+    if ($scrollBtn !== null) {
+      if (scroll > 2000) {
+        if ($scrollBtn.classList.contains("hidden")) {
+          $scrollBtn.classList.remove("hidden");
+        }
+      } else {
+        if (!$scrollBtn.classList.contains("hidden")) {
+          $scrollBtn.classList.add("hidden");
+        }
       }
     }
   };

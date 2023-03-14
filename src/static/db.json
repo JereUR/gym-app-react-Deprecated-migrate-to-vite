@@ -11,44 +11,146 @@
       "Triceps"
     ],
     "Abdominales y lumbares": [
-      "Contracciones tumbado",
-      "Elevaciones de tronco en banco/silla",
-      "Elevaciones verticales de piernas, tumbado",
-      "Elevaciones de pelvis en banco vertical",
-      "Patadas de rana/tijeras/uve/carpa",
-      "Giros con pica",
-      "Inclinaciones/flexiones laterales con pica",
-      "Elevaciones laterales tumbado",
-      "Peso muerto",
-      "Extensionesdel tronco en banco inclinado",
-      "Elevación de tronco suspendido por los pies",
-      "Descenso vertical invertido en plancha",
-      "Contracciones en máquina sentado",
-      "Contracciones en polea alta",
-      "Giros en disco",
-      "Extensiones de tronco en remo sentado",
-      "Elevaciones de tronco en polea baja",
-      "Extensiones de tronco en polea baja"
+      {
+        "exercise": "Contracciones tumbado",
+        "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png"
+      },
+      {
+        "exercise": "Elevaciones de tronco en banco/silla",
+        "photo": "./assets/exerciseAbdominalesYLumbares/elevacionesDeTroncoEnBancoSilla.png"
+      },
+      {
+        "exercise": "Elevaciones verticales de piernas, tumbado",
+        "photo": "./assets/exerciseAbdominalesYLumbares/elevacionesVerticalesDePiernasTumbado.png"
+      },
+      {
+        "exercise": "Elevaciones de pelvis en banco vertical",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ElevacionesDePelvisEnBancoVertical.png"
+      },
+      {
+        "exercise": "Patadas de rana/tijeras/uve/carpa",
+        "photo": "./assets/exerciseAbdominalesYLumbares/PatadasDeRanaTijerasUveCarpa.png"
+      },
+      {
+        "exercise": "Giros con pica",
+        "photo": "./assets/exerciseAbdominalesYLumbares/GirosConPica.png"
+      },
+      {
+        "exercise": "Inclinaciones/flexiones laterales con pica",
+        "photo": "./assets/exerciseAbdominalesYLumbares/InclinacionesFlexionesLateralesConPica.png"
+      },
+      {
+        "exercise": "Elevaciones laterales tumbado",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ElevacionesLateralesTumbado.png"
+      },
+      {
+        "exercise": "Peso muerto",
+        "photo": "./assets/exerciseAbdominalesYLumbares/PesoMuerto.png"
+      },
+      {
+        "exercise": "Extensiones del tronco en banco inclinado",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ExtensionesDelTroncoEnBancoInclinado.png"
+      },
+      {
+        "exercise": "Elevación de tronco suspendido por los pies",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ElevacionDeTroncoSuspendidoPorLosPies.png"
+      },
+      {
+        "exercise": "Descenso vertical invertido en plancha",
+        "photo": "./assets/exerciseAbdominalesYLumbares/DescensoVerticalInvertidoEnPlancha.png"
+      },
+      {
+        "exercise": "Contracciones en máquina sentado",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ContraccionesEnMaquinaSentado.png"
+      },
+      {
+        "exercise": "Contracciones en polea alta",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ContraccionesEnPoleaAlta.png"
+      },
+      {
+        "exercise": "Giros en disco",
+        "photo": "./assets/exerciseAbdominalesYLumbares/GirosEnDisco.png"
+      },
+      {
+        "exercise": "Extensiones de tronco en remo sentado",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ExtensionesDeTroncoEnRemoSentado.png"
+      },
+      {
+        "exercise": "Elevaciones de tronco en polea baja",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ElevacionesDeTroncoEnPoleaBaja.png"
+      },
+      {
+        "exercise": "Extensiones de tronco en polea baja",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ExtensionesDeTroncoEnPoleaBaja.png"
+      }
     ],
     "Antebrazos": [
-      "Curl/Flexiones de antebrazo con barra",
-      "Extensiones con barra sentado",
-      "Curl con barra en pronación",
-      "Enrollamiento de cuerda palmar",
-      "Aduciones/Flexiones radiales sentado"
+      {
+        "exercise": "Curl/Flexiones de antebrazo con barra",
+        "photo": "./assets/exerciseAntebrazos/CurlFlexionesDeAntebrazoConBarra.png"
+      },
+      {
+        "exercise": "Extensiones con barra sentado",
+        "photo": "./assets/exerciseAntebrazos/ExtensionesConBarraSentado.png"
+      },
+      {
+        "exercise": "Curl con barra en pronación",
+        "photo": "./assets/exerciseAntebrazos/CurlConBarraEnPronacion.png"
+      },
+      {
+        "exercise": "Enrollamiento de cuerda palmar",
+        "photo": "./assets/exerciseAntebrazos/EnrollamientoDeCuerdaPalmar.png"
+      },
+      {
+        "exercise": "Abduciones/Flexiones radiales sentado",
+        "photo": "./assets/exerciseAntebrazos/AbducionesFlexionesRadialesSentado.png"
+      }
     ],
     "Biceps": [
-      "Curl con barra",
-      "Curl con mancuerna y giro",
-      "Curl de barra con apoyo en banco/Scott",
-      "Curl concentrado/apoyo en muslo",
-      "Curl tumbado",
-      "Dominadas para bíceps",
-      "Curl  Zottman/con gitocompleto",
-      "Recostado en banco",
-      "Curl en máquina",
-      "Curl en polea baja",
-      "Curl en polea alta a una mano"
+      {
+        "exercise": "Curl con barra",
+        "photo": "./assets/exerciseBiceps/CurlConBarra.png"
+      },
+      {
+        "exercise": "Curl con mancuerna y giro",
+        "photo": "./assets/exerciseBiceps/CurlConMancuernaYGiro.png"
+      },
+      {
+        "exercise": "Curl de barra con apoyo en banco/Scott",
+        "photo": "./assets/exerciseBiceps/CurlDeBarraConApoyoEnBancoScott.png"
+      },
+      {
+        "exercise": "Curl concentrado/apoyo en muslo",
+        "photo": "./assets/exerciseBiceps/CurlConcentradoApoyoEnMuslo.png"
+      },
+      {
+        "exercise": "Curl tumbado",
+        "photo": "./assets/exerciseBiceps/CurlTumbado.png"
+      },
+      {
+        "exercise": "Dominadas para bíceps",
+        "photo": "./assets/exerciseBiceps/DominadasParaBiceps.png"
+      },
+      {
+        "exercise": "Curl  Zottman/con giro completo",
+        "photo": "./assets/exerciseBiceps/CurlZottmanConGiroCompleto.png"
+      },
+      {
+        "exercise": "Recostado en banco",
+        "photo": "./assets/exerciseBiceps/RecostadoEnBanco.png"
+      },
+      {
+        "exercise": "Curl en máquina",
+        "photo": "./assets/exerciseBiceps/CurlEnMaquina.png"
+      },
+      {
+        "exercise": "Curl en polea baja",
+        "photo": "./assets/exerciseBiceps/CurlEnPoleaBaja.png"
+      },
+      {
+        "exercise": "Curl en polea alta a una mano",
+        "photo": "./assets/exerciseBiceps/CurlEnPoleaAltaAUnaMano.png"
+      }
     ],
     "Dorsales": [
       "Dominadas",
@@ -332,6 +434,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba pimba pimba pimba pimba",
+            "photo": "./assets/exerciseBiceps/CurlZottmanConGiroCompleto.png",
             "rest": 30,
             "description": "Lorem Ipsum is simply dummy.Lorem Ipsum is simply dummy.Lorem Ipsum is simply dummy."
           },
@@ -340,6 +443,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": 30,
             "description": "Lorem Ipsum is simply dummy."
           },
@@ -348,6 +452,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": 30,
             "description": "Lorem Ipsum is simply dummy."
           },
@@ -356,6 +461,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": 30,
             "description": "Lorem Ipsum is simply dummy."
           },
@@ -364,6 +470,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": null,
             "description": null
           },
@@ -372,6 +479,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": null,
             "description": "Lorem Ipsum is simply dummy."
           }
@@ -382,6 +490,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": 30,
             "description": "Lorem Ipsum is simply dummy."
           },
@@ -390,6 +499,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": 30,
             "description": "Lorem Ipsum is simply dummy."
           },
@@ -398,6 +508,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": 30,
             "description": "Lorem Ipsum is simply dummy."
           },
@@ -406,6 +517,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": 30,
             "description": "Lorem Ipsum is simply dummy."
           },
@@ -414,6 +526,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": null,
             "description": null
           },
@@ -422,6 +535,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": null,
             "description": "Lorem Ipsum is simply dummy."
           }
@@ -432,6 +546,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": 30,
             "description": "Lorem Ipsum is simply dummy."
           },
@@ -440,6 +555,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": 30,
             "description": "Lorem Ipsum is simply dummy."
           },
@@ -448,6 +564,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": 30,
             "description": "Lorem Ipsum is simply dummy."
           },
@@ -456,6 +573,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": 30,
             "description": "Lorem Ipsum is simply dummy."
           },
@@ -464,6 +582,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": null,
             "description": null
           },
@@ -472,6 +591,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": null,
             "description": "Lorem Ipsum is simply dummy."
           }
@@ -482,6 +602,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": 30,
             "description": "Lorem Ipsum is simply dummy."
           },
@@ -490,6 +611,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": 30,
             "description": "Lorem Ipsum is simply dummy."
           },
@@ -498,6 +620,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": 30,
             "description": "Lorem Ipsum is simply dummy."
           },
@@ -506,6 +629,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": 30,
             "description": "Lorem Ipsum is simply dummy."
           },
@@ -514,6 +638,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": null,
             "description": null
           },
@@ -522,6 +647,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": null,
             "description": "Lorem Ipsum is simply dummy."
           }
@@ -532,6 +658,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": 30,
             "description": "Lorem Ipsum is simply dummy."
           },
@@ -540,6 +667,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": 30,
             "description": "Lorem Ipsum is simply dummy."
           },
@@ -548,6 +676,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": 30,
             "description": "Lorem Ipsum is simply dummy."
           },
@@ -556,6 +685,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": 30,
             "description": "Lorem Ipsum is simply dummy."
           },
@@ -564,6 +694,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": null,
             "description": null
           },
@@ -572,6 +703,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": null,
             "description": "Lorem Ipsum is simply dummy."
           }
@@ -582,6 +714,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": 30,
             "description": "Lorem Ipsum is simply dummy."
           },
@@ -590,6 +723,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": 30,
             "description": "Lorem Ipsum is simply dummy."
           },
@@ -598,6 +732,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": 30,
             "description": "Lorem Ipsum is simply dummy."
           },
@@ -606,6 +741,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": 30,
             "description": "Lorem Ipsum is simply dummy."
           },
@@ -614,6 +750,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": null,
             "description": null
           },
@@ -622,6 +759,7 @@
             "count": 15,
             "measure": "Repeticiones",
             "exercise": "pimba pimba",
+            "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
             "rest": null,
             "description": "Lorem Ipsum is simply dummy."
           }

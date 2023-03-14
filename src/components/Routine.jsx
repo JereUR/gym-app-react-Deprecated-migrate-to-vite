@@ -7,7 +7,7 @@ import { getDayNow } from "../helpers/GetDay";
 import { Colors } from "../constants/Colors";
 import { useIntersection } from "./useIntersection";
 
-const { primaryRed, primaryBlue, secondaryBlue, secondaryRed } = Colors;
+const { primaryRed, primaryBlue, secondaryBlue } = Colors;
 
 export const Routine = ({ user, title, addInfo }) => {
   const [viewData, setViewData] = useState(true);
@@ -60,9 +60,12 @@ export const Routine = ({ user, title, addInfo }) => {
                 {user.routine.monday.length > 0 ? (
                   user.routine.monday.map((el, index) => (
                     <InfoItem key={index}>
-                      <Mount>
-                        {el.series} x{el.count} {el.measure}
-                      </Mount>
+                      <MountAndPhotoContainer>
+                        <Mount>
+                          {el.series} x{el.count} {el.measure}
+                        </Mount>
+                        <ExercisePhoto src={el.photo} />
+                      </MountAndPhotoContainer>
                       <ExerciseContainer></ExerciseContainer>
                       <Exercise>
                         <TypeExercise>{el.exercise}</TypeExercise>
@@ -96,9 +99,12 @@ export const Routine = ({ user, title, addInfo }) => {
                 {user.routine.tuesday.length > 0 ? (
                   user.routine.tuesday.map((el, index) => (
                     <InfoItem key={index}>
-                      <Mount>
-                        {el.series} x{el.count} {el.measure}
-                      </Mount>
+                      <MountAndPhotoContainer>
+                        <Mount>
+                          {el.series} x{el.count} {el.measure}
+                        </Mount>
+                        <ExercisePhoto src={el.photo} />
+                      </MountAndPhotoContainer>
                       <ExerciseContainer></ExerciseContainer>
                       <Exercise>
                         <TypeExercise>{el.exercise}</TypeExercise>
@@ -132,9 +138,12 @@ export const Routine = ({ user, title, addInfo }) => {
                 {user.routine.wednesday.length > 0 ? (
                   user.routine.wednesday.map((el, index) => (
                     <InfoItem key={index}>
-                      <Mount>
-                        {el.series} x{el.count} {el.measure}
-                      </Mount>
+                      <MountAndPhotoContainer>
+                        <Mount>
+                          {el.series} x{el.count} {el.measure}
+                        </Mount>
+                        <ExercisePhoto src={el.photo} />
+                      </MountAndPhotoContainer>
                       <ExerciseContainer></ExerciseContainer>
                       <Exercise>
                         <TypeExercise>{el.exercise}</TypeExercise>
@@ -168,9 +177,12 @@ export const Routine = ({ user, title, addInfo }) => {
                 {user.routine.thursday.length > 0 ? (
                   user.routine.thursday.map((el, index) => (
                     <InfoItem key={index}>
-                      <Mount>
-                        {el.series} x{el.count} {el.measure}
-                      </Mount>
+                      <MountAndPhotoContainer>
+                        <Mount>
+                          {el.series} x{el.count} {el.measure}
+                        </Mount>
+                        <ExercisePhoto src={el.photo} />
+                      </MountAndPhotoContainer>
                       <ExerciseContainer></ExerciseContainer>
                       <Exercise>
                         <TypeExercise>{el.exercise}</TypeExercise>
@@ -204,9 +216,12 @@ export const Routine = ({ user, title, addInfo }) => {
                 {user.routine.friday.length > 0 ? (
                   user.routine.friday.map((el, index) => (
                     <InfoItem key={index}>
-                      <Mount>
-                        {el.series} x{el.count} {el.measure}
-                      </Mount>
+                      <MountAndPhotoContainer>
+                        <Mount>
+                          {el.series} x{el.count} {el.measure}
+                        </Mount>
+                        <ExercisePhoto src={el.photo} />
+                      </MountAndPhotoContainer>
                       <ExerciseContainer></ExerciseContainer>
                       <Exercise>
                         <TypeExercise>{el.exercise}</TypeExercise>
@@ -240,9 +255,12 @@ export const Routine = ({ user, title, addInfo }) => {
                 {user.routine.saturday.length > 0 ? (
                   user.routine.saturday.map((el, index) => (
                     <InfoItem key={index}>
-                      <Mount>
-                        {el.series} x{el.count} {el.measure}
-                      </Mount>
+                      <MountAndPhotoContainer>
+                        <Mount>
+                          {el.series} x{el.count} {el.measure}
+                        </Mount>
+                        <ExercisePhoto src={el.photo} />
+                      </MountAndPhotoContainer>
                       <ExerciseContainer></ExerciseContainer>
                       <Exercise>
                         <TypeExercise>{el.exercise}</TypeExercise>
@@ -276,9 +294,12 @@ export const Routine = ({ user, title, addInfo }) => {
                 {user.routine.sunday.length > 0 ? (
                   user.routine.sunday.map((el, index) => (
                     <InfoItem key={index}>
-                      <Mount>
-                        {el.series} x{el.count} {el.measure}
-                      </Mount>
+                      <MountAndPhotoContainer>
+                        <Mount>
+                          {el.series} x{el.count} {el.measure}
+                        </Mount>
+                        <ExercisePhoto src={el.photo} />
+                      </MountAndPhotoContainer>
                       <ExerciseContainer></ExerciseContainer>
                       <Exercise>
                         <TypeExercise>{el.exercise}</TypeExercise>
@@ -326,6 +347,15 @@ const ExerciseContainer = styled.div`
   display: block;
   border-left: 3px solid ${primaryBlue};
   margin: 1rem;
+`;
+
+const ExercisePhoto = styled.img`
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px ${primaryBlue};
+
+  @media screen and (max-width: 480px) {
+    width: 150px;
+  }
 `;
 
 const ExtraInfo = styled.p`
@@ -424,6 +454,8 @@ const Mount = styled.p`
     font-size: 1rem;
   }
 `;
+
+const MountAndPhotoContainer = styled.div``;
 
 const NoData = styled.div`
   text-align: center;

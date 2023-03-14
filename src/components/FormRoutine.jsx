@@ -26,6 +26,7 @@ const FormRoutine = ({ db }) => {
   const [count, setCount] = useState(null);
   const [zone, setZone] = useState(null);
   const [typeExercise, setTypeExercise] = useState(null);
+  const [photo, setPhoto] = useState(null);
   const [rest, setRest] = useState(null);
   const [description, setDescription] = useState(null);
   const [exercises, setExercises] = useState([]);
@@ -153,6 +154,12 @@ const FormRoutine = ({ db }) => {
 
   const handleTypeExercise = (e) => {
     setTypeExercise(e.target.value);
+
+    const p = db.exercises[zone].find(
+      (ex) => ex.exercise === e.target.value
+    ).photo;
+    console.log(p);
+    setPhoto(p);
   };
 
   const handleRest = (e) => {
@@ -175,6 +182,7 @@ const FormRoutine = ({ db }) => {
         measure,
         count,
         typeExercise,
+        photo,
         rest,
         description,
         id: exercises.length,
@@ -346,8 +354,8 @@ const FormRoutine = ({ db }) => {
             <Option value="null">Seleccione un ejercicio</Option>
             {zone &&
               db.exercises[zone].map((el, index) => (
-                <Option value={el} key={index}>
-                  {el}
+                <Option value={el.exercise} key={index}>
+                  {el.exercise}
                 </Option>
               ))}
           </Select>
@@ -389,6 +397,7 @@ const FormRoutine = ({ db }) => {
       {errorsRoutine.exercises && (
         <ErrorInput>{errorsRoutine.exercises}</ErrorInput>
       )}
+      {photo && <img src={photo} />}
       <ButtonSubmit type="submit">Enviar</ButtonSubmit>
       <Toaster />
     </Form>
