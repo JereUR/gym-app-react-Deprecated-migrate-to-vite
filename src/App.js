@@ -13,6 +13,8 @@ import { Error404 } from "./components/Error404";
 import LoginRoute from "./components/LoginRoute";
 import AdminRoute from "./components/AdminRoute";
 import { ResetPassword } from "./components/ResetPassword";
+import { ChangePassword } from "./components/ChangePassword";
+import RecoverAccount from "./components/RecoverAccount";
 
 import db from "./static/db.json";
 
@@ -43,10 +45,16 @@ function App() {
               path={pathUser}
               element={<UserProfile user={user} />}
             />
-            <Route exact path="/reset" element={<ResetPassword />} />
+            <Route
+              exact
+              path="/change-password"
+              element={<ChangePassword username={user.username} />}
+            />
           </Route>
-          <Route element={<AdminRoute />}>
+          <Route element={<AdminRoute user={user} months={db.months} />}>
             <Route exact path="/admin" element={<AdminPage db={db} />} />
+          </Route>
+          <Route element={<RecoverAccount user={user} months={db.months} />}>
             <Route exact path="/reset" element={<ResetPassword />} />
           </Route>
           <Route exact path="*" element={<Error404 />} />

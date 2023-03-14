@@ -4,19 +4,19 @@ import { Home } from "./Home";
 import { useAuth } from "./LoginRoute";
 import { SesionPage } from "./SesionPage";
 
-export const useAuthAdmin = (user) => {
-  return user && user.admin;
+export const useRecover = (user) => {
+  return user && user.recover;
 };
 
-const AdminRoute = ({ user, months }) => {
-  const isAdmin = useAuthAdmin(user);
+const RecoverAccount = ({ user, months }) => {
+  const isRecover = useRecover(user);
   const isLogin = useAuth();
 
   if (isLogin) {
-    return isAdmin ? <Outlet /> : <Home user={user} months={months} />;
+    return isRecover ? <Outlet /> : <Home user={user} months={months} />;
   }
 
   return <SesionPage />;
 };
 
-export default AdminRoute;
+export default RecoverAccount;

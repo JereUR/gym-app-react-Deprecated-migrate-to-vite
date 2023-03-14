@@ -53,12 +53,41 @@ export const UserProfile = ({ user }) => {
     setChangePhoto(!changePhoto);
   };
 
-  const handleReset = () => {
-    window.location.replace("/reset");
+  const handleChangePassword = () => {
+    window.location.replace("/change-password");
   };
 
   const handleSignOut = () => {
-    /* console.log("Cerrando sesión..."); */
+    /* try {
+          const resp = await fetch("/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ user.email }),
+          });
+          console.log(resp);
+
+           toast.success("Sesión cerrada.", {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(215, 250, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          });
+        } catch (error) {
+          toast.error("error.", {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(250, 215, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          });
+        } */
 
     setTimeout(() => {
       window.location.replace("/");
@@ -175,7 +204,7 @@ export const UserProfile = ({ user }) => {
       </Modal>
       <UserInfo user={user} />
       <PasswordContainer>
-        <ChangePasswordButton onClick={handleReset}>
+        <ChangePasswordButton onClick={handleChangePassword}>
           Cambiar Contraseña
         </ChangePasswordButton>
       </PasswordContainer>
