@@ -373,58 +373,244 @@
       }
     ],
     "Pectorales": [
-      "Press de banca",
-      "Press de banca inclinado",
-      "Press de banca declinado",
-      "Press con mancuernas",
-      "Aperturas/Aberturas con mancuernas",
-      "Fondos en el suelo",
-      "Fondos en paralelas",
-      "Pull over con mancuerna",
-      "Giros con mancuernas",
-      "Fondos rodando con mancuernas",
-      "Elevaciones de barra lateral a una mano",
-      "Press de banca con codos rectos",
-      "Pull over sobre mancuernas en el suelo",
-      "Press de banca en máquina",
-      "Press de banca en multipower",
-      "Cruce de poleas",
-      "Aperturas en poleas bajas",
-      "Contractor",
-      "Pull over en polea baja",
-      "Fondos en paralelas con ayuda"
+      {
+        "exercise": "Press de banca",
+        "photo": "./assets/exercisePectorales/PressDeBanca.png"
+      },
+      {
+        "exercise": "Press de banca inclinado",
+        "photo": "./assets/exercisePectorales/PressDeBancaInclinado.png"
+      },
+      {
+        "exercise": "Press de banca declinado",
+        "photo": "./assets/exercisePectorales/PressDeBancaDeclinado.png"
+      },
+      {
+        "exercise": "Press con mancuernas",
+        "photo": "./assets/exercisePectorales/PressConMancuernas.png"
+      },
+      {
+        "exercise": "Aperturas/Aberturas con mancuernas",
+        "photo": "./assets/exercisePectorales/AperturasAberturasConMancuernas.png"
+      },
+      {
+        "exercise": "Fondos en el suelo",
+        "photo": "./assets/exercisePectorales/FondosEnElSuelo.png"
+      },
+      {
+        "exercise": "Fondos en paralelas",
+        "photo": "./assets/exercisePectorales/FondosEnParalelas.png"
+      },
+      {
+        "exercise": "Pull over con mancuerna",
+        "photo": "./assets/exercisePectorales/PullOverConMancuerna.png"
+      },
+      {
+        "exercise": "Giros con mancuernas",
+        "photo": "./assets/exercisePectorales/GirosConMancuernas.png"
+      },
+      {
+        "exercise": "Fondos rodando con mancuernas",
+        "photo": "./assets/exercisePectorales/FondosRodandoConMancuernas.png"
+      },
+      {
+        "exercise": "Elevaciones de barra lateral a una mano",
+        "photo": "./assets/exercisePectorales/ElevacionesDeBarraLateralAUnaMano.png"
+      },
+      {
+        "exercise": "Press de banca con codos rectos",
+        "photo": "./assets/exercisePectorales/PressDeBancaConCodosRectos.png"
+      },
+      {
+        "exercise": "Pull over sobre mancuernas en el suelo",
+        "photo": "./assets/exercisePectorales/PullOverSobreMancuernasEnElSuelo.png"
+      },
+      {
+        "exercise": "Press de banca en máquina",
+        "photo": "./assets/exercisePectorales/PressDeBancaEnMaquina.png"
+      },
+      {
+        "exercise": "Press de banca en multipower",
+        "photo": "./assets/exercisePectorales/PressDeBancaEnMultipower.png"
+      },
+      {
+        "exercise": "Cruce de poleas",
+        "photo": "./assets/exercisePectorales/CruceDePoleas.png"
+      },
+      {
+        "exercise": "Aperturas en poleas bajas",
+        "photo": "./assets/exercisePectorales/AperturasEnPoleasBajas.png"
+      },
+      {
+        "exercise": "Aperturas en poleas bajas tipo press",
+        "photo": "./assets/exercisePectorales/AperturasEnPoleasBajasTipoPress.png"
+      },
+      {
+        "exercise": "Aperturas en poleas bajas a una mano",
+        "photo": "./assets/exercisePectorales/AperturasEnPoleasBajasAUnaMano.png"
+      },
+      {
+        "exercise": "Contractor",
+        "photo": "./assets/exercisePectorales/Contractor.png"
+      },
+      {
+        "exercise": "Pull over en polea baja",
+        "photo": "./assets/exercisePectorales/PullOverEnPoleaBaja.png"
+      },
+      {
+        "exercise": "Fondos en paralelas con ayuda",
+        "photo": "./assets/exercisePectorales/FondosEnParalelasConAyuda.png"
+      }
     ],
     "Piernas": [
-      "Sentadilla",
-      "Escalón",
-      "Zancadas/Tijeras",
-      "Peso muerto",
-      "Elevaciones de talones",
-      "Elevaciones de talones sentado con barra",
-      "Patadas de gluteo",
-      "Elevaciones de pierna laterales/Abducción de cadera",
-      "Aductores de pie/Aducción de cadera",
-      "Flexiones dorsales/Extensiones del pie con disco",
-      "Sentadilla Sissy",
-      "Sentadilla en máquina",
-      "Prensa/Press de piernas",
-      "Extensiones para cuádriceps/de rodilla",
-      "Curl/Flexiones para femoral tumbado",
-      "Elevaciones de talones en máquina",
-      "Gemelos en prensa",
-      "Elevaciones de talones sentado",
-      "Aductores sentado",
-      "Músculos abductores sentado",
-      "Glúteosen multipolea",
-      "Flexiones de cadera en polea",
-      "Tijeras en multipower",
-      "Extensiones para cuádriceps en polea baja",
-      "Flexiones para femoral en polea baja",
-      "Aductores en polea baja tumbado",
-      "Músculos abductores en polea baja tumbado",
-      "Elevaciones de talones en polea baja",
-      "Rotaciones externas de rodilla en polea sentado y rotación de cadera",
-      "Rotaciones internas de rodilla en polea sentado y rotación de cadera"
+      {
+        "exercise": "Sentadilla",
+        "photo": "./assets/exercisePiernas/Sentadilla.png"
+      },
+      {
+        "exercise": "Sentadilla rumana",
+        "photo": "./assets/exercisePiernas/SentadillaRumana.png"
+      },
+      {
+        "exercise": "Sentadilla con mancuernas",
+        "photo": "./assets/exercisePiernas/SentadillaConMancuernas.png"
+      },
+      {
+        "exercise": "Sentadilla por detras/Hack con barra",
+        "photo": "./assets/exercisePiernas/SentadillaPorDetrasHackConBarra.png"
+      },
+      {
+        "exercise": "Escalón",
+        "photo": "./assets/exercisePiernas/Escalon.png"
+      },
+      {
+        "exercise": "Escalón lateral",
+        "photo": "./assets/exercisePiernas/EscalonLateral.png"
+      },
+      {
+        "exercise": "Zancadas/Tijeras",
+        "photo": "./assets/exercisePiernas/ZancadasTijeras.png"
+      },
+      {
+        "exercise": "Zancadas/Tijeras lateral",
+        "photo": "./assets/exercisePiernas/ZancadasTijerasLateral.png"
+      },
+      {
+        "exercise": "Peso muerto",
+        "photo": "./assets/exercisePiernas/PesoMuerto.png"
+      },
+      {
+        "exercise": "Peso muerto flexiones femorales en banco abdominal",
+        "photo": "./assets/exercisePiernas/PesoMuertoFlexionesFemoralesEnBancoAbdominal.png"
+      },
+      {
+        "exercise": "Elevaciones de talones",
+        "photo": "./assets/exercisePiernas/ElevacionesDeTalones.png"
+      },
+      {
+        "exercise": "Elevaciones de talones sentado con barra",
+        "photo": "./assets/exercisePiernas/ElevacionesDeTalonesSentadoConBarra.png"
+      },
+      {
+        "exercise": "Patadas de gluteo",
+        "photo": "./assets/exercisePiernas/PatadasDeGluteo.png"
+      },
+      {
+        "exercise": "Elevaciones de cadera tumbado",
+        "photo": "./assets/exercisePiernas/ElevacionesDeCaderaTumbado.png"
+      },
+      {
+        "exercise": "Elevaciones de pierna laterales/Abducción de cadera",
+        "photo": "./assets/exercisePiernas/ElevacionesDePiernaLateralesAbduccionDeCadera.png"
+      },
+      {
+        "exercise": "Aductores de pie/Aducción de cadera",
+        "photo": "./assets/exercisePiernas/AductoresDePieAduccionDeCadera.png"
+      },
+      {
+        "exercise": "Aducción de cadera tumbado",
+        "photo": "./assets/exercisePiernas/AduccionDeCaderaTumbado.png"
+      },
+      {
+        "exercise": "Flexiones dorsales/Extensiones del pie con disco",
+        "photo": "./assets/exercisePiernas/FlexionesDorsalesExtensionesDelPieConDisco.png"
+      },
+      {
+        "exercise": "Sentadilla Sissy",
+        "photo": "./assets/exercisePiernas/SentadillaSissy.png"
+      },
+      {
+        "exercise": "Sentadilla en máquina",
+        "photo": "./assets/exercisePiernas/SentadillaEnMaquina.png"
+      },
+      {
+        "exercise": "Prensa/Press de piernas",
+        "photo": "./assets/exercisePiernas/PrensaPressDePiernas.png"
+      },
+      {
+        "exercise": "Extensiones para cuádriceps/de rodilla",
+        "photo": "./assets/exercisePiernas/ExtensionesParaCuadricepsDeRodilla.png"
+      },
+      {
+        "exercise": "Curl/Flexiones para femoral tumbado",
+        "photo": "./assets/exercisePiernas/CurlFlexionesParaFemoralTumbado.png"
+      },
+      {
+        "exercise": "Elevaciones de talones en máquina",
+        "photo": "./assets/exercisePiernas/ElevacionesDeTalonesEnMaquina.png"
+      },
+      {
+        "exercise": "Gemelos en prensa",
+        "photo": "./assets/exercisePiernas/GemelosEnPrensa.png"
+      },
+      {
+        "exercise": "Elevaciones de talones sentado",
+        "photo": "./assets/exercisePiernas/ElevacionesDeTalonesSentado.png"
+      },
+      {
+        "exercise": "Aductores sentado",
+        "photo": "./assets/exercisePiernas/AductoresSentado.png"
+      },
+      {
+        "exercise": "Músculos abductores sentado",
+        "photo": "./assets/exercisePiernas/MusculosAbductoresSentado.png"
+      },
+      {
+        "exercise": "Glúteos en multipolea",
+        "photo": "./assets/exercisePiernas/GluteosEnMultipolea.png"
+      },
+      {
+        "exercise": "Flexiones de cadera en polea",
+        "photo": "./assets/exercisePiernas/FlexionesDeCaderaEnPolea.png"
+      },
+      {
+        "exercise": "Tijeras en multipower",
+        "photo": "./assets/exercisePiernas/TijerasEnMultipower.png"
+      },
+      {
+        "exercise": "Extensiones para cuádriceps en polea baja",
+        "photo": "./assets/exercisePiernas/ExtensionesParaCuadricepsEnPoleaBaja.png"
+      },
+      {
+        "exercise": "Flexiones para femoral en polea baja",
+        "photo": "./assets/exercisePiernas/FlexionesParaFemoralEnPoleaBaja.png"
+      },
+      {
+        "exercise": "Aductores en polea baja tumbado",
+        "photo": "./assets/exercisePiernas/AductoresEnPoleaBajaTumbado.png"
+      },
+      {
+        "exercise": "Elevaciones de talones en polea baja",
+        "photo": "./assets/exercisePiernas/ElevacionesDeTalonesEnPoleaBaja.png"
+      },
+      {
+        "exercise": "Rotaciones externas de rodilla en polea sentado y rotación de cadera",
+        "photo": "./assets/exercisePiernas/RotacionesExternasDeRodillaEnPoleaSentadoYRotacionDeCadera.png"
+      },
+      {
+        "exercise": "Rotaciones internas de rodilla en polea sentado y rotación de cadera",
+        "photo": "./assets/exercisePiernas/RotacionesInternasDeRodillaEnPoleaSentadoYRotacionDeCadera.png"
+      }
     ],
     "Triceps": [
       "Press francés/Extensiones con barra",
