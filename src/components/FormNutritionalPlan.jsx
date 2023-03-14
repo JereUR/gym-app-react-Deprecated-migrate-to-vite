@@ -573,7 +573,7 @@ const ButtonSubmit = styled.button`
 const DataContainer = styled.div`
   svg {
     position: relative;
-    top: 3vw;
+    top: 3.5vw;
     font-weight: 500;
     margin-left: 5vw;
     border: none;
@@ -654,7 +654,7 @@ const Input = styled.input`
   color: #000;
   font-size: 1.2rem;
   padding: 10px;
-  width: 21vw;
+  width: 23vw;
 
   @media screen and (max-width: 480px) {
     font-size: 1.1rem;
@@ -716,7 +716,7 @@ const Select = styled.select`
   background-color: #fff;
   color: #000;
   font-size: 1.2rem;
-  width: 14vw;
+  width: 18vw;
   padding: 10px;
   border: 2px solid ${primaryBlue};
   border-radius: 4px;

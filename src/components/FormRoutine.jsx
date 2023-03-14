@@ -50,6 +50,7 @@ const FormRoutine = ({ db }) => {
     setMeasure(null);
     setCount(null);
     setTypeExercise(null);
+    setPhoto(null);
     setRest(null);
     setDescription(null);
   };
@@ -397,7 +398,12 @@ const FormRoutine = ({ db }) => {
       {errorsRoutine.exercises && (
         <ErrorInput>{errorsRoutine.exercises}</ErrorInput>
       )}
-      {photo && <img src={photo} />}
+      {photo && (
+        <PhotoExampleContainer>
+          <ExerciseName>Foto ejercicio "{typeExercise}":</ExerciseName>
+          <ExercisePhoto src={photo} />
+        </PhotoExampleContainer>
+      )}
       <ButtonSubmit type="submit">Enviar</ButtonSubmit>
       <Toaster />
     </Form>
@@ -429,7 +435,7 @@ const ButtonSubmit = styled.button`
 const DataContainer = styled.div`
   svg {
     position: relative;
-    top: 3vw;
+    top: 3.5vw;
     font-weight: 500;
     margin-left: 5vw;
     border: none;
@@ -457,6 +463,10 @@ const ErrorInput = styled.div`
     margin-bottom: 0 !important;
   }
 `;
+
+const ExerciseName = styled.p``;
+
+const ExercisePhoto = styled.img``;
 
 const Form = styled.form`
   padding: 0 5vw 0 5vw;
@@ -508,6 +518,7 @@ const Input = styled.input`
   color: #000;
   font-size: 1.2rem;
   padding: 10px;
+  width: 18vw;
 
   @media screen and (max-width: 480px) {
     font-size: 1.1rem;
@@ -539,12 +550,12 @@ const Option = styled.option`
   }
 `;
 
+const PhotoExampleContainer = styled.div``;
+
 const Select = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-color: transparent;
-  background-image: none;
   border: none;
   outline: none;
   padding: 0;
@@ -553,7 +564,8 @@ const Select = styled.select`
   background-color: #fff;
   color: #000;
   font-size: 1.2rem;
-  width: 15vw;
+  width: 25vw;
+  max-width: 30vw;
   padding: 10px;
   border: 2px solid ${primaryBlue};
   border-radius: 4px;
@@ -598,7 +610,7 @@ const TextArea = styled.textarea`
   font-size: 1.2rem;
   line-height: 1.5;
   height: 1.2vw;
-  width: 15vw;
+  width: 18vw;
   padding: 10px;
   transition: border-color 0.3s ease-in-out;
   overflow-y: scroll;

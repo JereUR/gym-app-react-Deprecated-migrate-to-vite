@@ -153,61 +153,224 @@
       }
     ],
     "Dorsales": [
-      "Dominadas",
-      "Remo con barra",
-      "Remo en punta",
-      "Remo con mancuerna",
-      "Pull over con mancuerna",
-      "Tracción a una mano lateral",
-      "Extensiones de brazos rectos con barra",
-      "Máquina de dorsal/Jalón en máquina",
-      "Jalón polea al pecho",
-      "Remo en polea/Gironda",
-      "Remo en máquina",
-      "Remo de pie en polea baja",
-      "Pull over en polea alta",
-      "Dominadas en máquina con ayuda",
-      "Jalón a una mano",
-      "Cruce de poleas por la espalda",
-      "Aducción de codos en máquina",
-      "Remo en multipower",
-      "Remo en máquina vertical"
+      {
+        "exercise": "Dominadas",
+        "photo": "./assets/exerciseDorsales/Dominadas.png"
+      },
+      {
+        "exercise": "Remo con barra",
+        "photo": "./assets/exerciseDorsales/RemoConBarra.png"
+      },
+      {
+        "exercise": "Remo en punta",
+        "photo": "./assets/exerciseDorsales/RemoEnPunta.png"
+      },
+      {
+        "exercise": "Remo con mancuerna",
+        "photo": "./assets/exerciseDorsales/RemoConMancuerna.png"
+      },
+      {
+        "exercise": "Pull over con mancuerna",
+        "photo": "./assets/exerciseDorsales/PullOverConMancuerna.png"
+      },
+      {
+        "exercise": "Tracción a una mano lateral",
+        "photo": "./assets/exerciseDorsales/TraccionAUnaManoLateral.png"
+      },
+      {
+        "exercise": "Extensiones de brazos rectos con barra",
+        "photo": "./assets/exerciseDorsales/ExtensionesDeBrazosRectosConBarra.png"
+      },
+      {
+        "exercise": "Máquina de dorsal/Jalón en máquina",
+        "photo": "./assets/exerciseDorsales/MaquinaDeDorsalJalonEnMaquina.png"
+      },
+      {
+        "exercise": "Jalón polea al pecho",
+        "photo": "./assets/exerciseDorsales/JalonPoleaAlPecho.png"
+      },
+      {
+        "exercise": "Remo en polea/Gironda",
+        "photo": "./assets/exerciseDorsales/RemoEnPoleaGironda.png"
+      },
+      {
+        "exercise": "Remo en máquina",
+        "photo": "./assets/exerciseDorsales/RemoEnMaquina.png"
+      },
+      {
+        "exercise": "Remo de pie en polea baja",
+        "photo": "./assets/exerciseDorsales/RemoDePieEnPoleaBaja.png"
+      },
+      {
+        "exercise": "Pull over en polea alta",
+        "photo": "./assets/exerciseDorsales/PullOverEnPoleaAlta.png"
+      },
+      {
+        "exercise": "Dominadas en máquina con ayuda",
+        "photo": "./assets/exerciseDorsales/DominadasEnMaquinaConAyuda.png"
+      },
+      {
+        "exercise": "Jalón a una mano",
+        "photo": "./assets/exerciseDorsales/JalonAUnaMano.png"
+      },
+      {
+        "exercise": "Cruce de poleas por la espalda",
+        "photo": "./assets/exerciseDorsales/CruceDePoleasPorLaEspalda.png"
+      },
+      {
+        "exercise": "Aducción de codos en máquina",
+        "photo": "./assets/exerciseDorsales/AduccionDeCodosEnMaquina.png"
+      },
+      {
+        "exercise": "Remo en multipower",
+        "photo": "./assets/exerciseDorsales/RemoEnMultipower.png"
+      },
+      {
+        "exercise": "Remo en máquina vertical",
+        "photo": "./assets/exerciseDorsales/RemoEnMaquinaVertical.png"
+      }
     ],
     "Hombros y cuellos": [
-      "Press militar/Frontal con barra",
-      "Press  con mancuernas",
-      "Press frontal con mancuernas",
-      "Elevaciones laterales con mancuernas",
-      "Elevaciones laterales a una mano",
-      "Elevaciones frontales/Flexiones",
-      "Elevaciones posterioes/Pájaros de pie",
-      "Elevaciones posteriores tumbado lateral",
-      "Remo al cuellocon barra",
-      "Elevaciones/Encogimientos de hombros",
-      "Rotaciones externas tumbado",
-      "Rotaciones internas tumbado",
-      "Flexiones de hombro en banco  con codos bloqueados",
-      "Fondos en vertical invertido",
-      "Elevaciones frontales inclinado",
-      "Depresión de hombros en paralelas",
-      "Extensiones de cabeza tumbado",
-      "Inclinaciones laterales de cabeza tumbado",
-      "Flexiones de cabeza tumbado",
-      "Giros de cabeza tumbado",
-      "Press en máquina",
-      "Press frontal/Militar en multipower",
-      "Elevaciones laterales en máquina",
-      "Elevaciones laterales en polea baja a una",
-      "Elevaciones frontales en polea baja",
-      "Pájaros a una mano en polea",
-      "Pájaro sentado en máquina horizontal",
-      "Remo al cuelloen polea baja",
-      "Elevaciones/Encogimientos de hombros en multipower",
-      "Elevaciones/Encogimientos de hombros en poleacon extensión al frente",
-      "Elevaciones/Encogimientos de hombros en polea a una mano",
-      "Elevaciones/Encogimientos de hombros en una máquina vertical de dorsal",
-      "Rotaciones externas en polea",
-      "Rotaciones internas en polea"
+      {
+        "exercise": "Press militar/Frontal con barra",
+        "photo": "./assets/exerciseHombrosYCuellos/PressMilitarFrontalConBarra.png"
+      },
+      {
+        "exercise": "Press  con mancuernas",
+        "photo": "./assets/exerciseHombrosYCuellos/PressConMancuernas.png"
+      },
+      {
+        "exercise": "Press frontal con mancuernas",
+        "photo": "./assets/exerciseHombrosYCuellos/PressFrontalConMancuernas.png"
+      },
+      {
+        "exercise": "Elevaciones laterales con mancuernas",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesLateralesConMancuernas.png"
+      },
+      {
+        "exercise": "Elevaciones laterales a una mano",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesLateralesAUnaMano.png"
+      },
+      {
+        "exercise": "Elevaciones frontales/Flexiones",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesFrontalesFlexiones.png"
+      },
+      {
+        "exercise": "Elevaciones posterioes/Pájaros de pie",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesPosterioresPajarosDePie.png"
+      },
+      {
+        "exercise": "Elevaciones posteriores tumbado lateral",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesPosterioresTumbadoLateral.png"
+      },
+      {
+        "exercise": "Remo al cuello con barra",
+        "photo": "./assets/exerciseHombrosYCuellos/RemoAlCuelloConBarra.png"
+      },
+      {
+        "exercise": "Elevaciones/Encogimientos de hombros con mancuernas",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesEncogimientosDeHombrosConMancuernas.png"
+      },
+      {
+        "exercise": "Rotaciones externas tumbado",
+        "photo": "./assets/exerciseHombrosYCuellos/RotacionesExternasTumbado.png"
+      },
+      {
+        "exercise": "Rotaciones internas tumbado",
+        "photo": "./assets/exerciseHombrosYCuellos/RotacionesInternasTumbado.png"
+      },
+      {
+        "exercise": "Flexiones de hombro en banco  con codos bloqueados",
+        "photo": "./assets/exerciseHombrosYCuellos/FlexionesDeHombroEnBancoConCodosBloqueados.png"
+      },
+      {
+        "exercise": "Fondos en vertical invertido",
+        "photo": "./assets/exerciseHombrosYCuellos/FondosEnVerticalInvertido.png"
+      },
+      {
+        "exercise": "Elevaciones frontales inclinado",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesFrontalesInclinado.png"
+      },
+      {
+        "exercise": "Depresión de hombros en paralelas",
+        "photo": "./assets/exerciseHombrosYCuellos/DepresionDeHombrosEnParalelas.png"
+      },
+      {
+        "exercise": "Extensiones de cabeza tumbado",
+        "photo": "./assets/exerciseHombrosYCuellos/ExtensionesDeCabezaTumbado.png"
+      },
+      {
+        "exercise": "Inclinaciones laterales de cabeza tumbado",
+        "photo": "./assets/exerciseHombrosYCuellos/InclinacionesLateralesDeCabezaTumbado.png"
+      },
+      {
+        "exercise": "Flexiones de cabeza tumbado",
+        "photo": "./assets/exerciseHombrosYCuellos/FlexionesDeCabezaTumbado.png"
+      },
+      {
+        "exercise": "Giros de cabeza tumbado",
+        "photo": "./assets/exerciseHombrosYCuellos/GirosDeCabezaTumbado.png"
+      },
+      {
+        "exercise": "Press en máquina",
+        "photo": "./assets/exerciseHombrosYCuellos/PressEnMaquina.png"
+      },
+      {
+        "exercise": "Press frontal/Militar en multipower",
+        "photo": "./assets/exerciseHombrosYCuellos/PressFrontalMilitarEnMultipower.png"
+      },
+      {
+        "exercise": "Elevaciones laterales en máquina",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesLateralesEnMaquina.png"
+      },
+      {
+        "exercise": "Elevaciones laterales en polea baja a una mano",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesLateralesEnPoleaBajaAUnaMano.png"
+      },
+      {
+        "exercise": "Elevaciones frontales en polea baja",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesFrontalesEnPoleaBaja.png"
+      },
+      {
+        "exercise": "Pájaros a una mano en polea",
+        "photo": "./assets/exerciseHombrosYCuellos/PajarosAUnaManoEnPolea.png"
+      },
+      {
+        "exercise": "Pájaro sentado en máquina horizontal",
+        "photo": "./assets/exerciseHombrosYCuellos/PajaroSentadoEnMaquinaHorizontal.png"
+      },
+      {
+        "exercise": "Remo al cuello en polea baja",
+        "photo": "./assets/exerciseHombrosYCuellos/RemoAlCuelloEnPoleaBaja.png"
+      },
+      {
+        "exercise": "Elevaciones/Encogimientos de hombros en multipower",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesEncogimientosDeHombrosEnMultipower.png"
+      },
+      {
+        "exercise": "Elevaciones/Encogimientos de hombros en polea con extensión al frente",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesEncogimientosDeHombrosEnPoleaConExtensionAlFrente.png"
+      },
+      {
+        "exercise": "Elevaciones/Encogimientos de hombros en polea baja",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesEncogimientosDeHombrosEnPoleaBaja.png"
+      },
+      {
+        "exercise": "Elevaciones/Encogimientos de hombros en polea a una mano",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesEncogimientosDeHombrosEnPoleaAUnaMano.png"
+      },
+      {
+        "exercise": "Elevaciones/Encogimientos de hombros en una máquina vertical de dorsal",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesEncogimientosDeHombrosEnUnaMaquinaVerticalDeDorsal.png"
+      },
+      {
+        "exercise": "Rotaciones externas en polea",
+        "photo": "./assets/exerciseHombrosYCuellos/RotacionesExternasEnPolea.png"
+      },
+      {
+        "exercise": "Rotaciones internas en polea",
+        "photo": "./assets/exerciseHombrosYCuellos/RotacionesInternasEnPolea.png"
+      }
     ],
     "Pectorales": [
       "Press de banca",
