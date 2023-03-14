@@ -142,7 +142,7 @@ export const SignIn = () => {
           <TextForgotPassword>
             Introduzca su correo electrónico para reestablecer su contraseña.
           </TextForgotPassword>
-          <FormContainer>
+          <FormRecoverContainer>
             <Form onSubmit={handleSubmitRecover}>
               <InputRecover
                 type="email"
@@ -152,7 +152,7 @@ export const SignIn = () => {
               />
               <ButtonRecover>Enviar</ButtonRecover>
             </Form>
-          </FormContainer>
+          </FormRecoverContainer>
         </Content>
       </Modal>
       <Toaster />
@@ -170,6 +170,7 @@ const ButtonRecover = styled.button`
   border: none;
   border-radius: 0.5rem;
   transition: all 0.7s ease-in-out;
+  width: 20vw;
 
   :hover {
     cursor: pointer;
@@ -198,12 +199,12 @@ const ButtonSignIn = styled.button`
   }
 
   @media screen and (max-width: 480px) {
-    margin-bottom: 3vh;
+    margin-bottom: 1vw;
     width: 60vw;
   }
 
   @media screen and (max-width: 400px) {
-    margin-bottom: 1vh;
+    margin-bottom: 1vw;
     width: 60vw;
   }
 `;
@@ -234,6 +235,12 @@ const Content = styled.div`
 const Form = styled.form`
   display: grid;
 
+  .lds-ring {
+    @media screen and (max-width: 480px) {
+      left: 38%;
+    }
+  }
+
   @media screen and (max-width: 480px) {
     display: block;
   }
@@ -247,6 +254,10 @@ const FormContainer = styled.div`
   @media screen and (max-width: 1380px) {
     margin-top: 2vw;
   }
+`;
+
+const FormRecoverContainer = styled(FormContainer)`
+  margin-top: 0;
 `;
 
 const Input = styled.input`
@@ -283,6 +294,7 @@ const InputRecover = styled.input`
   font-size: 1.2rem;
   padding: 10px;
   margin-bottom: 1rem;
+  width: 20vw;
 
   :focus {
     border-color: ${primaryRed};
@@ -316,7 +328,12 @@ const PasswordForgot = styled.p`
 `;
 
 const TextForgotPassword = styled.div`
+  font-size: 1.2rem;
   font-weight: bold;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2vw;
+
+  @media screen and (max-width: 480px) {
+    margin-top: 1vw;
+    margin-bottom: 5vw;
+  }
 `;

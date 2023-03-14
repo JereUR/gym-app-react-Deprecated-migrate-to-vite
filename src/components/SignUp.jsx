@@ -268,7 +268,7 @@ const ButtonSignUp = styled.button`
 
   @media screen and (max-width: 480px) {
     width: 60vw;
-    margin-top: 5vh;
+    margin-top: 5vw;
     margin-left: 1.2rem;
   }
 

@@ -60,7 +60,7 @@ const FormData = styled.div`
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     width: 350px;
-    height: 500px;
+    height: 600px;
     text-align: center;
     margin: 30% -1vw;
   }
