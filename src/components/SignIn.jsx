@@ -16,8 +16,6 @@ export const SignIn = () => {
   const [emailSignIn, setEmailSignIn] = useState("");
   const [passwordSignIn, setPasswordSignIn] = useState("");
   const [emailRecover, setEmailRecover] = useState("");
-  const [errorSignIn, setErrorSignIn] = useState(false);
-  const [errorRecover, setErrorRecover] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const clearForm = () => {
@@ -78,21 +76,15 @@ export const SignIn = () => {
 
     const dataRecover = { emailRecover };
 
-    /* console.log(dataRecover); */
-
-    setForgotPassword(!forgotPassword);
-
-    if (errorRecover) {
-      toast.error("Email no registado.", {
-        position: "top-right",
-        duration: 6000,
-        style: {
-          background: "rgba(250, 215, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
+    /* try {
+      const resp = await fetch("/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
+        body: JSON.stringify({ dataRecover }),
       });
-    } else {
+      console.log(resp);
       toast.success(`Se envió un correo a ${emailRecover}.`, {
         position: "top-right",
         duration: 6000,
@@ -102,7 +94,19 @@ export const SignIn = () => {
           fontWeight: "500",
         },
       });
-    }
+    } catch (error) {
+      toast.error("error.", {
+        position: "top-right",
+        duration: 6000,
+        style: {
+          background: "rgba(250, 215, 215)",
+          fontSize: "1rem",
+          fontWeight: "500",
+        },
+      });
+    } */
+
+    setForgotPassword(!forgotPassword);
   };
 
   return (

@@ -1,5 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+
 import { Home } from "./Home";
 import { useAuth } from "./LoginRoute";
 import { SesionPage } from "./SesionPage";

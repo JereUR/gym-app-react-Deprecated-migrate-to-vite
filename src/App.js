@@ -57,7 +57,7 @@ function App() {
           <Route element={<RecoverAccount user={user} months={db.months} />}>
             <Route exact path="/reset" element={<ResetPassword />} />
           </Route>
-          <Route exact path="*" element={<Error404 />} />
+          <Route exact path="*" element={<Error404 user={user} />} />
         </Routes>
       </Router>
       {user.login && <Footer />}

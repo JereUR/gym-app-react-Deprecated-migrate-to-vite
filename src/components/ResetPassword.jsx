@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Toaster, toast } from "react-hot-toast";
 
-import { user } from "../App";
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 
@@ -11,18 +10,7 @@ const initialData = {
   confirmPassword: "",
 };
 
-const {
-  colorText,
-  primaryBlue,
-  secondaryBlue,
-  errorInput,
-  primaryRed,
-  secondaryRed,
-} = Colors;
-
-const handleBack = () => {
-  window.location.href = `/usuario/${user.username}`;
-};
+const { colorText, primaryBlue, secondaryBlue, errorInput } = Colors;
 
 export const ResetPassword = () => {
   const [dataRecovery, setDataRecovery] = useState(initialData);
@@ -65,7 +53,7 @@ export const ResetPassword = () => {
           });
           console.log(resp);
 
-           toast.success("Contraseña cambiada con exito.", {
+           toast.success("Contraseña recuperada con exito.", {
             position: "top-right",
             duration: 6000,
             style: {
@@ -89,7 +77,7 @@ export const ResetPassword = () => {
       setDataRecovery(initialData);
 
       setTimeout(() => {
-        window.location.replace(`/usuario/:${user.username}`);
+        window.location.replace(`/`);
       }, 2000);
     }
   };
@@ -117,9 +105,6 @@ export const ResetPassword = () => {
           <ErrorInput>{errors.confirmPassword}</ErrorInput>
         )}
         <ButtonSend type="submit">Enviar</ButtonSend>
-        <ButtonBack type="button" onClick={handleBack}>
-          Volver
-        </ButtonBack>
       </Form>
       <Toaster />
     </FormContainer>
@@ -146,15 +131,6 @@ const ButtonSend = styled.button`
   :hover {
     cursor: pointer;
     background-color: ${secondaryBlue};
-  }
-`;
-
-const ButtonBack = styled(ButtonSend)`
-  background-color: ${primaryRed};
-  margin-top: 1.5rem;
-
-  :hover {
-    background-color: ${secondaryRed};
   }
 `;
 

@@ -5,11 +5,10 @@ import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 import { ViewUserInfo } from "./ViewUserInfo";
 
-const { errorInput, primaryRed, primaryBlue } = Colors;
+const { primaryRed, primaryBlue } = Colors;
 
 export const SeeUser = ({ db }) => {
   const [forData, setForData] = useState(null);
-  const [error, setError] = useState(null);
   const [viewDetails, setViewDetails] = useState(false);
 
   const handleFor = (e) => {
@@ -36,7 +35,6 @@ export const SeeUser = ({ db }) => {
                 </Option>
               ))}
             </Select>
-            {error && <ErrorInput>{error}</ErrorInput>}
           </InputContainer>
         </ForPartContainer>
         <ButtonSubmit type="submit">Ver Información</ButtonSubmit>
@@ -68,18 +66,6 @@ const ButtonSubmit = styled.button`
   :hover {
     cursor: pointer;
     background-color: ${primaryBlue};
-  }
-`;
-
-const ErrorInput = styled.div`
-  font-size: 15px;
-  color: ${errorInput};
-  margin-bottom: 1rem;
-  text-align: left;
-  margin-left: 1rem;
-
-  @media screen and (max-width: 480px) {
-    margin-bottom: 0 !important;
   }
 `;
 

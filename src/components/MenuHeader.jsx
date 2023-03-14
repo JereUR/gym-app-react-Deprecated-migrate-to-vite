@@ -59,12 +59,8 @@ export const MenuHeader = ({ user }) => {
         <NavContainer>
           <NavLinks className={`links ${clicked ? "active" : ""}`}>
             <IconContext.Provider value={{ style: { verticalAlign: "top" } }}>
-              <NavLink
-                to="/admin"
-                onClick={handleClick}
-                activeclassname="active"
-              >
-                <MdAdminPanelSettings fontSize="1.7rem" /> Admin
+              <NavLink to="/" activeclassname="active" onClick={handleClick}>
+                <FaHome size="1.3rem" /> Inicio
               </NavLink>
               <NavLink
                 to={profilePath}
@@ -72,6 +68,13 @@ export const MenuHeader = ({ user }) => {
                 onClick={handleClick}
               >
                 <FaUserAlt fontSize="1.3rem" /> Mi Perfil
+              </NavLink>
+              <NavLink
+                to="/admin"
+                onClick={handleClick}
+                activeclassname="active"
+              >
+                <MdAdminPanelSettings fontSize="1.7rem" /> Admin
               </NavLink>
             </IconContext.Provider>
           </NavLinks>

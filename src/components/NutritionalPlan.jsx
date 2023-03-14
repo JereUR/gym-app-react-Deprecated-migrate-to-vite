@@ -7,7 +7,7 @@ import { getDayNow } from "../helpers/GetDay";
 import { Colors } from "../constants/Colors";
 import { useIntersection } from "./useIntersection";
 
-const { primaryBlue, secondaryBlue, primaryRed, secondaryRed } = Colors;
+const { primaryBlue, secondaryBlue, primaryRed } = Colors;
 
 export const NutritionalPlan = ({ user, title, addInfo }) => {
   const [viewData, setViewData] = useState(true);
