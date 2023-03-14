@@ -4,7 +4,7 @@ import styled from "styled-components";
 import logo from "../assets/logo.png";
 import { MenuHeader } from "./MenuHeader";
 
-export const Header = () => {
+export const Header = ({ user }) => {
   const redirectHome = () => {
     window.location.assign("/");
   };
@@ -12,7 +12,7 @@ export const Header = () => {
   return (
     <HeaderContainer>
       <Logo src={logo} onClick={redirectHome} />
-      <MenuHeader />
+      <MenuHeader user={user} />
     </HeaderContainer>
   );
 };

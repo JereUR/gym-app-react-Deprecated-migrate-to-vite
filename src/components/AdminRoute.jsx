@@ -10,7 +10,7 @@ export const useAuthAdmin = (user) => {
 
 const AdminRoute = ({ user, months }) => {
   const isAdmin = useAuthAdmin(user);
-  const isLogin = useAuth();
+  const isLogin = useAuth(user);
 
   if (isLogin) {
     return isAdmin ? <Outlet /> : <Home user={user} months={months} />;

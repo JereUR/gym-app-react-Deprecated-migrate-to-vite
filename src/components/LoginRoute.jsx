@@ -1,15 +1,14 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
-import { user } from "../App";
 import { SesionPage } from "./SesionPage";
 
-export const useAuth = () => {
+export const useAuth = (user) => {
   return user && user.login;
 };
 
-const LoginRoute = () => {
-  const isAuth = useAuth();
+const LoginRoute = ({ user }) => {
+  const isAuth = useAuth(user);
 
   return isAuth ? <Outlet /> : <SesionPage />;
 };

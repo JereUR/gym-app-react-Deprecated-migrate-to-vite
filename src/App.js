@@ -26,10 +26,10 @@ function App() {
   return (
     <Container>
       <Router>
-        {user.login && <Header />}
+        {user.login && <Header user={user} />}
         <Routes>
           {!user.login && <Route exact path="/" element={<SesionPage />} />}
-          <Route element={<LoginRoute />}>
+          <Route element={<LoginRoute user={user} />}>
             <Route
               exact
               path="/"

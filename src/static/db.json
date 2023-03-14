@@ -613,21 +613,66 @@
       }
     ],
     "Triceps": [
-      "Press francés/Extensiones con barra",
-      "Press francés con mancuernas/Extensiones con mancuernas tumbado",
-      "Fondos en paralelas",
-      "Fondos en el suelo",
-      "Patadas con mancuerna",
-      "Press de banca con agarre estrecho/cerrado",
-      "Extensiones de mancuerna a dos manos por encima de la cabeza",
-      "Extensiones en polea",
-      "Extensiones en polea con cuerda",
-      "Extensiones en máquina",
-      "Press estrecho/cerrado en multipower",
-      "Press en máquina horizontal/sentado",
-      "Fondos con ayuda",
-      "Extensiones en polea de espaldas",
-      "Press francés en polea"
+      {
+        "exercise": "Press francés/Extensiones con barra",
+        "photo": "./assets/exerciseTriceps/PressFrancesExtensionesConBarra.png"
+      },
+      {
+        "exercise": "Press francés con mancuernas/Extensiones con mancuernas tumbado",
+        "photo": "./assets/exerciseTriceps/PressFrancesConMancuernasExtensionesConMancuernasTumbado.png"
+      },
+      {
+        "exercise": "Fondos en paralelas",
+        "photo": "./assets/exerciseTriceps/FondosEnParalelas.png"
+      },
+      {
+        "exercise": "Fondos en el suelo",
+        "photo": "./assets/exerciseTriceps/FondosEnElSuelo.png"
+      },
+      {
+        "exercise": "Patadas con mancuerna",
+        "photo": "./assets/exerciseTriceps/PatadasConMancuerna.png"
+      },
+      {
+        "exercise": "Press de banca con agarre estrecho/cerrado",
+        "photo": "./assets/exerciseTriceps/PressDeBancaConAgarreEstrechoCerrado.png"
+      },
+      {
+        "exercise": "Extensiones de mancuerna a dos manos por encima de la cabeza",
+        "photo": "./assets/exerciseTriceps/ExtensionesDeMancuernaADosManosPorEncimaDeLaCabeza.png"
+      },
+      {
+        "exercise": "Extensiones en polea",
+        "photo": "./assets/exerciseTriceps/ExtensionesEnPolea.png"
+      },
+      {
+        "exercise": "Extensiones en polea con cuerda",
+        "photo": "./assets/exerciseTriceps/ExtensionesEnPoleaConCuerda.png"
+      },
+      {
+        "exercise": "Extensiones en máquina",
+        "photo": "./assets/exerciseTriceps/ExtensionesEnMaquina.png"
+      },
+      {
+        "exercise": "Press estrecho/cerrado en multipower",
+        "photo": "./assets/exerciseTriceps/PressEstrechoCerradoEnMultipower.png"
+      },
+      {
+        "exercise": "Press en máquina horizontal/sentado",
+        "photo": "./assets/exerciseTriceps/PressEnMaquinaHorizontalSentado.png"
+      },
+      {
+        "exercise": "Fondos con ayuda",
+        "photo": "./assets/exerciseTriceps/FondosConAyuda.png"
+      },
+      {
+        "exercise": "Extensiones en polea de espaldas",
+        "photo": "./assets/exerciseTriceps/ExtensionesEnPoleaDeEspaldas.png"
+      },
+      {
+        "exercise": "Press francés en polea",
+        "photo": "./assets/exerciseTriceps/PressFrancesEnPolea.png"
+      }
     ]
   },
   "days": [
@@ -752,7 +797,7 @@
       "date": "1994-11-29",
       "gender": "Masculino",
       "login": true,
-      "admin": false,
+      "admin": true,
       "recover": false,
       "photo": null,
       "weight": 80,
