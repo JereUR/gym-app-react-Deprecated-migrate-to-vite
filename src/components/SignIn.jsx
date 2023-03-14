@@ -15,6 +15,7 @@ export const SignIn = () => {
   const [forgotPassword, setForgotPassword] = useState(false);
   const [emailSignIn, setEmailSignIn] = useState("");
   const [passwordSignIn, setPasswordSignIn] = useState("");
+  const [remember, setRemember] = useState(false);
   const [emailRecover, setEmailRecover] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -35,11 +36,14 @@ export const SignIn = () => {
     setPasswordSignIn(e.target.value);
   };
 
+  const handleRemember = (e) => {
+    setRemember(e.target.checked);
+  };
+
   const handleSubmitSignIn = async (e) => {
     e.preventDefault();
-
     setLoading(true);
-    const dataSignIn = { emailSignIn, passwordSignIn };
+    const dataSignIn = { emailSignIn, passwordSignIn, remember };
 
     /* try {
       const resp = await fetch("/", {
@@ -127,6 +131,10 @@ export const SignIn = () => {
           onChange={handlePassword}
           required
         />
+        <InputCheckContainer>
+          <InputCheck type="checkbox" onChange={handleRemember} />
+          <Label>Recordarme</Label>
+        </InputCheckContainer>
         <ButtonSignIn>Iniciar Sesión</ButtonSignIn>
         {loading && <Loader />}
       </Form>
@@ -236,9 +244,7 @@ const Form = styled.form`
   display: grid;
 
   .lds-ring {
-    @media screen and (max-width: 480px) {
-      left: 38%;
-    }
+    left: 38%;
   }
 
   @media screen and (max-width: 480px) {
@@ -285,6 +291,17 @@ const Input = styled.input`
   }
 `;
 
+const InputCheck = styled.input`
+  @media screen and (max-width: 480px) {
+    margin-left: 10vw;
+  }
+`;
+
+const InputCheckContainer = styled.div`
+  text-align: left;
+  margin: 0 0 1rem 0.5vw;
+`;
+
 const InputRecover = styled.input`
   font-family: ${FontFamily};
   background-color: #fff;
@@ -303,6 +320,17 @@ const InputRecover = styled.input`
 
   @media screen and (max-width: 480px) {
     width: 90%;
+  }
+`;
+
+const Label = styled.label`
+  font-weight: bold;
+  margin: 0.5rem 0.5rem 0 0.5rem;
+  font-style: italic;
+  color: ${secondaryBlue};
+
+  @media screen and (max-width: 480px) {
+    margin-left: 1vw;
   }
 `;
 
