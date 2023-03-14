@@ -796,7 +796,7 @@
       "email": "jeremias.jdv@gmail.com",
       "date": "1994-11-29",
       "gender": "Masculino",
-      "login": false,
+      "login": true,
       "admin": true,
       "recover": false,
       "photo": null,

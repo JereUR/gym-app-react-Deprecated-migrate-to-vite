@@ -27,6 +27,7 @@ const ExerciseContainer = styled.div`
   margin-bottom: 1rem;
   border-radius: 1rem;
   background-color: ${backgroundSuccess};
+  box-shadow: 0px 0px 10px #ccc;
   display: flex;
 
   @media screen and (max-width: 480px) {

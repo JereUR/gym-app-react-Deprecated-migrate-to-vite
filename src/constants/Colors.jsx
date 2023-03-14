@@ -8,5 +8,5 @@ export const Colors = {
   errorInput: "rgb(250, 90, 90)",
   backgroundBlue: "rgb(24,130,177,0.2)",
   success: "rgb(40, 180, 69)",
-  backgroundSuccess: "rgb(40, 180, 69,0.5)",
+  backgroundSuccess: "rgb(40, 180, 69,0.4)",
 };

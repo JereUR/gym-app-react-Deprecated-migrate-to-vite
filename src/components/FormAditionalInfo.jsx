@@ -351,6 +351,7 @@ const DiseaseContainer = styled.div`
   margin-left: -2vw;
   border-radius: 1rem;
   background-color: ${backgroundSuccess};
+  box-shadow: 0px 0px 10px #ccc;
   width: 90%;
   justify-content: space-between;
 
