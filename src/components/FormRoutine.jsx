@@ -235,7 +235,7 @@ const FormRoutine = ({ db }) => {
         dayData,
         exercises,
       };
-      console.log(routineDay);
+      /* console.log(routineDay); */
 
       /* try {
           const resp = await fetch("/", {

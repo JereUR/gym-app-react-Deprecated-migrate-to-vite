@@ -280,7 +280,7 @@ export const FormNutritionalPlan = ({ db }) => {
         collation,
       };
 
-      console.log(planDay);
+      /* console.log(planDay); */
 
       /* try {
           const resp = await fetch("/", {
