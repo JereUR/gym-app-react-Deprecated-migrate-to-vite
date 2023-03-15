@@ -167,9 +167,20 @@ export const FormNutritionalPlan = ({ db }) => {
     setType(e.target.value);
   };
 
+  const editData = (el, data) => {
+    deleteData(el.id, data);
+
+    document.getElementById("countMeal").value = el.count;
+    document.getElementById("measureMeal").value = el.measure;
+    document.getElementById("type").value = el.type;
+
+    setCount(el.count);
+    setMeasure(el.measure);
+    setType(el.type);
+  };
+
   const deleteData = (id, data) => {
     let newData = data.filter((el) => el.id !== id);
-
     switch (data) {
       case breakfast:
         setBreakfast(newData);
@@ -269,7 +280,7 @@ export const FormNutritionalPlan = ({ db }) => {
         collation,
       };
 
-      /*  console.log(planDay); */
+      console.log(planDay);
 
       /* try {
           const resp = await fetch("/", {
@@ -431,6 +442,7 @@ export const FormNutritionalPlan = ({ db }) => {
                 el={el}
                 deleteData={deleteData}
                 data={breakfast}
+                editData={editData}
               />
             ))}
           </List>
@@ -446,6 +458,7 @@ export const FormNutritionalPlan = ({ db }) => {
                 el={el}
                 deleteData={deleteData}
                 data={lunch}
+                editData={editData}
               />
             ))}
           </List>
@@ -461,6 +474,7 @@ export const FormNutritionalPlan = ({ db }) => {
                 el={el}
                 deleteData={deleteData}
                 data={snack}
+                editData={editData}
               />
             ))}
           </List>
@@ -476,6 +490,7 @@ export const FormNutritionalPlan = ({ db }) => {
                 el={el}
                 deleteData={deleteData}
                 data={dinner}
+                editData={editData}
               />
             ))}
           </List>
@@ -491,6 +506,7 @@ export const FormNutritionalPlan = ({ db }) => {
                 el={el}
                 deleteData={deleteData}
                 data={afterDinner}
+                editData={editData}
               />
             ))}
           </List>
@@ -506,6 +522,7 @@ export const FormNutritionalPlan = ({ db }) => {
                 el={el}
                 deleteData={deleteData}
                 data={preWorkout}
+                editData={editData}
               />
             ))}
           </List>
@@ -521,6 +538,7 @@ export const FormNutritionalPlan = ({ db }) => {
                 el={el}
                 deleteData={deleteData}
                 data={postWorkout}
+                editData={editData}
               />
             ))}
           </List>
@@ -536,6 +554,7 @@ export const FormNutritionalPlan = ({ db }) => {
                 el={el}
                 deleteData={deleteData}
                 data={collation}
+                editData={editData}
               />
             ))}
           </List>

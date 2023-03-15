@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { FaTrashAlt } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
 
 import { Colors } from "../constants/Colors";
 
-const { secondaryRed, backgroundSuccess } = Colors;
+const { secondaryRed, backgroundSuccess, secondaryBlue } = Colors;
 
-export const ExerciseComponent = ({ el, deleteData }) => {
+export const ExerciseComponent = ({ el, deleteData, editData }) => {
   return (
     <ExerciseContainer>
       <ExerciseItem key={el.id}>
@@ -15,7 +16,18 @@ export const ExerciseComponent = ({ el, deleteData }) => {
         {el.description ? `${el.description}` : "Sin información adicional"}
       </ExerciseItem>
       <ExercisePhoto src={el.photo} />
-      <FaTrashAlt fontSize="1.1rem" onClick={() => deleteData(el.id)} />
+      <IconsContainer>
+        <FaEdit
+          className="edit-logo"
+          fontSize="1.3rem"
+          onClick={() => editData(el)}
+        />
+        <FaTrashAlt
+          className="delete-logo"
+          fontSize="1.3rem"
+          onClick={() => deleteData(el.id)}
+        />
+      </IconsContainer>
     </ExerciseContainer>
   );
 };
@@ -28,16 +40,21 @@ const ExerciseContainer = styled.div`
   border-radius: 1rem;
   background-color: ${backgroundSuccess};
   box-shadow: 0px 0px 10px #ccc;
-  display: flex;
 
   @media screen and (max-width: 480px) {
     padding: 1.5vw;
     margin-left: -5vw;
   }
 
-  svg {
+  .delete-logo {
     color: ${secondaryRed};
+  }
 
+  .edit-logo {
+    color: ${secondaryBlue};
+  }
+
+  svg {
     @media screen and (max-width: 480px) {
       font-size: 1rem;
     }
@@ -73,4 +90,9 @@ const ExercisePhoto = styled.img`
   @media screen and (max-width: 480px) {
     height: 50px;
   }
+`;
+
+const IconsContainer = styled.div`
+  display: grid;
+  margin-top: 1vw;
 `;

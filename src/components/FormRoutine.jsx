@@ -159,7 +159,6 @@ const FormRoutine = ({ db }) => {
     const p = db.exercises[zone].find(
       (ex) => ex.exercise === e.target.value
     ).photo;
-    console.log(p);
     setPhoto(p);
   };
 
@@ -193,6 +192,30 @@ const FormRoutine = ({ db }) => {
     } else {
       /* console.log("Error ejercicio"); */
     }
+  };
+
+  const editData = (el) => {
+    deleteData(el.id);
+
+    document.getElementById("seriesExercise").value = el.series;
+    document.getElementById("measureExercise").value = el.measure;
+    document.getElementById("countExercise").value = el.count;
+    document.getElementById("zone").value = zone;
+    document.getElementById("exercise").value = el.typeExercise;
+    document.getElementById("rest").value = el.rest;
+    document.getElementById("description").value = el.description;
+
+    setSeries(el.series);
+    setMeasure(el.measure);
+    setCount(el.count);
+    setTypeExercise(el.typeExercise);
+    setRest(el.rest);
+    setDescription(el.description);
+
+    const p = db.exercises[zone].find(
+      (ex) => ex.exercise === el.typeExercise
+    ).photo;
+    setPhoto(p);
   };
 
   const deleteData = (id) => {
@@ -391,7 +414,12 @@ const FormRoutine = ({ db }) => {
       {exercises && (
         <List>
           {exercises.map((el) => (
-            <ExerciseComponent key={el.id} el={el} deleteData={deleteData} />
+            <ExerciseComponent
+              key={el.id}
+              el={el}
+              deleteData={deleteData}
+              editData={editData}
+            />
           ))}
         </List>
       )}
