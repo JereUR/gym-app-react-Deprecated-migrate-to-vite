@@ -5,7 +5,7 @@ import frontPage from "../assets/gym-front-page.jpg";
 import { SignIn } from "./SignIn";
 import { SignUp } from "./SignUp";
 
-export const SesionPage = () => {
+export const SesionPage = (/* { user, months } */) => {
   return (
     <Container>
       <LogoSection>
@@ -17,7 +17,7 @@ export const SesionPage = () => {
         </TextContainer>
       </LogoSection>
       <FormData>
-        <SignIn />
+        <SignIn /* user={user} months={months} */ />
         <Hr />
         <SignUp />
       </FormData>

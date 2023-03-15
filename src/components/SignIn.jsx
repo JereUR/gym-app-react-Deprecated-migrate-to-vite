@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Toaster, toast } from "react-hot-toast";
 
@@ -7,17 +7,33 @@ import Loader from "./Loader";
 import Modal from "./Modal";
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
+/* import { Home } from "./Home"; */
 
 const { primaryBlue, primaryRed, secondaryBlue, secondaryRed, colorText } =
   Colors;
 
-export const SignIn = () => {
+export const SignIn = (/* { user, months } */) => {
   const [forgotPassword, setForgotPassword] = useState(false);
   const [emailSignIn, setEmailSignIn] = useState("");
   const [passwordSignIn, setPasswordSignIn] = useState("");
   const [remember, setRemember] = useState(false);
   const [emailRecover, setEmailRecover] = useState("");
   const [loading, setLoading] = useState(false);
+  const [credentials, setCredentials] = useState({
+    email: "",
+    password: "",
+  });
+  /* const [isLoggedIn, setIsLoggedIn] = useState(false); */
+
+  useEffect(() => {
+    const storedCredentials = JSON.parse(
+      localStorage.getItem("loginCredentials")
+    );
+    if (storedCredentials) {
+      setCredentials(storedCredentials);
+      /* setIsLoggedIn(true); */
+    }
+  }, []);
 
   const clearForm = () => {
     document.getElementById("email-sign-in").value = "";
@@ -28,12 +44,12 @@ export const SignIn = () => {
     setForgotPassword(!forgotPassword);
   };
 
-  const handleEmailSignIn = (e) => {
-    setEmailSignIn(e.target.value);
-  };
-
-  const handlePassword = (e) => {
-    setPasswordSignIn(e.target.value);
+  const handleCredentialsChange = (e) => {
+    const { name, value } = e.target;
+    setCredentials((prevCredentials) => ({
+      ...prevCredentials,
+      [name]: value,
+    }));
   };
 
   const handleRemember = (e) => {
@@ -43,7 +59,13 @@ export const SignIn = () => {
   const handleSubmitSignIn = async (e) => {
     e.preventDefault();
     setLoading(true);
-    const dataSignIn = { emailSignIn, passwordSignIn, remember };
+    const dataSignIn = { emailSignIn, passwordSignIn };
+
+    if (remember) {
+      localStorage.setItem("loginCredentials", JSON.stringify(credentials));
+    } else {
+      localStorage.removeItem("loginCredentials");
+    }
 
     /* try {
       const resp = await fetch("/", {
@@ -53,7 +75,7 @@ export const SignIn = () => {
         },
         body: JSON.stringify({ dataSignIn }),
       });
-      console.log(resp);
+      setIsLoggedIn(true);
     } catch (error) {
       toast.error("error.", {
         position: "top-right",
@@ -65,7 +87,6 @@ export const SignIn = () => {
         },
       });
     } */
-
     clearForm();
 
     setLoading(false);
@@ -113,6 +134,9 @@ export const SignIn = () => {
     setForgotPassword(!forgotPassword);
   };
 
+  /* if (isLoggedIn) {
+    return <Home user={user} months={months} />;
+  } else { */
   return (
     <FormContainer>
       <LogoForm src={logo} />
@@ -120,15 +144,19 @@ export const SignIn = () => {
         <Input
           id="email-sign-in"
           type="email"
+          name="email"
+          value={credentials.email}
           placeholder="Ingrese su email"
-          onChange={handleEmailSignIn}
+          onChange={handleCredentialsChange}
           required
         />
         <Input
           id="password-sign-in"
           type="password"
+          name="password"
+          value={credentials.password}
           placeholder="Ingrese su contraseña"
-          onChange={handlePassword}
+          onChange={handleCredentialsChange}
           required
         />
         <InputCheckContainer>
@@ -166,6 +194,7 @@ export const SignIn = () => {
       <Toaster />
     </FormContainer>
   );
+  /* } */
 };
 
 const ButtonRecover = styled.button`

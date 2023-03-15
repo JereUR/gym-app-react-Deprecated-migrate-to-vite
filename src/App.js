@@ -28,7 +28,13 @@ function App() {
       <Router>
         {user.login && <Header user={user} />}
         <Routes>
-          {!user.login && <Route exact path="/" element={<SesionPage />} />}
+          {!user.login && (
+            <Route
+              exact
+              path="/"
+              element={<SesionPage /* user={user} months={db.months} */ />}
+            />
+          )}
           <Route element={<LoginRoute user={user} />}>
             <Route
               exact
