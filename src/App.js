@@ -16,13 +16,9 @@ import { ResetPassword } from "./components/ResetPassword";
 import { ChangePassword } from "./components/ChangePassword";
 import RecoverAccount from "./components/RecoverAccount";
 
-import db from "./static/db.json";
+function App({ db, user }) {
+  const pathUser = `/usuario/${user.username}`;
 
-export let user = db.users[0];
-
-const pathUser = `/usuario/${user.username}`;
-
-function App() {
   return (
     <Container>
       <Router>
