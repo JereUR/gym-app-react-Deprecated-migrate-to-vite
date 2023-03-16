@@ -185,8 +185,9 @@ const FormRoutine = ({ db }) => {
         photo,
         rest,
         description,
-        id: exercises.length,
+        id: "exercise_" + Math.floor(Math.random() * 10000),
       };
+      console.log(e);
       setExercises(exercises.concat(e));
       clearFormRoutine();
     } else {

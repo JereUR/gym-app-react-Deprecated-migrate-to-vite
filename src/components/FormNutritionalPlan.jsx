@@ -177,6 +177,7 @@ export const FormNutritionalPlan = ({ db }) => {
     setCount(el.count);
     setMeasure(el.measure);
     setType(el.type);
+    setMealData(null);
   };
 
   const deleteData = (id, data) => {
@@ -220,35 +221,75 @@ export const FormNutritionalPlan = ({ db }) => {
     if (Object.keys(err).length === 0) {
       switch (mealData) {
         case "breakfast":
-          const bData = { measure, count, type, id: breakfast.length };
+          const bData = {
+            measure,
+            count,
+            type,
+            id: "breakfast_" + Math.floor(Math.random() * 10000),
+          };
           setBreakfast(breakfast.concat(bData));
           break;
         case "lunch":
-          const lData = { measure, count, type, id: lunch.length };
+          const lData = {
+            measure,
+            count,
+            type,
+            id: "lunch_" + Math.floor(Math.random() * 10000),
+          };
           setLunch(lunch.concat(lData));
           break;
         case "snack":
-          const sData = { measure, count, type, id: snack.length };
+          const sData = {
+            measure,
+            count,
+            type,
+            id: "snack_" + Math.floor(Math.random() * 10000),
+          };
           setSnack(snack.concat(sData));
           break;
         case "dinner":
-          const dData = { measure, count, type, id: dinner.length };
+          const dData = {
+            measure,
+            count,
+            type,
+            id: "dinner_" + Math.floor(Math.random() * 10000),
+          };
           setDinner(dinner.concat(dData));
           break;
         case "after-dinner":
-          const aData = { measure, count, type, id: afterDinner.length };
+          const aData = {
+            measure,
+            count,
+            type,
+            id: "after-dinner_" + Math.floor(Math.random() * 10000),
+          };
           setAfterDinner(afterDinner.concat(aData));
           break;
         case "pre-workout":
-          const preData = { measure, count, type, id: preWorkout.length };
+          const preData = {
+            measure,
+            count,
+            type,
+            id: "pre-workout_" + Math.floor(Math.random() * 10000),
+          };
           setPreWorkout(preWorkout.concat(preData));
           break;
         case "post-workout":
-          const postData = { measure, count, type, id: postWorkout.length };
+          const postData = {
+            measure,
+            count,
+            type,
+            id: "post-workout_" + Math.floor(Math.random() * 10000),
+          };
           setPostWorkout(postWorkout.concat(postData));
           break;
         case "collation":
-          const cData = { measure, count, type, id: collation.length };
+          const cData = {
+            measure,
+            count,
+            type,
+            id: "collation_" + Math.floor(Math.random() * 10000),
+          };
           setCollation(collation.concat(cData));
           break;
         default:
