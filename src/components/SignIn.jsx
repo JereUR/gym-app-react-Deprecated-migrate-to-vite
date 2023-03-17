@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Toaster, toast } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 import logo from "../assets/logo.png";
 import Loader from "./Loader";
 import Modal from "./Modal";
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
+import { FetchPostData } from "../helpers/FetchPostData";
 /* import { Home } from "./Home"; */
 
 const { primaryBlue, primaryRed, secondaryBlue, secondaryRed, colorText } =
@@ -61,77 +62,36 @@ export const SignIn = (/* { user, months } */) => {
     setLoading(true);
     const dataSignIn = { emailSignIn, passwordSignIn };
 
-    if (remember) {
-      localStorage.setItem("loginCredentials", JSON.stringify(credentials));
-    } else {
-      localStorage.removeItem("loginCredentials");
-    }
+    /* const resp = await FetchData({path:"/",data:{dataSignIn}}) 
 
-    /* try {
-      const resp = await fetch("/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ dataSignIn }),
-      });
-      setIsLoggedIn(true);
-    } catch (error) {
-      toast.error("error.", {
-        position: "top-right",
-        duration: 6000,
-        style: {
-          background: "rgba(250, 215, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
-      });
-    } */
-    clearForm();
+    if (!(res instanceof Error)) {
+      if (remember) {
+        localStorage.setItem("loginCredentials", JSON.stringify(credentials));
+      } else {
+        localStorage.removeItem("loginCredentials");
+      }
 
-    setLoading(false);
+      clearForm();
+
+      setLoading(false);
+    }*/
   };
 
   const handleEmailRecover = (e) => {
     setEmailRecover(e.target.value);
   };
 
-  const handleSubmitRecover = (e) => {
+  const handleSubmitRecover = async (e) => {
     e.preventDefault();
 
-    const dataRecover = { emailRecover };
-
-    /* try {
-      const resp = await fetch("/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ dataRecover }),
-      });
-      console.log(resp);
-      toast.success(`Se envió un correo a ${emailRecover}.`, {
-        position: "top-right",
-        duration: 6000,
-        style: {
-          background: "rgba(215, 250, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
-      });
-    } catch (error) {
-      toast.error("error.", {
-        position: "top-right",
-        duration: 6000,
-        style: {
-          background: "rgba(250, 215, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
-      });
-    } */
-
-    setForgotPassword(!forgotPassword);
+    /* const resp = await FetchData({
+      path: "/",
+      data: {emailRecover},
+      message: `Se envió un correo a ${emailRecover}.`,
+    }); 
+    if (!(res instanceof Error)) {
+      setForgotPassword(!forgotPassword);
+    }*/
   };
 
   /* if (isLoggedIn) {

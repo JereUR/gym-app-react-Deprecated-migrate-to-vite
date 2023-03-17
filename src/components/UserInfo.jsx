@@ -2,10 +2,12 @@ import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { FaEdit } from "react-icons/fa";
+import { Toaster } from "react-hot-toast";
 
 import { Colors } from "../constants/Colors";
 import Modal from "./Modal";
 import { FormAditionalInfo } from "./FormAditionalInfo";
+import { FetchPostData } from "../helpers/FetchPostData";
 
 const { primaryRed, secondaryBlue, secondaryRed } = Colors;
 
@@ -210,7 +212,7 @@ export const UserInfo = ({ user }) => {
     setNewDiseases(newData);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const err = onValidateForm();
@@ -225,38 +227,15 @@ export const UserInfo = ({ user }) => {
         newDiseases,
       };
 
-      /* try {
-          const resp = await fetch("/", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ data }),
-          });
-          console.log(resp);
+      /* const res = await FetchPostData({
+        path: "/",
+        data: { data },
+        message: "Cambios guardados.",
+      });
 
-          toast.success("Cambios guardados.", {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(215, 250, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          });
-        } catch (error) {
-          toast.error("error.", {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          });
-        } */
-
-      setChangeInfo(!changeInfo);
+      if (!(res instanceof Error)) {
+        setChangeInfo(!changeInfo);
+      } */
     } else {
       /* console.log("Error enfermedad"); */
     }
@@ -385,6 +364,7 @@ export const UserInfo = ({ user }) => {
           )}
         </TextContainer>
       </SecondInfo>
+      <Toaster />
     </InfoContainer>
   );
 };

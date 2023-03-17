@@ -3,11 +3,12 @@ import { useState } from "react";
 import styled from "styled-components";
 import { FaEdit } from "react-icons/fa";
 import { IoMdAddCircle } from "react-icons/io";
-import { Toaster, toast } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 import { MealComponent } from "./MealComponent";
+import { FetchPostData } from "../helpers/FetchPostData";
 
 const {
   errorInput,
@@ -323,38 +324,15 @@ export const FormNutritionalPlan = ({ db }) => {
 
       /* console.log(planDay); */
 
-      /* try {
-          const resp = await fetch("/", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ planDay }),
-          });
-          console.log(resp);
+      /* const res = await FetchPostData({
+        path: "/",
+        data: { planDay },
+        message: `Plan nutricional enviado a ${forData}.`,
+      });
 
-           toast.success("Plan nutricional enviado.", {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(215, 250, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          });
-        } catch (error) {
-          toast.error("error.", {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          });
-        } */
-
-      clearData();
+      if (!(res instanceof Error)) {
+        clearData();
+      } */
     }
   };
 

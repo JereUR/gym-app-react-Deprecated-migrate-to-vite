@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Toaster, toast } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 import Modal from "./Modal";
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
+import { FetchPostData } from "../helpers/FetchPostData";
 
 const { primaryBlue, primaryRed, secondaryBlue, colorText, errorInput } =
   Colors;
@@ -85,38 +86,16 @@ export const SignUp = () => {
     setErrors(err);
 
     if (Object.keys(err).length === 0) {
-      /* try {
-          const resp = await fetch("/", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({dataRegister }),
-          });
-          toast.success("Registro exitoso.", {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(215, 250, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          });
-          console.log(resp);
-        } catch (error) {
-          toast.error("error.", {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          });
-        } */
+      /* const res = await FetchPostData({
+        path: "/",
+        data: { dataRegister },
+        message: "Registro exitoso.",
+      }); 
 
-      setDataRegister(initialData);
-      setRegister(false);
+      if (!(res instanceof Error)) {
+        setDataRegister(initialData);
+        setRegister(false);
+      }*/
     }
   };
 

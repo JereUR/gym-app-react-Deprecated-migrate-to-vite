@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Toaster, toast } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import styled from "styled-components";
 import { FaEdit } from "react-icons/fa";
 import uploadPhoto from "../static/upload-photo.json";
@@ -10,6 +10,7 @@ import { FontFamily } from "../constants/Fonts";
 import Modal from "./Modal";
 import { UploadAnimation } from "./UploadAnimation";
 import { UserInfo } from "./UserInfo";
+import { FetchPostData } from "../helpers/FetchPostData";
 
 const {
   primaryBlue,
@@ -57,41 +58,14 @@ export const UserProfile = ({ user }) => {
     window.location.replace("/change-password");
   };
 
-  const handleSignOut = () => {
-    /* try {
-          const resp = await fetch("/", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ user.email }),
-          });
-          console.log(resp);
+  const handleSignOut = async () => {
+    /* const res = await FetchPostData({ path: "/", data: user.email  });
 
-           toast.success("Sesión cerrada.", {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(215, 250, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          });
-        } catch (error) {
-          toast.error("error.", {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          });
-        } */
-
-    setTimeout(() => {
-      window.location.replace("/");
-    }, 1000);
+    if (!(res instanceof Error)) {
+      setTimeout(() => {
+        window.location.replace("/");
+      }, 1000);
+    } */
   };
 
   const uploadFiles = () => {
@@ -121,40 +95,17 @@ export const UserProfile = ({ user }) => {
     setChangePhoto(!changePhoto);
 
     if (userPhoto != null) {
-      /* try {
-        const resp = await fetch("/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ dataSignIn }),
-        });
+      /* const dataPhoto = { email: user.email, photo: userPhoto };
+      const res = await FetchPostData({
+        path: "/",
+        data: { dataPhoto },
+        message: "Foto de perfil actualizada.",
+      });
 
-        toast.success("Foto de perfil actualizada. Recargando...", {
-          position: "top-right",
-          duration: 6000,
-          style: {
-            background: "rgba(215, 250, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
-
-        console.log(resp);
-
+      if (!(res instanceof Error)) {
         setTimeout(() => {
           window.location.reload();
         }, 2000);
-      } catch (error) {
-        toast.error("error.", {
-          position: "top-right",
-          duration: 6000,
-          style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
       } */
     }
   };

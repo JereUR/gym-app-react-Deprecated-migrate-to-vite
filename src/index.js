@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 
 import db from "./static/db.json";
 
-const user = db.users[0];
+let user = db.users[0];
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App db={db} user={user} />);

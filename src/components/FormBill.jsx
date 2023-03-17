@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { FaEdit } from "react-icons/fa";
-import { Toaster, toast } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import {
   Document,
   Page,
@@ -16,6 +16,7 @@ import logo from "../assets/logo.png";
 import seal from "../assets/payment-seal.png";
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
+import { FetchPostData } from "../helpers/FetchPostData";
 
 const { errorInput, primaryRed, primaryBlue, secondaryRed, secondaryBlue } =
   Colors;
@@ -275,37 +276,15 @@ export const FormBill = ({ db }) => {
 
       /* console.log(payment); */
 
-      /* try {
-          const resp = await fetch("/", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ payment }),
-          });
-          console.log(resp);
+      /* const res = await FetchPostData({
+        path: "/",
+        data: { payment },
+        message: `Pago enviado a ${forData}.`,
+      });
 
-           toast.success("Pago enviado.", {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(215, 250, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          });
-        } catch (error) {
-          toast.error("error.", {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          });
-        } */
-      clearForm();
+      if (!(res instanceof Error)) {
+        clearForm();
+      } */
     }
   };
 

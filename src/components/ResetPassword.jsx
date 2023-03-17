@@ -4,6 +4,7 @@ import { Toaster, toast } from "react-hot-toast";
 
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
+import { FetchPostData } from "../helpers/FetchPostData";
 
 const initialData = {
   newPassword: "",
@@ -43,42 +44,19 @@ export const ResetPassword = () => {
     setErrors(err);
 
     if (Object.keys(err).length === 0) {
-      /* try {
-          const resp = await fetch("/", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ dataRecovery }),
-          });
-          console.log(resp);
+      /* const res = await FetchPostData({
+        path: "/",
+        data: { dataRecovery },
+        message: "Contraseña recuperada con exito.",
+      });
 
-           toast.success("Contraseña recuperada con exito.", {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(215, 250, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          });
-        } catch (error) {
-          toast.error("error.", {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          });
-        } */
+      if (!(res instanceof Error)) {
+        setDataRecovery(initialData);
 
-      setDataRecovery(initialData);
-
-      setTimeout(() => {
-        window.location.replace(`/`);
-      }, 2000);
+        setTimeout(() => {
+          window.location.replace(`/`);
+        }, 2000);
+      } */
     }
   };
 

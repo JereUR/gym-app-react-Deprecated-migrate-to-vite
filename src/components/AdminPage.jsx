@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 import { RiErrorWarningLine } from "react-icons/ri";
+import { Toaster } from "react-hot-toast";
 
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
@@ -9,6 +10,7 @@ import { FormBill } from "./FormBill";
 import { FormNutritionalPlan } from "./FormNutritionalPlan";
 import FormRoutine from "./FormRoutine";
 import { SeeUser } from "./SeeUser";
+import { FetchPostData } from "../helpers/FetchPostData";
 
 const { secondaryBlue, backgroundText, primaryBlue, primaryRed } = Colors;
 
@@ -46,45 +48,22 @@ export const AdminPage = ({ db }) => {
     }
   };
 
-  const handleReport = (user) => {
-    /* try {
-          const resp = await fetch("/", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ user.email }),
-          });
-          console.log(resp);*/
+  const handleReport = async (email) => {
+    /* const res = await FetchPostData({
+      path: "/",
+      data: { email },
+      message: "Reporte enviado.",
+    });
 
-    let newDebtors = debtorUsers.filter((el) => el.email !== user.email);
+    if (!(res instanceof Error)) {
+      let newDebtors = debtorUsers.filter((el) => el.email !== email);
 
-    if (newDebtors.length === 0) {
-      setViewDebtors(false);
-    }
+      if (newDebtors.length === 0) {
+        setViewDebtors(false);
+      }
 
-    setDebtorUsers(newDebtors);
-    /*
-          toast.success("Reporte enviado.", {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(215, 250, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          });
-        } catch (error) {
-          toast.error("error.", {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          });
-        } */
+      setDebtorUsers(newDebtors);
+    } */
   };
 
   return (
@@ -127,7 +106,7 @@ export const AdminPage = ({ db }) => {
                 <LogoContainer>
                   <RiErrorWarningLine
                     fontSize="2.5rem"
-                    onClick={() => handleReport(el)}
+                    onClick={() => handleReport(el.email)}
                   />
                   <Span className="tooltip">Enviar reporte a {el.email}</Span>
                 </LogoContainer>
@@ -136,6 +115,7 @@ export const AdminPage = ({ db }) => {
           </DebtorsResult>
         )}
       </DebtorsContainer>
+      <Toaster />
     </AdminContainer>
   );
 };

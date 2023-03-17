@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Toaster, toast } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
+import { FetchPostData } from "../helpers/FetchPostData";
 
 const initialData = {
   currentPassword: "",
@@ -21,17 +22,17 @@ const {
 } = Colors;
 
 export const ChangePassword = ({ username }) => {
-  const [dataRecovery, setDataRecovery] = useState(initialData);
+  const [dataUpdate, setDataUpdate] = useState(initialData);
   const [errors, setErrors] = useState({});
 
   const onValidate = () => {
     let errorsForm = {};
 
-    if (dataRecovery.newPassword.length < 8) {
+    if (dataUpdate.newPassword.length < 8) {
       errorsForm.newPassword = `La contraseña debe tener más de 8 caracteres.`;
     }
 
-    if (dataRecovery.newPassword !== dataRecovery.confirmPassword) {
+    if (dataUpdate.newPassword !== dataUpdate.confirmPassword) {
       errorsForm.newPassword = `La contraseña y su confirmación no coinciden.`;
       errorsForm.confirmPassword = `La contraseña y su confirmación no coinciden.`;
     }
@@ -41,7 +42,7 @@ export const ChangePassword = ({ username }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setDataRecovery({ ...dataRecovery, [name]: value });
+    setDataUpdate({ ...dataUpdate, [name]: value });
   };
 
   const handleBack = () => {
@@ -55,42 +56,19 @@ export const ChangePassword = ({ username }) => {
     setErrors(err);
 
     if (Object.keys(err).length === 0) {
-      /* try {
-          const resp = await fetch("/", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ dataRecovery }),
-          });
-          console.log(resp);
+      /* const res = await PostData({
+        path: "/",
+        data: { dataUpdate },
+        message: "Contraseña actualizada con exito.",
+      }); 
 
-           toast.success("Contraseña cambiada con exito.", {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(215, 250, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          });
-        } catch (error) {
-          toast.error("error.", {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          });
-        } */
+      if (!(res instanceof Error)) {
+        setDataUpdate(initialData);
 
-      setDataRecovery(initialData);
-
-      setTimeout(() => {
-        window.location.replace(`/usuario/:${username}`);
-      }, 2000);
+        setTimeout(() => {
+          window.location.replace(`/usuario/:${username}`);
+        }, 2000);
+      }*/
     }
   };
 
@@ -102,14 +80,14 @@ export const ChangePassword = ({ username }) => {
           type="password"
           placeholder="Contraseña actual"
           name="currentPassword"
-          value={dataRecovery.currentPassword}
+          value={dataUpdate.currentPassword}
           onChange={handleChange}
         />
         <Input
           type="password"
           placeholder="Nueva contraseña"
           name="newPassword"
-          value={dataRecovery.newPassword}
+          value={dataUpdate.newPassword}
           onChange={handleChange}
         />
         {errors.newPassword && <ErrorInput>{errors.newPassword}</ErrorInput>}
@@ -117,7 +95,7 @@ export const ChangePassword = ({ username }) => {
           type="password"
           placeholder="Confirma nueva contraseña"
           name="confirmPassword"
-          value={dataRecovery.confirmPassword}
+          value={dataUpdate.confirmPassword}
           onChange={handleChange}
         />
         {errors.confirmPassword && (
