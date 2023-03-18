@@ -21,7 +21,7 @@ import { FetchPostData } from "../helpers/FetchPostData";
 const { errorInput, primaryRed, primaryBlue, secondaryRed, secondaryBlue } =
   Colors;
 
-export const FormBill = ({ db }) => {
+export const FormBill = ({ dbLocal, dbUsers }) => {
   const [forData, setForData] = useState(null);
   const [day, setDay] = useState(null);
   const [month, setMonth] = useState(null);
@@ -121,7 +121,7 @@ export const FormBill = ({ db }) => {
   }
 
   const getMonth = (month) => {
-    return db.months.find((m) => m.month === month).value;
+    return dbLocal.months.find((m) => m.month === month).value;
   };
 
   const clearForm = () => {
@@ -141,7 +141,7 @@ export const FormBill = ({ db }) => {
 
   const onValidate = () => {
     const errorsForm = {};
-    const user = db.users.find((u) => u.email === forData);
+    const user = dbUsers.find((u) => u.email === forData);
 
     if (getYearNow() === year) {
       if (getMonthNow() < getMonth(month)) {
@@ -195,7 +195,7 @@ export const FormBill = ({ db }) => {
   const handleFor = (e) => {
     setForData(e.target.value);
 
-    const user = db.users.find((u) => u.email === e.target.value);
+    const user = dbUsers.find((u) => u.email === e.target.value);
 
     setName(user.username);
     setSurname(user.surname);
@@ -289,14 +289,14 @@ export const FormBill = ({ db }) => {
   };
 
   return (
-    <FormAddBill onSubmit={handleSubmit}>
+    <FormAddbLocalill onSubmit={handleSubmit}>
       <ForPartContainer>
         {!forData ? (
           <InputContainer>
             <Label>Para:</Label>
             <SelectFirst onChange={handleFor} id="for-data">
               <Option value="null">Seleccione un usuario</Option>
-              {db.users.map((el, index) => (
+              {dbUsers.map((el, index) => (
                 <Option key={index} value={el.email}>
                   {el.username} {el.surname} - {el.email}
                 </Option>
@@ -387,7 +387,7 @@ export const FormBill = ({ db }) => {
         <ButtonSend type="submit">Enviar</ButtonSend>
       </PaymentContainer>
       <Toaster />
-    </FormAddBill>
+    </FormAddbLocalill>
   );
 };
 
@@ -446,7 +446,7 @@ const ErrorInput = styled.div`
   }
 `;
 
-const FormAddBill = styled.form`
+const FormAddbLocalill = styled.form`
   padding: 0 5vw 0 5vw;
 `;
 

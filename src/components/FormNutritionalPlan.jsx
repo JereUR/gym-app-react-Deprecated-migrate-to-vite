@@ -19,7 +19,7 @@ const {
   success,
 } = Colors;
 
-export const FormNutritionalPlan = ({ db }) => {
+export const FormNutritionalPlan = ({ dbLocal, dbUsers }) => {
   const [forData, setForData] = useState(null);
   const [errorFor, setErrorFor] = useState(null);
   const [dayData, setDayData] = useState(null);
@@ -125,7 +125,7 @@ export const FormNutritionalPlan = ({ db }) => {
   const handleFor = (e) => {
     setForData(e.target.value);
 
-    const user = db.users.find((u) => u.email === e.target.value);
+    const user = dbUsers.find((u) => u.email === e.target.value);
 
     if (user.weight === null || user.height === null) {
       setErrorFor(
@@ -344,7 +344,7 @@ export const FormNutritionalPlan = ({ db }) => {
             <Label>Para:</Label>
             <SelectFirst onChange={handleFor}>
               <Option value="null">Seleccione un usuario</Option>
-              {db.users.map((el, index) => (
+              {dbUsers.map((el, index) => (
                 <Option key={index} value={el.email}>
                   {el.username} {el.surname} - {el.email}
                 </Option>
@@ -368,7 +368,7 @@ export const FormNutritionalPlan = ({ db }) => {
             <Label>Día:</Label>
             <SelectFirst onChange={handleDay}>
               <Option value="null">Seleccione un día</Option>
-              {db.days.map((el, index) => (
+              {dbLocal.days.map((el, index) => (
                 <Option value={el.value} key={index}>
                   {el.day}
                 </Option>
@@ -381,7 +381,7 @@ export const FormNutritionalPlan = ({ db }) => {
         ) : (
           <ForTextContainer>
             <ForText>
-              Día: {db.days.find((el) => el.value === dayData).day}
+              Día: {dbLocal.days.find((el) => el.value === dayData).day}
             </ForText>
             <FaEdit size="1.5rem" onClick={handleChangeDay} />
           </ForTextContainer>
@@ -393,7 +393,7 @@ export const FormNutritionalPlan = ({ db }) => {
             <Label>Comida:</Label>
             <SelectFirst onChange={handleMeal}>
               <Option value="null">Seleccione una comida</Option>
-              {db.meals.map((el, index) => (
+              {dbLocal.meals.map((el, index) => (
                 <Option value={el.value} key={index}>
                   {el.meal}
                 </Option>
@@ -409,7 +409,7 @@ export const FormNutritionalPlan = ({ db }) => {
         ) : (
           <ForTextContainer>
             <ForText>
-              Comida: {db.meals.find((el) => el.value === mealData).meal}
+              Comida: {dbLocal.meals.find((el) => el.value === mealData).meal}
             </ForText>
             <FaEdit size="1.5rem" onClick={handleChangeMeal} />
           </ForTextContainer>

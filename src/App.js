@@ -15,8 +15,9 @@ import AdminRoute from "./components/AdminRoute";
 import { ResetPassword } from "./components/ResetPassword";
 import { ChangePassword } from "./components/ChangePassword";
 import RecoverAccount from "./components/RecoverAccount";
+import dbLocal from "./static/db_local.json";
 
-function App({ db, user }) {
+function App({ user, dbUsers }) {
   const pathUser = `/usuario/${user.username}`;
 
   return (
@@ -28,19 +29,19 @@ function App({ db, user }) {
             <Route
               exact
               path="/"
-              element={<SesionPage /* user={user} months={db.months} */ />}
+              element={<SesionPage /* user={user} months={dbLocal.months} */ />}
             />
           )}
           <Route element={<LoginRoute user={user} />}>
             <Route
               exact
               path="/"
-              element={<Home user={user} months={db.months} />}
+              element={<Home user={user} months={dbLocal.months} />}
             />
             <Route
               exact
               path="/mis-pagos"
-              element={<Bill user={user} months={db.months} />}
+              element={<Bill user={user} months={dbLocal.months} />}
             />
             <Route
               exact
@@ -53,10 +54,16 @@ function App({ db, user }) {
               element={<ChangePassword username={user.username} />}
             />
           </Route>
-          <Route element={<AdminRoute user={user} months={db.months} />}>
-            <Route exact path="/admin" element={<AdminPage db={db} />} />
+          <Route element={<AdminRoute user={user} months={dbLocal.months} />}>
+            <Route
+              exact
+              path="/admin"
+              element={<AdminPage dbLocal={dbLocal} dbUsers={dbUsers} />}
+            />
           </Route>
-          <Route element={<RecoverAccount user={user} months={db.months} />}>
+          <Route
+            element={<RecoverAccount user={user} months={dbLocal.months} />}
+          >
             <Route exact path="/reset" element={<ResetPassword />} />
           </Route>
           <Route exact path="*" element={<Error404 user={user} />} />

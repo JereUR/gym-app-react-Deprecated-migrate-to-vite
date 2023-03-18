@@ -4,12 +4,12 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-import db from "./static/db.json";
+import dbUsers from "./static/db_users.json";
 
-let user = db.users[0];
+let user = dbUsers[0];
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App db={db} user={user} />);
+root.render(<App user={user} dbUsers={dbUsers} />);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

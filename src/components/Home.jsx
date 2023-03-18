@@ -124,7 +124,7 @@ const ButtonUp = styled.button`
   margin-bottom: 5vw;
   bottom: 0vh;
   right: calc(4.25rem + 1vw);
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bold;
   border: none;
   border-radius: 50%;

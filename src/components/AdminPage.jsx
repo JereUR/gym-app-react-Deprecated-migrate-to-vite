@@ -14,7 +14,7 @@ import { FetchPostData } from "../helpers/FetchPostData";
 
 const { secondaryBlue, backgroundText, primaryBlue, primaryRed } = Colors;
 
-export const AdminPage = ({ db }) => {
+export const AdminPage = ({ dbLocal, dbUsers }) => {
   const [debtorUsers, setDebtorUsers] = useState([]);
   const [viewDebtors, setViewDebtors] = useState(false);
 
@@ -23,7 +23,7 @@ export const AdminPage = ({ db }) => {
       const today = new Date();
       let debtors = [];
 
-      db.users.forEach((el) => {
+      dbUsers.forEach((el) => {
         let userDate = new Date(
           el.payment.nextPayment.year,
           el.payment.nextPayment.month,
@@ -70,21 +70,21 @@ export const AdminPage = ({ db }) => {
     <AdminContainer>
       <AddRoutineContainer>
         <Title>Agregar rutina</Title>
-        <FormRoutine db={db} />
+        <FormRoutine dbLocal={dbLocal} dbUsers={dbUsers} />
       </AddRoutineContainer>
       <Hr />
       <AddNutritionalPlan>
         <Title>Agregar plan nutricional</Title>
-        <FormNutritionalPlan db={db} />
+        <FormNutritionalPlan dbLocal={dbLocal} dbUsers={dbUsers} />
       </AddNutritionalPlan>
       <Hr />
       <BillSection>
         <Title>Agregar pago</Title>
-        <FormBill db={db} />
+        <FormBill dbLocal={dbLocal} dbUsers={dbUsers} />
       </BillSection>
       <SeeUserSection>
         <Title>Ver detalles de usuario</Title>
-        <SeeUser db={db} />
+        <SeeUser dbLocal={dbLocal} dbUsers={dbUsers} />
       </SeeUserSection>
       <DebtorsContainer>
         <Title>Reportar deudores</Title>

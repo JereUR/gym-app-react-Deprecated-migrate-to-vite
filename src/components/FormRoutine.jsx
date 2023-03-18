@@ -18,7 +18,7 @@ const {
   success,
 } = Colors;
 
-const FormRoutine = ({ db }) => {
+const FormRoutine = ({ dbLocal, dbUsers }) => {
   const [forData, setForData] = useState(null);
   const [errorFor, setErrorFor] = useState(null);
   const [dayData, setDayData] = useState(null);
@@ -114,7 +114,7 @@ const FormRoutine = ({ db }) => {
   const handleFor = (e) => {
     setForData(e.target.value);
 
-    const user = db.users.find((u) => u.email === e.target.value);
+    const user = dbUsers.find((u) => u.email === e.target.value);
 
     if (user.weight === null || user.height === null) {
       setErrorFor(
@@ -157,7 +157,7 @@ const FormRoutine = ({ db }) => {
   const handleTypeExercise = (e) => {
     setTypeExercise(e.target.value);
 
-    const p = db.exercises[zone].find(
+    const p = dbLocal.exercises[zone].find(
       (ex) => ex.exercise === e.target.value
     ).photo;
     setPhoto(p);
@@ -213,7 +213,7 @@ const FormRoutine = ({ db }) => {
     setRest(el.rest);
     setDescription(el.description);
 
-    const p = db.exercises[zone].find(
+    const p = dbLocal.exercises[zone].find(
       (ex) => ex.exercise === el.typeExercise
     ).photo;
     setPhoto(p);
@@ -260,7 +260,7 @@ const FormRoutine = ({ db }) => {
             <Label>Para:</Label>
             <SelectFirst onChange={handleFor} id="for-data">
               <Option value="null">Seleccione un usuario</Option>
-              {db.users.map((el, index) => (
+              {dbUsers.map((el, index) => (
                 <Option key={index} value={el.email}>
                   {el.username} {el.surname} - {el.email}
                 </Option>
@@ -284,7 +284,7 @@ const FormRoutine = ({ db }) => {
             <Label>Día:</Label>
             <SelectFirst onChange={handleDay}>
               <Option value="null">Seleccione un día</Option>
-              {db.days.map((el, index) => (
+              {dbLocal.days.map((el, index) => (
                 <Option value={el.value} key={index}>
                   {el.day}
                 </Option>
@@ -297,7 +297,7 @@ const FormRoutine = ({ db }) => {
         ) : (
           <ForTextContainer>
             <ForText>
-              Para el día {db.days.find((el) => el.value === dayData).day}
+              Para el día {dbLocal.days.find((el) => el.value === dayData).day}
             </ForText>
             <FaEdit size="1.5rem" onClick={handleChangeDay} />
           </ForTextContainer>
@@ -343,7 +343,7 @@ const FormRoutine = ({ db }) => {
           <Label>Zona del cuerpo</Label>
           <Select onChange={handleZone} id="zone">
             <Option value="null">Seleccione una zona</Option>
-            {db.exercises.Zonas.map((el, index) => (
+            {dbLocal.exercises.Zonas.map((el, index) => (
               <Option value={el} key={index}>
                 {el}
               </Option>
@@ -355,7 +355,7 @@ const FormRoutine = ({ db }) => {
           <Select onChange={handleTypeExercise} id="exercise">
             <Option value="null">Seleccione un ejercicio</Option>
             {zone &&
-              db.exercises[zone].map((el, index) => (
+              dbLocal.exercises[zone].map((el, index) => (
                 <Option value={el.exercise} key={index}>
                   {el.exercise}
                 </Option>
