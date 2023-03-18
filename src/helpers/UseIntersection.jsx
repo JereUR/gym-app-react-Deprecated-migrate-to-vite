@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-export const useIntersection = (options = {}) => {
+export const UseIntersection = (options = {}) => {
   const [isIntersecting, setIsIntersecting] = useState(false);
   const elementRef = useRef();
 

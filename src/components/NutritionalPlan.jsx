@@ -5,7 +5,7 @@ import { BsArrowBarUp, BsArrowBarDown } from "react-icons/bs";
 
 import { getDayNow } from "../helpers/GetDay";
 import { Colors } from "../constants/Colors";
-import { useIntersection } from "./useIntersection";
+import { UseIntersection } from "../helpers/UseIntersection";
 
 const { primaryBlue, secondaryBlue, primaryRed } = Colors;
 
@@ -13,7 +13,7 @@ export const NutritionalPlan = ({ user, title, addInfo }) => {
   const [viewData, setViewData] = useState(true);
   const day = getDayNow();
 
-  const [planRef, isIntersecting] = useIntersection({ threshold: 0.5 });
+  const [planRef, isIntersecting] = UseIntersection({ threshold: 0.5 });
 
   const handleView = () => {
     setViewData(!viewData);

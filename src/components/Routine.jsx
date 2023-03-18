@@ -5,7 +5,7 @@ import { BsArrowBarUp, BsArrowBarDown } from "react-icons/bs";
 
 import { getDayNow } from "../helpers/GetDay";
 import { Colors } from "../constants/Colors";
-import { useIntersection } from "./useIntersection";
+import { UseIntersection } from "../helpers/UseIntersection";
 
 const { primaryRed, primaryBlue, secondaryBlue } = Colors;
 
@@ -13,7 +13,7 @@ export const Routine = ({ user, title, addInfo }) => {
   const [viewData, setViewData] = useState(true);
   const day = getDayNow();
 
-  const [routineRef, isIntersecting] = useIntersection({ threshold: 0.5 });
+  const [routineRef, isIntersecting] = UseIntersection({ threshold: 0.5 });
 
   const handleView = () => {
     setViewData(!viewData);
