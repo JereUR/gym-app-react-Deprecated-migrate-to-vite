@@ -22,9 +22,10 @@ const HeaderContainer = styled.header`
 `;
 
 const Logo = styled.img`
-  width: auto;
-  height: auto;
+  width: 390px;
+  height: 100px;
   margin-left: 5vw;
+  margin-top: 2vw;
   z-index: 2;
 
   :hover {
