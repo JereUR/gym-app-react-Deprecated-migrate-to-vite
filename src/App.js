@@ -16,17 +16,9 @@ import { ResetPassword } from "./components/ResetPassword";
 import { ChangePassword } from "./components/ChangePassword";
 import RecoverAccount from "./components/RecoverAccount";
 import dbLocal from "./static/db_local.json";
-import { useEffect, useState } from "react";
 
 function App({ user, dbUsers }) {
   const pathUser = `/usuario/${user.username}`;
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    fetch("http://localhost:3000/api/v1/example%22").then((response) => {
-      setMessage(response.data.message);
-    });
-  }, []);
 
   return (
     <Container>
