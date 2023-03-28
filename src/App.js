@@ -23,11 +23,14 @@ function App({ user, dbUsers }) {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/v1/example%22").then((response) => {
-      setMessage(response.data.message);
+    fetch("http://localhost:3001/api/v1/example")
+    .then((response) => response.json())
+    .then((data) => {
+      setMessage(data.message);
+      console.log(data.message);
     });
   }, []);
-
+  
   return (
     <Container>
       <Router>

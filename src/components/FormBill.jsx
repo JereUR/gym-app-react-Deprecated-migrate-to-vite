@@ -276,15 +276,15 @@ export const FormBill = ({ dbLocal, dbUsers }) => {
 
       /* console.log(payment); */
 
-      /* const res = await FetchPostData({
-        path: "/",
+      const res = await FetchPostData({
+        path: "http://localhost:3001/api/v1/example",
         data: { payment },
         message: `Pago enviado a ${forData}.`,
       });
 
       if (!(res instanceof Error)) {
         clearForm();
-      } */
+      } 
     }
   };
 
