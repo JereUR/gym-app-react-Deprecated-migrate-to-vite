@@ -23,7 +23,7 @@ const HeaderContainer = styled.header`
 
 const Logo = styled.img`
   width: 390px;
-  height: calc(var(--width) / 3.89);
+  height: 100px;
   margin-left: 5vw;
   margin-top: 2vw;
   z-index: 2;

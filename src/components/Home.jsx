@@ -134,7 +134,8 @@ const ButtonUp = styled.button`
   transition: all 0.3s ease-out;
 
   svg {
-    margin: 0.5vw;
+    color: #fff;
+    margin: 0.6vw 0.5vw 0.5vw 0.5vw;
 
     @media screen and (max-width: 480px) {
       margin: 1vw;
