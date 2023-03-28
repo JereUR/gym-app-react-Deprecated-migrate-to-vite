@@ -88,7 +88,7 @@ const LogoImg = styled.img`
   width: 30vw;
   height: calc(var(--width) / 1.5);
   border-radius: 1.5rem;
-  margin-top: 2vw;
+  margin-top: 2.5vw;
 
   @media screen and (max-width: 1380px) {
     width: 25vw;
@@ -103,7 +103,6 @@ const LogoSection = styled.div`
   height: 50%;
   padding: 4vw;
   border-radius: 10px;
-  text-align: center;
 
   @media screen and (max-width: 480px) {
     display: none;
@@ -112,6 +111,7 @@ const LogoSection = styled.div`
 
 const TextContainer = styled.div`
   width: 20vw;
+  margin-left: 25%;
 `;
 
 const TextContent = styled.p`

@@ -47,15 +47,37 @@ export const ResetPassword = () => {
       /* const res = await FetchPostData({
         path: "/",
         data: { dataRecovery },
-        message: "Contraseña recuperada con exito.",
       });
 
       if (!(res instanceof Error)) {
+        toast.success(`Contraseña recuperada con exito.`, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(215, 250, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
+
         setDataRecovery(initialData);
 
         setTimeout(() => {
           window.location.replace(`/`);
         }, 2000);
+      } else {
+        toast.error(
+          { res },
+          {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(250, 215, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          }
+        );
       } */
     }
   };

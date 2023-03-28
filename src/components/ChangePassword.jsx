@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Toaster } from "react-hot-toast";
+import { toast, Toaster } from "react-hot-toast";
 
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
@@ -56,19 +56,41 @@ export const ChangePassword = ({ username }) => {
     setErrors(err);
 
     if (Object.keys(err).length === 0) {
-      /* const res = await PostData({
+      /* const res = await FetchPostData({
         path: "/",
         data: { dataUpdate },
-        message: "Contraseña actualizada con exito.",
-      }); 
+      });
 
       if (!(res instanceof Error)) {
+        toast.success(`Contraseña actualizada con exito.`, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(215, 250, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
+
         setDataUpdate(initialData);
 
         setTimeout(() => {
           window.location.replace(`/usuario/:${username}`);
         }, 2000);
-      }*/
+      } else {
+        toast.error(
+          { res },
+          {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(250, 215, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          }
+        );
+      } */
     }
   };
 

@@ -3,7 +3,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { FaEdit } from "react-icons/fa";
 import { IoMdAddCircle } from "react-icons/io";
-import { Toaster } from "react-hot-toast";
+import { toast, Toaster } from "react-hot-toast";
 
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
@@ -324,14 +324,36 @@ export const FormNutritionalPlan = ({ dbLocal, dbUsers }) => {
 
       /* console.log(planDay); */
 
-      /* const res = await FetchPostData({
+      /*  const res = await FetchPostData({
         path: "/",
         data: { planDay },
-        message: `Plan nutricional enviado a ${forData}.`,
       });
 
       if (!(res instanceof Error)) {
+        toast.success(`Plan nutricional enviado a ${forData}.`, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(215, 250, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
+
         clearData();
+      } else {
+        toast.error(
+          { res },
+          {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(250, 215, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          }
+        );
       } */
     }
   };

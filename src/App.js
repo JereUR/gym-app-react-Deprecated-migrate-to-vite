@@ -16,9 +16,36 @@ import { ResetPassword } from "./components/ResetPassword";
 import { ChangePassword } from "./components/ChangePassword";
 import RecoverAccount from "./components/RecoverAccount";
 import dbLocal from "./static/db_local.json";
+import { useEffect, useState } from "react";
+import { FetchGetData } from "./helpers/FetchGetData";
+import { toast, Toaster } from "react-hot-toast";
 
 function App({ user, dbUsers }) {
+  /* const [user, setUser] = useState(null); */
   const pathUser = `/usuario/${user.username}`;
+
+  /*  useEffect(() => {
+    async function getUser() {
+      return await FetchGetData("/");
+    }
+    const res = getUser();
+    if (!(res instanceof Error)) {
+      setUser(res);
+    } else {
+      toast.error(
+        { res },
+        {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        }
+      );
+    }
+  }, []); */
 
   return (
     <Container>
@@ -70,6 +97,7 @@ function App({ user, dbUsers }) {
         </Routes>
       </Router>
       {user.login && <Footer />}
+      <Toaster />
     </Container>
   );
 }

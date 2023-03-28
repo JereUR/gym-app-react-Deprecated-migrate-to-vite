@@ -5,8 +5,8 @@
     "email": "jeremias.jdv@gmail.com",
     "date": "1994-11-29",
     "gender": "Masculino",
-    "login": false,
-    "admin": true,
+    "login": true,
+    "admin": false,
     "recover": false,
     "photo": null,
     "weight": 80,
@@ -1005,17 +1005,20 @@
         {
           "month": "Diciembre",
           "year": 2022,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         },
         {
           "month": "Enero",
           "year": 2023,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         },
         {
           "month": "Febrero",
           "year": 2023,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         }
       ]
     }
@@ -1838,17 +1841,20 @@
         {
           "month": "Diciembre",
           "year": 2022,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         },
         {
           "month": "Enero",
           "year": 2023,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         },
         {
           "month": "Febrero",
           "year": 2023,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         }
       ]
     }
@@ -2668,17 +2674,20 @@
         {
           "month": "Diciembre",
           "year": 2022,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         },
         {
           "month": "Enero",
           "year": 2023,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         },
         {
           "month": "Febrero",
           "year": 2023,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         }
       ]
     }
@@ -3488,17 +3497,20 @@
         {
           "month": "Diciembre",
           "year": 2022,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         },
         {
           "month": "Enero",
           "year": 2023,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         },
         {
           "month": "Febrero",
           "year": 2023,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         }
       ]
     }
@@ -4321,17 +4333,20 @@
         {
           "month": "Diciembre",
           "year": 2022,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         },
         {
           "month": "Enero",
           "year": 2023,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         },
         {
           "month": "Febrero",
           "year": 2023,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         }
       ]
     }

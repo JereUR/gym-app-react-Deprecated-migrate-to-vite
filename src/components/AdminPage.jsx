@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 import { RiErrorWarningLine } from "react-icons/ri";
-import { Toaster } from "react-hot-toast";
+import { toast, Toaster } from "react-hot-toast";
 
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
@@ -11,12 +11,38 @@ import { FormNutritionalPlan } from "./FormNutritionalPlan";
 import FormRoutine from "./FormRoutine";
 import { SeeUser } from "./SeeUser";
 import { FetchPostData } from "../helpers/FetchPostData";
+import { useEffect } from "react";
+import { FetchGetData } from "../helpers/FetchGetData";
 
 const { secondaryBlue, backgroundText, primaryBlue, primaryRed } = Colors;
 
 export const AdminPage = ({ dbLocal, dbUsers }) => {
   const [debtorUsers, setDebtorUsers] = useState([]);
   const [viewDebtors, setViewDebtors] = useState(false);
+  /* const [dbUsers, setDbUsers] = useState(null); */
+
+  /* useEffect(() => {
+    async function getUsers() {
+      return await FetchGetData("/");
+    }
+    const res = getUsers();
+    if (!(res instanceof Error)) {
+      setDbUsers(res);
+    } else {
+      toast.error(
+        { res },
+        {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        }
+      );
+    }
+  }, []); */
 
   const handleDebtors = () => {
     if (!viewDebtors) {
@@ -52,10 +78,19 @@ export const AdminPage = ({ dbLocal, dbUsers }) => {
     /* const res = await FetchPostData({
       path: "/",
       data: { email },
-      message: "Reporte enviado.",
     });
 
     if (!(res instanceof Error)) {
+      toast.success(`Reporte enviado.`, {
+        position: "top-right",
+        duration: 6000,
+        style: {
+          background: "rgba(215, 250, 215)",
+          fontSize: "1rem",
+          fontWeight: "500",
+        },
+      });
+
       let newDebtors = debtorUsers.filter((el) => el.email !== email);
 
       if (newDebtors.length === 0) {
@@ -63,6 +98,19 @@ export const AdminPage = ({ dbLocal, dbUsers }) => {
       }
 
       setDebtorUsers(newDebtors);
+    } else {
+      toast.error(
+        { res },
+        {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        }
+      );
     } */
   };
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Toaster } from "react-hot-toast";
+import { toast, Toaster } from "react-hot-toast";
 
 import Modal from "./Modal";
 import { Colors } from "../constants/Colors";
@@ -89,13 +89,35 @@ export const SignUp = () => {
       /* const res = await FetchPostData({
         path: "/",
         data: { dataRegister },
-        message: "Registro exitoso.",
-      }); 
+      });
 
       if (!(res instanceof Error)) {
+        toast.success(`Registro exitoso.`, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(215, 250, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
+
         setDataRegister(initialData);
         setRegister(false);
-      }*/
+      } else {
+        toast.error(
+          { res },
+          {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(250, 215, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          }
+        );
+      } */
     }
   };
 

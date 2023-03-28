@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { FaEdit } from "react-icons/fa";
 import { IoMdAddCircle } from "react-icons/io";
-import { Toaster } from "react-hot-toast";
+import { toast, Toaster } from "react-hot-toast";
 
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
@@ -241,14 +241,34 @@ const FormRoutine = ({ dbLocal, dbUsers }) => {
       /* const res = await FetchPostData({
         path: "/",
         data: { routineDay },
-        message: `Rutina enviada a ${forData}.`,
       });
 
       if (!(res instanceof Error)) {
+        toast.success(`Rutina enviada a ${forData}.`, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(215, 250, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
+
         clearData();
+      } else {
+        toast.error(
+          { res },
+          {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(250, 215, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          }
+        );
       } */
-    } else {
-      /* console.log("Error rutina"); */
     }
   };
 

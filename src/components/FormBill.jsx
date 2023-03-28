@@ -276,7 +276,7 @@ export const FormBill = ({ dbLocal, dbUsers }) => {
 
       /* console.log(payment); */
 
-      const res = await FetchPostData({
+      /* const res = await FetchPostData({
         path: "/",
         data: { payment },
       });
@@ -291,6 +291,7 @@ export const FormBill = ({ dbLocal, dbUsers }) => {
             fontWeight: "500",
           },
         });
+
         clearForm();
       } else {
         toast.error(
@@ -305,7 +306,7 @@ export const FormBill = ({ dbLocal, dbUsers }) => {
             },
           }
         );
-      }
+      } */
     }
   };
 
