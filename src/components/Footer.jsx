@@ -95,7 +95,8 @@ const LeftContent = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 110px;
+  width: 200px;
+  height: calc(var(--width) / 3.89);
   margin-top: 1rem;
 
   @media screen and (max-width: 480px) {

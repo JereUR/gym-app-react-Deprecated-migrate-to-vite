@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { FaEdit } from "react-icons/fa";
-import { Toaster } from "react-hot-toast";
+import { toast, Toaster } from "react-hot-toast";
 import {
   Document,
   Page,
@@ -279,12 +279,33 @@ export const FormBill = ({ dbLocal, dbUsers }) => {
       const res = await FetchPostData({
         path: "http://localhost:3001/api/v1/example",
         data: { payment },
-        message: `Pago enviado a ${forData}.`,
       });
 
       if (!(res instanceof Error)) {
+        toast.success(`Pago enviado a ${forData}`, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(215, 250, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
         clearForm();
-      } 
+      } else {
+        toast.error(
+          { res },
+          {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(250, 215, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          }
+        );
+      }
     }
   };
 

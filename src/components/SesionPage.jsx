@@ -85,12 +85,14 @@ const LogoContainer = styled.div`
 `;
 
 const LogoImg = styled.img`
-  width: 20vw;
-  height: auto;
+  width: 30vw;
+  height: calc(var(--width) / 1.5);
   border-radius: 1.5rem;
+  margin-top: 2vw;
 
   @media screen and (max-width: 1380px) {
     width: 25vw;
+    height: calc(var(--width) / 1.5);
   }
 `;
 
@@ -101,6 +103,7 @@ const LogoSection = styled.div`
   height: 50%;
   padding: 4vw;
   border-radius: 10px;
+  text-align: center;
 
   @media screen and (max-width: 480px) {
     display: none;
@@ -112,8 +115,6 @@ const TextContainer = styled.div`
 `;
 
 const TextContent = styled.p`
-  display: block;
-  text-align: center;
   font-size: 20px;
   font-style: oblique;
 

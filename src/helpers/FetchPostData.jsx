@@ -1,6 +1,4 @@
-import { toast } from "react-hot-toast";
-
-export const FetchPostData = async ({ path, data, message = "" }) => {
+export const FetchPostData = async ({ path, data }) => {
   try {
     const resp = await fetch(`${path}`, {
       method: "POST",
@@ -14,37 +12,9 @@ export const FetchPostData = async ({ path, data, message = "" }) => {
       throw new Error("Error en la respuesta del servidor");
     }
 
-    // if (message !== "") {
-    //   toast.success(
-    //     { message },
-    //     {
-    //       position: "top-right",
-    //       duration: 6000,
-    //       style: {
-    //         background: "rgba(215, 250, 215)",
-    //         fontSize: "1rem",
-    //         fontWeight: "500",
-    //       },
-    //     }
-    //   );
-    // }
-
     const dataRes = await resp.json();
     return dataRes;
   } catch (error) {
-    toast.error(
-      { error },
-      {
-        position: "top-right",
-        duration: 6000,
-        style: {
-          background: "rgba(250, 215, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
-      }
-    );
-
     return error;
   }
 };
