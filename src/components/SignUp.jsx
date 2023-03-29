@@ -124,7 +124,6 @@ export const SignUp = () => {
   return (
     <FormContainer>
       <ButtonSignUp onClick={handleRegisterModal}>Registrarte</ButtonSignUp>
-
       <Modal state={register} setState={setRegister} title="Crear Cuenta">
         <Content>
           <FormContainer>
@@ -271,10 +270,6 @@ const ButtonSignUp = styled.button`
     width: 60vw;
     margin-top: 5vw;
     margin-left: 1.2rem;
-  }
-
-  @media screen and (max-width: 400px) {
-    margin-top: 1.5vh;
   }
 `;
 

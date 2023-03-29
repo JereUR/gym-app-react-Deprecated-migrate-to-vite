@@ -235,12 +235,7 @@ const ButtonSignIn = styled.button`
   }
 
   @media screen and (max-width: 480px) {
-    margin-bottom: 1vw;
-    width: 60vw;
-  }
-
-  @media screen and (max-width: 400px) {
-    margin-bottom: 1vw;
+    margin-bottom: 3vw;
     width: 60vw;
   }
 `;
@@ -313,10 +308,6 @@ const Input = styled.input`
     width: 80%;
     margin-bottom: 3vh;
   }
-
-  @media screen and (max-width: 400px) {
-    margin-bottom: 1vh;
-  }
 `;
 
 const InputCheck = styled.input`
@@ -364,14 +355,11 @@ const Label = styled.label`
 
 const LogoForm = styled.img`
   margin-bottom: 1vw;
-  @media screen and (max-width: 480px) {
-    margin-bottom: 3vh !important;
-    margin-top: 3vh !important;
-  }
 
   @media screen and (max-width: 480px) {
-    margin-top: 1vh !important;
-    margin-bottom: 1vh !important;
+    width: 80vw;
+    margin-bottom: 3vh !important;
+    margin-top: 3vh !important;
   }
 `;
 

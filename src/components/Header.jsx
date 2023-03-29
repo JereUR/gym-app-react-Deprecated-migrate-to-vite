@@ -31,4 +31,10 @@ const Logo = styled.img`
   :hover {
     cursor: pointer;
   }
+
+  @media screen and (max-width: 480px) {
+    width: 250px;
+    height: 64px;
+    margin-top: 5vw;
+  }
 `;
