@@ -14,8 +14,6 @@ const { primaryBlue, primaryRed, secondaryBlue, secondaryRed, colorText } =
 
 export const SignIn = () => {
   const [forgotPassword, setForgotPassword] = useState(false);
-  const [emailSignIn, setEmailSignIn] = useState("");
-  const [passwordSignIn, setPasswordSignIn] = useState("");
   const [remember, setRemember] = useState(false);
   const [emailRecover, setEmailRecover] = useState("");
   const [loading, setLoading] = useState(false);
@@ -58,7 +56,11 @@ export const SignIn = () => {
   const handleSubmitSignIn = async (e) => {
     e.preventDefault();
     setLoading(true);
-    const dataSignIn = { emailSignIn, passwordSignIn };
+    const dataSignIn = {
+      email: credentials.email,
+      password: credentials.password,
+    };
+    console.log({ dataSignIn });
 
     /* const res = await FetchPostData({
       path: "/",

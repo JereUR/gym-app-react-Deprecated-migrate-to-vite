@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { FaEdit } from "react-icons/fa";
 import { IoMdAddCircle } from "react-icons/io";
@@ -8,7 +8,6 @@ import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 import { ExerciseComponent } from "./ExerciseComponent";
 import { FetchPostData } from "../helpers/FetchPostData";
-import { useEffect } from "react";
 import { FetchGetData } from "../helpers/FetchGetData";
 
 const {
@@ -35,6 +34,8 @@ const FormRoutine = ({ /*users*/ dbLocal, dbUsers }) => {
   const [exercises, setExercises] = useState([]);
   const [errorsExercises, setErrorsExercises] = useState({});
   const [errorsRoutine, setErrorsRoutine] = useState({});
+
+  const seeLogos = true;
 
   const timeout = (delay) => {
     return new Promise((res) => setTimeout(res, delay));
@@ -493,6 +494,7 @@ const FormRoutine = ({ /*users*/ dbLocal, dbUsers }) => {
               el={el}
               deleteData={deleteData}
               editData={editData}
+              seeLogos={seeLogos}
             />
           ))}
         </List>
