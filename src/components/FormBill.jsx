@@ -319,7 +319,7 @@ export const FormBill = ({ dbLocal, dbUsers }) => {
             },
           }
         );
-      } */
+      } 
     }
   };
 
