@@ -5,8 +5,8 @@
     "email": "jeremias.jdv@gmail.com",
     "date": "1994-11-29",
     "gender": "Masculino",
-    "login": true,
-    "admin": true,
+    "login": false,
+    "admin": false,
     "recover": false,
     "photo": null,
     "weight": 80,
@@ -37,7 +37,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba pimba pimba pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseBiceps/CurlZottmanConGiroCompleto.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy.Lorem Ipsum is simply dummy.Lorem Ipsum is simply dummy."
@@ -46,7 +47,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -55,7 +57,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -64,7 +67,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -73,7 +77,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": null,
           "description": null
@@ -82,7 +87,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": null,
           "description": "Lorem Ipsum is simply dummy."
@@ -93,7 +99,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -102,7 +109,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -111,7 +119,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -120,7 +129,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -129,7 +139,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": null,
           "description": null
@@ -138,7 +149,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": null,
           "description": "Lorem Ipsum is simply dummy."
@@ -149,7 +161,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -158,7 +171,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -167,7 +181,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -176,7 +191,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -185,7 +201,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": null,
           "description": null
@@ -194,7 +211,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": null,
           "description": "Lorem Ipsum is simply dummy."
@@ -205,7 +223,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -214,7 +233,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -223,7 +243,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -232,7 +253,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -241,7 +263,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": null,
           "description": null
@@ -250,7 +273,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": null,
           "description": "Lorem Ipsum is simply dummy."
@@ -261,7 +285,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -270,7 +295,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -279,7 +305,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -288,7 +315,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -297,7 +325,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": null,
           "description": null
@@ -306,7 +335,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": null,
           "description": "Lorem Ipsum is simply dummy."
@@ -317,7 +347,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -326,7 +357,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -335,7 +367,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -344,7 +377,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -353,7 +387,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": null,
           "description": null
@@ -362,7 +397,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": null,
           "description": "Lorem Ipsum is simply dummy."
@@ -378,11 +414,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -390,11 +428,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -402,11 +442,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -414,11 +456,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -426,11 +470,13 @@
         {
           "preWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -438,11 +484,13 @@
         {
           "postWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -450,11 +498,13 @@
         {
           "collation": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -468,7 +518,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -476,11 +527,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -488,11 +541,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -500,11 +555,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -512,11 +569,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -524,11 +583,13 @@
         {
           "preWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -539,11 +600,13 @@
         {
           "collation": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -557,7 +620,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -565,11 +629,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -577,11 +643,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -589,11 +657,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -601,11 +671,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -613,11 +685,13 @@
         {
           "preWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -625,11 +699,13 @@
         {
           "postWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -646,7 +722,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -654,11 +731,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -666,11 +745,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -678,11 +759,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -690,11 +773,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -705,11 +790,13 @@
         {
           "postWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -717,11 +804,13 @@
         {
           "collation": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -735,7 +824,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -743,11 +833,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -755,11 +847,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -767,11 +861,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -779,11 +875,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -791,11 +889,13 @@
         {
           "preWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -803,11 +903,13 @@
         {
           "postWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -815,11 +917,13 @@
         {
           "collation": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -833,7 +937,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -841,11 +946,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -853,11 +960,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -865,11 +974,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -877,11 +988,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -889,11 +1002,13 @@
         {
           "preWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -901,11 +1016,13 @@
         {
           "postWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -913,11 +1030,13 @@
         {
           "collation": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -931,7 +1050,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -939,11 +1059,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -951,11 +1073,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -963,11 +1087,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -975,11 +1101,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1005,17 +1133,20 @@
         {
           "month": "Diciembre",
           "year": 2022,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         },
         {
           "month": "Enero",
           "year": 2023,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         },
         {
           "month": "Febrero",
           "year": 2023,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         }
       ]
     }
@@ -1211,11 +1342,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1223,11 +1356,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1235,11 +1370,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1247,11 +1384,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1259,11 +1398,13 @@
         {
           "preWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1271,11 +1412,13 @@
         {
           "postWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1283,11 +1426,13 @@
         {
           "collation": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1301,7 +1446,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1309,11 +1455,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1321,11 +1469,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1333,11 +1483,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1345,11 +1497,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1357,11 +1511,13 @@
         {
           "preWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1372,11 +1528,13 @@
         {
           "collation": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1390,7 +1548,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1398,11 +1557,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1410,11 +1571,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1422,11 +1585,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1434,11 +1599,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1446,11 +1613,13 @@
         {
           "preWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1458,11 +1627,13 @@
         {
           "postWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1479,7 +1650,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1487,11 +1659,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1499,11 +1673,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1511,11 +1687,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1523,11 +1701,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1538,11 +1718,13 @@
         {
           "postWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1550,11 +1732,13 @@
         {
           "collation": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1568,7 +1752,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1576,11 +1761,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1588,11 +1775,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1600,11 +1789,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1612,11 +1803,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1624,11 +1817,13 @@
         {
           "preWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1636,11 +1831,13 @@
         {
           "postWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1648,11 +1845,13 @@
         {
           "collation": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1666,7 +1865,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1674,11 +1874,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1686,11 +1888,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1698,11 +1902,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1710,11 +1916,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1722,11 +1930,13 @@
         {
           "preWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1734,11 +1944,13 @@
         {
           "postWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1746,11 +1958,13 @@
         {
           "collation": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1764,7 +1978,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1772,11 +1987,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1784,11 +2001,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1796,11 +2015,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1808,11 +2029,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -1838,17 +2061,20 @@
         {
           "month": "Diciembre",
           "year": 2022,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         },
         {
           "month": "Enero",
           "year": 2023,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         },
         {
           "month": "Febrero",
           "year": 2023,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         }
       ]
     }
@@ -2041,11 +2267,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2053,11 +2281,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2065,11 +2295,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2077,11 +2309,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2089,11 +2323,13 @@
         {
           "preWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2101,11 +2337,13 @@
         {
           "postWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2113,11 +2351,13 @@
         {
           "collation": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2131,7 +2371,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2139,11 +2380,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2151,11 +2394,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2163,11 +2408,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2175,11 +2422,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2187,11 +2436,13 @@
         {
           "preWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2202,11 +2453,13 @@
         {
           "collation": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2220,7 +2473,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2228,11 +2482,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2240,11 +2496,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2252,11 +2510,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2264,11 +2524,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2276,11 +2538,13 @@
         {
           "preWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2288,11 +2552,13 @@
         {
           "postWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2309,7 +2575,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2317,11 +2584,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2329,11 +2598,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2341,11 +2612,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2353,11 +2626,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2368,11 +2643,13 @@
         {
           "postWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2380,11 +2657,13 @@
         {
           "collation": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2398,7 +2677,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2406,11 +2686,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2418,11 +2700,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2430,11 +2714,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2442,11 +2728,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2454,11 +2742,13 @@
         {
           "preWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2466,11 +2756,13 @@
         {
           "postWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2478,11 +2770,13 @@
         {
           "collation": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2496,7 +2790,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2504,11 +2799,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2516,11 +2813,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2528,11 +2827,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2540,11 +2841,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2552,11 +2855,13 @@
         {
           "preWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2564,11 +2869,13 @@
         {
           "postWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2576,11 +2883,13 @@
         {
           "collation": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2594,7 +2903,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2602,11 +2912,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2614,11 +2926,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2626,11 +2940,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2638,11 +2954,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2668,17 +2986,20 @@
         {
           "month": "Diciembre",
           "year": 2022,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         },
         {
           "month": "Enero",
           "year": 2023,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         },
         {
           "month": "Febrero",
           "year": 2023,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         }
       ]
     }
@@ -2861,11 +3182,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2873,11 +3196,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2885,11 +3210,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2897,11 +3224,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2909,11 +3238,13 @@
         {
           "preWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2921,11 +3252,13 @@
         {
           "postWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2933,11 +3266,13 @@
         {
           "collation": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2951,7 +3286,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2959,11 +3295,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2971,11 +3309,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2983,11 +3323,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -2995,11 +3337,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3007,11 +3351,13 @@
         {
           "preWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3022,11 +3368,13 @@
         {
           "collation": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3040,7 +3388,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3048,11 +3397,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3060,11 +3411,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3072,11 +3425,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3084,11 +3439,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3096,11 +3453,13 @@
         {
           "preWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3108,11 +3467,13 @@
         {
           "postWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3129,7 +3490,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3137,11 +3499,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3149,11 +3513,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3161,11 +3527,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3173,11 +3541,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3188,11 +3558,13 @@
         {
           "postWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3200,11 +3572,13 @@
         {
           "collation": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3218,7 +3592,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3226,11 +3601,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3238,11 +3615,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3250,11 +3629,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3262,11 +3643,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3274,11 +3657,13 @@
         {
           "preWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3286,11 +3671,13 @@
         {
           "postWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3298,11 +3685,13 @@
         {
           "collation": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3316,7 +3705,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3324,11 +3714,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3336,11 +3728,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3348,11 +3742,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3360,11 +3756,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3372,11 +3770,13 @@
         {
           "preWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3384,11 +3784,13 @@
         {
           "postWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3396,11 +3798,13 @@
         {
           "collation": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3414,7 +3818,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3422,11 +3827,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3434,11 +3841,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3446,11 +3855,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3458,11 +3869,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3488,17 +3901,20 @@
         {
           "month": "Diciembre",
           "year": 2022,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         },
         {
           "month": "Enero",
           "year": 2023,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         },
         {
           "month": "Febrero",
           "year": 2023,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         }
       ]
     }
@@ -3694,11 +4110,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3706,11 +4124,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3718,11 +4138,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3730,11 +4152,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3742,11 +4166,13 @@
         {
           "preWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3754,11 +4180,13 @@
         {
           "postWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3766,11 +4194,13 @@
         {
           "collation": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3784,7 +4214,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3792,11 +4223,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3804,11 +4237,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3816,11 +4251,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3828,11 +4265,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3840,11 +4279,13 @@
         {
           "preWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3855,11 +4296,13 @@
         {
           "collation": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3873,7 +4316,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3881,11 +4325,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3893,11 +4339,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3905,11 +4353,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3917,11 +4367,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3929,11 +4381,13 @@
         {
           "preWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3941,11 +4395,13 @@
         {
           "postWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3962,7 +4418,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3970,11 +4427,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3982,11 +4441,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -3994,11 +4455,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -4006,11 +4469,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -4021,11 +4486,13 @@
         {
           "postWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -4033,11 +4500,13 @@
         {
           "collation": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -4051,7 +4520,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -4059,11 +4529,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -4071,11 +4543,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -4083,11 +4557,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -4095,11 +4571,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -4107,11 +4585,13 @@
         {
           "preWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -4119,11 +4599,13 @@
         {
           "postWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -4131,11 +4613,13 @@
         {
           "collation": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -4149,7 +4633,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -4157,11 +4642,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -4169,11 +4656,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -4181,11 +4670,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -4193,11 +4684,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -4205,11 +4698,13 @@
         {
           "preWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -4217,11 +4712,13 @@
         {
           "postWorkout": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -4229,11 +4726,13 @@
         {
           "collation": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -4247,7 +4746,8 @@
               "meal": "Huevo"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -4255,11 +4755,13 @@
         {
           "lunch": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -4267,11 +4769,13 @@
         {
           "snack": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -4279,11 +4783,13 @@
         {
           "dinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -4291,11 +4797,13 @@
         {
           "afterDinner": [
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             },
             {
-              "mount": "200gr",
+              "count": "200",
+              "measure": "gr",
               "meal": "Churrasco"
             }
           ]
@@ -4321,17 +4829,20 @@
         {
           "month": "Diciembre",
           "year": 2022,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         },
         {
           "month": "Enero",
           "year": 2023,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         },
         {
           "month": "Febrero",
           "year": 2023,
-          "pdf": "../assets/pdf-test.pdf"
+          "day": 5,
+          "mount": 5000
         }
       ]
     }

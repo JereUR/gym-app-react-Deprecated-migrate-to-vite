@@ -33,7 +33,7 @@ export const FormBill = ({ dbLocal, dbUsers }) => {
   const [errors, setErrors] = useState({});
   const [viewPdf, setViewPdf] = useState(false);
 
-  const MyDoc = (
+  const doc = (
     <Document>
       <Page
         size="A5"
@@ -98,13 +98,7 @@ export const FormBill = ({ dbLocal, dbUsers }) => {
     </Document>
   );
 
-  const [instance, updateInstance] = usePDF({ document: MyDoc });
-
-  const generatePdfBlob = () => {
-    const pdfBlob = new Blob([MyDoc], { type: "application/pdf" });
-    pdfBlob.fileName = `${name} ${surname} - ${month} - ${year}`;
-    return pdfBlob;
-  };
+  const [instance, updateInstance] = usePDF({ document: doc });
 
   const getYearNow = () => {
     return new Date().getFullYear();
@@ -139,8 +133,11 @@ export const FormBill = ({ dbLocal, dbUsers }) => {
     setViewPdf(false);
   };
 
-  const onValidate = () => {
+  const onValidate = /*async*/ () => {
     const errorsForm = {};
+
+    /* const payments = await FetchGetData("/", forData);*/
+
     const user = dbUsers.find((u) => u.email === forData);
 
     if (getYearNow() === year) {
@@ -192,8 +189,27 @@ export const FormBill = ({ dbLocal, dbUsers }) => {
     return errorsForm;
   };
 
-  const handleFor = (e) => {
+  const handleFor = /*async*/ (e) => {
     setForData(e.target.value);
+
+    /* const user = await FetchGetData("/", e.target.value);
+    if (!(user instanceof Error)) {
+      setName(user.username);
+      setSurname(user.surname);
+    } else {
+      toast.error(
+        { res },
+        {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        }
+      );
+    } */
 
     const user = dbUsers.find((u) => u.email === e.target.value);
 
@@ -233,7 +249,7 @@ export const FormBill = ({ dbLocal, dbUsers }) => {
     setErrors(err);
 
     if (Object.keys(err).length === 0) {
-      updateInstance({ document: MyDoc });
+      updateInstance({ document: doc });
       setViewPdf(true);
     }
   };
@@ -246,9 +262,6 @@ export const FormBill = ({ dbLocal, dbUsers }) => {
 
     if (Object.keys(err).length === 0) {
       let payment;
-      const PDF = (
-        <BlobProvider document={generatePdfBlob()}>{MyDoc}</BlobProvider>
-      );
 
       if (monthNext === 0) {
         payment = {
@@ -256,10 +269,10 @@ export const FormBill = ({ dbLocal, dbUsers }) => {
           day,
           month,
           year,
+          mount,
           dayNext: day,
           monthNext,
           yearNext: (parseInt(year) + 1).toString(),
-          pdf: PDF.props.document,
         };
       } else {
         payment = {
@@ -267,10 +280,10 @@ export const FormBill = ({ dbLocal, dbUsers }) => {
           day,
           month,
           year,
+          mount,
           dayNext: day,
           monthNext,
           yearNext: year,
-          pdf: PDF.props.document,
         };
       }
 
@@ -291,6 +304,7 @@ export const FormBill = ({ dbLocal, dbUsers }) => {
             fontWeight: "500",
           },
         });
+
         clearForm();
       } else {
         toast.error(
@@ -305,7 +319,7 @@ export const FormBill = ({ dbLocal, dbUsers }) => {
             },
           }
         );
-      }
+      } */
     }
   };
 

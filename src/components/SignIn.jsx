@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Toaster } from "react-hot-toast";
+import { toast, Toaster } from "react-hot-toast";
 
 import logo from "../assets/logo.png";
 import Loader from "./Loader";
@@ -8,12 +8,11 @@ import Modal from "./Modal";
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 import { FetchPostData } from "../helpers/FetchPostData";
-/* import { Home } from "./Home"; */
 
 const { primaryBlue, primaryRed, secondaryBlue, secondaryRed, colorText } =
   Colors;
 
-export const SignIn = (/* { user, months } */) => {
+export const SignIn = () => {
   const [forgotPassword, setForgotPassword] = useState(false);
   const [emailSignIn, setEmailSignIn] = useState("");
   const [passwordSignIn, setPasswordSignIn] = useState("");
@@ -24,7 +23,6 @@ export const SignIn = (/* { user, months } */) => {
     email: "",
     password: "",
   });
-  /* const [isLoggedIn, setIsLoggedIn] = useState(false); */
 
   useEffect(() => {
     const storedCredentials = JSON.parse(
@@ -62,7 +60,10 @@ export const SignIn = (/* { user, months } */) => {
     setLoading(true);
     const dataSignIn = { emailSignIn, passwordSignIn };
 
-    /* const resp = await FetchData({path:"/",data:{dataSignIn}}) 
+    /* const res = await FetchPostData({
+      path: "/",
+      data: { dataSignIn },
+    });
 
     if (!(res instanceof Error)) {
       if (remember) {
@@ -74,7 +75,20 @@ export const SignIn = (/* { user, months } */) => {
       clearForm();
 
       setLoading(false);
-    }*/
+    } else {
+      toast.error(
+        { res },
+        {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        }
+      );
+    } */
   };
 
   const handleEmailRecover = (e) => {
@@ -84,19 +98,39 @@ export const SignIn = (/* { user, months } */) => {
   const handleSubmitRecover = async (e) => {
     e.preventDefault();
 
-    /* const resp = await FetchData({
+    /* const res = await FetchPostData({
       path: "/",
-      data: {emailRecover},
-      message: `Se envió un correo a ${emailRecover}.`,
-    }); 
+      data: { emailRecover },
+    });
+
     if (!(res instanceof Error)) {
+      toast.success(`Se envió un correo a ${emailRecover}.`, {
+        position: "top-right",
+        duration: 6000,
+        style: {
+          background: "rgba(215, 250, 215)",
+          fontSize: "1rem",
+          fontWeight: "500",
+        },
+      });
+
       setForgotPassword(!forgotPassword);
-    }*/
+    } else {
+      toast.error(
+        { res },
+        {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        }
+      );
+    } */
   };
 
-  /* if (isLoggedIn) {
-    return <Home user={user} months={months} />;
-  } else { */
   return (
     <FormContainer>
       <LogoForm src={logo} />
@@ -154,7 +188,6 @@ export const SignIn = (/* { user, months } */) => {
       <Toaster />
     </FormContainer>
   );
-  /* } */
 };
 
 const ButtonRecover = styled.button`
@@ -196,12 +229,7 @@ const ButtonSignIn = styled.button`
   }
 
   @media screen and (max-width: 480px) {
-    margin-bottom: 1vw;
-    width: 60vw;
-  }
-
-  @media screen and (max-width: 400px) {
-    margin-bottom: 1vw;
+    margin-bottom: 3vw;
     width: 60vw;
   }
 `;
@@ -274,10 +302,6 @@ const Input = styled.input`
     width: 80%;
     margin-bottom: 3vh;
   }
-
-  @media screen and (max-width: 400px) {
-    margin-bottom: 1vh;
-  }
 `;
 
 const InputCheck = styled.input`
@@ -324,14 +348,12 @@ const Label = styled.label`
 `;
 
 const LogoForm = styled.img`
-  @media screen and (max-width: 480px) {
-    margin-bottom: 3vh !important;
-    margin-top: 3vh !important;
-  }
+  margin-bottom: 1vw;
 
   @media screen and (max-width: 480px) {
-    margin-top: 1vh !important;
-    margin-bottom: 1vh !important;
+    width: 80vw;
+    margin-bottom: 3vh !important;
+    margin-top: 3vh !important;
   }
 `;
 

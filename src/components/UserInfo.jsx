@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { FaEdit } from "react-icons/fa";
-import { Toaster } from "react-hot-toast";
+import { toast, Toaster } from "react-hot-toast";
 
 import { Colors } from "../constants/Colors";
 import Modal from "./Modal";
@@ -230,14 +230,34 @@ export const UserInfo = ({ user }) => {
       /* const res = await FetchPostData({
         path: "/",
         data: { data },
-        message: "Cambios guardados.",
       });
 
       if (!(res instanceof Error)) {
+        toast.success(`Cambios guardados.`, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(215, 250, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
+
         setChangeInfo(!changeInfo);
+      } else {
+        toast.error(
+          { res },
+          {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(250, 215, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          }
+        );
       } */
-    } else {
-      /* console.log("Error enfermedad"); */
     }
   };
 

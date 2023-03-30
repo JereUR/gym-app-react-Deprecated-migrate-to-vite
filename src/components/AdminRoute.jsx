@@ -8,12 +8,16 @@ export const useAuthAdmin = (user) => {
   return user && user.admin;
 };
 
-const AdminRoute = ({ user, months }) => {
+const AdminRoute = ({ /*admin,login,email*/ user, months }) => {
   const isAdmin = useAuthAdmin(user);
   const isLogin = useAuth(user);
 
   if (isLogin) {
-    return isAdmin ? <Outlet /> : <Home user={user} months={months} />;
+    return isAdmin ? (
+      <Outlet />
+    ) : (
+      <Home /*email={email}*/ user={user} months={months} />
+    );
   }
 
   return <SesionPage />;

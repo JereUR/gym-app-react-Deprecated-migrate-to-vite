@@ -1,14 +1,39 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 import { Colors } from "../constants/Colors";
-import { GrDocumentPdf } from "react-icons/gr";
-import { FiDownload } from "react-icons/fi";
+import { BillItem } from "./BillItem";
 
-const { primaryRed, primaryBlue, secondaryBlue, secondaryRed, colorText } =
-  Colors;
+const { primaryRed, primaryBlue, secondaryBlue, secondaryRed } = Colors;
 
-export const Bill = ({ user, months }) => {
+export const Bill = ({ /*email*/ user, months }) => {
+  const [payment, setPayment] = useState(null);
+
+  /*  useEffect(() => {
+    //Get payment
+    async function getPayment(email) {
+      return await FetchGetData("/");
+    }
+    const res = getPayment(email);
+    if (!(res instanceof Error)) {
+      setPayment(res);
+    } else {
+      toast.error(
+        { res },
+        {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        }
+      );
+    }
+  }, [email]); */
+
   return (
     <BillContainer>
       <NextPaymentContainer>
@@ -31,15 +56,13 @@ export const Bill = ({ user, months }) => {
         <NoticeTitlePayment>Pagos realizados:</NoticeTitlePayment>
         {user.payment.payments ? (
           user.payment.payments.map((el, index) => (
-            <BillItemContainer key={index}>
-              <NamePayment>
-                <GrDocumentPdf size="1.5rem" />
-                Pago mes {el.month} del año {el.year}
-              </NamePayment>
-              <BillItem href={el.pdf} target="_blank" rel="noreferrer">
-                {el.pdf} <FiDownload size="1.2rem" />
-              </BillItem>
-            </BillItemContainer>
+            <BillItem
+              key={index}
+              bill={el}
+              username={user.username}
+              surname={user.surname}
+              email={user.email}
+            />
           ))
         ) : (
           <NoData>Sin pagos disponibles.</NoData>
@@ -50,51 +73,6 @@ export const Bill = ({ user, months }) => {
 };
 
 const BillContainer = styled.div``;
-
-const BillItem = styled.a`
-  margin-top: 1.3rem;
-  text-decoration: none;
-  transition: all 0.3s ease-in-out;
-
-  @media screen and (max-width: 480px) {
-    margin-left: 30%;
-  }
-
-  svg {
-    margin-left: 5px;
-  }
-
-  :hover {
-    color: ${primaryRed};
-  }
-`;
-
-const BillItemContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  background-color: ${colorText};
-  margin: 2vw 5vw 1vw 5vw;
-  padding: 1rem;
-  border-radius: 1rem;
-  box-shadow: 0px 0px 10px #ccc;
-
-  @media screen and (max-width: 480px) {
-    margin: 8vw 1vw 5vw 1vw;
-    display: block;
-  }
-`;
-
-const NamePayment = styled.p`
-  font-size: 1.3rem;
-
-  @media screen and (max-width: 480px) {
-    font-size: 1rem;
-  }
-
-  svg {
-    margin-right: 0.5rem;
-  }
-`;
 
 const NextPaymentContainer = styled.div`
   margin: 7vw 12vw 7vw 12vw;

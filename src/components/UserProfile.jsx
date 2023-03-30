@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Toaster } from "react-hot-toast";
+import { toast, Toaster } from "react-hot-toast";
 import styled from "styled-components";
 import { FaEdit } from "react-icons/fa";
 import uploadPhoto from "../static/upload-photo.json";
@@ -11,6 +11,7 @@ import Modal from "./Modal";
 import { UploadAnimation } from "./UploadAnimation";
 import { UserInfo } from "./UserInfo";
 import { FetchPostData } from "../helpers/FetchPostData";
+import { FetchGetData } from "../helpers/FetchGetData";
 
 const {
   primaryBlue,
@@ -23,12 +24,37 @@ const {
 } = Colors;
 
 export const UserProfile = ({ user }) => {
+  /* const [user, setUser] = useState(null); */
   const [userPhoto, setUserPhoto] = useState(null);
   const [errorInput, setErrorInput] = useState(null);
   const [changePhoto, setChangePhoto] = useState(false);
   const [preview, setPreview] = useState("");
 
   const formData = new FormData();
+
+  /* useEffect(() => {
+    //Get user info menos routine, plan y payments
+    async function getUser(email) {
+      return await FetchGetData("/",email);
+    }
+    const res = getUser(email);
+    if (!(res instanceof Error)) {
+      setUser(res);
+    } else {
+      toast.error(
+        { res },
+        {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        }
+      );
+    }
+  }, [email]); */
 
   useEffect(() => {
     if (!changePhoto) {
@@ -59,12 +85,28 @@ export const UserProfile = ({ user }) => {
   };
 
   const handleSignOut = async () => {
-    /* const res = await FetchPostData({ path: "/", data: user.email  });
+    /* const res = await FetchPostData({
+      path: "/",
+      data: user.email,
+    });
 
     if (!(res instanceof Error)) {
       setTimeout(() => {
         window.location.replace("/");
       }, 1000);
+    } else {
+      toast.error(
+        { res },
+        {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        }
+      );
     } */
   };
 
@@ -95,17 +137,40 @@ export const UserProfile = ({ user }) => {
     setChangePhoto(!changePhoto);
 
     if (userPhoto != null) {
-      /* const dataPhoto = { email: user.email, photo: userPhoto };
-      const res = await FetchPostData({
+      const dataPhoto = { email: user.email, photo: userPhoto };
+
+      /* const res = await FetchPostData({
         path: "/",
         data: { dataPhoto },
-        message: "Foto de perfil actualizada.",
       });
 
       if (!(res instanceof Error)) {
+        toast.success(`Foto de perfil actualizada.`, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(215, 250, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
+
         setTimeout(() => {
           window.location.reload();
         }, 2000);
+      } else {
+        toast.error(
+          { res },
+          {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(250, 215, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          }
+        );
       } */
     }
   };

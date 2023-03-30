@@ -1,12 +1,41 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
 import styled from "styled-components";
 
 import defaultPhoto from "../assets/default_user.jpg";
 import { Colors } from "../constants/Colors";
+import { FetchGetData } from "../helpers/FetchGetData";
 
 const { primaryRed, secondaryBlue, secondaryRed, backgroundText } = Colors;
 
-export const UserViewInfo = ({ user }) => {
+export const UserViewInfo = ({ /*email*/ user }) => {
+  /* const [user, setUser] = useState(null); */
+
+  /* useEffect(() => {
+    async function getUser(email) {
+      return await FetchGetData("/", email);
+    }
+    const res = getUser(email);
+    if (!(res instanceof Error)) {
+      setUser(res);
+    } else {
+      toast.error(
+        { res },
+        {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        }
+      );
+    }
+  }, [email]); */
+
   const getYears = () => {
     var actDate = new Date();
 
@@ -111,6 +140,7 @@ export const UserViewInfo = ({ user }) => {
           </TextContainer>
         </SecondInfo>
       </InfoContainer>
+      <Toaster />
     </ProfileContainer>
   );
 };

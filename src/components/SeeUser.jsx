@@ -7,7 +7,7 @@ import { ViewUserInfo } from "./ViewUserInfo";
 
 const { primaryRed, primaryBlue } = Colors;
 
-export const SeeUser = ({ dbUsers }) => {
+export const SeeUser = ({ /*users*/ dbUsers }) => {
   const [forData, setForData] = useState(null);
   const [viewDetails, setViewDetails] = useState(false);
 
@@ -40,7 +40,11 @@ export const SeeUser = ({ dbUsers }) => {
         <ButtonSubmit type="submit">Ver Información</ButtonSubmit>
       </Form>
       {viewDetails && (
-        <ViewUserInfo user={dbUsers.find((el) => el.email === forData)} />
+        <ViewUserInfo
+          /*email={users.find((el) => el.email === forData).email}*/ user={dbUsers.find(
+            (el) => el.email === forData
+          )}
+        />
       )}
     </UserInfo>
   );

@@ -77,6 +77,14 @@ const Burger = styled.div`
 const Div = styled.div`
   z-index: 2;
   margin: 1vw;
+
+  @media screen and (max-width: 1100px) {
+    top: -5vw !important;
+  }
+
+  @media screen and (max-width: 900px) {
+    top: -8vw !important;
+  }
 `;
 
 const Span = styled.span``;

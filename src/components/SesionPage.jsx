@@ -17,7 +17,7 @@ export const SesionPage = (/* { user, months } */) => {
         </TextContainer>
       </LogoSection>
       <FormData>
-        <SignIn /* user={user} months={months} */ />
+        <SignIn />
         <Hr />
         <SignUp />
       </FormData>
@@ -34,6 +34,7 @@ const Container = styled.div`
   @media screen and (max-width: 480px) {
     display: block;
     height: auto;
+    margin-left: 1vw !important;
   }
 
   @media screen and (max-width: 1380px) {
@@ -45,6 +46,17 @@ const Container = styled.div`
 const FormData = styled.div`
   flex: 1;
   margin: 7vw 30vw auto 1vw;
+
+  @media screen and (max-width: 900px) {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 300px;
+    height: 500px;
+    text-align: center;
+    margin: 20% 4vw;
+    padding: 4vw;
+    height: 45vh;
+  }
 
   @media screen and (max-width: 480px) {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -88,10 +100,16 @@ const LogoImg = styled.img`
   width: 30vw;
   height: calc(var(--width) / 1.5);
   border-radius: 1.5rem;
-  margin-top: 2vw;
+  margin-top: 4vw;
+
+  @media screen and (max-width: 1600px) {
+    width: 35vw;
+    height: calc(var(--width) / 1.5);
+    margin-top: 5vw;
+  }
 
   @media screen and (max-width: 1380px) {
-    width: 25vw;
+    width: 40vw;
     height: calc(var(--width) / 1.5);
   }
 `;
@@ -103,15 +121,15 @@ const LogoSection = styled.div`
   height: 50%;
   padding: 4vw;
   border-radius: 10px;
-  text-align: center;
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 900px) {
     display: none;
   }
 `;
 
 const TextContainer = styled.div`
   width: 20vw;
+  margin-left: 25%;
 `;
 
 const TextContent = styled.p`

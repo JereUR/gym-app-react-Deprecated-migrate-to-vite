@@ -100,7 +100,7 @@ const Logo = styled.img`
   margin-top: 1rem;
 
   @media screen and (max-width: 480px) {
-    margin-left: 55%;
+    margin-left: 35%;
   }
 `;
 

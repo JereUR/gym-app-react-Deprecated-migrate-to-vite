@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { RiErrorWarningLine } from "react-icons/ri";
 import { BsArrowBarUp, BsArrowBarDown } from "react-icons/bs";
@@ -9,11 +9,39 @@ import { UseIntersection } from "../helpers/UseIntersection";
 
 const { primaryRed, primaryBlue, secondaryBlue } = Colors;
 
-export const Routine = ({ user, title, addInfo }) => {
+export const Routine = ({ /*email*/ user, title, addInfo }) => {
   const [viewData, setViewData] = useState(true);
+  const [routine, setRoutine] = useState(null);
+  const [loading, setLoading] = useState(false);
   const day = getDayNow();
 
   const [routineRef, isIntersecting] = UseIntersection({ threshold: 0.5 });
+
+  /*  useEffect(() => {
+    //Get routine
+    async function getRoutine(email) {
+      return await FetchGetData("/",email);
+    }
+    setLoading(true);
+    const res = getRoutine(email);
+    if (!(res instanceof Error)) {
+      setRoutine(res);
+      setLoading(false);
+    } else {
+      toast.error(
+        { res },
+        {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        }
+      );
+    }
+  }, [email]); */
 
   const handleView = () => {
     setViewData(!viewData);
@@ -41,6 +69,11 @@ export const Routine = ({ user, title, addInfo }) => {
           </LogoContainer>
         )}
       </TitleContainer>
+      {loading && (
+        <NoRoutine>
+          <i>Cargando rutina....</i>
+        </NoRoutine>
+      )}
       {viewData &&
         (user.routine ? (
           <RoutineData
@@ -64,7 +97,7 @@ export const Routine = ({ user, title, addInfo }) => {
                         <Mount>
                           {el.series} x{el.count} {el.measure}
                         </Mount>
-                        <ExercisePhoto src={el.photo} />
+                        {<ExercisePhoto src={el.photo} />}
                       </MountAndPhotoContainer>
                       <ExerciseContainer></ExerciseContainer>
                       <Exercise>
