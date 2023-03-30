@@ -100,7 +100,7 @@ const LogoImg = styled.img`
   width: 30vw;
   height: calc(var(--width) / 1.5);
   border-radius: 1.5rem;
-  margin-top: 2.5vw;
+  margin-top: 4vw;
 
   @media screen and (max-width: 1600px) {
     width: 35vw;

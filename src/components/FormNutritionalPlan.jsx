@@ -526,7 +526,7 @@ export const FormNutritionalPlan = ({ /*users*/ dbLocal, dbUsers }) => {
       ];
 
       if (p[0].breakfast.length > 0) {
-        p[0].forEach((el) => {
+        p[0].breakfast.forEach((el) => {
           const m = {
             measure: el.measure,
             count: el.count,
