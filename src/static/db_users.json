@@ -37,7 +37,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba pimba pimba pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseBiceps/CurlZottmanConGiroCompleto.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy.Lorem Ipsum is simply dummy.Lorem Ipsum is simply dummy."
@@ -46,7 +47,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -55,7 +57,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -64,7 +67,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -73,7 +77,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": null,
           "description": null
@@ -82,7 +87,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": null,
           "description": "Lorem Ipsum is simply dummy."
@@ -93,7 +99,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -102,7 +109,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -111,7 +119,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -120,7 +129,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -129,7 +139,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": null,
           "description": null
@@ -138,7 +149,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": null,
           "description": "Lorem Ipsum is simply dummy."
@@ -149,7 +161,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -158,7 +171,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -167,7 +181,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -176,7 +191,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -185,7 +201,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": null,
           "description": null
@@ -194,7 +211,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": null,
           "description": "Lorem Ipsum is simply dummy."
@@ -205,7 +223,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -214,7 +233,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -223,7 +243,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -232,7 +253,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -241,7 +263,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": null,
           "description": null
@@ -250,7 +273,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": null,
           "description": "Lorem Ipsum is simply dummy."
@@ -261,7 +285,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -270,7 +295,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -279,7 +305,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -288,7 +315,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -297,7 +325,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": null,
           "description": null
@@ -306,7 +335,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": null,
           "description": "Lorem Ipsum is simply dummy."
@@ -317,7 +347,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -326,7 +357,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -335,7 +367,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -344,7 +377,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": 30,
           "description": "Lorem Ipsum is simply dummy."
@@ -353,7 +387,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": null,
           "description": null
@@ -362,7 +397,8 @@
           "series": 3,
           "count": 15,
           "measure": "Repeticiones",
-          "exercise": "pimba pimba",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": null,
           "description": "Lorem Ipsum is simply dummy."

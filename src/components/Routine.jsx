@@ -9,7 +9,7 @@ import { UseIntersection } from "../helpers/UseIntersection";
 
 const { primaryRed, primaryBlue, secondaryBlue } = Colors;
 
-export const Routine = ({ user, title, addInfo }) => {
+export const Routine = ({ user, title, addInfo, exercises }) => {
   const [viewData, setViewData] = useState(true);
   const day = getDayNow();
 
@@ -64,7 +64,7 @@ export const Routine = ({ user, title, addInfo }) => {
                         <Mount>
                           {el.series} x{el.count} {el.measure}
                         </Mount>
-                        <ExercisePhoto src={el.photo} />
+                        {<ExercisePhoto src={el.photo} />}
                       </MountAndPhotoContainer>
                       <ExerciseContainer></ExerciseContainer>
                       <Exercise>

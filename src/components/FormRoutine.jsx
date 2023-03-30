@@ -182,7 +182,8 @@ const FormRoutine = ({ dbLocal, dbUsers }) => {
         series,
         measure,
         count,
-        typeExercise,
+        name: typeExercise,
+        body_zone: zone,
         photo,
         rest,
         description,
@@ -232,11 +233,11 @@ const FormRoutine = ({ dbLocal, dbUsers }) => {
 
     if (Object.keys(err).length === 0 && errorFor === null) {
       const routineDay = {
-        forData,
-        dayData,
-        exercises,
+        user_email: forData,
+        day_week: dayData,
+        exerxises_attributes: exercises,
       };
-      /* console.log(routineDay); */
+      console.log({ routineDay });
 
       /* const res = await FetchPostData({
         path: "/",

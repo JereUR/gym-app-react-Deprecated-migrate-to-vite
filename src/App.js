@@ -63,7 +63,13 @@ function App({ user, dbUsers }) {
             <Route
               exact
               path="/"
-              element={<Home user={user} months={dbLocal.months} />}
+              element={
+                <Home
+                  user={user}
+                  months={dbLocal.months}
+                  exercises={dbLocal.exercises}
+                />
+              }
             />
             <Route
               exact

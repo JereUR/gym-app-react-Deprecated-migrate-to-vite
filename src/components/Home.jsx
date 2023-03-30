@@ -9,7 +9,7 @@ import { Colors } from "../constants/Colors";
 
 const { secondaryBlue, secondaryRed } = Colors;
 
-export const Home = ({ user, months }) => {
+export const Home = ({ user, months, exercises }) => {
   const [debtor, setDebtor] = useState(false);
   const [addInfo, setAddInfo] = useState(false);
   const [scrollTop, setScrollTop] = useState(0);
@@ -90,7 +90,12 @@ export const Home = ({ user, months }) => {
         </ReportPaymentContainer>
       )}
       <RutineContainer>
-        <Routine user={user} title="Mis Rutinas" addInfo={addInfo} />
+        <Routine
+          user={user}
+          title="Mis Rutinas"
+          addInfo={addInfo}
+          exercises={exercises}
+        />
       </RutineContainer>
       <Hr />
       <NutritionalPlanContainer>
