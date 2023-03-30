@@ -133,8 +133,11 @@ export const FormBill = ({ dbLocal, dbUsers }) => {
     setViewPdf(false);
   };
 
-  const onValidate = () => {
+  const onValidate = /*async*/ () => {
     const errorsForm = {};
+
+    /* const payments = await FetchGetData("/", forData);*/
+
     const user = dbUsers.find((u) => u.email === forData);
 
     if (getYearNow() === year) {
@@ -186,8 +189,27 @@ export const FormBill = ({ dbLocal, dbUsers }) => {
     return errorsForm;
   };
 
-  const handleFor = (e) => {
+  const handleFor = /*async*/ (e) => {
     setForData(e.target.value);
+
+    /* const user = await FetchGetData("/", e.target.value);
+    if (!(user instanceof Error)) {
+      setName(user.username);
+      setSurname(user.surname);
+    } else {
+      toast.error(
+        { res },
+        {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        }
+      );
+    } */
 
     const user = dbUsers.find((u) => u.email === e.target.value);
 

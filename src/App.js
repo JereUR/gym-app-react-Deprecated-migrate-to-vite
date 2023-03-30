@@ -20,9 +20,10 @@ import { useEffect, useState } from "react";
 import { FetchGetData } from "./helpers/FetchGetData";
 import { toast, Toaster } from "react-hot-toast";
 
-function App({ user, dbUsers }) {
+function App({ user, dbUsers /* login, username, email,admin */ }) {
   /* const [user, setUser] = useState(null); */
   const pathUser = `/usuario/${user.username}`;
+  /* const pathUser = `/usuario/${username}`; */
 
   /*  useEffect(() => {
     async function getUser() {
@@ -50,16 +51,14 @@ function App({ user, dbUsers }) {
   return (
     <Container>
       <Router>
-        {user.login && <Header user={user} />}
+        {user.login && (
+          <Header
+            user={user} /*username={username} login={login} admin={admin}*/
+          />
+        )}
         <Routes>
-          {!user.login && (
-            <Route
-              exact
-              path="/"
-              element={<SesionPage /* user={user} months={dbLocal.months} */ />}
-            />
-          )}
-          <Route element={<LoginRoute user={user} />}>
+          {!user.login && <Route exact path="/" element={<SesionPage />} />}
+          <Route element={<LoginRoute user={user} /* email={email} */ />}>
             <Route
               exact
               path="/"
@@ -68,18 +67,21 @@ function App({ user, dbUsers }) {
                   user={user}
                   months={dbLocal.months}
                   exercises={dbLocal.exercises}
+                  /*email={email} */
                 />
               }
             />
             <Route
               exact
               path="/mis-pagos"
-              element={<Bill user={user} months={dbLocal.months} />}
+              element={
+                <Bill /*email={email}*/ user={user} months={dbLocal.months} />
+              }
             />
             <Route
               exact
               path={pathUser}
-              element={<UserProfile user={user} />}
+              element={<UserProfile /*email={email}*/ user={user} />}
             />
             <Route
               exact
@@ -87,7 +89,14 @@ function App({ user, dbUsers }) {
               element={<ChangePassword username={user.username} />}
             />
           </Route>
-          <Route element={<AdminRoute user={user} months={dbLocal.months} />}>
+          <Route
+            element={
+              <AdminRoute
+                /*admin={admin} login={login} email={email}*/ user={user}
+                months={dbLocal.months}
+              />
+            }
+          >
             <Route
               exact
               path="/admin"
@@ -95,11 +104,20 @@ function App({ user, dbUsers }) {
             />
           </Route>
           <Route
-            element={<RecoverAccount user={user} months={dbLocal.months} />}
+            element={
+              <RecoverAccount
+                /*email={email}*/ user={user}
+                months={dbLocal.months}
+              />
+            }
           >
             <Route exact path="/reset" element={<ResetPassword />} />
           </Route>
-          <Route exact path="*" element={<Error404 user={user} />} />
+          <Route
+            exact
+            path="*"
+            element={<Error404 /*login={login} admin={admin}*/ user={user} />}
+          />
         </Routes>
       </Router>
       {user.login && <Footer />}

@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 import { Colors } from "../constants/Colors";
@@ -6,7 +7,33 @@ import { BillItem } from "./BillItem";
 
 const { primaryRed, primaryBlue, secondaryBlue, secondaryRed } = Colors;
 
-export const Bill = ({ user, months }) => {
+export const Bill = ({ /*email*/ user, months }) => {
+  const [payment, setPayment] = useState(null);
+
+  /*  useEffect(() => {
+    //Get payment
+    async function getPayment(email) {
+      return await FetchGetData("/");
+    }
+    const res = getPayment(email);
+    if (!(res instanceof Error)) {
+      setPayment(res);
+    } else {
+      toast.error(
+        { res },
+        {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        }
+      );
+    }
+  }, [email]); */
+
   return (
     <BillContainer>
       <NextPaymentContainer>

@@ -9,7 +9,8 @@ import { Colors } from "../constants/Colors";
 
 const { secondaryBlue, secondaryRed } = Colors;
 
-export const Home = ({ user, months, exercises }) => {
+export const Home = ({ /*email*/ user, months, exercises }) => {
+  const [nextPayment, setNextPayment] = useState(null);
   const [debtor, setDebtor] = useState(false);
   const [addInfo, setAddInfo] = useState(false);
   const [scrollTop, setScrollTop] = useState(0);
@@ -29,6 +30,30 @@ export const Home = ({ user, months, exercises }) => {
       }
     }
   };
+
+  /*  useEffect(() => {
+    //Get proximo pago
+    async function getNextPayment(email) {
+      return await FetchGetData("/",email);
+    }
+    const res = getNextPayment(email);
+    if (!(res instanceof Error)) {
+      setNextPayment(res);
+    } else {
+      toast.error(
+        { res },
+        {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        }
+      );
+    }
+  }, [email]); */
 
   useEffect(() => {
     const onScroll = (event) => {
@@ -91,15 +116,16 @@ export const Home = ({ user, months, exercises }) => {
       )}
       <RutineContainer>
         <Routine
+          /*email={email} */
           user={user}
           title="Mis Rutinas"
           addInfo={addInfo}
-          exercises={exercises}
         />
       </RutineContainer>
       <Hr />
       <NutritionalPlanContainer>
         <NutritionalPlan
+          /*email={email} */
           user={user}
           title="Mi Plan Nutricional"
           addInfo={addInfo}

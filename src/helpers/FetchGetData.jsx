@@ -1,4 +1,4 @@
-export const FetchGetData = async ({ path, data }) => {
+export const FetchGetData = async ({ path, data = "" }) => {
   try {
     const resp = await fetch(`/${path}`, {
       method: "GET",

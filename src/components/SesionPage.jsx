@@ -17,7 +17,7 @@ export const SesionPage = (/* { user, months } */) => {
         </TextContainer>
       </LogoSection>
       <FormData>
-        <SignIn /* user={user} months={months} */ />
+        <SignIn />
         <Hr />
         <SignUp />
       </FormData>

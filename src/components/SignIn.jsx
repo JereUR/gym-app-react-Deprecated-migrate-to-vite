@@ -8,12 +8,11 @@ import Modal from "./Modal";
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 import { FetchPostData } from "../helpers/FetchPostData";
-/* import { Home } from "./Home"; */
 
 const { primaryBlue, primaryRed, secondaryBlue, secondaryRed, colorText } =
   Colors;
 
-export const SignIn = (/* { user, months } */) => {
+export const SignIn = () => {
   const [forgotPassword, setForgotPassword] = useState(false);
   const [emailSignIn, setEmailSignIn] = useState("");
   const [passwordSignIn, setPasswordSignIn] = useState("");
@@ -24,7 +23,6 @@ export const SignIn = (/* { user, months } */) => {
     email: "",
     password: "",
   });
-  /* const [isLoggedIn, setIsLoggedIn] = useState(false); */
 
   useEffect(() => {
     const storedCredentials = JSON.parse(
@@ -133,9 +131,6 @@ export const SignIn = (/* { user, months } */) => {
     } */
   };
 
-  /* if (isLoggedIn) {
-    return <Home user={user} months={months} />;
-  } else { */
   return (
     <FormContainer>
       <LogoForm src={logo} />
@@ -193,7 +188,6 @@ export const SignIn = (/* { user, months } */) => {
       <Toaster />
     </FormContainer>
   );
-  /* } */
 };
 
 const ButtonRecover = styled.button`

@@ -11,6 +11,7 @@ import Modal from "./Modal";
 import { UploadAnimation } from "./UploadAnimation";
 import { UserInfo } from "./UserInfo";
 import { FetchPostData } from "../helpers/FetchPostData";
+import { FetchGetData } from "../helpers/FetchGetData";
 
 const {
   primaryBlue,
@@ -23,12 +24,37 @@ const {
 } = Colors;
 
 export const UserProfile = ({ user }) => {
+  /* const [user, setUser] = useState(null); */
   const [userPhoto, setUserPhoto] = useState(null);
   const [errorInput, setErrorInput] = useState(null);
   const [changePhoto, setChangePhoto] = useState(false);
   const [preview, setPreview] = useState("");
 
   const formData = new FormData();
+
+  /* useEffect(() => {
+    //Get user info menos routine, plan y payments
+    async function getUser(email) {
+      return await FetchGetData("/",email);
+    }
+    const res = getUser(email);
+    if (!(res instanceof Error)) {
+      setUser(res);
+    } else {
+      toast.error(
+        { res },
+        {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        }
+      );
+    }
+  }, [email]); */
 
   useEffect(() => {
     if (!changePhoto) {
@@ -65,16 +91,6 @@ export const UserProfile = ({ user }) => {
     });
 
     if (!(res instanceof Error)) {
-      toast.success(`Reporte enviado.`, {
-        position: "top-right",
-        duration: 6000,
-        style: {
-          background: "rgba(215, 250, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
-      });
-
       setTimeout(() => {
         window.location.replace("/");
       }, 1000);

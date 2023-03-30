@@ -8,6 +8,8 @@ import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 import { ExerciseComponent } from "./ExerciseComponent";
 import { FetchPostData } from "../helpers/FetchPostData";
+import { useEffect } from "react";
+import { FetchGetData } from "../helpers/FetchGetData";
 
 const {
   errorInput,
@@ -18,7 +20,7 @@ const {
   success,
 } = Colors;
 
-const FormRoutine = ({ dbLocal, dbUsers }) => {
+const FormRoutine = ({ /*users*/ dbLocal, dbUsers }) => {
   const [forData, setForData] = useState(null);
   const [errorFor, setErrorFor] = useState(null);
   const [dayData, setDayData] = useState(null);
@@ -111,8 +113,32 @@ const FormRoutine = ({ dbLocal, dbUsers }) => {
     return errorsForm;
   };
 
-  const handleFor = (e) => {
+  const handleFor = /* async */ (e) => {
     setForData(e.target.value);
+
+    /* const user = await FetchGetData("/", e.target.value);
+    if (!(user instanceof Error)) {
+      if (user.weight === null || user.height === null) {
+        setErrorFor(
+          `${e.target.value} no ha completado su información adicional. No es posible agregar una rutina al mismo.`
+        );
+      } else {
+        setErrorFor(null);
+      }
+    } else {
+      toast.error(
+        { res },
+        {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        }
+      );
+    } */
 
     const user = dbUsers.find((u) => u.email === e.target.value);
 
@@ -272,6 +298,55 @@ const FormRoutine = ({ dbLocal, dbUsers }) => {
       } */
     }
   };
+
+  useEffect(() => {
+    if (forData !== null && dayData !== null) {
+      let ex = [];
+
+      /* async function getRoutine({ email, day }) {
+        const data = { email, day };
+        return await FetchGetData("/", data);
+      }
+      const r = getRoutine(forData, dayData);
+      if (!(r instanceof Error)) {
+         r.forEach((el) => {
+           const e = {
+             series: el.series,
+             measure: el.measure,
+             count: el.count,
+             typeExercise: el.exercise,
+             zone: el.zone,
+             photo: el.photo,
+             rest: el.rest,
+             description: el.description,
+             id: "exercise_" + Math.floor(Math.random() * 10000),
+           };
+           ex.push(e);
+         });
+
+         setExercises(ex);
+      } */
+
+      const r = dbUsers.find((u) => u.email === forData).routine[dayData];
+
+      r.forEach((el) => {
+        const e = {
+          series: el.series,
+          measure: el.measure,
+          count: el.count,
+          typeExercise: el.exercise,
+          zone: el.zone,
+          photo: el.photo,
+          rest: el.rest,
+          description: el.description,
+          id: "exercise_" + Math.floor(Math.random() * 10000),
+        };
+        ex.push(e);
+      });
+
+      setExercises(ex);
+    }
+  }, [forData, dayData]);
 
   return (
     <Form onSubmit={handleSubmitRoutine}>

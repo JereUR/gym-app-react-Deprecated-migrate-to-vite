@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { RiErrorWarningLine } from "react-icons/ri";
 import { BsArrowBarUp, BsArrowBarDown } from "react-icons/bs";
@@ -9,11 +9,39 @@ import { UseIntersection } from "../helpers/UseIntersection";
 
 const { primaryBlue, secondaryBlue, primaryRed } = Colors;
 
-export const NutritionalPlan = ({ user, title, addInfo }) => {
+export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
   const [viewData, setViewData] = useState(true);
+  const [plan, setPlan] = useState(null);
+  const [loading, setLoading] = useState(false);
   const day = getDayNow();
 
   const [planRef, isIntersecting] = UseIntersection({ threshold: 0.5 });
+
+  /*  useEffect(() => {
+    //Get plan
+    async function getPlan(email) {
+      return await FetchGetData("/",email);
+    }
+    setLoading(true);
+    const res = getPlan(email);
+    if (!(res instanceof Error)) {
+      setPlan(res);
+      setLoading(false);
+    } else {
+      toast.error(
+        { res },
+        {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        }
+      );
+    }
+  }, [email]); */
 
   const handleView = () => {
     setViewData(!viewData);
@@ -41,6 +69,11 @@ export const NutritionalPlan = ({ user, title, addInfo }) => {
           </LogoContainer>
         )}
       </TitleContainer>
+      {loading && (
+        <NoPlan>
+          <i>Cargando plan nutricional....</i>
+        </NoPlan>
+      )}
       {viewData &&
         (user.nutricionalPlan ? (
           <PlanData

@@ -9,7 +9,7 @@ import { useAuth } from "./LoginRoute";
 
 const { primaryBlue, secondaryBlue, colorText } = Colors;
 
-export const Error404 = ({ user }) => {
+export const Error404 = ({ /*login, admin*/ user }) => {
   const isLogin = useAuth(user);
   const isAdmin = useAuthAdmin(user);
 
