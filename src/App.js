@@ -19,49 +19,58 @@ import dbLocal from "./static/db_local.json";
 import { useEffect, useState } from "react";
 import { FetchGetData } from "./helpers/FetchGetData";
 import { toast, Toaster } from "react-hot-toast";
+import { useRef } from "react";
 
 function App() {
   const [user, setUser] = useState(null);
-  const [email, setEmail] = useState(null)
-  const [login, setLogin] = useState(false)
-  const [username, setUsername] = useState(null)
-  const [surname, setSurname] = useState(null)
-  const [admin, setAdmin] = useState(false)
-  let res;
+  const [email, setEmail] = useState(null);
+  const [login, setLogin] = useState(false);
+  const [username, setUsername] = useState(null);
+  const [surname, setSurname] = useState(null);
+  const [admin, setAdmin] = useState(false);
+  const res = useRef();
   /* const pathUser = `/usuario/${user.username}`; */
   /* const pathUser = `/usuario/${user.username}`; */
 
-   useEffect(() => {
-    try{
-      res = FetchGetData("http://localhost:3001/api/v1/users/currentuser");
-    }catch(e){
-      console.log(e)
-    }
-    
-    if (!(res instanceof Error)){
-      res=res
-      .then(response => response.json())
-      .then(data => {
-        setUser(data)
-      })
-    }
-    else{
-      toast.error(
-        res.message,
-        {
-          position: "top-right",
-          duration: 6000,
-          style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        }
-      );
+  useEffect(() => {
+    res.current = FetchGetData(
+      "http://localhost:3001/api/v1/users/currentuser"
+    );
+
+    if (!(res instanceof Error)) {
+      res.current = res
+        .then((response) => response.json())
+        .then((data) => {
+          setUser(data);
+        });
+    } else {
+      toast.error(res.message, {
+        position: "top-right",
+        duration: 6000,
+        style: {
+          background: "rgba(250, 215, 215)",
+          fontSize: "1rem",
+          fontWeight: "500",
+        },
+      });
     }
   }, []);
 
-  console.log(user)
+  useEffect(() => {
+    if (user !== null) {
+      setEmail(user.email);
+      setUsername(user.username);
+      setSurname(user.surname);
+      setAdmin(user.admin);
+      setLogin(true);
+    } else {
+      setEmail(null);
+      setUsername(null);
+      setSurname(null);
+      setAdmin(false);
+      setLogin(false);
+    }
+  }, [user]);
 
   return (
     <Container>
@@ -95,7 +104,9 @@ function App() {
             />
             <Route
               exact
-              path={user===null?`/usuario/null`:`/usuario/${user.username}`}
+              path={
+                user === null ? `/usuario/null` : `/usuario/${user.username}`
+              }
               element={<UserProfile email={email} />}
             />
             <Route
