@@ -115,7 +115,7 @@ export const FormClearRoutine = ({ /*users={users}*/ dbLocal, dbUsers }) => {
 
     const data = { user_email: forData, day: dayData };
 
-    console.log({ data });
+    /* console.log({ data }); */
 
     /* const res = await FetchPostData({
         path: "/",
