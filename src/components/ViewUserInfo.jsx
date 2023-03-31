@@ -4,26 +4,19 @@ import styled from "styled-components";
 import { NutritionalPlan } from "./NutritionalPlan";
 import { Routine } from "./Routine";
 import { UserViewInfo } from "./UserViewInfo";
+import { useState } from "react";
 
-export const ViewUserInfo = ({ /*email*/ user }) => {
+export const ViewUserInfo = ({ email }) => {
   return (
     <InfoUser>
       <InfoContainer>
-        <UserViewInfo /*email*/ user={user} />
+        <UserViewInfo email={email} />
       </InfoContainer>
       <RutineContainer>
-        <Routine
-          /*email*/
-          user={user}
-          title={`Rutina de ${user.username} ${user.surname}`}
-        />
+        <Routine email={email} title={`Rutina:`} />
       </RutineContainer>
       <NutritionalPlanContainer>
-        <NutritionalPlan
-          /*email*/
-          user={user}
-          title={`Plan Nutricional de ${user.username} ${user.surname}`}
-        />
+        <NutritionalPlan email={email} title={`Plan Nutricional:`} />
       </NutritionalPlanContainer>
     </InfoUser>
   );

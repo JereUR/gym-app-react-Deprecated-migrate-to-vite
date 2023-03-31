@@ -246,7 +246,7 @@ export const UserInfo = ({ user }) => {
         setChangeInfo(!changeInfo);
       } else {
         toast.error(
-          { res },
+          res.message,
           {
             position: "top-right",
             duration: 6000,

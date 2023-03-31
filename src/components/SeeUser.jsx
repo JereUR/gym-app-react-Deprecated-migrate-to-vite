@@ -7,7 +7,7 @@ import { ViewUserInfo } from "./ViewUserInfo";
 
 const { primaryRed, primaryBlue } = Colors;
 
-export const SeeUser = ({ /*users*/ dbUsers }) => {
+export const SeeUser = ({ users }) => {
   const [forData, setForData] = useState(null);
   const [viewDetails, setViewDetails] = useState(false);
 
@@ -29,7 +29,7 @@ export const SeeUser = ({ /*users*/ dbUsers }) => {
             <Label>Ver datos de:</Label>
             <Select onChange={handleFor} id="for-data">
               <Option value="null">Seleccione un usuario</Option>
-              {dbUsers.map((el, index) => (
+              {users.map((el, index) => (
                 <Option key={index} value={el.email}>
                   {el.username} {el.surname} - {el.email}
                 </Option>
@@ -40,11 +40,7 @@ export const SeeUser = ({ /*users*/ dbUsers }) => {
         <ButtonSubmit type="submit">Ver Información</ButtonSubmit>
       </Form>
       {viewDetails && (
-        <ViewUserInfo
-          /*email={users.find((el) => el.email === forData).email}*/ user={dbUsers.find(
-            (el) => el.email === forData
-          )}
-        />
+        <ViewUserInfo email={users.find((el) => el.email === forData).email} />
       )}
     </UserInfo>
   );

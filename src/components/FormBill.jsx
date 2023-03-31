@@ -17,11 +17,12 @@ import seal from "../assets/payment-seal.png";
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 import { FetchPostData } from "../helpers/FetchPostData";
+import { FetchGetData } from "../helpers/FetchGetData";
 
 const { errorInput, primaryRed, primaryBlue, secondaryRed, secondaryBlue } =
   Colors;
 
-export const FormBill = ({ dbLocal, dbUsers }) => {
+export const FormBill = ({ users, dbLocal }) => {
   const [forData, setForData] = useState(null);
   const [day, setDay] = useState(null);
   const [month, setMonth] = useState(null);
@@ -133,12 +134,10 @@ export const FormBill = ({ dbLocal, dbUsers }) => {
     setViewPdf(false);
   };
 
-  const onValidate = /*async*/ () => {
+  const onValidate = async () => {
     const errorsForm = {};
 
-    /* const payments = await FetchGetData("/", forData);*/
-
-    const user = dbUsers.find((u) => u.email === forData);
+    const payment = await FetchGetData("/", forData);
 
     if (getYearNow() === year) {
       if (getMonthNow() < getMonth(month)) {
@@ -151,10 +150,12 @@ export const FormBill = ({ dbLocal, dbUsers }) => {
       }
     }
     if (forData !== null) {
-      if (
-        user.payment.payments.some((p) => p.month === month && p.year === year)
-      ) {
-        errorsForm.form = `Ya se ha agregado un pago para el mes ${month} del año ${year} a ${forData}`;
+      if (!(payment instanceof Error)) {
+        if (
+          payment.payments.some((p) => p.month === month && p.year === year)
+        ) {
+          errorsForm.form = `Ya se ha agregado un pago para el mes ${month} del año ${year} a ${forData}`;
+        }
       }
     }
 
@@ -189,32 +190,24 @@ export const FormBill = ({ dbLocal, dbUsers }) => {
     return errorsForm;
   };
 
-  const handleFor = /*async*/ (e) => {
+  const handleFor = async (e) => {
     setForData(e.target.value);
 
-    /* const user = await FetchGetData("/", e.target.value);
+    const user = await FetchGetData("/", e.target.value);
     if (!(user instanceof Error)) {
       setName(user.username);
       setSurname(user.surname);
     } else {
-      toast.error(
-        { res },
-        {
-          position: "top-right",
-          duration: 6000,
-          style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        }
-      );
-    } */
-
-    const user = dbUsers.find((u) => u.email === e.target.value);
-
-    setName(user.username);
-    setSurname(user.surname);
+      toast.error(user.message, {
+        position: "top-right",
+        duration: 6000,
+        style: {
+          background: "rgba(250, 215, 215)",
+          fontSize: "1rem",
+          fontWeight: "500",
+        },
+      });
+    }
   };
 
   const handleChangeFor = () => {
@@ -307,19 +300,16 @@ export const FormBill = ({ dbLocal, dbUsers }) => {
 
         clearForm();
       } else {
-        toast.error(
-          { res },
-          {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          }
-        );
-      } 
+        toast.error(res.message, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
+      }
     }
   };
 
@@ -331,7 +321,7 @@ export const FormBill = ({ dbLocal, dbUsers }) => {
             <Label>Para:</Label>
             <SelectFirst onChange={handleFor} id="for-data">
               <Option value="null">Seleccione un usuario</Option>
-              {dbUsers.map((el, index) => (
+              {users.map((el, index) => (
                 <Option key={index} value={el.email}>
                   {el.username} {el.surname} - {el.email}
                 </Option>

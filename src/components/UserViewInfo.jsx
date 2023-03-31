@@ -10,10 +10,10 @@ import { FetchGetData } from "../helpers/FetchGetData";
 
 const { primaryRed, secondaryBlue, secondaryRed, backgroundText } = Colors;
 
-export const UserViewInfo = ({ /*email*/ user }) => {
-  /* const [user, setUser] = useState(null); */
+export const UserViewInfo = ({ email }) => {
+  const [user, setUser] = useState(null);
 
-  /* useEffect(() => {
+  useEffect(() => {
     async function getUser(email) {
       return await FetchGetData("/", email);
     }
@@ -21,20 +21,17 @@ export const UserViewInfo = ({ /*email*/ user }) => {
     if (!(res instanceof Error)) {
       setUser(res);
     } else {
-      toast.error(
-        { res },
-        {
-          position: "top-right",
-          duration: 6000,
-          style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        }
-      );
+      toast.error(res.message, {
+        position: "top-right",
+        duration: 6000,
+        style: {
+          background: "rgba(250, 215, 215)",
+          fontSize: "1rem",
+          fontWeight: "500",
+        },
+      });
     }
-  }, [email]); */
+  }, [email]);
 
   const getYears = () => {
     var actDate = new Date();

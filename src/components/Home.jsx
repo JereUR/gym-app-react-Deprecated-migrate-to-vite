@@ -11,7 +11,7 @@ import { toast, Toaster } from "react-hot-toast";
 
 const { secondaryBlue, secondaryRed } = Colors;
 
-export const Home = ({ /* user,  */ months, exercises, email }) => {
+export const Home = ({ /* user,  */ months, email }) => {
   const [nextPayment, setNextPayment] = useState(null);
   const [weight, setWeight] = useState(null);
   const [height, setHeight] = useState(null);

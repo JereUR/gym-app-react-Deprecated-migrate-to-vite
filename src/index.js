@@ -8,7 +8,7 @@ import reportWebVitals from "./reportWebVitals";
 import { FetchGetData } from "./helpers/FetchGetData";
 
 /* let user = dbUsers[0]; */
-let username, email, admin, login;
+let username, surname, email, admin, login;
 
 const currentUser = FetchGetData("http://localhost:3001/api/v1/currentuser");
 
@@ -16,6 +16,7 @@ if (currentUser !== null) {
   username = currentUser.username;
   email = currentUser.email;
   admin = currentUser.admin;
+  surname = currentUser.surname;
   login = true;
 } else {
   username = "";
@@ -32,6 +33,7 @@ root.render(
       dbUsers
     } */ login={login}
     username={username}
+    surname={surname}
     email={email}
     admin={admin}
   />

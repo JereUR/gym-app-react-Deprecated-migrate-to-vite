@@ -4,25 +4,20 @@ import styled from "styled-components";
 import oops from "../assets/oops.png";
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
-import { useAuthAdmin } from "./AdminRoute";
-import { useAuth } from "./LoginRoute";
 
 const { primaryBlue, secondaryBlue, colorText } = Colors;
 
-export const Error404 = ({ /*login, admin*/ user }) => {
-  const isLogin = useAuth(user);
-  const isAdmin = useAuthAdmin(user);
-
+export const Error404 = ({ login, admin }) => {
   const handleGoHome = () => {
-    if (!isLogin) {
+    if (!login) {
       window.location.replace("/");
     }
 
-    if (isLogin && !isAdmin) {
+    if (login && !admin) {
       window.location.replace("/");
     }
 
-    if (isLogin && isAdmin) {
+    if (login && admin) {
       window.location.replace("/admin");
     }
   };

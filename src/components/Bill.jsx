@@ -4,13 +4,15 @@ import styled from "styled-components";
 
 import { Colors } from "../constants/Colors";
 import { BillItem } from "./BillItem";
+import { FetchGetData } from "../helpers/FetchGetData";
+import { Toaster, toast } from "react-hot-toast";
 
 const { primaryRed, primaryBlue, secondaryBlue, secondaryRed } = Colors;
 
-export const Bill = ({ /*email*/ user, months }) => {
+export const Bill = ({ email, username, surname, months }) => {
   const [payment, setPayment] = useState(null);
 
-  /*  useEffect(() => {
+  useEffect(() => {
     //Get payment
     async function getPayment(email) {
       return await FetchGetData("/");
@@ -32,21 +34,17 @@ export const Bill = ({ /*email*/ user, months }) => {
         }
       );
     }
-  }, [email]); */
+  }, [email]);
 
   return (
     <BillContainer>
       <NextPaymentContainer>
         <NoticeTitleNext>Próximo Pago:</NoticeTitleNext>
-        {user.payment.nextPayment ? (
+        {payment.nextPayment ? (
           <Notice>
-            El próximo pago deberá realizarse el día{" "}
-            {user.payment.nextPayment.day} de{" "}
-            {
-              months.find((m) => m.value === user.payment.nextPayment.month)
-                .month
-            }{" "}
-            del año {user.payment.nextPayment.year}.
+            El próximo pago deberá realizarse el día {payment.nextPayment.day}{" "}
+            de {months.find((m) => m.value === payment.nextPayment.month).month}{" "}
+            del año {payment.nextPayment.year}.
           </Notice>
         ) : (
           <NoData>Sin información.</NoData>
@@ -54,20 +52,21 @@ export const Bill = ({ /*email*/ user, months }) => {
       </NextPaymentContainer>
       <PaymentsContainer>
         <NoticeTitlePayment>Pagos realizados:</NoticeTitlePayment>
-        {user.payment.payments ? (
-          user.payment.payments.map((el, index) => (
+        {payment.payments ? (
+          payment.payments.map((el, index) => (
             <BillItem
               key={index}
               bill={el}
-              username={user.username}
-              surname={user.surname}
-              email={user.email}
+              username={username}
+              surname={surname}
+              email={email}
             />
           ))
         ) : (
           <NoData>Sin pagos disponibles.</NoData>
         )}
       </PaymentsContainer>
+      <Toaster />
     </BillContainer>
   );
 };

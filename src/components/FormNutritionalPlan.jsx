@@ -20,7 +20,7 @@ const {
   success,
 } = Colors;
 
-export const FormNutritionalPlan = ({ /*users*/ dbLocal, dbUsers }) => {
+export const FormNutritionalPlan = ({ users, dbLocal }) => {
   const [forData, setForData] = useState(null);
   const [errorFor, setErrorFor] = useState(null);
   const [dayData, setDayData] = useState(null);
@@ -123,10 +123,10 @@ export const FormNutritionalPlan = ({ /*users*/ dbLocal, dbUsers }) => {
     return errorsForm;
   };
 
-  const handleFor = /*async*/ (e) => {
+  const handleFor = async (e) => {
     setForData(e.target.value);
 
-    /* const user = await FetchGetData("/", e.target.value);
+    const user = await FetchGetData("/", e.target.value);
     if (!(user instanceof Error)) {
       if (user.weight === null || user.height === null) {
         setErrorFor(
@@ -136,28 +136,15 @@ export const FormNutritionalPlan = ({ /*users*/ dbLocal, dbUsers }) => {
         setErrorFor(null);
       }
     } else {
-      toast.error(
-        { res },
-        {
-          position: "top-right",
-          duration: 6000,
-          style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        }
-      );
-    } */
-
-    const user = dbUsers.find((u) => u.email === e.target.value);
-
-    if (user.weight === null || user.height === null) {
-      setErrorFor(
-        `${e.target.value} no ha completado su información adicional. No es posible agregar un plan nutricional al mismo.`
-      );
-    } else {
-      setErrorFor(null);
+      toast.error(user.message, {
+        position: "top-right",
+        duration: 6000,
+        style: {
+          background: "rgba(250, 215, 215)",
+          fontSize: "1rem",
+          fontWeight: "500",
+        },
+      });
     }
   };
 
@@ -368,7 +355,7 @@ export const FormNutritionalPlan = ({ /*users*/ dbLocal, dbUsers }) => {
         clearData();
       } else {
         toast.error(
-          { res },
+          res.message,
           {
             position: "top-right",
             duration: 6000,
@@ -394,7 +381,7 @@ export const FormNutritionalPlan = ({ /*users*/ dbLocal, dbUsers }) => {
       let po = [];
       let co = [];
 
-      /* async function getPlan({ email, day }) {
+      async function getPlan({ email, day }) {
         const data = { email, day };
         return await FetchGetData("/", data);
       }
@@ -519,130 +506,6 @@ export const FormNutritionalPlan = ({ /*users*/ dbLocal, dbUsers }) => {
 
           setCollation(co);
         }
-      } */
-
-      const p = dbUsers.find((u) => u.email === forData).nutricionalPlan[
-        dayData
-      ];
-
-      if (p[0].breakfast.length > 0) {
-        p[0].breakfast.forEach((el) => {
-          const m = {
-            measure: el.measure,
-            count: el.count,
-            type: el.meal,
-            id: "breakfast_" + Math.floor(Math.random() * 10000),
-            series: el.series,
-          };
-          b.push(m);
-        });
-
-        setBreakfast(b);
-      }
-
-      if (p[1].lunch.length > 0) {
-        p[1].lunch.forEach((el) => {
-          const m = {
-            measure: el.measure,
-            count: el.count,
-            type: el.meal,
-            id: "lunch_" + Math.floor(Math.random() * 10000),
-            series: el.series,
-          };
-          l.push(m);
-        });
-
-        setLunch(l);
-      }
-
-      if (p[2].snack.length > 0) {
-        p[2].snack.forEach((el) => {
-          const m = {
-            measure: el.measure,
-            count: el.count,
-            type: el.meal,
-            id: "snack_" + Math.floor(Math.random() * 10000),
-            series: el.series,
-          };
-          s.push(m);
-        });
-
-        setSnack(s);
-      }
-
-      if (p[3].dinner.length > 0) {
-        p[3].dinner.forEach((el) => {
-          const m = {
-            measure: el.measure,
-            count: el.count,
-            type: el.meal,
-            id: "dinner_" + Math.floor(Math.random() * 10000),
-            series: el.series,
-          };
-          d.push(m);
-        });
-
-        setDinner(d);
-      }
-
-      if (p[4].afterDinner.length > 0) {
-        p[4].afterDinner.forEach((el) => {
-          const m = {
-            measure: el.measure,
-            count: el.count,
-            type: el.meal,
-            id: "after-dinner_" + Math.floor(Math.random() * 10000),
-            series: el.series,
-          };
-          ad.push(m);
-        });
-
-        setAfterDinner(ad);
-      }
-
-      if (p[5].preWorkout.length > 0) {
-        p[5].preWorkout.forEach((el) => {
-          const m = {
-            measure: el.measure,
-            count: el.count,
-            type: el.meal,
-            id: "pre-workout_" + Math.floor(Math.random() * 10000),
-            series: el.series,
-          };
-          pr.push(m);
-        });
-
-        setPreWorkout(pr);
-      }
-
-      if (p[6].postWorkout.length > 0) {
-        p[6].postWorkout.forEach((el) => {
-          const m = {
-            measure: el.measure,
-            count: el.count,
-            type: el.meal,
-            id: "post-workout_" + Math.floor(Math.random() * 10000),
-            series: el.series,
-          };
-          po.push(m);
-        });
-
-        setPostWorkout(po);
-      }
-
-      if (p[7].collation.length > 0) {
-        p[7].collation.forEach((el) => {
-          const m = {
-            measure: el.measure,
-            count: el.count,
-            type: el.meal,
-            id: "collation_" + Math.floor(Math.random() * 10000),
-            series: el.series,
-          };
-          co.push(m);
-        });
-
-        setCollation(co);
       }
     }
   }, [forData, dayData]);
@@ -655,7 +518,7 @@ export const FormNutritionalPlan = ({ /*users*/ dbLocal, dbUsers }) => {
             <Label>Para:</Label>
             <SelectFirst onChange={handleFor}>
               <Option value="null">Seleccione un usuario</Option>
-              {dbUsers.map((el, index) => (
+              {users.map((el, index) => (
                 <Option key={index} value={el.email}>
                   {el.username} {el.surname} - {el.email}
                 </Option>

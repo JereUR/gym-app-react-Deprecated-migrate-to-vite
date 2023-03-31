@@ -23,8 +23,8 @@ const {
   errorInput,
 } = Colors;
 
-export const UserProfile = ({ user }) => {
-  /* const [user, setUser] = useState(null); */
+export const UserProfile = ({ email }) => {
+  const [user, setUser] = useState(null);
   const [userPhoto, setUserPhoto] = useState(null);
   const [errorInput, setErrorInput] = useState(null);
   const [changePhoto, setChangePhoto] = useState(false);
@@ -32,10 +32,10 @@ export const UserProfile = ({ user }) => {
 
   const formData = new FormData();
 
-  /* useEffect(() => {
+  useEffect(() => {
     //Get user info menos routine, plan y payments
     async function getUser(email) {
-      return await FetchGetData("/",email);
+      return await FetchGetData("/", email);
     }
     const res = getUser(email);
     if (!(res instanceof Error)) {
@@ -54,7 +54,7 @@ export const UserProfile = ({ user }) => {
         }
       );
     }
-  }, [email]); */
+  }, [email]);
 
   useEffect(() => {
     if (!changePhoto) {
@@ -96,7 +96,7 @@ export const UserProfile = ({ user }) => {
       }, 1000);
     } else {
       toast.error(
-        { res },
+        res.message,
         {
           position: "top-right",
           duration: 6000,
@@ -160,7 +160,7 @@ export const UserProfile = ({ user }) => {
         }, 2000);
       } else {
         toast.error(
-          { res },
+          res.message,
           {
             position: "top-right",
             duration: 6000,

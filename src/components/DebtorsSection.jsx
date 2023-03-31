@@ -7,10 +7,11 @@ import { RiErrorWarningLine } from "react-icons/ri";
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 import { FetchGetData } from "../helpers/FetchGetData";
+import { Toaster, toast } from "react-hot-toast";
 
 const { secondaryBlue, primaryBlue, primaryRed } = Colors;
 
-export const DebtorsSection = ({ users, dbUsers }) => {
+export const DebtorsSection = ({ users }) => {
   const [debtorUsers, setDebtorUsers] = useState([]);
   const [viewDebtors, setViewDebtors] = useState(false);
 
@@ -19,7 +20,7 @@ export const DebtorsSection = ({ users, dbUsers }) => {
       const today = new Date();
       let debtors = [];
 
-      /* users.forEach(async (user) => {
+      users.forEach(async (user) => {
         const nextPayment = await FetchGetData("/", user.email);
 
         if (!(nextPayment instanceof Error)) {
@@ -38,24 +39,16 @@ export const DebtorsSection = ({ users, dbUsers }) => {
 
             debtors.push(newData);
           }
-        }
-      }); */
-
-      dbUsers.forEach((el) => {
-        let userDate = new Date(
-          el.payment.nextPayment.year,
-          el.payment.nextPayment.month,
-          el.payment.nextPayment.day
-        );
-
-        if (userDate < today) {
-          let newData = {
-            username: el.username,
-            surname: el.surname,
-            email: el.email,
-          };
-
-          debtors.push(newData);
+        } else {
+          toast.error(nextPayment.message, {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(250, 215, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          });
         }
       });
       setViewDebtors(true);
@@ -107,7 +100,7 @@ export const DebtorsSection = ({ users, dbUsers }) => {
   };
 
   return (
-    <div>
+    <>
       <ButtonDebtors type="button" onClick={handleDebtors}>
         Ver Deudores{" "}
         {viewDebtors ? (
@@ -134,7 +127,8 @@ export const DebtorsSection = ({ users, dbUsers }) => {
           ))}
         </DebtorsResult>
       )}
-    </div>
+      <Toaster />
+    </>
   );
 };
 

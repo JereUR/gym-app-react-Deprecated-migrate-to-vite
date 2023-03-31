@@ -14,10 +14,10 @@ import { FormClearRoutine } from "./FormClearRoutine";
 
 const { secondaryBlue, backgroundText } = Colors;
 
-export const AdminPage = ({ dbLocal, dbUsers }) => {
+export const AdminPage = ({ dbLocal }) => {
   const [users, setUsers] = useState(null);
 
-  /* useEffect(() => {
+  useEffect(() => {
     //Get users email,username,surname
     async function getUsers() {
       return await FetchGetData("/");
@@ -26,55 +26,46 @@ export const AdminPage = ({ dbLocal, dbUsers }) => {
     if (!(res instanceof Error)) {
       setUsers(res);
     } else {
-      toast.error(
-        { res },
-        {
-          position: "top-right",
-          duration: 6000,
-          style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        }
-      );
+      toast.error(res.message, {
+        position: "top-right",
+        duration: 6000,
+        style: {
+          background: "rgba(250, 215, 215)",
+          fontSize: "1rem",
+          fontWeight: "500",
+        },
+      });
     }
-  }, []); */
+  }, []);
 
   return (
     <AdminContainer>
       <AddRoutineContainer>
         <Title>Agregar rutina</Title>
-        <FormRoutine /*users={users}*/ dbLocal={dbLocal} dbUsers={dbUsers} />
+        <FormRoutine users={users} dbLocal={dbLocal} />
       </AddRoutineContainer>
       <Hr />
       <ClearRoutineContainer>
         <Title>Borrar rutina</Title>
-        <FormClearRoutine
-          /*users={users}*/ dbLocal={dbLocal}
-          dbUsers={dbUsers}
-        />
+        <FormClearRoutine users={users} dbLocal={dbLocal} />
       </ClearRoutineContainer>
       <Hr />
       <AddNutritionalPlan>
         <Title>Agregar plan nutricional</Title>
-        <FormNutritionalPlan
-          /*users={users}*/ dbLocal={dbLocal}
-          dbUsers={dbUsers}
-        />
+        <FormNutritionalPlan users={users} dbLocal={dbLocal} />
       </AddNutritionalPlan>
       <Hr />
       <BillSection>
         <Title>Agregar pago</Title>
-        <FormBill /*users={users}*/ dbLocal={dbLocal} dbUsers={dbUsers} />
+        <FormBill users={users} dbLocal={dbLocal} />
       </BillSection>
       <SeeUserSection>
         <Title>Ver detalles de usuario</Title>
-        <SeeUser /*users={users}*/ dbUsers={dbUsers} />
+        <SeeUser users={users} />
       </SeeUserSection>
       <DebtorsContainer>
         <Title>Reportar deudores</Title>
-        <DebtorsSection /*users={users} */ dbUsers={dbUsers} />
+        <DebtorsSection users={users} />
       </DebtorsContainer>
       <Toaster />
     </AdminContainer>

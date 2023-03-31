@@ -19,7 +19,7 @@ const {
   success,
 } = Colors;
 
-const FormRoutine = ({ /*users*/ dbLocal, dbUsers }) => {
+const FormRoutine = ({ users, dbLocal }) => {
   const [forData, setForData] = useState(null);
   const [errorFor, setErrorFor] = useState(null);
   const [dayData, setDayData] = useState(null);
@@ -114,10 +114,10 @@ const FormRoutine = ({ /*users*/ dbLocal, dbUsers }) => {
     return errorsForm;
   };
 
-  const handleFor = /* async */ (e) => {
+  const handleFor = async (e) => {
     setForData(e.target.value);
 
-    /* const user = await FetchGetData("/", e.target.value);
+    const user = await FetchGetData("/", e.target.value);
     if (!(user instanceof Error)) {
       if (user.weight === null || user.height === null) {
         setErrorFor(
@@ -127,28 +127,15 @@ const FormRoutine = ({ /*users*/ dbLocal, dbUsers }) => {
         setErrorFor(null);
       }
     } else {
-      toast.error(
-        { res },
-        {
-          position: "top-right",
-          duration: 6000,
-          style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        }
-      );
-    } */
-
-    const user = dbUsers.find((u) => u.email === e.target.value);
-
-    if (user.weight === null || user.height === null) {
-      setErrorFor(
-        `${e.target.value} no ha completado su información adicional. No es posible agregar una rutina al mismo.`
-      );
-    } else {
-      setErrorFor(null);
+      toast.error(user.message, {
+        position: "top-right",
+        duration: 6000,
+        style: {
+          background: "rgba(250, 215, 215)",
+          fontSize: "1rem",
+          fontWeight: "500",
+        },
+      });
     }
   };
 
@@ -304,48 +291,29 @@ const FormRoutine = ({ /*users*/ dbLocal, dbUsers }) => {
     if (forData !== null && dayData !== null) {
       let ex = [];
 
-      /* async function getRoutine({ email, day }) {
+      async function getRoutine({ email, day }) {
         const data = { email, day };
         return await FetchGetData("/", data);
       }
       const r = getRoutine(forData, dayData);
       if (!(r instanceof Error)) {
-         r.forEach((el) => {
-           const e = {
-             series: el.series,
-             measure: el.measure,
-             count: el.count,
-             typeExercise: el.exercise,
-             zone: el.zone,
-             photo: el.photo,
-             rest: el.rest,
-             description: el.description,
-             id: "exercise_" + Math.floor(Math.random() * 10000),
-           };
-           ex.push(e);
-         });
+        r.forEach((el) => {
+          const e = {
+            series: el.series,
+            measure: el.measure,
+            count: el.count,
+            typeExercise: el.exercise,
+            zone: el.zone,
+            photo: el.photo,
+            rest: el.rest,
+            description: el.description,
+            id: "exercise_" + Math.floor(Math.random() * 10000),
+          };
+          ex.push(e);
+        });
 
-         setExercises(ex);
-      } */
-
-      const r = dbUsers.find((u) => u.email === forData).routine[dayData];
-
-      r.forEach((el) => {
-        const e = {
-          series: el.series,
-          measure: el.measure,
-          count: el.count,
-          typeExercise: el.exercise,
-          zone: el.zone,
-          photo: el.photo,
-          rest: el.rest,
-          description: el.description,
-          id: "exercise_" + Math.floor(Math.random() * 10000),
-        };
-        ex.push(e);
-      });
-
-      setExercises(ex);
+        setExercises(ex);
+      }
     }
   }, [forData, dayData]);
 
@@ -357,7 +325,7 @@ const FormRoutine = ({ /*users*/ dbLocal, dbUsers }) => {
             <Label>Para:</Label>
             <SelectFirst onChange={handleFor} id="for-data">
               <Option value="null">Seleccione un usuario</Option>
-              {dbUsers.map((el, index) => (
+              {users.map((el, index) => (
                 <Option key={index} value={el.email}>
                   {el.username} {el.surname} - {el.email}
                 </Option>

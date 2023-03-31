@@ -13,7 +13,7 @@ import { FetchGetData } from "../helpers/FetchGetData";
 const { errorInput, primaryRed, primaryBlue, secondaryRed, secondaryBlue } =
   Colors;
 
-export const FormClearRoutine = ({ /*users={users}*/ dbLocal, dbUsers }) => {
+export const FormClearRoutine = ({ users, dbLocal }) => {
   const [exercises, setExercises] = useState([]);
   const [forData, setForData] = useState(null);
   const [dayData, setDayData] = useState(null);
@@ -42,7 +42,7 @@ export const FormClearRoutine = ({ /*users={users}*/ dbLocal, dbUsers }) => {
     return errorsForm;
   };
 
-  const handleFor = /* async */ (e) => {
+  const handleFor = (e) => {
     setForData(e.target.value);
   };
 
@@ -65,7 +65,7 @@ export const FormClearRoutine = ({ /*users={users}*/ dbLocal, dbUsers }) => {
     if (Object.keys(err).length === 0) {
       let ex = [];
 
-      /* async function getRoutine({ email, day }) {
+      async function getRoutine({ email, day }) {
         const data = { email, day };
         return await FetchGetData("/", data);
       }
@@ -87,26 +87,17 @@ export const FormClearRoutine = ({ /*users={users}*/ dbLocal, dbUsers }) => {
         });
 
         setExercises(ex);
-      } */
-
-      const r = dbUsers.find((u) => u.email === forData).routine[dayData];
-
-      r.forEach((el) => {
-        const e = {
-          series: el.series,
-          measure: el.measure,
-          count: el.count,
-          typeExercise: el.exercise,
-          zone: el.zone,
-          photo: el.photo,
-          rest: el.rest,
-          description: el.description,
-          id: "exercise_" + Math.floor(Math.random() * 10000),
-        };
-        ex.push(e);
-      });
-
-      setExercises(ex);
+      } else {
+        toast.error(r.message, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
+      }
     }
   };
 
@@ -158,7 +149,7 @@ export const FormClearRoutine = ({ /*users={users}*/ dbLocal, dbUsers }) => {
             <Label>Para:</Label>
             <SelectFirst onChange={handleFor} id="for-data">
               <Option value="null">Seleccione un usuario</Option>
-              {dbUsers.map((el, index) => (
+              {users.map((el, index) => (
                 <Option key={index} value={el.email}>
                   {el.username} {el.surname} - {el.email}
                 </Option>
