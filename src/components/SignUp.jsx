@@ -86,7 +86,7 @@ export const SignUp = () => {
     setErrors(err);
 
     if (Object.keys(err).length === 0) {
-      /* const res = await FetchPostData({
+      const res = await FetchPostData({
         path: "/",
         data: { dataRegister },
       });
@@ -117,7 +117,7 @@ export const SignUp = () => {
             },
           }
         );
-      } */
+      } 
     }
   };
 

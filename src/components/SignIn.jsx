@@ -60,13 +60,13 @@ export const SignIn = () => {
       email: credentials.email,
       password: credentials.password,
     };
-    console.log({ dataSignIn });
 
-    /* const res = await FetchPostData({
-      path: "/",
+    const res = await FetchPostData({
+      path: "http://localhost:3001/api/v1/login",
       data: { dataSignIn },
     });
 
+    console.log({ res });
     if (!(res instanceof Error)) {
       if (remember) {
         localStorage.setItem("loginCredentials", JSON.stringify(credentials));
@@ -78,19 +78,17 @@ export const SignIn = () => {
 
       setLoading(false);
     } else {
-      toast.error(
-        { res },
-        {
-          position: "top-right",
-          duration: 6000,
-          style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        }
-      );
-    } */
+      toast.error(res.message, {
+        position: "top-right",
+        duration: 6000,
+        style: {
+          background: "rgba(250, 215, 215)",
+          fontSize: "1rem",
+          fontWeight: "500",
+        },
+      });
+      setLoading(false);
+    }
   };
 
   const handleEmailRecover = (e) => {
