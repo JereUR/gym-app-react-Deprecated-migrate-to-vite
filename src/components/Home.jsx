@@ -9,8 +9,10 @@ import { Colors } from "../constants/Colors";
 
 const { secondaryBlue, secondaryRed } = Colors;
 
-export const Home = ({ /*email*/ user, months, exercises }) => {
+export const Home = ({  /* user,  */months, exercises,email }) => {
   const [nextPayment, setNextPayment] = useState(null);
+ const [weight, setWeight] = useState(null)
+ const [height, setHeight] = useState(null)
   const [debtor, setDebtor] = useState(false);
   const [addInfo, setAddInfo] = useState(false);
   const [scrollTop, setScrollTop] = useState(0);
@@ -31,14 +33,16 @@ export const Home = ({ /*email*/ user, months, exercises }) => {
     }
   };
 
-  /*  useEffect(() => {
-    //Get proximo pago
+   useEffect(() => {
+    //Get proximo pago y weigth y height
     async function getNextPayment(email) {
       return await FetchGetData("/",email);
     }
     const res = getNextPayment(email);
     if (!(res instanceof Error)) {
-      setNextPayment(res);
+      setNextPayment(res.data.nextPayment);
+      setWeight(res.data.weight);
+      setHeight(res.data.height);
     } else {
       toast.error(
         { res },
@@ -53,7 +57,7 @@ export const Home = ({ /*email*/ user, months, exercises }) => {
         }
       );
     }
-  }, [email]); */
+  }, [email]);
 
   useEffect(() => {
     const onScroll = (event) => {
@@ -74,24 +78,24 @@ export const Home = ({ /*email*/ user, months, exercises }) => {
   }, [scrollTop]);
 
   useEffect(() => {
-    if (user !== null || user !== undefined) {
+    if (/* user !== null || user !== undefined */nextPayment!==null) {
       let today = new Date();
 
       let userDate = new Date(
-        user.payment.nextPayment.year,
-        user.payment.nextPayment.month,
-        user.payment.nextPayment.day
+        /* user.payment. */nextPayment.year,
+        /* user.payment. */nextPayment.month,
+        /* user.payment. */nextPayment.day
       );
 
       if (userDate < today) {
         setDebtor(true);
       }
 
-      if (user.weight === null || user.height === null) {
+      if (/* user. */weight === null || /* user. */height === null) {
         setAddInfo(true);
       }
     }
-  }, [user, months]);
+  }, [nextPayment, months]);
 
   const handleClickScroll = () => {
     document.querySelector("header").scrollIntoView({ behavior: "smooth" });
@@ -105,19 +109,19 @@ export const Home = ({ /*email*/ user, months, exercises }) => {
       {debtor && (
         <ReportPaymentContainer>
           <MessageDebtor>
-            ¡Tienes un pago atrasado del día {user.payment.nextPayment.day} de{" "}
+            ¡Tienes un pago atrasado del día {/* user.payment. */nextPayment.day} de{" "}
             {
-              months.find((m) => m.value === user.payment.nextPayment.month)
+              months.find((m) => m.value === /* user.payment. */nextPayment.month)
                 .month
             }{" "}
-            del año {user.payment.nextPayment.year}!
+            del año {/* user.payment. */nextPayment.year}!
           </MessageDebtor>
         </ReportPaymentContainer>
       )}
       <RutineContainer>
         <Routine
-          /*email={email} */
-          user={user}
+          email={email}
+          /* user={user} */
           title="Mis Rutinas"
           addInfo={addInfo}
         />
@@ -125,8 +129,8 @@ export const Home = ({ /*email*/ user, months, exercises }) => {
       <Hr />
       <NutritionalPlanContainer>
         <NutritionalPlan
-          /*email={email} */
-          user={user}
+          email={email}
+          /* user={user} */
           title="Mi Plan Nutricional"
           addInfo={addInfo}
         />

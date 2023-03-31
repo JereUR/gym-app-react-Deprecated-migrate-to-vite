@@ -9,7 +9,7 @@ import { UseIntersection } from "../helpers/UseIntersection";
 
 const { primaryBlue, secondaryBlue, primaryRed } = Colors;
 
-export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
+export const NutritionalPlan = ({ email /* user */, title, addInfo }) => {
   const [viewData, setViewData] = useState(true);
   const [plan, setPlan] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -17,7 +17,7 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
 
   const [planRef, isIntersecting] = UseIntersection({ threshold: 0.5 });
 
-  /*  useEffect(() => {
+   useEffect(() => {
     //Get plan
     async function getPlan(email) {
       return await FetchGetData("/",email);
@@ -25,7 +25,7 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
     setLoading(true);
     const res = getPlan(email);
     if (!(res instanceof Error)) {
-      setPlan(res);
+      setPlan(res.data);
       setLoading(false);
     } else {
       toast.error(
@@ -41,7 +41,7 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
         }
       );
     }
-  }, [email]); */
+  }, [email]);
 
   const handleView = () => {
     setViewData(!viewData);
@@ -75,7 +75,7 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
         </NoPlan>
       )}
       {viewData &&
-        (user.nutricionalPlan ? (
+        (/* user. */plan ? (
           <PlanData
             ref={planRef}
             className={isIntersecting ? "visible" : "right"}
@@ -91,8 +91,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
               <Hr />
               <List>
                 <TextMeal>Desayuno</TextMeal>
-                {user.nutricionalPlan.monday[0].breakfast.length > 0 ? (
-                  user.nutricionalPlan.monday[0].breakfast.map((el, index) => (
+                {/* user. */plan.monday[0].breakfast.length > 0 ? (
+                  /* user. */plan.monday[0].breakfast.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -103,8 +103,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Almuerzo</TextMeal>
-                {user.nutricionalPlan.monday[1].lunch.length > 0 ? (
-                  user.nutricionalPlan.monday[1].lunch.map((el, index) => (
+                {/* user. */plan.monday[1].lunch.length > 0 ? (
+                  /* user. */plan.monday[1].lunch.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -115,8 +115,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Merienda</TextMeal>
-                {user.nutricionalPlan.monday[2].snack.length > 0 ? (
-                  user.nutricionalPlan.monday[2].snack.map((el, index) => (
+                {/* user. */plan.monday[2].snack.length > 0 ? (
+                  /* user. */plan.monday[2].snack.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -127,8 +127,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Cena</TextMeal>
-                {user.nutricionalPlan.monday[3].dinner.length > 0 ? (
-                  user.nutricionalPlan.monday[3].dinner.map((el, index) => (
+                {/* user. */plan.monday[3].dinner.length > 0 ? (
+                  /* user. */plan.monday[3].dinner.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -139,8 +139,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Post-cena</TextMeal>
-                {user.nutricionalPlan.monday[4].afterDinner.length > 0 ? (
-                  user.nutricionalPlan.monday[4].afterDinner.map(
+                {/* user. */plan.monday[4].afterDinner.length > 0 ? (
+                  /* user. */plan.monday[4].afterDinner.map(
                     (el, index) => (
                       <InfoItem key={index}>
                         {el.mount} - {el.meal}
@@ -153,8 +153,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Pre-entreno</TextMeal>
-                {user.nutricionalPlan.monday[5].preWorkout.length > 0 ? (
-                  user.nutricionalPlan.monday[5].preWorkout.map((el, index) => (
+                {/* user. */plan.monday[5].preWorkout.length > 0 ? (
+                  /* user. */plan.monday[5].preWorkout.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -165,8 +165,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Post-entreno</TextMeal>
-                {user.nutricionalPlan.monday[6].postWorkout.length > 0 ? (
-                  user.nutricionalPlan.monday[6].postWorkout.map(
+                {/* user. */plan.monday[6].postWorkout.length > 0 ? (
+                  /* user. */plan.monday[6].postWorkout.map(
                     (el, index) => (
                       <InfoItem key={index}>
                         {el.mount} - {el.meal}
@@ -179,8 +179,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Colación</TextMeal>
-                {user.nutricionalPlan.monday[7].collation.length > 0 ? (
-                  user.nutricionalPlan.monday[7].collation.map((el, index) => (
+                {/* user. */plan.monday[7].collation.length > 0 ? (
+                  /* user. */plan.monday[7].collation.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -203,8 +203,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
               <Hr />
               <List>
                 <TextMeal>Desayuno</TextMeal>
-                {user.nutricionalPlan.tuesday[0].breakfast.length > 0 ? (
-                  user.nutricionalPlan.tuesday[0].breakfast.map((el, index) => (
+                {/* user. */plan.tuesday[0].breakfast.length > 0 ? (
+                  /* user. */plan.tuesday[0].breakfast.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -215,8 +215,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Almuerzo</TextMeal>
-                {user.nutricionalPlan.tuesday[1].lunch.length > 0 ? (
-                  user.nutricionalPlan.tuesday[1].lunch.map((el, index) => (
+                {/* user. */plan.tuesday[1].lunch.length > 0 ? (
+                  /* user. */plan.tuesday[1].lunch.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -227,8 +227,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Merienda</TextMeal>
-                {user.nutricionalPlan.tuesday[2].snack.length > 0 ? (
-                  user.nutricionalPlan.tuesday[2].snack.map((el, index) => (
+                {/* user. */plan.tuesday[2].snack.length > 0 ? (
+                  /* user. */plan.tuesday[2].snack.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -239,8 +239,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Cena</TextMeal>
-                {user.nutricionalPlan.tuesday[3].dinner.length > 0 ? (
-                  user.nutricionalPlan.tuesday[3].dinner.map((el, index) => (
+                {/* user. */plan.tuesday[3].dinner.length > 0 ? (
+                  /* user. */plan.tuesday[3].dinner.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -251,8 +251,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Post-cena</TextMeal>
-                {user.nutricionalPlan.tuesday[4].afterDinner.length > 0 ? (
-                  user.nutricionalPlan.tuesday[4].afterDinner.map(
+                {/* user. */plan.tuesday[4].afterDinner.length > 0 ? (
+                  /* user. */plan.tuesday[4].afterDinner.map(
                     (el, index) => (
                       <InfoItem key={index}>
                         {el.mount} - {el.meal}
@@ -265,8 +265,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Pre-entreno</TextMeal>
-                {user.nutricionalPlan.tuesday[5].preWorkout.length > 0 ? (
-                  user.nutricionalPlan.tuesday[5].preWorkout.map(
+                {/* user. */plan.tuesday[5].preWorkout.length > 0 ? (
+                  /* user. */plan.tuesday[5].preWorkout.map(
                     (el, index) => (
                       <InfoItem key={index}>
                         {el.mount} - {el.meal}
@@ -279,8 +279,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Post-entreno</TextMeal>
-                {user.nutricionalPlan.tuesday[6].postWorkout.length > 0 ? (
-                  user.nutricionalPlan.tuesday[6].postWorkout.map(
+                {/* user. */plan.tuesday[6].postWorkout.length > 0 ? (
+                  /* user. */plan.tuesday[6].postWorkout.map(
                     (el, index) => (
                       <InfoItem key={index}>
                         {el.mount} - {el.meal}
@@ -293,8 +293,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Colación</TextMeal>
-                {user.nutricionalPlan.tuesday[7].collation.length > 0 ? (
-                  user.nutricionalPlan.tuesday[7].collation.map((el, index) => (
+                {/* user. */plan.tuesday[7].collation.length > 0 ? (
+                  /* user. */plan.tuesday[7].collation.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -317,8 +317,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
               <Hr />
               <List>
                 <TextMeal>Desayuno</TextMeal>
-                {user.nutricionalPlan.wednesday[0].breakfast.length > 0 ? (
-                  user.nutricionalPlan.wednesday[0].breakfast.map(
+                {/* user. */plan.wednesday[0].breakfast.length > 0 ? (
+                  /* user. */plan.wednesday[0].breakfast.map(
                     (el, index) => (
                       <InfoItem key={index}>
                         {el.mount} - {el.meal}
@@ -331,8 +331,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Almuerzo</TextMeal>
-                {user.nutricionalPlan.wednesday[1].lunch.length > 0 ? (
-                  user.nutricionalPlan.wednesday[1].lunch.map((el, index) => (
+                {/* user. */plan.wednesday[1].lunch.length > 0 ? (
+                  /* user. */plan.wednesday[1].lunch.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -343,8 +343,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Merienda</TextMeal>
-                {user.nutricionalPlan.wednesday[2].snack.length > 0 ? (
-                  user.nutricionalPlan.wednesday[2].snack.map((el, index) => (
+                {/* user. */plan.wednesday[2].snack.length > 0 ? (
+                  /* user. */plan.wednesday[2].snack.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -355,8 +355,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Cena</TextMeal>
-                {user.nutricionalPlan.wednesday[3].dinner.length > 0 ? (
-                  user.nutricionalPlan.wednesday[3].dinner.map((el, index) => (
+                {/* user. */plan.wednesday[3].dinner.length > 0 ? (
+                  /* user. */plan.wednesday[3].dinner.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -367,8 +367,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Post-cena</TextMeal>
-                {user.nutricionalPlan.wednesday[4].afterDinner.length > 0 ? (
-                  user.nutricionalPlan.wednesday[4].afterDinner.map(
+                {/* user. */plan.wednesday[4].afterDinner.length > 0 ? (
+                  /* user. */plan.wednesday[4].afterDinner.map(
                     (el, index) => (
                       <InfoItem key={index}>
                         {el.mount} - {el.meal}
@@ -381,8 +381,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Pre-entreno</TextMeal>
-                {user.nutricionalPlan.wednesday[5].preWorkout.length > 0 ? (
-                  user.nutricionalPlan.wednesday[5].preWorkout.map(
+                {/* user. */plan.wednesday[5].preWorkout.length > 0 ? (
+                  /* user. */plan.wednesday[5].preWorkout.map(
                     (el, index) => (
                       <InfoItem key={index}>
                         {el.mount} - {el.meal}
@@ -395,8 +395,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Post-entreno</TextMeal>
-                {user.nutricionalPlan.wednesday[6].postWorkout.length > 0 ? (
-                  user.nutricionalPlan.wednesday[6].postWorkout.map(
+                {/* user. */plan.wednesday[6].postWorkout.length > 0 ? (
+                  /* user. */plan.wednesday[6].postWorkout.map(
                     (el, index) => (
                       <InfoItem key={index}>
                         {el.mount} - {el.meal}
@@ -409,8 +409,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Colación</TextMeal>
-                {user.nutricionalPlan.wednesday[7].collation.length > 0 ? (
-                  user.nutricionalPlan.wednesday[7].collation.map(
+                {/* user. */plan.wednesday[7].collation.length > 0 ? (
+                  /* user. */plan.wednesday[7].collation.map(
                     (el, index) => (
                       <InfoItem key={index}>
                         {el.mount} - {el.meal}
@@ -435,8 +435,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
               <Hr />
               <List>
                 <TextMeal>Desayuno</TextMeal>
-                {user.nutricionalPlan.thursday[0].breakfast.length > 0 ? (
-                  user.nutricionalPlan.thursday[0].breakfast.map(
+                {/* user. */plan.thursday[0].breakfast.length > 0 ? (
+                  /* user. */plan.thursday[0].breakfast.map(
                     (el, index) => (
                       <InfoItem key={index}>
                         {el.mount} - {el.meal}
@@ -449,8 +449,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Almuerzo</TextMeal>
-                {user.nutricionalPlan.thursday[1].lunch.length > 0 ? (
-                  user.nutricionalPlan.thursday[1].lunch.map((el, index) => (
+                {/* user. */plan.thursday[1].lunch.length > 0 ? (
+                  /* user. */plan.thursday[1].lunch.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -461,8 +461,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Merienda</TextMeal>
-                {user.nutricionalPlan.thursday[2].snack.length > 0 ? (
-                  user.nutricionalPlan.thursday[2].snack.map((el, index) => (
+                {/* user. */plan.thursday[2].snack.length > 0 ? (
+                  /* user. */plan.thursday[2].snack.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -473,8 +473,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Cena</TextMeal>
-                {user.nutricionalPlan.thursday[3].dinner.length > 0 ? (
-                  user.nutricionalPlan.thursday[3].dinner.map((el, index) => (
+                {/* user. */plan.thursday[3].dinner.length > 0 ? (
+                  /* user. */plan.thursday[3].dinner.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -485,8 +485,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Post-cena</TextMeal>
-                {user.nutricionalPlan.thursday[4].afterDinner.length > 0 ? (
-                  user.nutricionalPlan.thursday[4].afterDinner.map(
+                {/* user. */plan.thursday[4].afterDinner.length > 0 ? (
+                  /* user. */plan.thursday[4].afterDinner.map(
                     (el, index) => (
                       <InfoItem key={index}>
                         {el.mount} - {el.meal}
@@ -499,8 +499,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Pre-entreno</TextMeal>
-                {user.nutricionalPlan.thursday[5].preWorkout.length > 0 ? (
-                  user.nutricionalPlan.thursday[5].preWorkout.map(
+                {/* user. */plan.thursday[5].preWorkout.length > 0 ? (
+                  /* user. */plan.thursday[5].preWorkout.map(
                     (el, index) => (
                       <InfoItem key={index}>
                         {el.mount} - {el.meal}
@@ -513,8 +513,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Post-entreno</TextMeal>
-                {user.nutricionalPlan.thursday[6].postWorkout.length > 0 ? (
-                  user.nutricionalPlan.thursday[6].postWorkout.map(
+                {/* user. */plan.thursday[6].postWorkout.length > 0 ? (
+                  /* user. */plan.thursday[6].postWorkout.map(
                     (el, index) => (
                       <InfoItem key={index}>
                         {el.mount} - {el.meal}
@@ -527,8 +527,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Colación</TextMeal>
-                {user.nutricionalPlan.thursday[7].collation.length > 0 ? (
-                  user.nutricionalPlan.thursday[7].collation.map(
+                {/* user. */plan.thursday[7].collation.length > 0 ? (
+                  /* user. */plan.thursday[7].collation.map(
                     (el, index) => (
                       <InfoItem key={index}>
                         {el.mount} - {el.meal}
@@ -553,8 +553,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
               <Hr />
               <List>
                 <TextMeal>Desayuno</TextMeal>
-                {user.nutricionalPlan.friday[0].breakfast.length > 0 ? (
-                  user.nutricionalPlan.friday[0].breakfast.map((el, index) => (
+                {/* user. */plan.friday[0].breakfast.length > 0 ? (
+                  /* user. */plan.friday[0].breakfast.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -565,8 +565,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Almuerzo</TextMeal>
-                {user.nutricionalPlan.friday[1].lunch.length > 0 ? (
-                  user.nutricionalPlan.friday[1].lunch.map((el, index) => (
+                {/* user. */plan.friday[1].lunch.length > 0 ? (
+                  /* user. */plan.friday[1].lunch.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -577,8 +577,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Merienda</TextMeal>
-                {user.nutricionalPlan.friday[2].snack.length > 0 ? (
-                  user.nutricionalPlan.friday[2].snack.map((el, index) => (
+                {/* user. */plan.friday[2].snack.length > 0 ? (
+                  /* user. */plan.friday[2].snack.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -589,8 +589,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Cena</TextMeal>
-                {user.nutricionalPlan.friday[3].dinner.length > 0 ? (
-                  user.nutricionalPlan.friday[3].dinner.map((el, index) => (
+                {/* user. */plan.friday[3].dinner.length > 0 ? (
+                  /* user. */plan.friday[3].dinner.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -601,8 +601,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Post-cena</TextMeal>
-                {user.nutricionalPlan.friday[4].afterDinner.length > 0 ? (
-                  user.nutricionalPlan.friday[4].afterDinner.map(
+                {/* user. */plan.friday[4].afterDinner.length > 0 ? (
+                  /* user. */plan.friday[4].afterDinner.map(
                     (el, index) => (
                       <InfoItem key={index}>
                         {el.mount} - {el.meal}
@@ -615,8 +615,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Pre-entreno</TextMeal>
-                {user.nutricionalPlan.friday[5].preWorkout.length > 0 ? (
-                  user.nutricionalPlan.friday[5].preWorkout.map((el, index) => (
+                {/* user. */plan.friday[5].preWorkout.length > 0 ? (
+                  /* user. */plan.friday[5].preWorkout.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -627,8 +627,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Post-entreno</TextMeal>
-                {user.nutricionalPlan.friday[6].postWorkout.length > 0 ? (
-                  user.nutricionalPlan.friday[6].postWorkout.map(
+                {/* user. */plan.friday[6].postWorkout.length > 0 ? (
+                  /* user. */plan.friday[6].postWorkout.map(
                     (el, index) => (
                       <InfoItem key={index}>
                         {el.mount} - {el.meal}
@@ -641,8 +641,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Colación</TextMeal>
-                {user.nutricionalPlan.friday[7].collation.length > 0 ? (
-                  user.nutricionalPlan.friday[7].collation.map((el, index) => (
+                {/* user. */plan.friday[7].collation.length > 0 ? (
+                  /* user. */plan.friday[7].collation.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -665,8 +665,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
               <Hr />
               <List>
                 <TextMeal>Desayuno</TextMeal>
-                {user.nutricionalPlan.saturday[0].breakfast.length > 0 ? (
-                  user.nutricionalPlan.saturday[0].breakfast.map(
+                {/* user. */plan.saturday[0].breakfast.length > 0 ? (
+                  /* user. */plan.saturday[0].breakfast.map(
                     (el, index) => (
                       <InfoItem key={index}>
                         {el.mount} - {el.meal}
@@ -679,8 +679,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Almuerzo</TextMeal>
-                {user.nutricionalPlan.saturday[1].lunch.length > 0 ? (
-                  user.nutricionalPlan.saturday[1].lunch.map((el, index) => (
+                {/* user. */plan.saturday[1].lunch.length > 0 ? (
+                  /* user. */plan.saturday[1].lunch.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -691,8 +691,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Merienda</TextMeal>
-                {user.nutricionalPlan.saturday[2].snack.length > 0 ? (
-                  user.nutricionalPlan.saturday[2].snack.map((el, index) => (
+                {/* user. */plan.saturday[2].snack.length > 0 ? (
+                  /* user. */plan.saturday[2].snack.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -703,8 +703,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Cena</TextMeal>
-                {user.nutricionalPlan.saturday[3].dinner.length > 0 ? (
-                  user.nutricionalPlan.saturday[3].dinner.map((el, index) => (
+                {/* user. */plan.saturday[3].dinner.length > 0 ? (
+                  /* user. */plan.saturday[3].dinner.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -715,8 +715,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Post-cena</TextMeal>
-                {user.nutricionalPlan.saturday[4].afterDinner.length > 0 ? (
-                  user.nutricionalPlan.saturday[4].afterDinner.map(
+                {/* user. */plan.saturday[4].afterDinner.length > 0 ? (
+                  /* user. */plan.saturday[4].afterDinner.map(
                     (el, index) => (
                       <InfoItem key={index}>
                         {el.mount} - {el.meal}
@@ -729,8 +729,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Pre-entreno</TextMeal>
-                {user.nutricionalPlan.saturday[5].preWorkout.length > 0 ? (
-                  user.nutricionalPlan.saturday[5].preWorkout.map(
+                {/* user. */plan.saturday[5].preWorkout.length > 0 ? (
+                  /* user. */plan.saturday[5].preWorkout.map(
                     (el, index) => (
                       <InfoItem key={index}>
                         {el.mount} - {el.meal}
@@ -743,8 +743,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Post-entreno</TextMeal>
-                {user.nutricionalPlan.saturday[6].postWorkout.length > 0 ? (
-                  user.nutricionalPlan.saturday[6].postWorkout.map(
+                {/* user. */plan.saturday[6].postWorkout.length > 0 ? (
+                  /* user. */plan.saturday[6].postWorkout.map(
                     (el, index) => (
                       <InfoItem key={index}>
                         {el.mount} - {el.meal}
@@ -757,8 +757,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Colación</TextMeal>
-                {user.nutricionalPlan.saturday[7].collation.length > 0 ? (
-                  user.nutricionalPlan.saturday[7].collation.map(
+                {/* user. */plan.saturday[7].collation.length > 0 ? (
+                  /* user. */plan.saturday[7].collation.map(
                     (el, index) => (
                       <InfoItem key={index}>
                         {el.mount} - {el.meal}
@@ -783,8 +783,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
               <Hr />
               <List>
                 <TextMeal>Desayuno</TextMeal>
-                {user.nutricionalPlan.sunday[0].breakfast.length > 0 ? (
-                  user.nutricionalPlan.sunday[0].breakfast.map((el, index) => (
+                {/* user. */plan.sunday[0].breakfast.length > 0 ? (
+                  /* user. */plan.sunday[0].breakfast.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -795,8 +795,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Almuerzo</TextMeal>
-                {user.nutricionalPlan.sunday[1].lunch.length > 0 ? (
-                  user.nutricionalPlan.sunday[1].lunch.map((el, index) => (
+                {/* user. */plan.sunday[1].lunch.length > 0 ? (
+                  /* user. */plan.sunday[1].lunch.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -807,8 +807,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Merienda</TextMeal>
-                {user.nutricionalPlan.sunday[2].snack.length > 0 ? (
-                  user.nutricionalPlan.sunday[2].snack.map((el, index) => (
+                {/* user. */plan.sunday[2].snack.length > 0 ? (
+                  /* user. */plan.sunday[2].snack.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -819,8 +819,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Cena</TextMeal>
-                {user.nutricionalPlan.sunday[3].dinner.length > 0 ? (
-                  user.nutricionalPlan.sunday[3].dinner.map((el, index) => (
+                {/* user. */plan.sunday[3].dinner.length > 0 ? (
+                  /* user. */plan.sunday[3].dinner.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -831,8 +831,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Post-cena</TextMeal>
-                {user.nutricionalPlan.sunday[4].afterDinner.length > 0 ? (
-                  user.nutricionalPlan.sunday[4].afterDinner.map(
+                {/* user. */plan.sunday[4].afterDinner.length > 0 ? (
+                  /* user. */plan.sunday[4].afterDinner.map(
                     (el, index) => (
                       <InfoItem key={index}>
                         {el.mount} - {el.meal}
@@ -845,8 +845,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Pre-entreno</TextMeal>
-                {user.nutricionalPlan.sunday[5].preWorkout.length > 0 ? (
-                  user.nutricionalPlan.sunday[5].preWorkout.map((el, index) => (
+                {/* user. */plan.sunday[5].preWorkout.length > 0 ? (
+                  /* user. */plan.sunday[5].preWorkout.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>
@@ -857,8 +857,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Post-entreno</TextMeal>
-                {user.nutricionalPlan.sunday[6].postWorkout.length > 0 ? (
-                  user.nutricionalPlan.sunday[6].postWorkout.map(
+                {/* user. */plan.sunday[6].postWorkout.length > 0 ? (
+                  /* user. */plan.sunday[6].postWorkout.map(
                     (el, index) => (
                       <InfoItem key={index}>
                         {el.mount} - {el.meal}
@@ -871,8 +871,8 @@ export const NutritionalPlan = ({ /*email*/ user, title, addInfo }) => {
                   </NoData>
                 )}
                 <TextMeal>Colación</TextMeal>
-                {user.nutricionalPlan.sunday[7].collation.length > 0 ? (
-                  user.nutricionalPlan.sunday[7].collation.map((el, index) => (
+                {/* user. */plan.sunday[7].collation.length > 0 ? (
+                  /* user. */plan.sunday[7].collation.map((el, index) => (
                     <InfoItem key={index}>
                       {el.mount} - {el.meal}
                     </InfoItem>

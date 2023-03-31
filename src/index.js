@@ -9,16 +9,26 @@ import { FetchGetData } from "./helpers/FetchGetData";
 
 let user = dbUsers[0];
 
-/* const currentUser = FetchGetData("/");
-const { username, email,login,admin } = currentUser; */
+const currentUser = FetchGetData("http://localhost:3001/api/v1/currentuser");
+
+if(currentUser!==null){
+const { username, email,admin } = currentUser;
+const login=true
+}else{
+  const username="";
+  const email="";
+  const admin=false;
+  const login=false;
+}
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <App
-    user={user}
+    /* user={user}
     dbUsers={
       dbUsers
-    } /* login={login} username={username} email={ email} admin={admin}*/
+    } */ login={login} username={username} email={ email} admin={admin}
   />
 );
 

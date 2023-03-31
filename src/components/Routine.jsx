@@ -9,7 +9,7 @@ import { UseIntersection } from "../helpers/UseIntersection";
 
 const { primaryRed, primaryBlue, secondaryBlue } = Colors;
 
-export const Routine = ({ /*email*/ user, title, addInfo }) => {
+export const Routine = ({ email /* user */, title, addInfo }) => {
   const [viewData, setViewData] = useState(true);
   const [routine, setRoutine] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -17,7 +17,7 @@ export const Routine = ({ /*email*/ user, title, addInfo }) => {
 
   const [routineRef, isIntersecting] = UseIntersection({ threshold: 0.5 });
 
-  /*  useEffect(() => {
+   useEffect(() => {
     //Get routine
     async function getRoutine(email) {
       return await FetchGetData("/",email);
@@ -25,7 +25,7 @@ export const Routine = ({ /*email*/ user, title, addInfo }) => {
     setLoading(true);
     const res = getRoutine(email);
     if (!(res instanceof Error)) {
-      setRoutine(res);
+      setRoutine(res.data);
       setLoading(false);
     } else {
       toast.error(
@@ -41,7 +41,7 @@ export const Routine = ({ /*email*/ user, title, addInfo }) => {
         }
       );
     }
-  }, [email]); */
+  }, [email]);
 
   const handleView = () => {
     setViewData(!viewData);
@@ -75,7 +75,7 @@ export const Routine = ({ /*email*/ user, title, addInfo }) => {
         </NoRoutine>
       )}
       {viewData &&
-        (user.routine ? (
+        (/* user. */routine ? (
           <RoutineData
             ref={routineRef}
             className={isIntersecting ? "visible" : "right"}
@@ -90,8 +90,8 @@ export const Routine = ({ /*email*/ user, title, addInfo }) => {
               )}
               <Hr />
               <List>
-                {user.routine.monday.length > 0 ? (
-                  user.routine.monday.map((el, index) => (
+                {/* user. */routine.monday.length > 0 ? (
+                  /* user. */routine.monday.map((el, index) => (
                     <InfoItem key={index}>
                       <MountAndPhotoContainer>
                         <Mount>
@@ -129,8 +129,8 @@ export const Routine = ({ /*email*/ user, title, addInfo }) => {
               )}
               <Hr />
               <List>
-                {user.routine.tuesday.length > 0 ? (
-                  user.routine.tuesday.map((el, index) => (
+                {/* user. */routine.tuesday.length > 0 ? (
+                  /* user. */routine.tuesday.map((el, index) => (
                     <InfoItem key={index}>
                       <MountAndPhotoContainer>
                         <Mount>
@@ -168,8 +168,8 @@ export const Routine = ({ /*email*/ user, title, addInfo }) => {
               )}
               <Hr />
               <List>
-                {user.routine.wednesday.length > 0 ? (
-                  user.routine.wednesday.map((el, index) => (
+                {/* user. */routine.wednesday.length > 0 ? (
+                  /* user. */routine.wednesday.map((el, index) => (
                     <InfoItem key={index}>
                       <MountAndPhotoContainer>
                         <Mount>
@@ -207,8 +207,8 @@ export const Routine = ({ /*email*/ user, title, addInfo }) => {
               )}
               <Hr />
               <List>
-                {user.routine.thursday.length > 0 ? (
-                  user.routine.thursday.map((el, index) => (
+                {/* user. */routine.thursday.length > 0 ? (
+                  /* user. */routine.thursday.map((el, index) => (
                     <InfoItem key={index}>
                       <MountAndPhotoContainer>
                         <Mount>
@@ -246,8 +246,8 @@ export const Routine = ({ /*email*/ user, title, addInfo }) => {
               )}
               <Hr />
               <List>
-                {user.routine.friday.length > 0 ? (
-                  user.routine.friday.map((el, index) => (
+                {/* user. */routine.friday.length > 0 ? (
+                  /* user. */routine.friday.map((el, index) => (
                     <InfoItem key={index}>
                       <MountAndPhotoContainer>
                         <Mount>
@@ -285,8 +285,8 @@ export const Routine = ({ /*email*/ user, title, addInfo }) => {
               )}
               <Hr />
               <List>
-                {user.routine.saturday.length > 0 ? (
-                  user.routine.saturday.map((el, index) => (
+                {/* user. */routine.saturday.length > 0 ? (
+                  /* user. */routine.saturday.map((el, index) => (
                     <InfoItem key={index}>
                       <MountAndPhotoContainer>
                         <Mount>
@@ -324,8 +324,8 @@ export const Routine = ({ /*email*/ user, title, addInfo }) => {
               )}
               <Hr />
               <List>
-                {user.routine.sunday.length > 0 ? (
-                  user.routine.sunday.map((el, index) => (
+                {/* user. */routine.sunday.length > 0 ? (
+                  /* user. */routine.sunday.map((el, index) => (
                     <InfoItem key={index}>
                       <MountAndPhotoContainer>
                         <Mount>
