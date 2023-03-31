@@ -10,6 +10,7 @@ import { SeeUser } from "./SeeUser";
 import { FetchPostData } from "../helpers/FetchPostData";
 import { FetchGetData } from "../helpers/FetchGetData";
 import { DebtorsSection } from "./DebtorsSection";
+import { FormClearRoutine } from "./FormClearRoutine";
 
 const { secondaryBlue, backgroundText } = Colors;
 
@@ -46,6 +47,14 @@ export const AdminPage = ({ dbLocal, dbUsers }) => {
         <Title>Agregar rutina</Title>
         <FormRoutine /*users={users}*/ dbLocal={dbLocal} dbUsers={dbUsers} />
       </AddRoutineContainer>
+      <Hr />
+      <ClearRoutineContainer>
+        <Title>Borrar rutina</Title>
+        <FormClearRoutine
+          /*users={users}*/ dbLocal={dbLocal}
+          dbUsers={dbUsers}
+        />
+      </ClearRoutineContainer>
       <Hr />
       <AddNutritionalPlan>
         <Title>Agregar plan nutricional</Title>
@@ -84,6 +93,8 @@ const AddRoutineContainer = styled.div`
     margin: 7vw 4vw 7vw 4vw;
   }
 `;
+
+const ClearRoutineContainer = styled(AddRoutineContainer)``;
 
 const AddNutritionalPlan = styled(AddRoutineContainer)``;
 

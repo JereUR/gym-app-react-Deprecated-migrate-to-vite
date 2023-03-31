@@ -7,7 +7,7 @@ import { Colors } from "../constants/Colors";
 
 const { secondaryRed, backgroundSuccess, secondaryBlue } = Colors;
 
-export const ExerciseComponent = ({ el, deleteData, editData }) => {
+export const ExerciseComponent = ({ el, deleteData, editData, seeLogos }) => {
   return (
     <ExerciseContainer>
       <ExerciseItem key={el.id}>
@@ -16,18 +16,20 @@ export const ExerciseComponent = ({ el, deleteData, editData }) => {
         {el.description ? `${el.description}` : "Sin información adicional"}
       </ExerciseItem>
       <ExercisePhoto src={el.photo} />
-      <IconsContainer>
-        <FaEdit
-          className="edit-logo"
-          fontSize="1.3rem"
-          onClick={() => editData(el)}
-        />
-        <FaTrashAlt
-          className="delete-logo"
-          fontSize="1.3rem"
-          onClick={() => deleteData(el.id)}
-        />
-      </IconsContainer>
+      {seeLogos && (
+        <IconsContainer>
+          <FaEdit
+            className="edit-logo"
+            fontSize="1.3rem"
+            onClick={() => editData(el)}
+          />
+          <FaTrashAlt
+            className="delete-logo"
+            fontSize="1.3rem"
+            onClick={() => deleteData(el.id)}
+          />
+        </IconsContainer>
+      )}
     </ExerciseContainer>
   );
 };
