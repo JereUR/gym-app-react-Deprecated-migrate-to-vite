@@ -87,7 +87,7 @@ export const SignUp = () => {
 
     if (Object.keys(err).length === 0) {
       const res = await FetchPostData({
-        path: "/",
+        path: "http://localhost:3001/api/v1/newuser",
         data: { dataRegister },
       });
 
@@ -106,7 +106,7 @@ export const SignUp = () => {
         setRegister(false);
       } else {
         toast.error(
-          { res },
+          res.message,
           {
             position: "top-right",
             duration: 6000,

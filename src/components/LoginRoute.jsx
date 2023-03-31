@@ -8,11 +8,11 @@ export const useAuth = (user) => {
   return user && user.login;
 };
 
-const LoginRoute = ({ user /*email*/ }) => {
-  /*  const [isAuth, setIsAuth] = useState(false); */
-  const isAuth = useAuth(user);
+const LoginRoute = ({ /* user */ email }) => {
+   const [isAuth, setIsAuth] = useState(false);
+  /* const isAuth = useAuth(user); */
 
-  /*  useEffect(() => {
+   useEffect(() => {
     //Get login of user
     async function getUserLogin(email) {
       return await FetchGetData("/", email);
@@ -34,7 +34,7 @@ const LoginRoute = ({ user /*email*/ }) => {
         }
       );
     }
-  }, [email]); */
+  }, [email]);
 
   return isAuth ? <Outlet /> : <SesionPage />;
 };
