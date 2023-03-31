@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
@@ -8,9 +8,15 @@ import reportWebVitals from "./reportWebVitals";
 import { FetchGetData } from "./helpers/FetchGetData";
 
 /* let user = dbUsers[0]; */
+const [currentUser, setCurrentUser] = useState(null);
 let username, surname, email, admin, login;
 
-const currentUser = FetchGetData("http://localhost:3001/api/v1/currentuser");
+const res = FetchGetData("http://localhost:3001/api/v1/currentuser");
+
+if (!(res instanceof Error)) {
+  setCurrentUser(res);
+} else {
+}
 
 if (currentUser !== null) {
   username = currentUser.username;
