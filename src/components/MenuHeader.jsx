@@ -5,14 +5,14 @@ import { IconContext } from "react-icons";
 import { FaHome, FaFileInvoiceDollar, FaUserAlt } from "react-icons/fa";
 import { MdAdminPanelSettings } from "react-icons/md";
 
-import { useAuthAdmin } from "./AdminRoute";
-import { useAuth } from "./LoginRoute";
+/* import { useAuthAdmin } from "./AdminRoute";
+import { useAuth } from "./LoginRoute"; */
 import { Colors } from "../constants/Colors";
 import { BurgerButton } from "./BurgerButton";
 
 const { secondaryBlue, colorText } = Colors;
 
-export const MenuHeader = ({ /* user , */ username,login,admin }) => {
+export const MenuHeader = ({ /* user , */ username, login, admin }) => {
   /* const profilePath = `/usuario/${user.username}`; */
   const profilePath = `/usuario/${username}`;
   /* const auth = useAuth(user);
