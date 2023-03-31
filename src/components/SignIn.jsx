@@ -62,7 +62,7 @@ export const SignIn = () => {
     };
 
     const res = await FetchPostData({
-      path: "http://localhost:3001/api/v1/login",
+      path: "http://localhost:3001/api/v1/users/login",
       data: { dataSignIn },
     });
 

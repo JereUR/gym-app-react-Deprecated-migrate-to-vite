@@ -87,7 +87,7 @@ export const SignUp = () => {
 
     if (Object.keys(err).length === 0) {
       const res = await FetchPostData({
-        path: "http://localhost:3001/api/v1/newuser",
+        path: "http://localhost:3001/api/v1/users/newuser",
         data: { dataRegister },
       });
 

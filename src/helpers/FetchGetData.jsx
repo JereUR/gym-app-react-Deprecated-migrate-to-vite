@@ -1,19 +1,6 @@
-export const FetchGetData = async ({ path, data = "" }) => {
+export const FetchGetData = async ( path ) => {
   try {
-    const resp = await fetch(`/${path}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: { data },
-    });
-
-    if (!resp.ok) {
-      throw new Error("Error en la respuesta del servidor");
-    }
-
-    const dataRes = await resp.json();
-    return dataRes;
+    return await fetch(path)
   } catch (error) {
     return error;
   }
