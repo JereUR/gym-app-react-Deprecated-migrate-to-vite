@@ -184,26 +184,6 @@
           "zone": "Abdominales y lumbares",
           "exercise": "Contracciones tumbado",
           "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
-          "rest": 30,
-          "description": "Lorem Ipsum is simply dummy."
-        },
-        {
-          "series": 3,
-          "count": 15,
-          "measure": "Repeticiones",
-          "zone": "Abdominales y lumbares",
-          "exercise": "Contracciones tumbado",
-          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
-          "rest": 30,
-          "description": "Lorem Ipsum is simply dummy."
-        },
-        {
-          "series": 3,
-          "count": 15,
-          "measure": "Repeticiones",
-          "zone": "Abdominales y lumbares",
-          "exercise": "Contracciones tumbado",
-          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
           "rest": null,
           "description": null
         },
