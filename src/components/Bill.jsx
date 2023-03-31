@@ -53,7 +53,7 @@ export const Bill = ({ email, username, surname, months }) => {
       </NextPaymentContainer>
       <PaymentsContainer>
         <NoticeTitlePayment>Pagos realizados:</NoticeTitlePayment>
-        {payment ? (
+        {payment.payments ? (
           payment.payments.map((el, index) => (
             <BillItem
               key={index}

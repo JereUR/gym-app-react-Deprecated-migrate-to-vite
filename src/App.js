@@ -20,21 +20,34 @@ import { useEffect, useState } from "react";
 import { FetchGetData } from "./helpers/FetchGetData";
 import { toast, Toaster } from "react-hot-toast";
 
-function App({ /* user, dbUsers, */ login, username, email, admin, surname }) {
-  /* const [user, setUser] = useState(null); */
+function App() {
+  const [user, setUser] = useState(null);
+  const [email, setEmail] = useState(null)
+  const [login, setLogin] = useState(false)
+  const [username, setUsername] = useState(null)
+  const [surname, setSurname] = useState(null)
+  const [admin, setAdmin] = useState(false)
+  let res;
   /* const pathUser = `/usuario/${user.username}`; */
-  const pathUser = `/usuario/${username}`;
+  /* const pathUser = `/usuario/${user.username}`; */
 
-  /*  useEffect(() => {
-    async function getUser() {
-      return await FetchGetData("/");
+   useEffect(() => {
+    try{
+      res = FetchGetData("http://localhost:3001/api/v1/users/currentuser");
+    }catch(e){
+      console.log(e)
     }
-    const res = getUser();
-    if (!(res instanceof Error)) {
-      setUser(res);
-    } else {
+    
+    if (!(res instanceof Error)){
+      res=res
+      .then(response => response.json())
+      .then(data => {
+        setUser(data)
+      })
+    }
+    else{
       toast.error(
-        { res },
+        res.message,
         {
           position: "top-right",
           duration: 6000,
@@ -46,7 +59,9 @@ function App({ /* user, dbUsers, */ login, username, email, admin, surname }) {
         }
       );
     }
-  }, []); */
+  }, []);
+
+  console.log(user)
 
   return (
     <Container>
@@ -80,7 +95,7 @@ function App({ /* user, dbUsers, */ login, username, email, admin, surname }) {
             />
             <Route
               exact
-              path={pathUser}
+              path={user===null?`/usuario/null`:`/usuario/${user.username}`}
               element={<UserProfile email={email} />}
             />
             <Route
