@@ -104,9 +104,7 @@ function App() {
             />
             <Route
               exact
-              path={
-                user === null ? `/usuario/null` : `/usuario/${user.username}`
-              }
+              path={`/usuario/${username}`}
               element={<UserProfile email={email} />}
             />
             <Route
