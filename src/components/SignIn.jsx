@@ -12,7 +12,7 @@ import { FetchPostData } from "../helpers/FetchPostData";
 const { primaryBlue, primaryRed, secondaryBlue, secondaryRed, colorText } =
   Colors;
 
-export const SignIn = () => {
+export const SignIn = ({setUser}) => {
   const [forgotPassword, setForgotPassword] = useState(false);
   const [remember, setRemember] = useState(false);
   const [emailRecover, setEmailRecover] = useState("");
@@ -66,16 +66,15 @@ export const SignIn = () => {
       data: { dataSignIn },
     });
 
-    console.log({ res });
     if (!(res instanceof Error)) {
       if (remember) {
         localStorage.setItem("loginCredentials", JSON.stringify(credentials));
       } else {
         localStorage.removeItem("loginCredentials");
       }
+      setUser(res);
 
       clearForm();
-
       setLoading(false);
     } else {
       toast.error(res.message, {

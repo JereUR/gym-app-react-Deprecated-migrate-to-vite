@@ -22,7 +22,7 @@ export const NutritionalPlan = ({ email /* user */, title, addInfo }) => {
   useEffect(() => {
     //Get plan
     async function getPlan(email) {
-      return await FetchGetData("/", email);
+      return await FetchGetData(`/${email}`);
     }
     setLoading(true);
     const res = getPlan(email);

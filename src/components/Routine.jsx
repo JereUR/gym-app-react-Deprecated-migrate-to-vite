@@ -22,7 +22,7 @@ export const Routine = ({ email, title, addInfo }) => {
   useEffect(() => {
     //Get routine
     async function getRoutine(email) {
-      return await FetchGetData("/", email);
+      return await FetchGetData(`/${email}`);
     }
     setLoading(true);
     const res = getRoutine(email);

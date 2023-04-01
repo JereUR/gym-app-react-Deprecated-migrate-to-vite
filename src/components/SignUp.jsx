@@ -20,7 +20,7 @@ const initialData = {
   confirmPassword: "",
 };
 
-export const SignUp = () => {
+export const SignUp = ({setUser}) => {
   const [register, setRegister] = useState(false);
   const [dataRegister, setDataRegister] = useState(initialData);
   const [errors, setErrors] = useState({});
@@ -101,7 +101,7 @@ export const SignUp = () => {
             fontWeight: "500",
           },
         });
-
+        setUser(res);
         setDataRegister(initialData);
         setRegister(false);
       } else {

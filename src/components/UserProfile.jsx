@@ -35,7 +35,7 @@ export const UserProfile = ({ email }) => {
   useEffect(() => {
     //Get user info menos routine, plan y payments
     async function getUser(email) {
-      return await FetchGetData("/", email);
+      return await FetchGetData(`/${email}`);
     }
     const res = getUser(email);
     if (!(res instanceof Error)) {

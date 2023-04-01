@@ -11,10 +11,8 @@ import { toast, Toaster } from "react-hot-toast";
 
 const { secondaryBlue, secondaryRed } = Colors;
 
-export const Home = ({ /* user,  */ months, email }) => {
+export const Home = ({ months, email, weight, height }) => {
   const [nextPayment, setNextPayment] = useState(null);
-  const [weight, setWeight] = useState(null);
-  const [height, setHeight] = useState(null);
   const [debtor, setDebtor] = useState(false);
   const [addInfo, setAddInfo] = useState(false);
   const [scrollTop, setScrollTop] = useState(0);
@@ -36,30 +34,31 @@ export const Home = ({ /* user,  */ months, email }) => {
   };
 
   useEffect(() => {
-    //Get proximo pago y weigth y height
-    async function getNextPayment(email) {
-      return await FetchGetData("http://localhost:3001/api/v1/payments/getpayment", email);
+    //Get proximo pago
+    if(email!==null && email!==undefined){
+      console.log("Fetch")
+      async function getNextPayment(email) {
+        return await FetchGetData(`http://localhost:3001/api/v1/payments/getpayment/${email}`);
+      }
+      const res = getNextPayment(email);
+      if (!(res instanceof Error)) {
+        setNextPayment(res.data.nextPayment);
+      } else {
+        toast.error(
+          res.messsage ,
+          {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(250, 215, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          }
+        );
+      }
     }
-    const res = getNextPayment(email);
-    console.log({res});
-    if (!(res instanceof Error)) {
-      setNextPayment(res.data.nextPayment);
-      // setWeight(res.data.weight);
-      // setHeight(res.data.height);
-    } else {
-      toast.error(
-        res.messsage ,
-        {
-          position: "top-right",
-          duration: 6000,
-          style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        }
-      );
-    }
+    
   }, [email]);
 
   useEffect(() => {
@@ -85,20 +84,20 @@ export const Home = ({ /* user,  */ months, email }) => {
       let today = new Date();
 
       let userDate = new Date(
-        /* user.payment. */ nextPayment.year,
-        /* user.payment. */ nextPayment.month,
-        /* user.payment. */ nextPayment.day
+        nextPayment.year,
+        nextPayment.month,
+        nextPayment.day
       );
 
       if (userDate < today) {
         setDebtor(true);
       }
 
-      // if (/* user. */ weight === null || /* user. */ height === null) {
-      //   setAddInfo(true);
-      // }
+      if (weight === null || height === null) {
+        setAddInfo(true);
+      }
     }
-  }, [nextPayment, months/*, weight, height*/]);
+  }, [nextPayment, months, weight, height]);
 
   const handleClickScroll = () => {
     document.querySelector("header").scrollIntoView({ behavior: "smooth" });
