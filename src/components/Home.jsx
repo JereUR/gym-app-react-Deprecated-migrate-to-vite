@@ -35,30 +35,28 @@ export const Home = ({ months, email, weight, height }) => {
 
   useEffect(() => {
     //Get proximo pago
-    if(email!==null && email!==undefined){
-      console.log("Fetch")
+    if (email !== null && email !== undefined) {
       async function getNextPayment(email) {
-        return await FetchGetData(`http://localhost:3001/api/v1/payments/getpayment/${email}`);
+        return await FetchGetData(
+          `http://localhost:3001/api/v1/payments/getpayment/${email}`
+        );
       }
+
       const res = getNextPayment(email);
       if (!(res instanceof Error)) {
         setNextPayment(res.data.nextPayment);
       } else {
-        toast.error(
-          res.messsage ,
-          {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          }
-        );
+        toast.error(res.messsage, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
       }
     }
-    
   }, [email]);
 
   useEffect(() => {
@@ -80,7 +78,7 @@ export const Home = ({ months, email, weight, height }) => {
   }, [scrollTop]);
 
   useEffect(() => {
-    if (/* user !== null || user !== undefined */ nextPayment !== null) {
+    if (nextPayment !== null) {
       let today = new Date();
 
       let userDate = new Date(
@@ -111,30 +109,19 @@ export const Home = ({ months, email, weight, height }) => {
       {debtor && (
         <ReportPaymentContainer>
           <MessageDebtor>
-            ¡Tienes un pago atrasado del día{" "}
-            {/* user.payment. */ nextPayment.day} de{" "}
-            {
-              months.find(
-                (m) => m.value === /* user.payment. */ nextPayment.month
-              ).month
-            }{" "}
-            del año {/* user.payment. */ nextPayment.year}!
+            ¡Tienes un pago atrasado del día {nextPayment.day} de{" "}
+            {months.find((m) => m.value === nextPayment.month).month} del año{" "}
+            {nextPayment.year}!
           </MessageDebtor>
         </ReportPaymentContainer>
       )}
       <RutineContainer>
-        <Routine
-          email={email}
-          /* user={user} */
-          title="Mis Rutinas"
-          addInfo={addInfo}
-        />
+        <Routine email={email} title="Mis Rutinas" addInfo={addInfo} />
       </RutineContainer>
       <Hr />
       <NutritionalPlanContainer>
         <NutritionalPlan
           email={email}
-          /* user={user} */
           title="Mi Plan Nutricional"
           addInfo={addInfo}
         />

@@ -66,8 +66,7 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
       let ex = [];
 
       async function getRoutine({ email, day }) {
-        const data = { email, day };
-        return await FetchGetData("/", data);
+        return await FetchGetData(`/${email}/${day}`);
       }
       const r = getRoutine(forData, dayData);
       if (!(r instanceof Error)) {
@@ -101,44 +100,41 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const data = { user_email: forData, day: dayData };
 
     /* console.log({ data }); */
 
-    /* const res = await FetchPostData({
-        path: "/",
-        data: { data },
+    const res = await FetchPostData({
+      path: "/",
+      data: { data },
+    });
+
+    if (!(res instanceof Error)) {
+      toast.success(`Rutina de ${forData} del dia ${dayData} eliminada.`, {
+        position: "top-right",
+        duration: 6000,
+        style: {
+          background: "rgba(215, 250, 215)",
+          fontSize: "1rem",
+          fontWeight: "500",
+        },
       });
 
-      if (!(res instanceof Error)) {
-        toast.success(`Rutina del dia ${dayData} eliminadaenviada a ${forData}.`, {
-          position: "top-right",
-          duration: 6000,
-          style: {
-            background: "rgba(215, 250, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
-
-        clearData();
-      } else {
-        toast.error(
-          { res },
-          {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          }
-        );
-      } */
+      clearData();
+    } else {
+      toast.error(res.messages, {
+        position: "top-right",
+        duration: 6000,
+        style: {
+          background: "rgba(250, 215, 215)",
+          fontSize: "1rem",
+          fontWeight: "500",
+        },
+      });
+    }
   };
 
   return (

@@ -15,7 +15,7 @@ export const UserViewInfo = ({ email }) => {
 
   useEffect(() => {
     async function getUser(email) {
-      return await FetchGetData("/", email);
+      return await FetchGetData(`/${email}`);
     }
     const res = getUser(email);
     if (!(res instanceof Error)) {

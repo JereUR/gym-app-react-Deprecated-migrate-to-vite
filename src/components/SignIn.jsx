@@ -12,15 +12,17 @@ import { FetchPostData } from "../helpers/FetchPostData";
 const { primaryBlue, primaryRed, secondaryBlue, secondaryRed, colorText } =
   Colors;
 
-export const SignIn = ({setUser}) => {
+const initialData = {
+  email: "",
+  password: "",
+};
+
+export const SignIn = ({ setUser }) => {
   const [forgotPassword, setForgotPassword] = useState(false);
   const [remember, setRemember] = useState(false);
   const [emailRecover, setEmailRecover] = useState("");
   const [loading, setLoading] = useState(false);
-  const [credentials, setCredentials] = useState({
-    email: "",
-    password: "",
-  });
+  const [credentials, setCredentials] = useState(initialData);
 
   useEffect(() => {
     const storedCredentials = JSON.parse(
@@ -28,13 +30,16 @@ export const SignIn = ({setUser}) => {
     );
     if (storedCredentials) {
       setCredentials(storedCredentials);
-      /* setIsLoggedIn(true); */
     }
   }, []);
 
   const clearForm = () => {
     document.getElementById("email-sign-in").value = "";
     document.getElementById("password-sign-in").value = "";
+    document.getElementById("remember").value = false;
+
+    setRemember(false);
+    setCredentials(initialData);
   };
 
   const handleForgotPasswordModal = () => {
@@ -97,7 +102,7 @@ export const SignIn = ({setUser}) => {
   const handleSubmitRecover = async (e) => {
     e.preventDefault();
 
-    /* const res = await FetchPostData({
+    const res = await FetchPostData({
       path: "/",
       data: { emailRecover },
     });
@@ -115,19 +120,16 @@ export const SignIn = ({setUser}) => {
 
       setForgotPassword(!forgotPassword);
     } else {
-      toast.error(
-        { res },
-        {
-          position: "top-right",
-          duration: 6000,
-          style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        }
-      );
-    } */
+      toast.error(res.message, {
+        position: "top-right",
+        duration: 6000,
+        style: {
+          background: "rgba(250, 215, 215)",
+          fontSize: "1rem",
+          fontWeight: "500",
+        },
+      });
+    }
   };
 
   return (
@@ -153,7 +155,7 @@ export const SignIn = ({setUser}) => {
           required
         />
         <InputCheckContainer>
-          <InputCheck type="checkbox" onChange={handleRemember} />
+          <InputCheck type="checkbox" id="remember" onChange={handleRemember} />
           <Label>Recordarme</Label>
         </InputCheckContainer>
         <ButtonSignIn>Iniciar Sesión</ButtonSignIn>

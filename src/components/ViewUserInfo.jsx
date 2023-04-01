@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { NutritionalPlan } from "./NutritionalPlan";
 import { Routine } from "./Routine";
 import { UserViewInfo } from "./UserViewInfo";
-import { useState } from "react";
 
 export const ViewUserInfo = ({ email }) => {
   return (

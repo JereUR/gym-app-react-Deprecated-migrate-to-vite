@@ -117,7 +117,7 @@ const FormRoutine = ({ users, dbLocal }) => {
   const handleFor = async (e) => {
     setForData(e.target.value);
 
-    const user = await FetchGetData("/", e.target.value);
+    const user = await FetchGetData(`/${e.target.value}`);
     if (!(user instanceof Error)) {
       if (user.weight === null || user.height === null) {
         setErrorFor(
@@ -253,7 +253,7 @@ const FormRoutine = ({ users, dbLocal }) => {
       };
       console.log({ routineDay });
 
-      /* const res = await FetchPostData({
+      const res = await FetchPostData({
         path: "/",
         data: { routineDay },
       });
@@ -271,19 +271,16 @@ const FormRoutine = ({ users, dbLocal }) => {
 
         clearData();
       } else {
-        toast.error(
-          { res },
-          {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          }
-        );
-      } */
+        toast.error(res.message, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
+      }
     }
   };
 
@@ -292,8 +289,7 @@ const FormRoutine = ({ users, dbLocal }) => {
       let ex = [];
 
       async function getRoutine({ email, day }) {
-        const data = { email, day };
-        return await FetchGetData("/", data);
+        return await FetchGetData(`/${email}/${day}`);
       }
       const r = getRoutine(forData, dayData);
       if (!(r instanceof Error)) {

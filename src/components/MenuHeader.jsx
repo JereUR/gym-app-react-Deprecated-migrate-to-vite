@@ -12,12 +12,8 @@ import { BurgerButton } from "./BurgerButton";
 
 const { secondaryBlue, colorText } = Colors;
 
-export const MenuHeader = ({ /* user , */ username, login, admin }) => {
-  /* const profilePath = `/usuario/${user.username}`; */
+export const MenuHeader = ({ username, login, admin }) => {
   const profilePath = `/usuario/${username}`;
-  /* const auth = useAuth(user);
-  const admin = useAuthAdmin(user);
-  const authAdmin = auth && admin; */
   const authAdmin = login && admin;
 
   const [clicked, setClicked] = useState(false);

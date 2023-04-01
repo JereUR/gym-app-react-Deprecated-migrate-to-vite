@@ -1,11 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+import { Toaster, toast } from "react-hot-toast";
 
 import { Colors } from "../constants/Colors";
 import { BillItem } from "./BillItem";
 import { FetchGetData } from "../helpers/FetchGetData";
-import { Toaster, toast } from "react-hot-toast";
 
 const { primaryRed, primaryBlue, secondaryBlue, secondaryRed } = Colors;
 
@@ -15,24 +15,21 @@ export const Bill = ({ email, username, surname, months }) => {
   useEffect(() => {
     //Get payment
     async function getPayment(email) {
-      return await FetchGetData("/");
+      return await FetchGetData(`/${email}`);
     }
     const res = getPayment(email);
     if (!(res instanceof Error)) {
       setPayment(res);
     } else {
-      toast.error(
-        { res },
-        {
-          position: "top-right",
-          duration: 6000,
-          style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        }
-      );
+      toast.error(res.message, {
+        position: "top-right",
+        duration: 6000,
+        style: {
+          background: "rgba(250, 215, 215)",
+          fontSize: "1rem",
+          fontWeight: "500",
+        },
+      });
     }
   }, [email]);
 

@@ -11,7 +11,7 @@ import { toast, Toaster } from "react-hot-toast";
 
 const { primaryBlue, secondaryBlue, primaryRed } = Colors;
 
-export const NutritionalPlan = ({ email /* user */, title, addInfo }) => {
+export const NutritionalPlan = ({ email, title, addInfo }) => {
   const [viewData, setViewData] = useState(true);
   const [plan, setPlan] = useState(null);
   const [loading, setLoading] = useState(false);

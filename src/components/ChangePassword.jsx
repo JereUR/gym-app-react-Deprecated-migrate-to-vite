@@ -56,7 +56,7 @@ export const ChangePassword = ({ username }) => {
     setErrors(err);
 
     if (Object.keys(err).length === 0) {
-      /* const res = await FetchPostData({
+      const res = await FetchPostData({
         path: "/",
         data: { dataUpdate },
       });
@@ -78,19 +78,16 @@ export const ChangePassword = ({ username }) => {
           window.location.replace(`/usuario/:${username}`);
         }, 2000);
       } else {
-        toast.error(
-          { res },
-          {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          }
-        );
-      } */
+        toast.error(res.message, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
+      }
     }
   };
 

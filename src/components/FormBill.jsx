@@ -193,7 +193,7 @@ export const FormBill = ({ users, dbLocal }) => {
   const handleFor = async (e) => {
     setForData(e.target.value);
 
-    const user = await FetchGetData("/", e.target.value);
+    const user = await FetchGetData(`/${e.target.value}`);
     if (!(user instanceof Error)) {
       setName(user.username);
       setSurname(user.surname);

@@ -8,6 +8,7 @@ import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 import { FetchGetData } from "../helpers/FetchGetData";
 import { Toaster, toast } from "react-hot-toast";
+import { FetchPostData } from "../helpers/FetchPostData";
 
 const { secondaryBlue, primaryBlue, primaryRed } = Colors;
 
@@ -21,7 +22,7 @@ export const DebtorsSection = ({ users }) => {
       let debtors = [];
 
       users.forEach(async (user) => {
-        const nextPayment = await FetchGetData("/", user.email);
+        const nextPayment = await FetchGetData(`/${user.email}`);
 
         if (!(nextPayment instanceof Error)) {
           let userDate = new Date(
@@ -60,13 +61,13 @@ export const DebtorsSection = ({ users }) => {
   };
 
   const handleReport = async (email) => {
-    /* const res = await FetchPostData({
+    const res = await FetchPostData({
       path: "/",
       data: { email },
     });
 
     if (!(res instanceof Error)) {
-      toast.success(`Reporte enviado.`, {
+      toast.success(`Reporte enviado a ${email}.`, {
         position: "top-right",
         duration: 6000,
         style: {
@@ -84,19 +85,16 @@ export const DebtorsSection = ({ users }) => {
 
       setDebtorUsers(newDebtors);
     } else {
-      toast.error(
-        { res },
-        {
-          position: "top-right",
-          duration: 6000,
-          style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        }
-      );
-    } */
+      toast.error(res.message, {
+        position: "top-right",
+        duration: 6000,
+        style: {
+          background: "rgba(250, 215, 215)",
+          fontSize: "1rem",
+          fontWeight: "500",
+        },
+      });
+    }
   };
 
   return (

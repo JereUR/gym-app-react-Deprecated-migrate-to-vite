@@ -227,7 +227,7 @@ export const UserInfo = ({ user }) => {
         newDiseases,
       };
 
-      /* const res = await FetchPostData({
+      const res = await FetchPostData({
         path: "/",
         data: { data },
       });
@@ -245,19 +245,16 @@ export const UserInfo = ({ user }) => {
 
         setChangeInfo(!changeInfo);
       } else {
-        toast.error(
-          res.message,
-          {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          }
-        );
-      } */
+        toast.error(res.message, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
+      }
     }
   };
 

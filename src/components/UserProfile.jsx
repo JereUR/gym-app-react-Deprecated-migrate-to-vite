@@ -41,18 +41,15 @@ export const UserProfile = ({ email }) => {
     if (!(res instanceof Error)) {
       setUser(res);
     } else {
-      toast.error(
-        { res },
-        {
-          position: "top-right",
-          duration: 6000,
-          style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        }
-      );
+      toast.error(res.message, {
+        position: "top-right",
+        duration: 6000,
+        style: {
+          background: "rgba(250, 215, 215)",
+          fontSize: "1rem",
+          fontWeight: "500",
+        },
+      });
     }
   }, [email]);
 
@@ -85,7 +82,7 @@ export const UserProfile = ({ email }) => {
   };
 
   const handleSignOut = async () => {
-    /* const res = await FetchPostData({
+    const res = await FetchPostData({
       path: "/",
       data: user.email,
     });
@@ -95,19 +92,16 @@ export const UserProfile = ({ email }) => {
         window.location.replace("/");
       }, 1000);
     } else {
-      toast.error(
-        res.message,
-        {
-          position: "top-right",
-          duration: 6000,
-          style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        }
-      );
-    } */
+      toast.error(res.message, {
+        position: "top-right",
+        duration: 6000,
+        style: {
+          background: "rgba(250, 215, 215)",
+          fontSize: "1rem",
+          fontWeight: "500",
+        },
+      });
+    }
   };
 
   const uploadFiles = () => {
@@ -139,7 +133,7 @@ export const UserProfile = ({ email }) => {
     if (userPhoto != null) {
       const dataPhoto = { email: user.email, photo: userPhoto };
 
-      /* const res = await FetchPostData({
+      const res = await FetchPostData({
         path: "/",
         data: { dataPhoto },
       });
@@ -159,19 +153,16 @@ export const UserProfile = ({ email }) => {
           window.location.reload();
         }, 2000);
       } else {
-        toast.error(
-          res.message,
-          {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          }
-        );
-      } */
+        toast.error(res.message, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
+      }
     }
   };
 

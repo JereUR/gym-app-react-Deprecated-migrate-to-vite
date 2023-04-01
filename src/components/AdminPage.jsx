@@ -7,10 +7,10 @@ import { FormBill } from "./FormBill";
 import { FormNutritionalPlan } from "./FormNutritionalPlan";
 import FormRoutine from "./FormRoutine";
 import { SeeUser } from "./SeeUser";
-import { FetchPostData } from "../helpers/FetchPostData";
 import { FetchGetData } from "../helpers/FetchGetData";
 import { DebtorsSection } from "./DebtorsSection";
 import { FormClearRoutine } from "./FormClearRoutine";
+import { FormClearNutritionalPlan } from "./FormClearNutritionalPlan";
 
 const { secondaryBlue, backgroundText } = Colors;
 
@@ -55,6 +55,10 @@ export const AdminPage = ({ dbLocal }) => {
         <FormNutritionalPlan users={users} dbLocal={dbLocal} />
       </AddNutritionalPlan>
       <Hr />
+      <ClearPlanContainer>
+        <Title>Borrar plan nutricional</Title>
+        <FormClearNutritionalPlan users={users} dbLocal={dbLocal} />
+      </ClearPlanContainer>
       <BillSection>
         <Title>Agregar pago</Title>
         <FormBill users={users} dbLocal={dbLocal} />
@@ -84,6 +88,8 @@ const AddRoutineContainer = styled.div`
     margin: 7vw 4vw 7vw 4vw;
   }
 `;
+
+const ClearPlanContainer = styled(AddRoutineContainer)``;
 
 const ClearRoutineContainer = styled(AddRoutineContainer)``;
 

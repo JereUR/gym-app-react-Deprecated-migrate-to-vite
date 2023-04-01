@@ -1,16 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { GrDocumentPdf } from "react-icons/gr";
-import { FiDownload } from "react-icons/fi";
-import {
-  Document,
-  Page,
-  Text,
-  View,
-  Image,
-  usePDF,
-  BlobProvider,
-} from "@react-pdf/renderer";
+import { Document, Page, Text, View, Image, usePDF } from "@react-pdf/renderer";
 
 import logo from "../assets/logo.png";
 import seal from "../assets/payment-seal.png";
@@ -93,6 +84,7 @@ export const BillItem = ({ bill, username, surname, email }) => {
     updateInstance({ document: doc });
     setViewPdf(!viewPdf);
   };
+
   return (
     <Container>
       <BillItemContainer>

@@ -1,33 +1,22 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { FaEdit } from "react-icons/fa";
-import { IoMdAddCircle } from "react-icons/io";
-import { toast, Toaster } from "react-hot-toast";
+import { Toaster, toast } from "react-hot-toast";
 
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 import { MealComponent } from "./MealComponent";
-import { FetchPostData } from "../helpers/FetchPostData";
 import { FetchGetData } from "../helpers/FetchGetData";
+import { FetchPostData } from "../helpers/FetchPostData";
 
-const {
-  errorInput,
-  primaryRed,
-  primaryBlue,
-  secondaryBlue,
-  secondaryRed,
-  success,
-} = Colors;
+const { errorInput, primaryRed, primaryBlue, secondaryRed, secondaryBlue } =
+  Colors;
 
-export const FormNutritionalPlan = ({ users, dbLocal }) => {
+export const FormClearNutritionalPlan = ({ users, dbLocal }) => {
   const [forData, setForData] = useState(null);
-  const [errorFor, setErrorFor] = useState(null);
   const [dayData, setDayData] = useState(null);
-  const [mealData, setMealData] = useState(null);
-  const [count, setCount] = useState(null);
-  const [measure, setMeasure] = useState(null);
-  const [type, setType] = useState(null);
+  const [errors, setErrors] = useState({});
   const [breakfast, setBreakfast] = useState([]);
   const [lunch, setLunch] = useState([]);
   const [snack, setSnack] = useState([]);
@@ -36,27 +25,10 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
   const [preWorkout, setPreWorkout] = useState([]);
   const [postWorkout, setPostWorkout] = useState([]);
   const [collation, setCollation] = useState([]);
-  const [errorsPlan, setErrorsPlan] = useState({});
-  const [errorsMeal, setErrorsMeal] = useState({});
-
-  const timeout = (delay) => {
-    return new Promise((res) => setTimeout(res, delay));
-  };
-
-  const clearFormMeal = () => {
-    document.getElementById("countMeal").value = null;
-    document.getElementById("measureMeal").value = null;
-    document.getElementById("type").value = null;
-
-    setCount(null);
-    setMeasure(null);
-    setType(null);
-  };
 
   const clearData = () => {
     setForData(null);
     setDayData(null);
-    setMealData(null);
 
     setBreakfast([]);
     setLunch([]);
@@ -68,33 +40,7 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
     setCollation([]);
   };
 
-  const onValidateMeal = () => {
-    let errorsForm = {};
-
-    if (measure === null) {
-      errorsForm.measure = "Debe especificar tipo de medida.";
-    }
-
-    if (count === null) {
-      errorsForm.count = "Debe especificar cantidad.";
-    }
-
-    if (count <= 0 && count != null) {
-      errorsForm.count = "La cantidad debe ser mayor a 0.";
-    }
-
-    if (type === null || type === "") {
-      errorsForm.type = "Debe especificar tipo de comida.";
-    }
-
-    if (mealData === null) {
-      errorsForm.mealData = "Debe especificar comida.";
-    }
-
-    return errorsForm;
-  };
-
-  const onValidatePlan = () => {
+  const onValidate = () => {
     let errorsForm = {};
 
     if (forData === null) {
@@ -105,9 +51,18 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
       errorsForm.dayData = "Debe especificar día de plan nutricional.";
     }
 
-    if (mealData === null) {
-      errorsForm.mealData =
-        "Debe especificar tipo de comida de plan nutricional.";
+    return errorsForm;
+  };
+
+  const onValidateDelete = () => {
+    let errorsForm = {};
+
+    if (forData === null) {
+      errorsForm.forData = "Debe especificar destinatario.";
+    }
+
+    if (dayData === null) {
+      errorsForm.dayData = "Debe especificar día de rutina.";
     }
 
     if (
@@ -116,36 +71,15 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
       snack.length === 0 ||
       dinner.length === 0
     ) {
-      errorsForm.planData =
-        "El plan nutricional debe contener como mínimo  desayuno, almuerzo, merienda y cena.";
+      errorsForm.plan =
+        "El plan nutricional esta vacio o no se ha buscado todavía.";
     }
 
     return errorsForm;
   };
 
-  const handleFor = async (e) => {
+  const handleFor = (e) => {
     setForData(e.target.value);
-
-    const user = await FetchGetData("/", e.target.value);
-    if (!(user instanceof Error)) {
-      if (user.weight === null || user.height === null) {
-        setErrorFor(
-          `${e.target.value} no ha completado su información adicional. No es posible agregar una rutina al mismo.`
-        );
-      } else {
-        setErrorFor(null);
-      }
-    } else {
-      toast.error(user.message, {
-        position: "top-right",
-        duration: 6000,
-        style: {
-          background: "rgba(250, 215, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
-      });
-    }
   };
 
   const handleChangeFor = () => {
@@ -160,218 +94,11 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
     setDayData(null);
   };
 
-  const handleMeal = (e) => {
-    setMealData(e.target.value);
-  };
-
-  const handleChangeMeal = () => {
-    setMealData(null);
-  };
-
-  const handleMeasure = (e) => {
-    setMeasure(e.target.value);
-  };
-
-  const handleCount = (e) => {
-    setCount(e.target.value);
-  };
-
-  const handleType = (e) => {
-    setType(e.target.value);
-  };
-
-  const editData = (el, data) => {
-    deleteData(el.id, data);
-
-    document.getElementById("countMeal").value = el.count;
-    document.getElementById("measureMeal").value = el.measure;
-    document.getElementById("type").value = el.type;
-
-    setCount(el.count);
-    setMeasure(el.measure);
-    setType(el.type);
-    setMealData(null);
-  };
-
-  const deleteData = (id, data) => {
-    let newData = data.filter((el) => el.id !== id);
-    switch (data) {
-      case breakfast:
-        setBreakfast(newData);
-        break;
-      case lunch:
-        setLunch(newData);
-        break;
-      case snack:
-        setSnack(newData);
-        break;
-      case dinner:
-        setDinner(newData);
-        break;
-      case afterDinner:
-        setAfterDinner(newData);
-        break;
-      case preWorkout:
-        setPreWorkout(newData);
-        break;
-      case postWorkout:
-        setPostWorkout(newData);
-        break;
-      case collation:
-        setCollation(newData);
-        break;
-      default:
-        break;
-    }
-  };
-
-  const handleAddMeal = () => {
-    timeout(2000);
-
-    const err = onValidateMeal();
-    setErrorsMeal(err);
+  const handleSeePlan = () => {
+    const err = onValidate();
+    setErrors(err);
 
     if (Object.keys(err).length === 0) {
-      switch (mealData) {
-        case "breakfast":
-          const bData = {
-            measure,
-            count,
-            type,
-            id: "breakfast_" + Math.floor(Math.random() * 10000),
-          };
-          setBreakfast(breakfast.concat(bData));
-          break;
-        case "lunch":
-          const lData = {
-            measure,
-            count,
-            type,
-            id: "lunch_" + Math.floor(Math.random() * 10000),
-          };
-          setLunch(lunch.concat(lData));
-          break;
-        case "snack":
-          const sData = {
-            measure,
-            count,
-            type,
-            id: "snack_" + Math.floor(Math.random() * 10000),
-          };
-          setSnack(snack.concat(sData));
-          break;
-        case "dinner":
-          const dData = {
-            measure,
-            count,
-            type,
-            id: "dinner_" + Math.floor(Math.random() * 10000),
-          };
-          setDinner(dinner.concat(dData));
-          break;
-        case "after-dinner":
-          const aData = {
-            measure,
-            count,
-            type,
-            id: "after-dinner_" + Math.floor(Math.random() * 10000),
-          };
-          setAfterDinner(afterDinner.concat(aData));
-          break;
-        case "pre-workout":
-          const preData = {
-            measure,
-            count,
-            type,
-            id: "pre-workout_" + Math.floor(Math.random() * 10000),
-          };
-          setPreWorkout(preWorkout.concat(preData));
-          break;
-        case "post-workout":
-          const postData = {
-            measure,
-            count,
-            type,
-            id: "post-workout_" + Math.floor(Math.random() * 10000),
-          };
-          setPostWorkout(postWorkout.concat(postData));
-          break;
-        case "collation":
-          const cData = {
-            measure,
-            count,
-            type,
-            id: "collation_" + Math.floor(Math.random() * 10000),
-          };
-          setCollation(collation.concat(cData));
-          break;
-        default:
-          break;
-      }
-      clearFormMeal();
-    } else {
-      /* console.log("Error comida"); */
-    }
-  };
-
-  const handleSubmitPlan = async (e) => {
-    e.preventDefault();
-
-    const err = onValidatePlan();
-    setErrorsPlan(err);
-
-    if (Object.keys(err).length === 0 && errorFor === null) {
-      const planDay = {
-        forData,
-        dayData,
-        breakfast,
-        lunch,
-        snack,
-        dinner,
-        afterDinner,
-        preWorkout,
-        postWorkout,
-        collation,
-      };
-
-      console.log({ planDay });
-
-      /*  const res = await FetchPostData({
-        path: "/",
-        data: { planDay },
-      });
-
-      if (!(res instanceof Error)) {
-        toast.success(`Plan nutricional enviado a ${forData}.`, {
-          position: "top-right",
-          duration: 6000,
-          style: {
-            background: "rgba(215, 250, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
-
-        clearData();
-      } else {
-        toast.error(
-          res.message,
-          {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          }
-        );
-      } */
-    }
-  };
-
-  useEffect(() => {
-    if (forData !== null && dayData !== null) {
       let b = [];
       let l = [];
       let s = [];
@@ -507,15 +234,60 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
         }
       }
     }
-  }, [forData, dayData]);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const err = onValidateDelete();
+    setErrors(err);
+
+    if (Object.keys(err).length === 0) {
+      const data = { user_email: forData, day: dayData };
+
+      /* console.log({ data }); */
+
+      const res = await FetchPostData({
+        path: "/",
+        data: { data },
+      });
+
+      if (!(res instanceof Error)) {
+        toast.success(
+          `Plan nutricional de ${forData} del dia ${dayData} eliminado.`,
+          {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(215, 250, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          }
+        );
+
+        clearData();
+      } else {
+        toast.error(res.message, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
+      }
+    }
+  };
 
   return (
-    <Form onSubmit={handleSubmitPlan}>
+    <Form onSubmit={handleSubmit}>
       <ForPartContainer>
         {!forData ? (
           <InputContainer>
             <Label>Para:</Label>
-            <SelectFirst onChange={handleFor}>
+            <SelectFirst onChange={handleFor} id="for-data">
               <Option value="null">Seleccione un usuario</Option>
               {users.map((el, index) => (
                 <Option key={index} value={el.email}>
@@ -523,17 +295,14 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
                 </Option>
               ))}
             </SelectFirst>
-            {errorsPlan.forData && (
-              <ErrorInput>{errorsPlan.forData}</ErrorInput>
-            )}
+            {errors.forData && <ErrorInput>{errors.forData}</ErrorInput>}
           </InputContainer>
         ) : (
           <ForTextContainer>
-            <ForText>Plan nutricional para {forData}</ForText>
+            <ForText>Rutina para {forData}</ForText>
             <FaEdit size="1.5rem" onClick={handleChangeFor} />
           </ForTextContainer>
         )}
-        {errorFor && <ErrorInput>{errorFor}</ErrorInput>}
       </ForPartContainer>
       <DayPartContainer>
         {!dayData ? (
@@ -547,83 +316,20 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
                 </Option>
               ))}
             </SelectFirst>
-            {errorsPlan.dayData && (
-              <ErrorInput>{errorsPlan.dayData}</ErrorInput>
-            )}
+            {errors.dayData && <ErrorInput>{errors.dayData}</ErrorInput>}
           </InputContainer>
         ) : (
           <ForTextContainer>
             <ForText>
-              Día: {dbLocal.days.find((el) => el.value === dayData).day}
+              Para el día {dbLocal.days.find((el) => el.value === dayData).day}
             </ForText>
             <FaEdit size="1.5rem" onClick={handleChangeDay} />
           </ForTextContainer>
         )}
       </DayPartContainer>
-      <MealPartContainer>
-        {!mealData ? (
-          <InputContainer>
-            <Label>Comida:</Label>
-            <SelectFirst onChange={handleMeal}>
-              <Option value="null">Seleccione una comida</Option>
-              {dbLocal.meals.map((el, index) => (
-                <Option value={el.value} key={index}>
-                  {el.meal}
-                </Option>
-              ))}
-            </SelectFirst>
-            {errorsPlan.mealData && (
-              <ErrorInput>{errorsPlan.mealData}</ErrorInput>
-            )}
-            {errorsMeal.mealData && (
-              <ErrorInput>{errorsMeal.mealData}</ErrorInput>
-            )}
-          </InputContainer>
-        ) : (
-          <ForTextContainer>
-            <ForText>
-              Comida: {dbLocal.meals.find((el) => el.value === mealData).meal}
-            </ForText>
-            <FaEdit size="1.5rem" onClick={handleChangeMeal} />
-          </ForTextContainer>
-        )}
-      </MealPartContainer>
-      <DataContainer>
-        <InputContainer>
-          <Label>Cantidad</Label>
-          <Input
-            type="number"
-            onChange={handleCount}
-            id="countMeal"
-            placeholder="Determine cantidad"
-          />
-          {errorsMeal.count && <ErrorInput>{errorsMeal.count}</ErrorInput>}
-        </InputContainer>
-        <InputContainer>
-          <Label>Tipo de medida</Label>
-          <Select onChange={handleMeasure} id="measureMeal">
-            <Option value="null">Seleccione una medida</Option>
-            <Option value="Unidades">Unidades</Option>
-            <Option value="Gramos">Gramos</Option>
-          </Select>
-          {errorsMeal.measure && <ErrorInput>{errorsMeal.measure}</ErrorInput>}
-        </InputContainer>
-        <InputContainer>
-          <Label>Tipo de comida</Label>
-          <Input
-            type="text"
-            onChange={handleType}
-            id="type"
-            placeholder="Especifique qué tipo de comida consumirá"
-          />
-          {errorsMeal.type && <ErrorInput>{errorsMeal.type}</ErrorInput>}
-        </InputContainer>
-        <IoMdAddCircle
-          fontSize="3.5rem"
-          type="button"
-          onClick={handleAddMeal}
-        />
-      </DataContainer>
+      <ButtonSeeRoutine type="button" onClick={handleSeePlan}>
+        Ver Plan Nutricional
+      </ButtonSeeRoutine>
       {breakfast.length > 0 && (
         <MealContainer>
           <MealName>Desayuno:</MealName>
@@ -632,9 +338,8 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
               <MealComponent
                 key={el.id}
                 el={el}
-                deleteData={deleteData}
                 data={breakfast}
-                editData={editData}
+                seeLogos={false}
               />
             ))}
           </List>
@@ -648,9 +353,8 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
               <MealComponent
                 key={el.id}
                 el={el}
-                deleteData={deleteData}
                 data={lunch}
-                editData={editData}
+                seeLogos={false}
               />
             ))}
           </List>
@@ -664,9 +368,8 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
               <MealComponent
                 key={el.id}
                 el={el}
-                deleteData={deleteData}
                 data={snack}
-                editData={editData}
+                seeLogos={false}
               />
             ))}
           </List>
@@ -680,9 +383,8 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
               <MealComponent
                 key={el.id}
                 el={el}
-                deleteData={deleteData}
                 data={dinner}
-                editData={editData}
+                seeLogos={false}
               />
             ))}
           </List>
@@ -696,9 +398,8 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
               <MealComponent
                 key={el.id}
                 el={el}
-                deleteData={deleteData}
                 data={afterDinner}
-                editData={editData}
+                seeLogos={false}
               />
             ))}
           </List>
@@ -712,9 +413,8 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
               <MealComponent
                 key={el.id}
                 el={el}
-                deleteData={deleteData}
                 data={preWorkout}
-                editData={editData}
+                seeLogos={false}
               />
             ))}
           </List>
@@ -728,9 +428,8 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
               <MealComponent
                 key={el.id}
                 el={el}
-                deleteData={deleteData}
                 data={postWorkout}
-                editData={editData}
+                seeLogos={false}
               />
             ))}
           </List>
@@ -744,16 +443,15 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
               <MealComponent
                 key={el.id}
                 el={el}
-                deleteData={deleteData}
                 data={collation}
-                editData={editData}
+                seeLogos={false}
               />
             ))}
           </List>
         </MealContainer>
       )}
-      {errorsPlan.planData && <ErrorInput>{errorsPlan.planData}</ErrorInput>}
-      <ButtonSubmit type="submit">Enviar</ButtonSubmit>
+      {errors.plan && <ErrorInput>{errors.plan}</ErrorInput>}
+      <ButtonSubmit type="submit">Borrar</ButtonSubmit>
       <Toaster />
     </Form>
   );
@@ -781,21 +479,11 @@ const ButtonSubmit = styled.button`
   }
 `;
 
-const DataContainer = styled.div`
-  svg {
-    position: relative;
-    top: 3.5vw;
-    font-weight: 500;
-    margin-left: 5vw;
-    border: none;
-    border-radius: 50px;
-    color: ${success};
-    transition: all 0.6s ease;
+const ButtonSeeRoutine = styled(ButtonSubmit)`
+  background-color: ${primaryBlue};
 
-    :hover {
-      cursor: pointer;
-      opacity: 0.6;
-    }
+  :hover {
+    background-color: ${primaryRed};
   }
 `;
 
@@ -810,8 +498,6 @@ const ErrorInput = styled.div`
 
   @media screen and (max-width: 480px) {
     margin-bottom: 0 !important;
-    line-height: 1rem;
-    margin-top: 1rem;
   }
 `;
 
@@ -857,27 +543,6 @@ const ForTextContainer = styled.div`
   }
 `;
 
-const Input = styled.input`
-  font-family: ${FontFamily};
-  background-color: #fff;
-  border: 2px solid ${primaryBlue};
-  border-radius: 4px;
-  color: #000;
-  font-size: 1.2rem;
-  padding: 10px;
-  width: 23vw;
-
-  @media screen and (max-width: 480px) {
-    font-size: 1.1rem;
-    width: 55vw;
-  }
-
-  :focus {
-    border-color: ${primaryRed};
-    box-shadow: 0 0 0 3px rgba(65, 157, 199, 0.5);
-  }
-`;
-
 const InputContainer = styled.div`
   display: inline-grid;
   margin: 1rem;
@@ -905,8 +570,6 @@ const MealName = styled.p`
   }
 `;
 
-const MealPartContainer = styled.div``;
-
 const Option = styled.option`
   @media screen and (max-width: 480px) {
     font-size: 0.8rem;
@@ -917,8 +580,6 @@ const Select = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-color: transparent;
-  background-image: none;
   border: none;
   outline: none;
   padding: 0;
@@ -927,7 +588,8 @@ const Select = styled.select`
   background-color: #fff;
   color: #000;
   font-size: 1.2rem;
-  width: 18vw;
+  width: 25vw;
+  max-width: 30vw;
   padding: 10px;
   border: 2px solid ${primaryBlue};
   border-radius: 4px;

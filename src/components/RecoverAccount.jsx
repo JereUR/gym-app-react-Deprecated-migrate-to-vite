@@ -14,12 +14,11 @@ export const useRecover = (user) => {
 
 const RecoverAccount = ({ email, login, months }) => {
   const [isRecover, setIsRecover] = useState(null);
-  const isLogin = useAuth();
 
   useEffect(() => {
     //Get recover
     async function getRecover(email) {
-      return await FetchGetData("/", email);
+      return await FetchGetData(`/${email}`);
     }
     const res = getRecover(email);
     if (!(res instanceof Error)) {
@@ -37,7 +36,7 @@ const RecoverAccount = ({ email, login, months }) => {
     }
   }, [email]);
 
-  if (isLogin) {
+  if (login) {
     return isRecover ? (
       <Outlet />
     ) : (

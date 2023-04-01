@@ -2,7 +2,7 @@ import "./App.css";
 import styled from "styled-components";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
-import { toast, Toaster } from "react-hot-toast"
+import { toast, Toaster } from "react-hot-toast";
 
 import { SesionPage } from "./components/SesionPage";
 import { Header } from "./components/Header";
@@ -20,14 +20,14 @@ import RecoverAccount from "./components/RecoverAccount";
 import dbLocal from "./static/db_local.json";
 import { FetchGetData } from "./helpers/FetchGetData";
 
-const initialData={
-  email:null,
-  username:null,
-  surname:null,
-  admin:false,
-  weight:null,
-  height:null
-}
+const initialData = {
+  email: null,
+  username: null,
+  surname: null,
+  admin: false,
+  weight: null,
+  height: null,
+};
 
 function App() {
   const [user, setUser] = useState(initialData);
@@ -40,7 +40,7 @@ function App() {
     );
 
     if (!(res instanceof Error)) {
-      res.current= res.current 
+      res.current = res.current
         .then((response) => response.json())
         .then((data) => {
           setUser(data);
@@ -59,94 +59,102 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (user!==null) {
-      if(user.current_user!==null){
+    if (user !== null) {
+      if (user.current_user !== null) {
         setLogin(true);
-      }
-      else {
+      } else {
         setLogin(false);
-    }    
-    } 
+      }
+    }
   }, [user]);
 
   return (
     <Container>
-      {user!==null&&
-      <Router>
-        {login && <Header username={user.username} login={login} admin={user.admin} />}
-        <Routes>
-          {!login && <Route exact path="/" element={<SesionPage setUser={setUser}/>} />}
-          <Route element={<LoginRoute email={user.email} />}>
+      {user !== null && (
+        <Router>
+          {login && (
+            <Header username={user.username} login={login} admin={user.admin} />
+          )}
+          <Routes>
+            {!login && (
+              <Route
+                exact
+                path="/"
+                element={<SesionPage setUser={setUser} />}
+              />
+            )}
+            <Route element={<LoginRoute login={login} />}>
+              <Route
+                exact
+                path="/"
+                element={
+                  <Home
+                    months={dbLocal.months}
+                    exercises={dbLocal.exercises}
+                    email={user.email}
+                    weight={user.weight}
+                    height={user.height}
+                  />
+                }
+              />
+              <Route
+                exact
+                path="/mis-pagos"
+                element={
+                  <Bill
+                    email={user.email}
+                    username={user.username}
+                    surname={user.surname}
+                    months={dbLocal.months}
+                  />
+                }
+              />
+              <Route
+                exact
+                path={`/usuario/${user.username}`}
+                element={<UserProfile email={user.email} />}
+              />
+              <Route
+                exact
+                path="/change-password"
+                element={<ChangePassword username={user.username} />}
+              />
+            </Route>
             <Route
-              exact
-              path="/"
               element={
-                <Home
-                  months={dbLocal.months}
-                  exercises={dbLocal.exercises}
+                <AdminRoute
+                  admin={user.admin}
+                  login={login}
                   email={user.email}
-                  weight={user.weight}
-                  height={user.height}
+                  months={dbLocal.months}
                 />
               }
-            />
+            >
+              <Route
+                exact
+                path="/admin"
+                element={<AdminPage dbLocal={dbLocal} />}
+              />
+            </Route>
             <Route
-              exact
-              path="/mis-pagos"
               element={
-                <Bill
+                <RecoverAccount
                   email={user.email}
-                  username={user.username}
-                  surname={user.surname}
+                  login={login}
                   months={dbLocal.months}
                 />
               }
-            />
+            >
+              <Route exact path="/reset" element={<ResetPassword />} />
+            </Route>
             <Route
               exact
-              path={`/usuario/${user.username}`}
-              element={<UserProfile email={user.email} />}
+              path="*"
+              element={<Error404 login={login} admin={user.admin} />}
             />
-            <Route
-              exact
-              path="/change-password"
-              element={<ChangePassword username={user.username} />}
-            />
-          </Route>
-          <Route
-            element={
-              <AdminRoute
-                admin={user.admin}
-                login={login}
-                email={user.email}
-                months={dbLocal.months}
-              />
-            }
-          >
-            <Route
-              exact
-              path="/admin"
-              element={<AdminPage dbLocal={dbLocal} />}
-            />
-          </Route>
-          <Route
-            element={
-              <RecoverAccount
-                email={user.email}
-                login={login}
-                months={dbLocal.months}
-              />
-            }
-          >
-            <Route exact path="/reset" element={<ResetPassword />} />
-          </Route>
-          <Route
-            exact
-            path="*"
-            element={<Error404 login={login} admin={user.admin} />}
-          />
-        </Routes>
-      </Router>}
+          </Routes>
+        </Router>
+      )}
       {login && <Footer />}
       <Toaster />
     </Container>
