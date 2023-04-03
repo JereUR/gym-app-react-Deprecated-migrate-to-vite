@@ -1,4 +1,4 @@
-export const FetchPostData = async (path, data /* ,token */) => {
+export const FetchPostData = async ({ path, data /* ,token */ }) => {
   try {
     const resp = await fetch(`http://localhost:3001/api/v1/${path}`, {
       method: "POST",
