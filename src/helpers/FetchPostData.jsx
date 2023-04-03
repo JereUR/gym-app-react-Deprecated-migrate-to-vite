@@ -5,7 +5,7 @@ export const FetchPostData = async ({ path, data/* ,token */ }) => {
       headers: {
         "Content-Type": "application/json",
         'Origin': 'http://localhost:3001',
-       /*  "X-CSRF-Token": token, */
+        'X-Requested-With': 'XMLHttpRequest'
       },
       body: JSON.stringify({ data }),
     });
