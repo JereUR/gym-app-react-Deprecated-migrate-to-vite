@@ -1,13 +1,13 @@
-export const FetchPostData = async ({ path, data/* ,token */ }) => {
+export const FetchPostData = async (path, data /* ,token */) => {
   try {
-    const resp = await fetch(`${path}`, {
+    const resp = await fetch(`http://localhost:3001/api/v1/${path}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        'Origin': 'http://localhost:3001',
-        'X-Requested-With': 'XMLHttpRequest'
+        Origin: "http://localhost:3001",
+        "X-Requested-With": "XMLHttpRequest",
       },
-      body: JSON.stringify({ data }),
+      body: JSON.stringify(data),
     });
 
     if (!resp.ok) {

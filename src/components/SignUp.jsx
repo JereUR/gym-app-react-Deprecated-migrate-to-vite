@@ -20,7 +20,7 @@ const initialData = {
   confirmPassword: "",
 };
 
-export const SignUp = ({setUser}) => {
+export const SignUp = ({ setUser }) => {
   const [register, setRegister] = useState(false);
   const [dataRegister, setDataRegister] = useState(initialData);
   const [errors, setErrors] = useState({});
@@ -87,7 +87,7 @@ export const SignUp = ({setUser}) => {
 
     if (Object.keys(err).length === 0) {
       const res = await FetchPostData({
-        path: "http://localhost:3001/api/v1/users/newuser",
+        path: "users/newuser",
         data: { dataRegister },
       });
 
@@ -105,19 +105,16 @@ export const SignUp = ({setUser}) => {
         setDataRegister(initialData);
         setRegister(false);
       } else {
-        toast.error(
-          res.message,
-          {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          }
-        );
-      } 
+        toast.error(res.message, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
+      }
     }
   };
 

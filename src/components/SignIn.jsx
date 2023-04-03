@@ -28,8 +28,15 @@ export const SignIn = ({ setUser }) => {
     const storedCredentials = JSON.parse(
       localStorage.getItem("loginCredentials")
     );
+
+    const remember = JSON.parse(localStorage.getItem("remember"));
+
     if (storedCredentials) {
       setCredentials(storedCredentials);
+    }
+
+    if (remember) {
+      setRemember(remember);
     }
   }, []);
 
@@ -67,15 +74,17 @@ export const SignIn = ({ setUser }) => {
     };
 
     const res = await FetchPostData({
-      path: "http://localhost:3001/api/v1/users/login",
+      path: "users/login",
       data: { dataSignIn },
     });
 
     if (!(res instanceof Error)) {
       if (remember) {
         localStorage.setItem("loginCredentials", JSON.stringify(credentials));
+        localStorage.setItem("remember", remember);
       } else {
         localStorage.removeItem("loginCredentials");
+        localStorage.removeItem("remember");
       }
       setUser(res);
 

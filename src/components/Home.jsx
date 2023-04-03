@@ -37,9 +37,7 @@ export const Home = ({ months, email, weight, height }) => {
     //Get proximo pago
     if (email !== null && email !== undefined) {
       async function getNextPayment(email) {
-        return await FetchGetData(
-          `http://localhost:3001/api/v1/payments/getpayment/${email}`
-        );
+        return await FetchGetData(`payments/getpayment/${email}`);
       }
 
       const res = getNextPayment(email);
