@@ -1,4 +1,4 @@
-export const FetchGetData = async (path/*, token */) => {
+export const FetchGetData = async (path) => {
   try {
     return await fetch(path, {
       credentials: 'include',

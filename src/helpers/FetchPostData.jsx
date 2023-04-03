@@ -1,4 +1,4 @@
-export const FetchPostData = async ({ path, data/* ,token */ }) => {
+export const FetchPostData = async ({ path, data }) => {
   try {
     const resp = await fetch(`${path}`, {
       method: "POST",
