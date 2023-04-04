@@ -34,22 +34,26 @@ export const UserProfile = ({ email }) => {
 
   useEffect(() => {
     //Get user info menos routine, plan y payments
-    async function getUser(email) {
-      return await FetchGetData(`/${email}`);
-    }
-    const res = getUser(email);
-    if (!(res instanceof Error)) {
-      setUser(res);
-    } else {
-      toast.error(res.message, {
-        position: "top-right",
-        duration: 6000,
-        style: {
-          background: "rgba(250, 215, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
-      });
+    console.log(email);
+    if (email !== null && email !== undefined) {
+      async function getUser(email) {
+        return await FetchGetData(`users/getUserProfile/${email}`);
+      }
+  
+      const res = getUser(email)
+      .then(response=>response.json())
+      .then(data=> setUser(data))
+      .catch(e=>{
+        toast.error(e.messsage, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
+      })
     }
   }, [email]);
 
@@ -112,8 +116,8 @@ export const UserProfile = ({ email }) => {
     const file = e.target.files[0];
     if (file && file.type.substring(0, 5) === "image") {
       formData.append("image", file);
+
       setUserPhoto(file);
-      /* console.log(userPhoto); */
       setErrorInput(null);
     } else {
       setUserPhoto(null);

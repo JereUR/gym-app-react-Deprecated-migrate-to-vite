@@ -32,38 +32,36 @@ const initialData = {
 function App() {
   const [user, setUser] = useState(initialData);
   const [login, setLogin] = useState(false);
-  const res = useRef();
+  const res = useRef(null);
 
   useEffect(() => {
-    res.current = FetchGetData("users/currentuser");
-
-    if (!(res instanceof Error)) {
-      res.current = res.current
-        .then((response) => response.json())
-        .then((data) => {
-          setUser(data);
+    FetchGetData("users/currentuser")       
+      .then((response) => response.json())
+      .then((data) => {
+        res.current = data;
+        setUser(res.current)
+      })
+      .catch(e=>{
+        toast.error(e.message, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
         });
-    } else {
-      toast.error(res.message, {
-        position: "top-right",
-        duration: 6000,
-        style: {
-          background: "rgba(250, 215, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
-      });
-    }
+      })
   }, []);
 
   useEffect(() => {
-    if (user !== null) {
-      if (user.current_user !== null) {
-        setLogin(true);
-      } else {
-        setLogin(false);
-      }
+    if (user.email !== null) {
+      setLogin(true);
     }
+    else {
+      setLogin(false);
+    }
+
   }, [user]);
 
   return (

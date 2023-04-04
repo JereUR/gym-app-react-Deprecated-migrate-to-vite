@@ -35,15 +35,17 @@ export const Home = ({ months, email, weight, height }) => {
 
   useEffect(() => {
     //Get proximo pago
+    console.log(email);
     if (email !== null && email !== undefined) {
       async function getNextPayment(email) {
-        return await FetchGetData(`payments/getpayment/${email}`);
+        return await FetchGetData(`payments/getNextPayment/${email}`);
       }
 
-      const res = getNextPayment(email);
-      if (!(res instanceof Error)) {
-        setNextPayment(res.data.nextPayment);
-      } else {
+      const res = getNextPayment(email)
+      .then(response=>response.json())
+      .then(data=> setNextPayment(data))
+      .catch(e=>{
+        console.log(e)
         toast.error(res.messsage, {
           position: "top-right",
           duration: 6000,
@@ -53,7 +55,7 @@ export const Home = ({ months, email, weight, height }) => {
             fontWeight: "500",
           },
         });
-      }
+      })
     }
   }, [email]);
 
@@ -78,11 +80,11 @@ export const Home = ({ months, email, weight, height }) => {
   useEffect(() => {
     if (nextPayment !== null) {
       let today = new Date();
-
+      console.log(nextPayment.payment)
       let userDate = new Date(
-        nextPayment.year,
-        nextPayment.month,
-        nextPayment.day
+        nextPayment.payment.yearNext,
+        nextPayment.payment.monthNext,
+        nextPayment.payment.dayNext
       );
 
       if (userDate < today) {
@@ -93,7 +95,7 @@ export const Home = ({ months, email, weight, height }) => {
         setAddInfo(true);
       }
     }
-  }, [nextPayment, months, weight, height]);
+  }, [nextPayment, weight, height]);
 
   const handleClickScroll = () => {
     document.querySelector("header").scrollIntoView({ behavior: "smooth" });
@@ -107,9 +109,9 @@ export const Home = ({ months, email, weight, height }) => {
       {debtor && (
         <ReportPaymentContainer>
           <MessageDebtor>
-            ¡Tienes un pago atrasado del día {nextPayment.day} de{" "}
-            {months.find((m) => m.value === nextPayment.month).month} del año{" "}
-            {nextPayment.year}!
+            ¡Tienes un pago atrasado del día {nextPayment.payment.dayNext} de{" "}
+            {months.find((m) => m.value === nextPayment.payment.monthNext).month} del año{" "}
+            {nextPayment.payment.yearNext}!
           </MessageDebtor>
         </ReportPaymentContainer>
       )}

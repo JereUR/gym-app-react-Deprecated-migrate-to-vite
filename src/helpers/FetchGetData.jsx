@@ -7,10 +7,6 @@ export const FetchGetData = async (path /*, token */) => {
         'X-Requested-With': 'XMLHttpRequest'
       }
     })
-    .then(response => {
-      console.log(response.headers); // <--- Agregar esta línea
-      // ...
-    });
   } catch (error) {
     return error;
   }
