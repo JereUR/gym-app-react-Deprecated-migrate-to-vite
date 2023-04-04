@@ -6,6 +6,10 @@ export const FetchGetData = async (path) => {
         'Origin': 'http://localhost:3001',
         'X-Requested-With': 'XMLHttpRequest'
       }
+    })
+    .then(response => {
+      console.log(response.headers); // <--- Agregar esta línea
+      // ...
     });
   } catch (error) {
     return error;
