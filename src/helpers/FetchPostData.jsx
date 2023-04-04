@@ -1,4 +1,4 @@
-export const FetchPostData = async ({ path, data /* ,token */ }) => {
+export const FetchPostData = async ({ path, data}) => {
   try {
     const resp = await fetch(`http://localhost:3001/api/v1/${path}`, {
       method: "POST",
@@ -8,6 +8,7 @@ export const FetchPostData = async ({ path, data /* ,token */ }) => {
         "X-Requested-With": "XMLHttpRequest",
       },
       body: JSON.stringify(data),
+      withCredentials: true
     });
 
     if (!resp.ok) {

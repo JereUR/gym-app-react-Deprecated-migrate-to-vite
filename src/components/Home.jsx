@@ -78,7 +78,8 @@ export const Home = ({ months, email, weight, height }) => {
   }, [scrollTop]);
 
   useEffect(() => {
-    if (nextPayment !== null) {
+    console.log(nextPayment);
+    if ((nextPayment !== null) && (nextPayment.payment !== null)){
       let today = new Date();
       console.log(nextPayment.payment)
       let userDate = new Date(
