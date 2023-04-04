@@ -35,9 +35,7 @@ function App() {
   const res = useRef();
 
   useEffect(() => {
-    res.current = FetchGetData(
-      "http://localhost:3001/api/v1/users/currentuser"
-    );
+    res.current = FetchGetData("users/currentuser");
 
     if (!(res instanceof Error)) {
       res.current = res.current
