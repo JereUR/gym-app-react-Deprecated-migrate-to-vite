@@ -35,18 +35,17 @@ export const Home = ({ months, email, weight, height }) => {
 
   useEffect(() => {
     //Get proximo pago
-    console.log(email);
+    //console.log(email);
     if (email !== null && email !== undefined) {
       async function getNextPayment(email) {
-        return await FetchGetData(`payments/getNextPayment/${email}`);
+        return await FetchGetData(`api/v1/payments/getNextPayment/${email}`);
       }
 
       const res = getNextPayment(email)
       .then(response=>response.json())
       .then(data=> setNextPayment(data))
       .catch(e=>{
-        console.log(e)
-        toast.error(res.messsage, {
+        toast.error(e.messsage, {
           position: "top-right",
           duration: 6000,
           style: {
@@ -78,10 +77,9 @@ export const Home = ({ months, email, weight, height }) => {
   }, [scrollTop]);
 
   useEffect(() => {
-    console.log(nextPayment);
     if ((nextPayment !== null) && (nextPayment.payment !== null)){
       let today = new Date();
-      console.log(nextPayment.payment)
+      
       let userDate = new Date(
         nextPayment.payment.yearNext,
         nextPayment.payment.monthNext,

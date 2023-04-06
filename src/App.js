@@ -35,23 +35,24 @@ function App() {
   const res = useRef(null);
 
   useEffect(() => {
-    FetchGetData("users/currentuser")       
+      FetchGetData("api/v1/currentuser")       
       .then((response) => response.json())
       .then((data) => {
         res.current = data;
         setUser(res.current)
       })
       .catch(e=>{
-        toast.error(e.message, {
-          position: "top-right",
-          duration: 6000,
-          style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
-      })
+        if(e.message!==`Unexpected token 'Y', "You need t"... is not valid JSON`){
+          toast.error(e.message, {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(250, 215, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          });
+        }})
   }, []);
 
   useEffect(() => {
@@ -59,6 +60,7 @@ function App() {
       setLogin(true);
     }
     else {
+      // localStorage.removeItem("token");
       setLogin(false);
     }
 

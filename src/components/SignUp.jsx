@@ -11,12 +11,12 @@ const { primaryBlue, primaryRed, secondaryBlue, colorText, errorInput } =
   Colors;
 
 const initialData = {
-  nameRegister: "",
-  surnameRegister: "",
-  emailRegister: "",
+  name: "",
+  surname: "",
+  email: "",
   gender: "",
-  dateRegister: "",
-  passwordRegister: "",
+  date: "",
+  password: "",
   confirmPassword: "",
 };
 
@@ -30,38 +30,38 @@ export const SignUp = ({ setUser }) => {
     const regexName = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/;
     const regexEmail = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
 
-    if (!dataRegister.nameRegister.trim()) {
-      errorsForm.nameRegister = `Este campo no debe ser vacío.`;
-    } else if (!regexName.test(dataRegister.nameRegister)) {
-      errorsForm.nameRegister = "Este campo solo acepta letras y espacios.";
+    if (!dataRegister.name.trim()) {
+      errorsForm.name = `Este campo no debe ser vacío.`;
+    } else if (!regexName.test(dataRegister.name)) {
+      errorsForm.name = "Este campo solo acepta letras y espacios.";
     }
 
-    if (!dataRegister.surnameRegister.trim()) {
-      errorsForm.surnameRegister = `Este campo no debe ser vacío.`;
-    } else if (!regexName.test(dataRegister.surnameRegister)) {
-      errorsForm.surnameRegister = "Este campo solo acepta letras y espacios.";
+    if (!dataRegister.surname.trim()) {
+      errorsForm.surname = `Este campo no debe ser vacío.`;
+    } else if (!regexName.test(dataRegister.surname)) {
+      errorsForm.surname = "Este campo solo acepta letras y espacios.";
     }
 
-    if (!dataRegister.emailRegister.trim()) {
-      errorsForm.emailRegister = `Este campo no debe ser vacío.`;
-    } else if (!regexEmail.test(dataRegister.emailRegister)) {
-      errorsForm.emailRegister = "Correo no válido.";
+    if (!dataRegister.email.trim()) {
+      errorsForm.email = `Este campo no debe ser vacío.`;
+    } else if (!regexEmail.test(dataRegister.email)) {
+      errorsForm.email = "Correo no válido.";
     }
 
     if (dataRegister.gender === "") {
       errorsForm.gender = `Este campo no debe ser vacío.`;
     }
 
-    if (!dataRegister.dateRegister.trim()) {
-      errorsForm.dateRegister = `Este campo no debe ser vacío.`;
+    if (!dataRegister.date.trim()) {
+      errorsForm.date = `Este campo no debe ser vacío.`;
     }
 
-    if (dataRegister.passwordRegister.length < 8) {
-      errorsForm.passwordRegister = `La contraseña debe tener más de 8 caracteres.`;
+    if (dataRegister.password.length < 8) {
+      errorsForm.password = `La contraseña debe tener más de 8 caracteres.`;
     }
 
-    if (dataRegister.passwordRegister !== dataRegister.confirmPassword) {
-      errorsForm.passwordRegister = `La contraseña y su confirmación no coinciden.`;
+    if (dataRegister.password !== dataRegister.confirmPassword) {
+      errorsForm.password = `La contraseña y su confirmación no coinciden.`;
       errorsForm.confirmPassword = `La contraseña y su confirmación no coinciden.`;
     }
 
@@ -87,8 +87,8 @@ export const SignUp = ({ setUser }) => {
 
     if (Object.keys(err).length === 0) {
       const res = await FetchPostData({
-        path: "users/newuser",
-        data: { dataRegister },
+        path: "signup",
+        data: { user: dataRegister },
       });
 
       if (!(res instanceof Error)) {
@@ -130,13 +130,13 @@ export const SignUp = ({ setUser }) => {
                   <InputName
                     type="text"
                     placeholder="Ingrese su nombre"
-                    name="nameRegister"
-                    value={dataRegister.nameRegister}
+                    name="name"
+                    value={dataRegister.name}
                     onChange={handleChange}
                   />
-                  {errors.nameRegister && (
+                  {errors.name && (
                     <ErrorInputNameSurname>
-                      {errors.nameRegister}
+                      {errors.name}
                     </ErrorInputNameSurname>
                   )}
                 </InputContainer>
@@ -144,13 +144,13 @@ export const SignUp = ({ setUser }) => {
                   <Input
                     type="text"
                     placeholder="Ingrese su apellido"
-                    name="surnameRegister"
-                    value={dataRegister.surnameRegister}
+                    name="surname"
+                    value={dataRegister.surname}
                     onChange={handleChange}
                   />
-                  {errors.surnameRegister && (
+                  {errors.surname && (
                     <ErrorInputNameSurname>
-                      {errors.surnameRegister}
+                      {errors.surname}
                     </ErrorInputNameSurname>
                   )}
                 </InputContainer>
@@ -159,12 +159,12 @@ export const SignUp = ({ setUser }) => {
                 <Input
                   type="email"
                   placeholder="Ingrese su email"
-                  name="emailRegister"
-                  value={dataRegister.emailRegister}
+                  name="email"
+                  value={dataRegister.email}
                   onChange={handleChange}
                 />
-                {errors.emailRegister && (
-                  <ErrorInput>{errors.emailRegister}</ErrorInput>
+                {errors.email && (
+                  <ErrorInput>{errors.email}</ErrorInput>
                 )}
               </InputContainer>
               <InputRadioContainer>
@@ -205,24 +205,24 @@ export const SignUp = ({ setUser }) => {
                 <Input
                   type="date"
                   placeholder="Ingrese su fecha de nacimiento"
-                  name="dateRegister"
-                  value={dataRegister.dateRegister}
+                  name="date"
+                  value={dataRegister.date}
                   onChange={handleChange}
                 />
-                {errors.dateRegister && (
-                  <ErrorInput>{errors.dateRegister}</ErrorInput>
+                {errors.date && (
+                  <ErrorInput>{errors.date}</ErrorInput>
                 )}
               </InputContainer>
               <InputContainer>
                 <Input
                   type="password"
                   placeholder="Ingrese su contraseña"
-                  name="passwordRegister"
-                  value={dataRegister.passwordRegister}
+                  name="password"
+                  value={dataRegister.password}
                   onChange={handleChange}
                 />
-                {errors.passwordRegister && (
-                  <ErrorInput>{errors.passwordRegister}</ErrorInput>
+                {errors.password && (
+                  <ErrorInput>{errors.password}</ErrorInput>
                 )}
               </InputContainer>
               <InputContainer>

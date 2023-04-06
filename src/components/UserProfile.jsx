@@ -12,6 +12,7 @@ import { UploadAnimation } from "./UploadAnimation";
 import { UserInfo } from "./UserInfo";
 import { FetchPostData } from "../helpers/FetchPostData";
 import { FetchGetData } from "../helpers/FetchGetData";
+import { FetchDeleteData } from "../helpers/FetchDeleteData";
 
 const {
   primaryBlue,
@@ -23,8 +24,22 @@ const {
   errorInput,
 } = Colors;
 
+const initialData={
+  username: null,
+  surname: null,
+  email: null,
+  date: null,
+  gender: null,
+  photo: null,
+  weight: null,
+  height: null,
+  medication: [],
+  injuries: [],
+  diseases: [],
+}
+
 export const UserProfile = ({ email }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(initialData);
   const [userPhoto, setUserPhoto] = useState(null);
   const [errorInput, setErrorInput] = useState(null);
   const [changePhoto, setChangePhoto] = useState(false);
@@ -34,17 +49,17 @@ export const UserProfile = ({ email }) => {
 
   useEffect(() => {
     //Get user info menos routine, plan y payments
-    console.log(email);
+    // console.log(email);
     if (email !== null && email !== undefined) {
       async function getUser(email) {
-        return await FetchGetData(`users/getUserProfile/${email}`);
+        return await FetchGetData(`api/v1/users/getUserProfile/${email}`);
       }
   
       const res = getUser(email)
       .then(response=>response.json())
       .then(data=> setUser(data))
       .catch(e=>{
-        toast.error(e.messsage, {
+        toast.error(e, {
           position: "top-right",
           duration: 6000,
           style: {
@@ -86,10 +101,7 @@ export const UserProfile = ({ email }) => {
   };
 
   const handleSignOut = async () => {
-    const res = await FetchPostData({
-      path: "/",
-      data: user.email,
-    });
+    const res = await FetchDeleteData("logout");
 
     if (!(res instanceof Error)) {
       setTimeout(() => {
