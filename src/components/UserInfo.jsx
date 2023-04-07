@@ -7,7 +7,7 @@ import { toast, Toaster } from "react-hot-toast";
 import { Colors } from "../constants/Colors";
 import Modal from "./Modal";
 import { FormAditionalInfo } from "./FormAditionalInfo";
-import { FetchPostData } from "../helpers/FetchPostData";
+import { FetchPutData } from "../helpers/FetchPutData";
 
 const { primaryRed, secondaryBlue, secondaryRed } = Colors;
 
@@ -74,10 +74,6 @@ export const UserInfo = ({ user }) => {
       errors.injury = "El campo no debe estar vacío.";
     }
 
-    if (typeof newInjury === String) {
-      errors.injury = "El campo solo debe contener letras.";
-    }
-
     if (newInjuries.some((el) => el.injury === newInjury)) {
       errors.injury = `La lesión "${newInjury}" ya ha sido agregada.`;
     }
@@ -90,10 +86,6 @@ export const UserInfo = ({ user }) => {
 
     if (newDisease === null) {
       errors.disease = "El campo no debe estar vacío.";
-    }
-
-    if (typeof newDisease === String) {
-      errors.disease = "El campo solo debe contener letras.";
     }
 
     if (newDiseases.some((el) => el.disease === newDisease)) {
@@ -122,7 +114,7 @@ export const UserInfo = ({ user }) => {
   };
 
   const handleChangeMedication = (e) => {
-    setNewMedication(e.target.value);
+    setNewMedication(e.target.value.toLowerCase());
   };
 
   const handleAddMedication = () => {
@@ -148,11 +140,11 @@ export const UserInfo = ({ user }) => {
   };
 
   const handleChangeInjury = (e) => {
-    setNewInjury(e.target.value);
+    setNewInjury(e.target.value.toLowerCase());
   };
 
   const handleChangeTreatment = (e) => {
-    setNewTreatment(e.target.value);
+    setNewTreatment(e.target.value.toLowerCase());
   };
 
   const handleAddInjury = () => {
@@ -180,7 +172,7 @@ export const UserInfo = ({ user }) => {
   };
 
   const handleChangeDisease = (e) => {
-    setNewDisease(e.target.value);
+    setNewDisease(e.target.value.toLowerCase());
   };
 
   const handleChangeMedicationDisease = (e) => {
@@ -222,18 +214,18 @@ export const UserInfo = ({ user }) => {
       const data = {
         weight: form.weight,
         height: form.height,
-        newMedications,
-        newInjuries,
-        newDiseases,
+        medications: newMedications,
+        injuries: newInjuries,
+        diseases: newDiseases,
       };
 
-      const res = await FetchPostData({
-        path: "/",
-        data: { data },
+      const res = await FetchPutData({
+        path: "api/v1/update",
+        data: { user: data },
       });
 
       if (!(res instanceof Error)) {
-        toast.success(`Cambios guardados.`, {
+        toast.success(`Guardando cambios...`, {
           position: "top-right",
           duration: 6000,
           style: {
@@ -244,6 +236,9 @@ export const UserInfo = ({ user }) => {
         });
 
         setChangeInfo(!changeInfo);
+        setTimeout(() => {
+          window.location.reload();
+        }, 500);
       } else {
         toast.error(res.message, {
           position: "top-right",

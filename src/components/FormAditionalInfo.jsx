@@ -44,7 +44,7 @@ export const FormAditionalInfo = ({
     <Form onSubmit={handleSubmit}>
       <FirstPart>
         <InputContainer>
-          <LabelForm>Peso (Kg.)</LabelForm>
+          <LabelForm>Peso (Kg.)*</LabelForm>
           <InputForm
             type="number"
             name="weight"
@@ -56,7 +56,7 @@ export const FormAditionalInfo = ({
           )}
         </InputContainer>
         <InputContainer>
-          <LabelForm>Altura (Cm.)</LabelForm>
+          <LabelForm>Altura (Cm.)*</LabelForm>
           <InputForm
             type="number"
             name="height"

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext, } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import styled from "styled-components";
 import { FaEdit } from "react-icons/fa";
@@ -10,7 +10,7 @@ import { FontFamily } from "../constants/Fonts";
 import Modal from "./Modal";
 import { UploadAnimation } from "./UploadAnimation";
 import { UserInfo } from "./UserInfo";
-import { FetchPostData } from "../helpers/FetchPostData";
+import { FetchPostImage } from "../helpers/FetchPostImage";
 import { FetchGetData } from "../helpers/FetchGetData";
 import { FetchDeleteData } from "../helpers/FetchDeleteData";
 
@@ -55,7 +55,7 @@ export const UserProfile = ({ email }) => {
         return await FetchGetData(`api/v1/users/getUserProfile/${email}`);
       }
   
-      const res = getUser(email)
+      getUser(email)
       .then(response=>response.json())
       .then(data=> setUser(data))
       .catch(e=>{
@@ -143,19 +143,17 @@ export const UserProfile = ({ email }) => {
     setUserPhoto(null);
   };
 
-  const handleSend = async () => {
+  const handleSendPhoto = async () => {
     setChangePhoto(!changePhoto);
 
     if (userPhoto != null) {
-      const dataPhoto = { email: user.email, photo: userPhoto };
-
-      const res = await FetchPostData({
-        path: "/",
-        data: { dataPhoto },
+      const res = await FetchPostImage({
+        path: "api/v1/photo",
+        data: formData,
       });
 
       if (!(res instanceof Error)) {
-        toast.success(`Foto de perfil actualizada.`, {
+        toast.success(`Actualizando foto de perfil...`, {
           position: "top-right",
           duration: 6000,
           style: {
@@ -167,7 +165,7 @@ export const UserProfile = ({ email }) => {
 
         setTimeout(() => {
           window.location.reload();
-        }, 2000);
+        }, 500);
       } else {
         toast.error(res.message, {
           position: "top-right",
@@ -186,7 +184,7 @@ export const UserProfile = ({ email }) => {
     <ProfileContainer>
       <PhotoContainer>
         <UserPhoto src={user.photo ? user.photo : defaultPhoto} />
-        <FaEdit size="1.5rem" onClick={handleModal} />
+        {/* <FaEdit size="1.5rem" onClick={handleModal} /> Comming soon*/}
       </PhotoContainer>
       <Modal
         state={changePhoto}
@@ -221,7 +219,7 @@ export const UserProfile = ({ email }) => {
             {userPhoto && (
               <ChangePhoto onClick={handleChange}>Cambiar Foto</ChangePhoto>
             )}
-            <SendPhoto onClick={handleSend}>Subir Foto</SendPhoto>
+            <SendPhoto onClick={handleSendPhoto}>Subir Foto</SendPhoto>
           </UploadPhotoContainer>
         </Content>
       </Modal>
