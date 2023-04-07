@@ -211,12 +211,10 @@ const ButtonRecover = styled.button`
   border-radius: 0.5rem;
   transition: all 0.7s ease-in-out;
   width: 20vw;
-
   :hover {
     cursor: pointer;
     background-color: ${secondaryBlue};
   }
-
   @media screen and (max-width: 480px) {
     width: 60%;
   }
@@ -232,12 +230,10 @@ const ButtonSignIn = styled.button`
   border: none;
   border-radius: 0.5rem;
   transition: all 0.7s ease-in-out;
-
   :hover {
     cursor: pointer;
     background-color: ${secondaryRed};
   }
-
   @media screen and (max-width: 480px) {
     margin-bottom: 3vw;
     width: 60vw;
@@ -248,18 +244,15 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
   h1 {
     font-size: 42px;
     font-weight: 700;
     margin-bottom: 10px;
   }
-
   p {
     font-size: 18px;
     margin-bottom: 20px;
   }
-
   img {
     width: 100%;
     vertical-align: top;
@@ -269,11 +262,9 @@ const Content = styled.div`
 
 const Form = styled.form`
   display: grid;
-
   .lds-ring {
     left: 38%;
   }
-
   @media screen and (max-width: 480px) {
     display: block;
   }
@@ -283,7 +274,6 @@ const FormContainer = styled.div`
   display: block;
   text-align: center;
   margin-top: 4vw;
-
   @media screen and (max-width: 1380px) {
     margin-top: 2vw;
   }
@@ -302,12 +292,10 @@ const Input = styled.input`
   font-size: 1.2rem;
   padding: 10px;
   margin-bottom: 1rem;
-
   :focus {
     border-color: ${primaryRed};
     box-shadow: 0 0 0 3px rgba(65, 157, 199, 0.5);
   }
-
   @media screen and (max-width: 480px) {
     width: 80%;
     margin-bottom: 3vh;
@@ -335,12 +323,10 @@ const InputRecover = styled.input`
   padding: 10px;
   margin-bottom: 1rem;
   width: 20vw;
-
   :focus {
     border-color: ${primaryRed};
     box-shadow: 0 0 0 3px rgba(65, 157, 199, 0.5);
   }
-
   @media screen and (max-width: 480px) {
     width: 90%;
   }
@@ -351,7 +337,6 @@ const Label = styled.label`
   margin: 0.5rem 0.5rem 0 0.5rem;
   font-style: italic;
   color: ${secondaryBlue};
-
   @media screen and (max-width: 480px) {
     margin-left: 1vw;
   }
@@ -359,7 +344,6 @@ const Label = styled.label`
 
 const LogoForm = styled.img`
   margin-bottom: 1vw;
-
   @media screen and (max-width: 480px) {
     width: 80vw;
     margin-bottom: 3vh !important;
@@ -370,7 +354,6 @@ const LogoForm = styled.img`
 const PasswordForgot = styled.p`
   font-size: 14px;
   color: ${secondaryBlue};
-
   :hover {
     cursor: pointer;
   }
@@ -380,7 +363,6 @@ const TextForgotPassword = styled.div`
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 2vw;
-
   @media screen and (max-width: 480px) {
     margin-top: 1vw;
     margin-bottom: 5vw;
