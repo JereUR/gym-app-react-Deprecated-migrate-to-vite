@@ -1,17 +1,45 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { GrDocumentPdf } from "react-icons/gr";
-import { Document, Page, Text, View, Image, usePDF } from "@react-pdf/renderer";
+import { FiDownload } from "react-icons/fi";
+import {
+  Document,
+  Page,
+  Text,
+  View,
+  Image,
+  usePDF,
+  PDFDownloadLink,
+} from "@react-pdf/renderer";
 
 import logo from "../assets/logo.png";
 import seal from "../assets/payment-seal.png";
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
+import { useEffect } from "react";
 
 const { primaryBlue, secondaryBlue, colorText } = Colors;
 
 export const BillItem = ({ bill, username, surname, email }) => {
   const [viewPdf, setViewPdf] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [mobile, setMobile] = useState(windowWidth < 800);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    setMobile(windowWidth < 800);
+  }, [windowWidth]);
 
   const doc = (
     <Document>
@@ -92,9 +120,22 @@ export const BillItem = ({ bill, username, surname, email }) => {
           <GrDocumentPdf size="1.5rem" />
           Pago {bill.month} - {bill.year}
         </Namebill>
-        <BillButton type="button" onClick={handlePdf}>
-          {viewPdf ? "X" : "Ver/Descargar PDF (Solo PC)"}
-        </BillButton>
+        {!mobile ? (
+          <BillButton type="button" onClick={handlePdf}>
+            {viewPdf ? "X" : "Ver/Descargar PDF"}
+          </BillButton>
+        ) : (
+          <DownloadButton>
+            <PDFDownloadLink
+              document={doc}
+              fileName={`Pago ${bill.month} ${bill.year} - ${username} ${surname}`}
+            >
+              {({ blob, url, loading, error }) =>
+                loading ? "Cargando documento..." : <FiDownload />
+              }
+            </PDFDownloadLink>
+          </DownloadButton>
+        )}
       </BillItemContainer>
       {viewPdf && (
         <PdfContainer>
@@ -116,8 +157,8 @@ const BillButton = styled.button`
   margin: 1vw 1vw 1vw 0;
   transition: all 0.5s ease-in-out;
 
-  @media screen and (max-width: 480px) {
-    font-size: 1.5rem;
+  @media screen and (max-width: 980px) {
+    font-size: 0.9rem;
   }
 
   :hover {
@@ -137,14 +178,29 @@ const BillItemContainer = styled.div`
 
   @media screen and (max-width: 480px) {
     margin: 8vw 1vw 5vw 1vw;
-    display: block;
   }
 `;
 
 const Container = styled.div``;
 
+const DownloadButton = styled.div`
+  margin: 3vw 2vw 0vw 0vw;
+
+  @media screen and (max-width: 480px) {
+    margin: 5vw 1vw 0vw 0vw;
+  }
+
+  svg {
+    font-size: 1.5rem;
+  }
+`;
+
 const Namebill = styled.p`
   font-size: 1.3rem;
+
+  @media screen and (max-width: 800px) {
+    font-size: 1.1rem;
+  }
 
   @media screen and (max-width: 480px) {
     font-size: 1rem;
