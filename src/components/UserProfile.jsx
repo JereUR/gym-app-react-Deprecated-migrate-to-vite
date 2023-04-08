@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import styled from "styled-components";
 import { FaEdit } from "react-icons/fa";
@@ -10,8 +10,9 @@ import { FontFamily } from "../constants/Fonts";
 import Modal from "./Modal";
 import { UploadAnimation } from "./UploadAnimation";
 import { UserInfo } from "./UserInfo";
-import { FetchPostData } from "../helpers/FetchPostData";
+import { FetchPostImage } from "../helpers/FetchPostImage";
 import { FetchGetData } from "../helpers/FetchGetData";
+import { FetchDeleteData } from "../helpers/FetchDeleteData";
 
 const {
   primaryBlue,
@@ -23,8 +24,22 @@ const {
   errorInput,
 } = Colors;
 
+const initialData = {
+  username: null,
+  surname: null,
+  email: null,
+  date: null,
+  gender: null,
+  photo: null,
+  weight: null,
+  height: null,
+  medication: [],
+  injuries: [],
+  diseases: [],
+};
+
 export const UserProfile = ({ email }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(initialData);
   const [userPhoto, setUserPhoto] = useState(null);
   const [errorInput, setErrorInput] = useState(null);
   const [changePhoto, setChangePhoto] = useState(false);
@@ -34,23 +49,26 @@ export const UserProfile = ({ email }) => {
 
   useEffect(() => {
     //Get user info menos routine, plan y payments
+    // console.log(email);
+    if (email !== null && email !== undefined) {
+      async function getUser(email) {
+        return await FetchGetData(`api/v1/users/getUserProfile/${email}`);
+      }
 
-    async function getUser(email) {
-      return await FetchGetData(`/${email}`);
-    }
-    const res = getUser(email);
-    if (!(res instanceof Error)) {
-      setUser(res);
-    } else {
-      toast.error(res.message, {
-        position: "top-right",
-        duration: 6000,
-        style: {
-          background: "rgba(250, 215, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
-      });
+      getUser(email)
+        .then((response) => response.json())
+        .then((data) => setUser(data))
+        .catch((e) => {
+          toast.error(e, {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(250, 215, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          });
+        });
     }
   }, [email]);
 
@@ -83,10 +101,7 @@ export const UserProfile = ({ email }) => {
   };
 
   const handleSignOut = async () => {
-    const res = await FetchPostData({
-      path: "/",
-      data: user.email,
-    });
+    const res = await FetchDeleteData("logout");
 
     if (!(res instanceof Error)) {
       setTimeout(() => {
@@ -113,8 +128,8 @@ export const UserProfile = ({ email }) => {
     const file = e.target.files[0];
     if (file && file.type.substring(0, 5) === "image") {
       formData.append("image", file);
+
       setUserPhoto(file);
-      /* console.log(userPhoto); */
       setErrorInput(null);
     } else {
       setUserPhoto(null);
@@ -128,19 +143,17 @@ export const UserProfile = ({ email }) => {
     setUserPhoto(null);
   };
 
-  const handleSend = async () => {
+  const handleSendPhoto = async () => {
     setChangePhoto(!changePhoto);
 
     if (userPhoto != null) {
-      const dataPhoto = { email: user.email, photo: userPhoto };
-
-      const res = await FetchPostData({
-        path: "/",
-        data: { dataPhoto },
+      const res = await FetchPostImage({
+        path: "api/v1/photo",
+        data: formData,
       });
 
       if (!(res instanceof Error)) {
-        toast.success(`Foto de perfil actualizada.`, {
+        toast.success(`Actualizando foto de perfil...`, {
           position: "top-right",
           duration: 6000,
           style: {
@@ -152,7 +165,7 @@ export const UserProfile = ({ email }) => {
 
         setTimeout(() => {
           window.location.reload();
-        }, 2000);
+        }, 500);
       } else {
         toast.error(res.message, {
           position: "top-right",
@@ -171,7 +184,7 @@ export const UserProfile = ({ email }) => {
     <ProfileContainer>
       <PhotoContainer>
         <UserPhoto src={user.photo ? user.photo : defaultPhoto} />
-        <FaEdit size="1.5rem" onClick={handleModal} />
+        {/* <FaEdit size="1.5rem" onClick={handleModal} /> Comming soon*/}
       </PhotoContainer>
       <Modal
         state={changePhoto}
@@ -206,7 +219,7 @@ export const UserProfile = ({ email }) => {
             {userPhoto && (
               <ChangePhoto onClick={handleChange}>Cambiar Foto</ChangePhoto>
             )}
-            <SendPhoto onClick={handleSend}>Subir Foto</SendPhoto>
+            <SendPhoto onClick={handleSendPhoto}>Subir Foto</SendPhoto>
           </UploadPhotoContainer>
         </Content>
       </Modal>

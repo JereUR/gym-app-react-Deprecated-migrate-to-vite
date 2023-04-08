@@ -19,28 +19,30 @@ export const NutritionalPlan = ({ email, title, addInfo }) => {
 
   const [planRef, isIntersecting] = UseIntersection({ threshold: 0.5 });
 
-  useEffect(() => {
+  /* useEffect(() => {
     //Get plan
-    async function getPlan(email) {
-      return await FetchGetData(`/${email}`);
+    if (email !== null) {
+      async function getPlan(email) {
+        return await FetchGetData(`${email}`);
+      }
+      setLoading(true);
+      const res = getPlan(email);
+      if (!(res instanceof Error)) {
+        setPlan(res.data);
+        setLoading(false);
+      } else {
+        toast.error(res.message, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
+      }
     }
-    setLoading(true);
-    const res = getPlan(email);
-    if (!(res instanceof Error)) {
-      setPlan(res.data);
-      setLoading(false);
-    } else {
-      toast.error(res.message, {
-        position: "top-right",
-        duration: 6000,
-        style: {
-          background: "rgba(250, 215, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
-      });
-    }
-  }, [email]);
+  }, [email]); */
 
   const handleView = () => {
     setViewData(!viewData);

@@ -19,28 +19,30 @@ export const Routine = ({ email, title, addInfo }) => {
 
   const [routineRef, isIntersecting] = UseIntersection({ threshold: 0.5 });
 
-  useEffect(() => {
-    //Get routine
-    async function getRoutine(email) {
-      return await FetchGetData(`/${email}`);
+ /*  useEffect(() => {
+    if (email !== null) {
+      //Get routine
+      async function getRoutine(email) {
+        return await FetchGetData(`${email}`);
+      }
+      setLoading(true);
+      const res = getRoutine(email);
+      if (!(res instanceof Error)) {
+        setRoutine(res.data);
+        setLoading(false);
+      } else {
+        toast.error(res.message, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
+      }
     }
-    setLoading(true);
-    const res = getRoutine(email);
-    if (!(res instanceof Error)) {
-      setRoutine(res.data);
-      setLoading(false);
-    } else {
-      toast.error(res.message, {
-        position: "top-right",
-        duration: 6000,
-        style: {
-          background: "rgba(250, 215, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
-      });
-    }
-  }, [email]);
+  }, [email]); */
 
   const handleView = () => {
     setViewData(!viewData);

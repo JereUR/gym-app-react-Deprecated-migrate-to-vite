@@ -68,17 +68,19 @@ export const SignIn = ({ setUser }) => {
   const handleSubmitSignIn = async (e) => {
     e.preventDefault();
     setLoading(true);
-    const dataSignIn = {
-      email: credentials.email,
-      password: credentials.password,
+
+    const user = {
+        email: credentials.email,
+        password: credentials.password,
     };
 
     const res = await FetchPostData({
-      path: "users/login",
-      data: { dataSignIn },
+      path: "login",
+      data: { user },
     });
 
     if (!(res instanceof Error)) {
+      
       if (remember) {
         localStorage.setItem("loginCredentials", JSON.stringify(credentials));
         localStorage.setItem("remember", remember);
@@ -86,6 +88,7 @@ export const SignIn = ({ setUser }) => {
         localStorage.removeItem("loginCredentials");
         localStorage.removeItem("remember");
       }
+
       setUser(res);
 
       clearForm();
