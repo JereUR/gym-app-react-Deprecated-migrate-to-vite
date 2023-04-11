@@ -35,14 +35,17 @@ function App() {
   const res = useRef(null);
 
   useEffect(() => {
-      FetchGetData("api/v1/currentuser")       
+    FetchGetData("api/v1/currentuser")
       .then((response) => response.json())
       .then((data) => {
         res.current = data;
-        setUser(res.current)
+        setUser(res.current);
       })
-      .catch(e=>{
-        if(e.message!==`Unexpected token 'Y', "You need t"... is not valid JSON`){
+      .catch((e) => {
+        if (
+          e.message !==
+          `Unexpected token 'Y', "You need t"... is not valid JSON`
+        ) {
           toast.error(e.message, {
             position: "top-right",
             duration: 6000,
@@ -52,18 +55,17 @@ function App() {
               fontWeight: "500",
             },
           });
-        }})
+        }
+      });
   }, []);
 
   useEffect(() => {
     if (user.email !== null) {
       setLogin(true);
-    }
-    else {
+    } else {
       // localStorage.removeItem("token");
       setLogin(false);
     }
-
   }, [user]);
 
   return (

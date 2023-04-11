@@ -33,7 +33,7 @@ export const Error404 = ({ login, admin }) => {
       <TextContainer>
         <Text>
           La página que está buscando podría haber sido eliminada debido a que
-          cambió su nombre o no simplemente no existe.
+          cambió su nombre o simplemente no existe.
         </Text>
       </TextContainer>
       <ButtonHomeContainer>
