@@ -81,7 +81,7 @@ export const BillItem = ({ bill, username, surname, email }) => {
           </Text>
 
           <Text style={{ textAlign: "justify", marginTop: "30px" }}>
-            Destinatario: {username} {surname}.
+            Usuario: {username} {surname}.
           </Text>
           <Text style={{ textAlign: "justify", marginTop: "30px" }}>
             Email: {email}.
@@ -99,6 +99,8 @@ export const BillItem = ({ bill, username, surname, email }) => {
               maxWidth: "120px",
               maxHeight: "120px",
               marginLeft: "60%",
+              top: "10vw",
+              transform: "rotate(-15)",
             }}
           />
         </View>
