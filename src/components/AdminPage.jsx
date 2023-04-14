@@ -20,7 +20,7 @@ export const AdminPage = ({ dbLocal }) => {
   useEffect(() => {
     //Get users email,username,surname
     async function getUsers() {
-      return await FetchGetData("/");
+      return await FetchGetData("/admin");
     }
     const res = getUsers();
     if (!(res instanceof Error)) {

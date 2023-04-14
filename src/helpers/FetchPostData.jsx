@@ -2,7 +2,7 @@ export const FetchPostData = async ({ path, data}) => {
   const token = localStorage.getItem("token");
   let headers={}
 
-  console.log({data})
+  //console.log(data)
 
   if(path==="signup" || path==="login"){
     headers={

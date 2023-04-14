@@ -49,6 +49,11 @@ export const SignIn = ({ setUser }) => {
     setCredentials(initialData);
   };
 
+  const clearRecoverForm=()=>{
+    document.getElementById("email-recover").value = "";
+    setEmailRecover("");
+  }
+
   const handleForgotPasswordModal = () => {
     setForgotPassword(!forgotPassword);
   };
@@ -115,8 +120,8 @@ export const SignIn = ({ setUser }) => {
     e.preventDefault();
 
     const res = await FetchPostData({
-      path: "/",
-      data: { emailRecover },
+      path: "password",
+      data: { user : {email : emailRecover} },
     });
 
     if (!(res instanceof Error)) {
@@ -130,6 +135,7 @@ export const SignIn = ({ setUser }) => {
         },
       });
 
+      clearRecoverForm()
       setForgotPassword(!forgotPassword);
     } else {
       toast.error(res.message, {
@@ -190,6 +196,7 @@ export const SignIn = ({ setUser }) => {
               <InputRecover
                 type="email"
                 placeholder="Ingrese su email"
+                id="email-recover"
                 onChange={handleEmailRecover}
                 required
               />
