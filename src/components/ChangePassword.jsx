@@ -56,12 +56,12 @@ export const ChangePassword = ({ username }) => {
     setErrors(err);
 
     if (Object.keys(err).length === 0) {
-      const user={
-        currentPassword:dataUpdate.currentPassword, 
-        newPassword:dataUpdate.newPassword
-      }
+      const user = {
+        currentPassword: dataUpdate.currentPassword,
+        newPassword: dataUpdate.newPassword,
+      };
 
-      console.log({user})
+      console.log({ user });
 
       const res = await FetchPutData({
         path: "api/v1/updatepassword",
