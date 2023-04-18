@@ -116,7 +116,7 @@ function App() {
               <Route
                 exact
                 path="/change-password"
-                element={<ChangePassword username={user.username} />}
+                element={<ChangePassword username={user.username} email={user.email}/>}
               />
             </Route>
             <Route

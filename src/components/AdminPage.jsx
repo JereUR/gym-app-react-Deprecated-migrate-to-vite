@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import styled from "styled-components";
 import { toast, Toaster } from "react-hot-toast";
 
@@ -17,16 +17,16 @@ const { secondaryBlue, backgroundText } = Colors;
 export const AdminPage = ({ dbLocal }) => {
   const [users, setUsers] = useState(null);
 
-  useEffect(() => {
-    //Get users email,username,surname
+  useLayoutEffect(() => {
     async function getUsers() {
-      return await FetchGetData("/admin");
+      return await FetchGetData("api/v1/admin");
     }
-    const res = getUsers();
-    if (!(res instanceof Error)) {
-      setUsers(res);
-    } else {
-      toast.error(res.message, {
+  
+    const res = getUsers()
+    .then(response=>response.json())
+    .then(data=> setUsers(data))
+    .catch(e=>{
+      toast.error(e.messsage, {
         position: "top-right",
         duration: 6000,
         style: {
@@ -35,8 +35,8 @@ export const AdminPage = ({ dbLocal }) => {
           fontWeight: "500",
         },
       });
-    }
-  }, []);
+    })
+  }, [])
 
   return (
     <AdminContainer>

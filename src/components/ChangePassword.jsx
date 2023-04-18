@@ -5,6 +5,7 @@ import { toast, Toaster } from "react-hot-toast";
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 import { FetchPutData } from "../helpers/FetchPutData";
+import { FetchPostData } from "../helpers/FetchPostData";
 
 const initialData = {
   currentPassword: "",
@@ -21,7 +22,7 @@ const {
   secondaryRed,
 } = Colors;
 
-export const ChangePassword = ({ username }) => {
+export const ChangePassword = ({ username, email }) => {
   const [dataUpdate, setDataUpdate] = useState(initialData);
   const [errors, setErrors] = useState({});
 
@@ -62,10 +63,14 @@ export const ChangePassword = ({ username }) => {
       };
 
       console.log({ user });
+      const userChange = {
+        currentPassword: dataUpdate.currentPassword,
+        newPassword: dataUpdate.newPassword,
+      };
 
       const res = await FetchPutData({
-        path: "api/v1/updatepassword",
-        data: { user },
+        path: "signup",
+        data: { userChange },
       });
 
       if (!(res instanceof Error)) {
@@ -81,9 +86,29 @@ export const ChangePassword = ({ username }) => {
 
         setDataUpdate(initialData);
 
-        setTimeout(() => {
-          window.location.replace(`/usuario/${username}`);
-        }, 500);
+        const user = {
+          email,
+          password: userChange.newPassword,
+        };
+
+        const res = await FetchPostData({
+          path: "login",
+          data: { user },
+        });
+
+        if (!(res instanceof Error)) {
+          window.location.replace(`/`);
+        } else {
+          toast.error(res.message, {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(250, 215, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          });
+        }
       } else {
         toast.error(res.message, {
           position: "top-right",

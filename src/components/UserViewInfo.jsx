@@ -1,37 +1,13 @@
 import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import { toast, Toaster } from "react-hot-toast";
 import styled from "styled-components";
 
 import defaultPhoto from "../assets/default_user.jpg";
 import { Colors } from "../constants/Colors";
-import { FetchGetData } from "../helpers/FetchGetData";
+
 
 const { primaryRed, secondaryBlue, secondaryRed, backgroundText } = Colors;
 
-export const UserViewInfo = ({ email }) => {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    async function getUser(email) {
-      return await FetchGetData(`/${email}`);
-    }
-    const res = getUser(email);
-    if (!(res instanceof Error)) {
-      setUser(res);
-    } else {
-      toast.error(res.message, {
-        position: "top-right",
-        duration: 6000,
-        style: {
-          background: "rgba(250, 215, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
-      });
-    }
-  }, [email]);
+export const UserViewInfo = ({ user }) => {
 
   const getYears = () => {
     var actDate = new Date();
@@ -93,10 +69,10 @@ export const UserViewInfo = ({ email }) => {
           </TextContainer>
           <Label>Medicación</Label>
           <TextContainer>
-            {user.medication.length > 0 ? (
-              user.medication.map((el, index) => (
+            {user.medications.length > 0 ? (
+              user.medications.map((el, index) => (
                 <InfoItem key={index}>
-                  <TextMed>- {el}</TextMed>
+                  <TextMed>- {el}.</TextMed>
                 </InfoItem>
               ))
             ) : (
@@ -110,7 +86,7 @@ export const UserViewInfo = ({ email }) => {
                 <InfoItem key={index}>
                   <TextMed>
                     - {el.injury} -{" "}
-                    {el.treatment ? `${el.treatment}` : "Sin tratamiento"}
+                    {el.treatment ? `${el.treatment}.` : "Sin tratamiento."}
                   </TextMed>
                 </InfoItem>
               ))
@@ -126,8 +102,8 @@ export const UserViewInfo = ({ email }) => {
                   <TextMed>
                     - {el.disease} -{" "}
                     {el.medication.length > 0
-                      ? el.medication.map((el) => `${el} | `)
-                      : "Sin medicamento"}
+                      ? el.medication.map((el) => `${el}. `)
+                      : "Sin medicamento."}
                   </TextMed>
                 </InfoItem>
               ))
@@ -137,7 +113,6 @@ export const UserViewInfo = ({ email }) => {
           </TextContainer>
         </SecondInfo>
       </InfoContainer>
-      <Toaster />
     </ProfileContainer>
   );
 };
