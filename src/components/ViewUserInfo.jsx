@@ -5,18 +5,13 @@ import { NutritionalPlan } from "./NutritionalPlan";
 import { Routine } from "./Routine";
 import { UserViewInfo } from "./UserViewInfo";
 
-export const ViewUserInfo = ({ email }) => {
+export const ViewUserInfo = ({ user }) => {
+  console.log({user})
   return (
     <InfoUser>
       <InfoContainer>
-        <UserViewInfo email={email} />
+        <UserViewInfo user={user} />
       </InfoContainer>
-      <RutineContainer>
-        <Routine email={email} title={`Rutina:`} />
-      </RutineContainer>
-      <NutritionalPlanContainer>
-        <NutritionalPlan email={email} title={`Plan Nutricional:`} />
-      </NutritionalPlanContainer>
     </InfoUser>
   );
 };

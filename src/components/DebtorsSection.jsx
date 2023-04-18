@@ -19,12 +19,24 @@ export const DebtorsSection = ({ users }) => {
   const handleDebtors = () => {
     if (!viewDebtors) {
       const today = new Date();
-      let debtors = [];
 
       users.forEach(async (user) => {
-        const nextPayment = await FetchGetData(`/${user.email}`);
+        const nextPayment = await FetchGetData(`api/v1/payments/usernextpayment/${user.email}`)
+        .then(response=>response.json())
+        .then()
+        .catch(e=>{
+          toast.error(e.messsage, {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(250, 215, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          });
+        })
 
-        if (!(nextPayment instanceof Error)) {
+        if (nextPayment !== null) {
           let userDate = new Date(
             nextPayment.year,
             nextPayment.month,
@@ -38,22 +50,11 @@ export const DebtorsSection = ({ users }) => {
               email: user.email,
             };
 
-            debtors.push(newData);
+            setDebtorUsers(...debtorUsers, debtorUsers.concat(newData))
           }
-        } else {
-          toast.error(nextPayment.message, {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          });
         }
       });
       setViewDebtors(true);
-      setDebtorUsers(debtors);
     } else {
       setDebtorUsers([]);
       setViewDebtors(false);
@@ -224,5 +225,11 @@ const LogoContainer = styled.div`
     visibility: visible;
   }
 `;
+
+const NoDebtors = styled.p`
+  text-allign: center;
+  font-size: 1.5rem;
+  font-style: italic;
+`
 
 const Span = styled.span``;

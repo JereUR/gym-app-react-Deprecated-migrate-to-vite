@@ -289,7 +289,7 @@ export const FormClearNutritionalPlan = ({ users, dbLocal }) => {
             <Label>Para:</Label>
             <SelectFirst onChange={handleFor} id="for-data">
               <Option value="null">Seleccione un usuario</Option>
-              {users.map((el, index) => (
+              {users!==null && users.map((el, index) => (
                 <Option key={index} value={el.email}>
                   {el.username} {el.surname} - {el.email}
                 </Option>

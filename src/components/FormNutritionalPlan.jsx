@@ -517,7 +517,7 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
             <Label>Para:</Label>
             <SelectFirst onChange={handleFor}>
               <Option value="null">Seleccione un usuario</Option>
-              {users.map((el, index) => (
+              {users!==null && users.map((el, index) => (
                 <Option key={index} value={el.email}>
                   {el.username} {el.surname} - {el.email}
                 </Option>
@@ -635,6 +635,7 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
                 deleteData={deleteData}
                 data={breakfast}
                 editData={editData}
+                seeLogos={true}
               />
             ))}
           </List>
@@ -651,6 +652,7 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
                 deleteData={deleteData}
                 data={lunch}
                 editData={editData}
+                seeLogos={true}
               />
             ))}
           </List>
@@ -667,6 +669,7 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
                 deleteData={deleteData}
                 data={snack}
                 editData={editData}
+                seeLogos={true}
               />
             ))}
           </List>
@@ -683,6 +686,7 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
                 deleteData={deleteData}
                 data={dinner}
                 editData={editData}
+                seeLogos={true}
               />
             ))}
           </List>
@@ -699,6 +703,7 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
                 deleteData={deleteData}
                 data={afterDinner}
                 editData={editData}
+                seeLogos={true}
               />
             ))}
           </List>
@@ -715,6 +720,7 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
                 deleteData={deleteData}
                 data={preWorkout}
                 editData={editData}
+                seeLogos={true}
               />
             ))}
           </List>
@@ -731,6 +737,7 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
                 deleteData={deleteData}
                 data={postWorkout}
                 editData={editData}
+                seeLogos={true}
               />
             ))}
           </List>
@@ -747,6 +754,7 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
                 deleteData={deleteData}
                 data={collation}
                 editData={editData}
+                seeLogos={true}
               />
             ))}
           </List>

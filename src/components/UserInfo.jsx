@@ -366,7 +366,7 @@ export const UserInfo = ({ user }) => {
                 <TextMed>
                   - {el.disease} -{" "}
                   {el.medication.length > 0
-                    ? el.medication.map((el) => `${el} | `)
+                    ? el.medication.map((el) => `${el}. `)
                     : "Sin medicamento"}
                 </TextMed>
               </InfoItem>
