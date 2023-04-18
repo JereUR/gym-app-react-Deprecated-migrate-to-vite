@@ -91,7 +91,6 @@ function App() {
                   <Home
                     months={dbLocal.months}
                     exercises={dbLocal.exercises}
-                    email={user.email}
                     weight={user.weight}
                     height={user.height}
                   />

@@ -4,7 +4,7 @@ import { toast, Toaster } from "react-hot-toast";
 
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
-import { FetchPostData } from "../helpers/FetchPostData";
+import { FetchPutData } from "../helpers/FetchPutData";
 
 const initialData = {
   currentPassword: "",
@@ -56,9 +56,16 @@ export const ChangePassword = ({ username }) => {
     setErrors(err);
 
     if (Object.keys(err).length === 0) {
-      const res = await FetchPostData({
-        path: "/",
-        data: { dataUpdate },
+      const user={
+        currentPassword:dataUpdate.currentPassword, 
+        newPassword:dataUpdate.newPassword
+      }
+
+      console.log({user})
+
+      const res = await FetchPutData({
+        path: "api/v1/updatepassword",
+        data: { user },
       });
 
       if (!(res instanceof Error)) {
@@ -75,8 +82,8 @@ export const ChangePassword = ({ username }) => {
         setDataUpdate(initialData);
 
         setTimeout(() => {
-          window.location.replace(`/usuario/:${username}`);
-        }, 2000);
+          window.location.replace(`/usuario/${username}`);
+        }, 500);
       } else {
         toast.error(res.message, {
           position: "top-right",
@@ -165,7 +172,7 @@ const ButtonBack = styled(ButtonSend)`
 const ErrorInput = styled.div`
   font-size: 12px;
   color: ${errorInput};
-  margin-top: 5px;
+  margin-bottom: 1rem;
   text-align: left;
   margin-left: 0.5rem;
 `;

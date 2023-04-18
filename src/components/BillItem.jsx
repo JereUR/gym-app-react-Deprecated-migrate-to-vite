@@ -20,10 +20,11 @@ import { useEffect } from "react";
 
 const { primaryBlue, secondaryBlue, colorText } = Colors;
 
-export const BillItem = ({ bill, username, surname, email }) => {
+export const BillItem = ({ bill, username, surname, email,months }) => {
   const [viewPdf, setViewPdf] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [mobile, setMobile] = useState(windowWidth < 800);
+  const month = months.find((m) => m.value === bill.month).month
 
   useEffect(() => {
     const handleResize = () => {
@@ -77,7 +78,7 @@ export const BillItem = ({ bill, username, surname, email }) => {
               fontWeight: "bold",
             }}
           >
-            Pago {bill.month} - {bill.year}
+            Pago {month} - {bill.year}
           </Text>
 
           <Text style={{ textAlign: "justify", marginTop: "30px" }}>
@@ -120,7 +121,7 @@ export const BillItem = ({ bill, username, surname, email }) => {
       <BillItemContainer>
         <Namebill>
           <GrDocumentPdf size="1.5rem" />
-          Pago {bill.month} - {bill.year}
+          Pago {month} - {bill.year}
         </Namebill>
         {!mobile ? (
           <BillButton type="button" onClick={handlePdf}>
@@ -130,7 +131,7 @@ export const BillItem = ({ bill, username, surname, email }) => {
           <DownloadButton>
             <PDFDownloadLink
               document={doc}
-              fileName={`Pago ${bill.month} ${bill.year} - ${username} ${surname}`}
+              fileName={`Pago ${month} ${bill.year} - ${username} ${surname}`}
             >
               {({ blob, url, loading, error }) =>
                 loading ? "Cargando documento..." : <FiDownload />

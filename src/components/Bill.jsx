@@ -14,14 +14,14 @@ export const Bill = ({ email, username, surname, months }) => {
 
   useEffect(() => {
     //Get payment
-    async function getPayment(email) {
-      return await FetchGetData(`/${email}`);
+    async function getPayment() {
+      return await FetchGetData(`api/v1/payments/getpayments`);
     }
-    const res = getPayment(email);
-    if (!(res instanceof Error)) {
-      setPayment(res);
-    } else {
-      toast.error(res.message, {
+    const res = getPayment()
+    .then(response=>response.json())
+    .then(data=> setPayment(data))
+    .catch(e=>{
+      toast.error(e.messsage, {
         position: "top-right",
         duration: 6000,
         style: {
@@ -30,7 +30,7 @@ export const Bill = ({ email, username, surname, months }) => {
           fontWeight: "500",
         },
       });
-    }
+    })
   }, [email]);
 
   return (
@@ -39,9 +39,9 @@ export const Bill = ({ email, username, surname, months }) => {
         <NoticeTitleNext>Próximo Pago:</NoticeTitleNext>
         {payment ? (
           <Notice>
-            El próximo pago deberá realizarse el día {payment.nextPayment.day}{" "}
-            de {months.find((m) => m.value === payment.nextPayment.month).month}{" "}
-            del año {payment.nextPayment.year}.
+            El próximo pago deberá realizarse el día {payment.payment.nextPayment.day}{" "}
+            de {months.find((m) => m.value === payment.payment.nextPayment.month).month}{" "}
+            del año {payment.payment.nextPayment.year}.
           </Notice>
         ) : (
           <NoData>Sin información.</NoData>
@@ -50,13 +50,14 @@ export const Bill = ({ email, username, surname, months }) => {
       <PaymentsContainer>
         <NoticeTitlePayment>Pagos realizados:</NoticeTitlePayment>
         {payment ? (
-          payment.payments.map((el, index) => (
+          payment.payment.payments.map((el, index) => (
             <BillItem
               key={index}
               bill={el}
               username={username}
               surname={surname}
               email={email}
+              months={months}
             />
           ))
         ) : (

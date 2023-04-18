@@ -11,7 +11,7 @@ import { toast, Toaster } from "react-hot-toast";
 
 const { secondaryBlue, secondaryRed } = Colors;
 
-export const Home = ({ months, email, weight, height }) => {
+export const Home = ({ months, weight, height }) => {
   const [nextPayment, setNextPayment] = useState(null);
   const [debtor, setDebtor] = useState(false);
   const [addInfo, setAddInfo] = useState(false);
@@ -36,27 +36,25 @@ export const Home = ({ months, email, weight, height }) => {
   useEffect(() => {
     //Get proximo pago
     //console.log(email);
-    if (email !== null && email !== undefined) {
-      async function getNextPayment(email) {
-        return await FetchGetData(`api/v1/payments/getNextPayment/${email}`);
-      }
-
-      const res = getNextPayment(email)
-      .then(response=>response.json())
-      .then(data=> setNextPayment(data))
-      .catch(e=>{
-        toast.error(e.messsage, {
-          position: "top-right",
-          duration: 6000,
-          style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
-      })
+    async function getNextPayment() {
+      return await FetchGetData(`api/v1/payments/getnextpayment`);
     }
-  }, [email]);
+
+    const res = getNextPayment()
+    .then(response=>response.json())
+    .then(data=> setNextPayment(data))
+    .catch(e=>{
+      toast.error(e.messsage, {
+        position: "top-right",
+        duration: 6000,
+        style: {
+          background: "rgba(250, 215, 215)",
+          fontSize: "1rem",
+          fontWeight: "500",
+        },
+      });
+    })
+  }, []);
 
   useEffect(() => {
     const onScroll = (event) => {
@@ -77,21 +75,23 @@ export const Home = ({ months, email, weight, height }) => {
   }, [scrollTop]);
 
   useEffect(() => {
-    if ((nextPayment !== null) && (nextPayment.payment !== null)){
-      let today = new Date();
+    if ((nextPayment !== null)){
+      if(nextPayment.payment!==null){
+        let today = new Date();
       
-      let userDate = new Date(
-        nextPayment.payment.yearNext,
-        nextPayment.payment.monthNext,
-        nextPayment.payment.dayNext
-      );
+        let userDate = new Date(
+          nextPayment.payment.yearNext,
+          nextPayment.payment.monthNext,
+          nextPayment.payment.dayNext
+        );
 
-      if (userDate < today) {
-        setDebtor(true);
-      }
+        if (userDate < today) {
+          setDebtor(true);
+        }
 
-      if (weight === null || height === null) {
-        setAddInfo(true);
+        if (weight === null || height === null) {
+          setAddInfo(true);
+        }
       }
     }
   }, [nextPayment, weight, height]);
@@ -115,12 +115,11 @@ export const Home = ({ months, email, weight, height }) => {
         </ReportPaymentContainer>
       )}
       <RutineContainer>
-        <Routine email={email} title="Mis Rutinas" addInfo={addInfo} />
+        <Routine title="Mis Rutinas" addInfo={addInfo} />
       </RutineContainer>
       <Hr />
       <NutritionalPlanContainer>
         <NutritionalPlan
-          email={email}
           title="Mi Plan Nutricional"
           addInfo={addInfo}
         />

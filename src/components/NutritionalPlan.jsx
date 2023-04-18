@@ -76,7 +76,7 @@ export const NutritionalPlan = ({ email, title, addInfo }) => {
         </NoPlan>
       )}
       {viewData &&
-        /* user. */ (plan ? (
+        (plan ? (
           <PlanData
             ref={planRef}
             className={isIntersecting ? "visible" : "right"}
@@ -1074,6 +1074,10 @@ const NoPlan = styled.p`
   font-size: 2rem;
   margin-top: -2vw;
   padding-bottom: 2vw;
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.4rem;
+  }
 `;
 
 const PlanContainer = styled.div`
@@ -1201,7 +1205,7 @@ const Title = styled.p`
   }
 
   @media screen and (max-width: 480px) {
-    font-size: 2rem;
+    font-size: 1.9rem;
     margin-left: 18vw;
   }
 `;
