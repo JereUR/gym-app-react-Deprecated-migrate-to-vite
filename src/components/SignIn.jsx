@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { toast, Toaster } from "react-hot-toast";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 import logo from "../assets/logo.png";
 import Loader from "./Loader";
@@ -23,6 +24,7 @@ export const SignIn = ({ setUser }) => {
   const [emailRecover, setEmailRecover] = useState("");
   const [loading, setLoading] = useState(false);
   const [credentials, setCredentials] = useState(initialData);
+  const [viewPassword, setViewPassword] = useState(false);
 
   useEffect(() => {
     const storedCredentials = JSON.parse(
@@ -49,10 +51,10 @@ export const SignIn = ({ setUser }) => {
     setCredentials(initialData);
   };
 
-  const clearRecoverForm=()=>{
+  const clearRecoverForm = () => {
     document.getElementById("email-recover").value = "";
     setEmailRecover("");
-  }
+  };
 
   const handleForgotPasswordModal = () => {
     setForgotPassword(!forgotPassword);
@@ -75,8 +77,8 @@ export const SignIn = ({ setUser }) => {
     setLoading(true);
 
     const user = {
-        email: credentials.email,
-        password: credentials.password,
+      email: credentials.email,
+      password: credentials.password,
     };
 
     const res = await FetchPostData({
@@ -85,7 +87,6 @@ export const SignIn = ({ setUser }) => {
     });
 
     if (!(res instanceof Error)) {
-      
       if (remember) {
         localStorage.setItem("loginCredentials", JSON.stringify(credentials));
         localStorage.setItem("remember", remember);
@@ -121,7 +122,7 @@ export const SignIn = ({ setUser }) => {
 
     const res = await FetchPostData({
       path: "password",
-      data: { user : {email : emailRecover} },
+      data: { user: { email: emailRecover } },
     });
 
     if (!(res instanceof Error)) {
@@ -135,7 +136,7 @@ export const SignIn = ({ setUser }) => {
         },
       });
 
-      clearRecoverForm()
+      clearRecoverForm();
       setForgotPassword(!forgotPassword);
     } else {
       toast.error(res.message, {
@@ -163,15 +164,23 @@ export const SignIn = ({ setUser }) => {
           onChange={handleCredentialsChange}
           required
         />
-        <Input
-          id="password-sign-in"
-          type="password"
-          name="password"
-          value={credentials.password}
-          placeholder="Ingrese su contraseña"
-          onChange={handleCredentialsChange}
-          required
-        />
+        <InputContainer>
+          <Input
+            id="password-sign-in"
+            type={viewPassword ? "text" : "password"}
+            name="password"
+            value={credentials.password}
+            placeholder="Ingrese su contraseña"
+            onChange={handleCredentialsChange}
+            required
+          />
+          <ViewPasswordButton
+            type="button"
+            onClick={() => setViewPassword(!viewPassword)}
+          >
+            {viewPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
+          </ViewPasswordButton>
+        </InputContainer>
         <InputCheckContainer>
           <InputCheck type="checkbox" id="remember" onChange={handleRemember} />
           <Label>Recordarme</Label>
@@ -284,6 +293,7 @@ const FormContainer = styled.div`
   display: block;
   text-align: center;
   margin-top: 4vw;
+
   @media screen and (max-width: 1380px) {
     margin-top: 2vw;
   }
@@ -302,10 +312,13 @@ const Input = styled.input`
   font-size: 1.2rem;
   padding: 10px;
   margin-bottom: 1rem;
+  width: 90%;
+
   :focus {
     border-color: ${primaryRed};
     box-shadow: 0 0 0 3px rgba(65, 157, 199, 0.5);
   }
+
   @media screen and (max-width: 480px) {
     width: 80%;
     margin-bottom: 3vh;
@@ -321,6 +334,16 @@ const InputCheck = styled.input`
 const InputCheckContainer = styled.div`
   text-align: left;
   margin: 0 0 1rem 0.5vw;
+`;
+
+const InputContainer = styled.div`
+  position: relative;
+  right: 0.5rem;
+  width: 100%;
+
+  @media screen and (max-width: 480px) {
+    right: 0;
+  }
 `;
 
 const InputRecover = styled.input`
@@ -376,5 +399,25 @@ const TextForgotPassword = styled.div`
   @media screen and (max-width: 480px) {
     margin-top: 1vw;
     margin-bottom: 5vw;
+  }
+`;
+
+const ViewPasswordButton = styled.button`
+  position: absolute;
+  top: 40%;
+  right: 20px;
+  transform: translateY(-50%);
+  border: none;
+  font-size: 1.5rem;
+  background-color: transparent;
+  cursor: pointer;
+
+  @media screen and (max-width: 480px) {
+    right: 30px;
+    top: 35%;
+  }
+
+  @media screen and (max-width: 380px) {
+    top: 40%;
   }
 `;

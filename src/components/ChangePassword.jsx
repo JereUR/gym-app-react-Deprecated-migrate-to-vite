@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { toast, Toaster } from "react-hot-toast";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
@@ -25,6 +26,7 @@ const {
 export const ChangePassword = ({ username, email }) => {
   const [dataUpdate, setDataUpdate] = useState(initialData);
   const [errors, setErrors] = useState({});
+  const [viewPassword, setViewPassword] = useState(false);
 
   const onValidate = () => {
     let errorsForm = {};
@@ -127,28 +129,52 @@ export const ChangePassword = ({ username, email }) => {
     <FormContainer>
       <TitleReset>Cambiar Contraseña</TitleReset>
       <Form onSubmit={handleSubmit}>
-        <Input
-          type="password"
-          placeholder="Contraseña actual"
-          name="currentPassword"
-          value={dataUpdate.currentPassword}
-          onChange={handleChange}
-        />
-        <Input
-          type="password"
-          placeholder="Nueva contraseña"
-          name="newPassword"
-          value={dataUpdate.newPassword}
-          onChange={handleChange}
-        />
+        <InputContainer>
+          <Input
+            type={viewPassword ? "text" : "password"}
+            placeholder="Contraseña actual"
+            name="currentPassword"
+            value={dataUpdate.currentPassword}
+            onChange={handleChange}
+          />
+          <ViewPasswordButton
+            type="button"
+            onClick={() => setViewPassword(!viewPassword)}
+          >
+            {viewPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
+          </ViewPasswordButton>
+        </InputContainer>
+        <InputContainer>
+          <Input
+            type={viewPassword ? "text" : "password"}
+            placeholder="Nueva contraseña"
+            name="newPassword"
+            value={dataUpdate.newPassword}
+            onChange={handleChange}
+          />
+          <ViewPasswordButton
+            type="button"
+            onClick={() => setViewPassword(!viewPassword)}
+          >
+            {viewPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
+          </ViewPasswordButton>
+        </InputContainer>
         {errors.newPassword && <ErrorInput>{errors.newPassword}</ErrorInput>}
-        <Input
-          type="password"
-          placeholder="Confirma nueva contraseña"
-          name="confirmPassword"
-          value={dataUpdate.confirmPassword}
-          onChange={handleChange}
-        />
+        <InputContainer>
+          <Input
+            type={viewPassword ? "text" : "password"}
+            placeholder="Confirma nueva contraseña"
+            name="confirmPassword"
+            value={dataUpdate.confirmPassword}
+            onChange={handleChange}
+          />
+          <ViewPasswordButton
+            type="button"
+            onClick={() => setViewPassword(!viewPassword)}
+          >
+            {viewPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
+          </ViewPasswordButton>
+        </InputContainer>
         {errors.confirmPassword && (
           <ErrorInput>{errors.confirmPassword}</ErrorInput>
         )}
@@ -224,6 +250,7 @@ const Input = styled.input`
   font-size: 1.2rem;
   padding: 10px;
   margin-bottom: 1rem;
+  width: 100%;
 
   @media screen and (max-width: 480px) {
     margin-bottom: 8vw;
@@ -234,6 +261,16 @@ const Input = styled.input`
   }
 `;
 
+const InputContainer = styled.div`
+  position: relative;
+  right: 0.5rem;
+  width: 100%;
+
+  @media screen and (max-width: 480px) {
+    right: 0;
+  }
+`;
+
 const TitleReset = styled.h1`
   font-family: ${FontFamily};
   text-align: left;
@@ -241,5 +278,25 @@ const TitleReset = styled.h1`
 
   @media screen and (max-width: 480px) {
     margin-bottom: 10vw;
+  }
+`;
+
+const ViewPasswordButton = styled.button`
+  position: absolute;
+  top: 40%;
+  right: 10px;
+  transform: translateY(-50%);
+  border: none;
+  font-size: 1.5rem;
+  background-color: transparent;
+  cursor: pointer;
+
+  @media screen and (max-width: 480px) {
+    right: 0;
+    top: 35%;
+  }
+
+  @media screen and (max-width: 380px) {
+    right: -10px;
   }
 `;

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { toast, Toaster } from "react-hot-toast";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 import Modal from "./Modal";
 import { Colors } from "../constants/Colors";
@@ -24,6 +25,7 @@ export const SignUp = ({ setUser }) => {
   const [register, setRegister] = useState(false);
   const [dataRegister, setDataRegister] = useState(initialData);
   const [errors, setErrors] = useState({});
+  const [viewPassword, setViewPassword] = useState(false);
 
   const onValidate = () => {
     let errorsForm = {};
@@ -135,9 +137,7 @@ export const SignUp = ({ setUser }) => {
                     onChange={handleChange}
                   />
                   {errors.name && (
-                    <ErrorInputNameSurname>
-                      {errors.name}
-                    </ErrorInputNameSurname>
+                    <ErrorInputNameSurname>{errors.name}</ErrorInputNameSurname>
                   )}
                 </InputContainer>
                 <InputContainer>
@@ -163,9 +163,7 @@ export const SignUp = ({ setUser }) => {
                   value={dataRegister.email}
                   onChange={handleChange}
                 />
-                {errors.email && (
-                  <ErrorInput>{errors.email}</ErrorInput>
-                )}
+                {errors.email && <ErrorInput>{errors.email}</ErrorInput>}
               </InputContainer>
               <InputRadioContainer>
                 <Label>Sexo</Label>
@@ -209,30 +207,42 @@ export const SignUp = ({ setUser }) => {
                   value={dataRegister.date}
                   onChange={handleChange}
                 />
-                {errors.date && (
-                  <ErrorInput>{errors.date}</ErrorInput>
-                )}
+                {errors.date && <ErrorInput>{errors.date}</ErrorInput>}
               </InputContainer>
               <InputContainer>
-                <Input
-                  type="password"
-                  placeholder="Ingrese su contraseña"
-                  name="password"
-                  value={dataRegister.password}
-                  onChange={handleChange}
-                />
-                {errors.password && (
-                  <ErrorInput>{errors.password}</ErrorInput>
-                )}
+                <InputContainerPassword>
+                  <Input
+                    type={viewPassword ? "text" : "password"}
+                    placeholder="Ingrese su contraseña"
+                    name="passwordRegister"
+                    value={dataRegister.passwordRegister}
+                    onChange={handleChange}
+                  />
+                  <ViewPasswordButton
+                    type="button"
+                    onClick={() => setViewPassword(!viewPassword)}
+                  >
+                    {viewPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
+                  </ViewPasswordButton>
+                </InputContainerPassword>
+                {errors.password && <ErrorInput>{errors.password}</ErrorInput>}
               </InputContainer>
               <InputContainer>
-                <Input
-                  type="password"
-                  placeholder="Confirme su contraseña"
-                  name="confirmPassword"
-                  value={dataRegister.confirmPassword}
-                  onChange={handleChange}
-                />
+                <InputContainerPassword>
+                  <Input
+                    type={viewPassword ? "text" : "password"}
+                    placeholder="Confirme su contraseña"
+                    name="confirmPassword"
+                    value={dataRegister.confirmPassword}
+                    onChange={handleChange}
+                  />
+                  <ViewPasswordButton
+                    type="button"
+                    onClick={() => setViewPassword(!viewPassword)}
+                  >
+                    {viewPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
+                  </ViewPasswordButton>
+                </InputContainerPassword>
                 {errors.confirmPassword && (
                   <ErrorInput>{errors.confirmPassword}</ErrorInput>
                 )}
@@ -374,6 +384,11 @@ const InputRadio = styled.input`
 
 const InputContainer = styled.div``;
 
+const InputContainerPassword = styled.div`
+  position: relative;
+  width: 100%;
+`;
+
 const InputRadioContainer = styled.div`
   display: flex;
   margin: 1rem 0;
@@ -425,4 +440,19 @@ const NameAndSurnameContainer = styled.div`
 const Span = styled.span`
   font-weight: 500;
   color: rgb(130, 130, 130);
+`;
+
+const ViewPasswordButton = styled.button`
+  position: absolute;
+  top: 40%;
+  right: 20px;
+  transform: translateY(-50%);
+  border: none;
+  font-size: 1.5rem;
+  background-color: transparent;
+  cursor: pointer;
+
+  @media screen and (max-width: 480px) {
+    right: 10px;
+  }
 `;

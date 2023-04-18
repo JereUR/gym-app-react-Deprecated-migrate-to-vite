@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Toaster, toast } from "react-hot-toast";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
@@ -16,6 +17,7 @@ const { colorText, primaryBlue, secondaryBlue, errorInput } = Colors;
 export const ResetPassword = () => {
   const [dataRecovery, setDataRecovery] = useState(initialData);
   const [errors, setErrors] = useState({});
+  const [viewPassword, setViewPassword] = useState(false);
 
   const onValidate = () => {
     let errorsForm = {};
@@ -83,21 +85,38 @@ export const ResetPassword = () => {
     <FormContainer>
       <TitleReset>Recuperar Contraseña</TitleReset>
       <Form onSubmit={handleSubmit}>
-        <Input
-          type="password"
-          placeholder="Nueva contraseña"
-          name="newPassword"
-          value={dataRecovery.newPassword}
-          onChange={handleChange}
-        />
+        <InputContainer>
+          <Input
+            type={viewPassword ? "text" : "password"}
+            placeholder="Nueva contraseña"
+            name="newPassword"
+            value={dataRecovery.newPassword}
+            onChange={handleChange}
+          />
+          <ViewPasswordButton
+            type="button"
+            onClick={() => setViewPassword(!viewPassword)}
+          >
+            {viewPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
+          </ViewPasswordButton>
+        </InputContainer>
         {errors.newPassword && <ErrorInput>{errors.newPassword}</ErrorInput>}
-        <Input
-          type="password"
-          placeholder="Confirma nueva contraseña"
-          name="confirmPassword"
-          value={dataRecovery.confirmPassword}
-          onChange={handleChange}
-        />
+        <InputContainer>
+          <Input
+            type={viewPassword ? "text" : "password"}
+            placeholder="Confirma nueva contraseña"
+            name="confirmPassword"
+            value={dataRecovery.confirmPassword}
+            onChange={handleChange}
+          />
+          <ViewPasswordButton
+            type="button"
+            onClick={() => setViewPassword(!viewPassword)}
+          >
+            {viewPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
+          </ViewPasswordButton>
+        </InputContainer>
+
         {errors.confirmPassword && (
           <ErrorInput>{errors.confirmPassword}</ErrorInput>
         )}
@@ -145,10 +164,26 @@ const Form = styled.form`
 
 const FormContainer = styled.div`
   border-radius: 5px;
-  padding: 12vw 15vw 12vw 15vw;
+  padding: 13vw 15vw 13vw 15vw;
+
+  @media screen and (max-width: 1900px) {
+    padding: 17vw 8vw 17vw 8vw;
+  }
+
+  @media screen and (max-width: 1500px) {
+    padding: 20vw 8vw 20vw 8vw;
+  }
+
+  @media screen and (max-width: 1300px) {
+    padding: 23vw 8vw 23vw 8vw;
+  }
+
+  @media screen and (max-width: 1100px) {
+    padding: 27vw 8vw 27vw 8vw;
+  }
 
   @media screen and (max-width: 480px) {
-    padding: 20vw 8vw 20vw 8vw;
+    padding: 32vw 8vw 32vw 8vw;
   }
 `;
 
@@ -161,6 +196,7 @@ const Input = styled.input`
   font-size: 1.2rem;
   padding: 10px;
   margin-bottom: 1rem;
+  width: 100%;
 
   @media screen and (max-width: 480px) {
     margin-bottom: 8vw;
@@ -171,6 +207,16 @@ const Input = styled.input`
   }
 `;
 
+const InputContainer = styled.div`
+  position: relative;
+  right: 0.5rem;
+  width: 100%;
+
+  @media screen and (max-width: 480px) {
+    right: 0;
+  }
+`;
+
 const TitleReset = styled.h1`
   font-family: ${FontFamily};
   text-align: left;
@@ -178,5 +224,25 @@ const TitleReset = styled.h1`
 
   @media screen and (max-width: 480px) {
     margin-bottom: 10vw;
+  }
+`;
+
+const ViewPasswordButton = styled.button`
+  position: absolute;
+  top: 40%;
+  right: 10px;
+  transform: translateY(-50%);
+  border: none;
+  font-size: 1.5rem;
+  background-color: transparent;
+  cursor: pointer;
+
+  @media screen and (max-width: 480px) {
+    right: 0;
+    top: 35%;
+  }
+
+  @media screen and (max-width: 380px) {
+    right: -10px;
   }
 `;
