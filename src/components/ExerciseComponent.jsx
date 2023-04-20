@@ -11,7 +11,7 @@ export const ExerciseComponent = ({ el, deleteData, editData, seeLogos }) => {
   return (
     <ExerciseContainer>
       <ExerciseItem key={el.id}>
-        {el.series} x {el.count} {el.measure} - {el.typeExercise} -{" "}
+        {el.series} x {el.count} {el.measure} - {el.name} -{" "}
         {el.rest ? `${el.rest} seg. de descanso` : "Sin descanso estipulado"} -{" "}
         {el.description ? `${el.description}` : "Sin información adicional"}
       </ExerciseItem>

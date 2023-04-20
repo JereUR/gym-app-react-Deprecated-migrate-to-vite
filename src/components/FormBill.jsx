@@ -113,12 +113,13 @@ export const FormBill = ({ users, dbLocal }) => {
   }
 
   function getMonthNow() {
-    const now = new Date();
-    return now.getMonth();
+   return new Date().getMonth();
+    
   }
 
-  const getMonth = (month) => {
-    return dbLocal.months.find((m) => m.month === month).value;
+  const getMonthCustom = (month) => {
+    // console.log(month)
+    return dbLocal.months.find(m => m.month === month).value;
   };
 
   const clearForm = () => {
@@ -139,26 +140,38 @@ export const FormBill = ({ users, dbLocal }) => {
   const onValidate = async () => {
     const errorsForm = {};
 
-    const payment = await FetchGetData("/", forData);
+    const payment = await FetchGetData(`api/v1/payments/userpayments/${forData}`)
+    .then(response=>response.json())
+    .then()
+    .catch(e=>{
+      toast.error(e.messsage, {
+        position: "top-right",
+        duration: 6000,
+        style: {
+          background: "rgba(250, 215, 215)",
+          fontSize: "1rem",
+          fontWeight: "500",
+        },
+      });
+    })
 
     if (getYearNow() === year) {
-      if (getMonthNow() < getMonth(month)) {
-        errorsForm.form = `La fecha determinada todavía no ha llegado (${day} de ${month} del ${year})`;
+      if (getMonthNow() < month) {
+        errorsForm.form = `La fecha determinada todavía no ha llegado (${day} de ${dbLocal.months.find(m=>m.value===month).month} del ${year})`;
       }
-      if (getMonthNow() === getMonth(month)) {
+      if (getMonthNow() === month) {
         if (getDayNow() < day) {
-          errorsForm.form = `La fecha determinada todavía no ha llegado (${day} de ${month} del ${year})`;
+          errorsForm.form = `La fecha determinada todavía no ha llegado (${day} de ${dbLocal.months.find(m=>m.value===month).month} del ${year})`;
         }
       }
     }
+
     if (forData !== null) {
-      if (!(payment instanceof Error)) {
-        if (
-          payment.payments.some((p) => p.month === month && p.year === year)
-        ) {
-          errorsForm.form = `Ya se ha agregado un pago para el mes ${month} del año ${year} a ${forData}`;
+      payment.forEach(p=>{
+        if(p.month === month && p.year=== year){
+          errorsForm.form = `Ya se ha agregado un pago para el mes ${dbLocal.months.find(m=>m.value===month).month} del año ${year} a ${forData}`;
         }
-      }
+      })
     }
 
     if (forData === null) {
@@ -194,22 +207,10 @@ export const FormBill = ({ users, dbLocal }) => {
 
   const handleFor = async (e) => {
     setForData(e.target.value);
+    const user = users.find(u=>u.email===e.target.value)
 
-    const user = await FetchGetData(`/${e.target.value}`);
-    if (!(user instanceof Error)) {
-      setName(user.username);
-      setSurname(user.surname);
-    } else {
-      toast.error(user.message, {
-        position: "top-right",
-        duration: 6000,
-        style: {
-          background: "rgba(250, 215, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
-      });
-    }
+    setName(user.username);
+    setSurname(user.surname);
   };
 
   const handleChangeFor = () => {
@@ -221,12 +222,12 @@ export const FormBill = ({ users, dbLocal }) => {
   };
 
   const handleMonth = (e) => {
-    setMonth(e.target.value);
+    const numberMonth = getMonthCustom(e.target.value);
+    setMonth(numberMonth);
 
     if (e.target.value === "Diciembre") {
       setMonthNext(0);
     } else {
-      const numberMonth = getMonth(e.target.value);
       setMonthNext(numberMonth + 1);
     }
   };
@@ -252,9 +253,9 @@ export const FormBill = ({ users, dbLocal }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const err = onValidate();
+    const err = await onValidate();
     setErrors(err);
-
+    
     if (Object.keys(err).length === 0) {
       let payment;
 
@@ -282,10 +283,10 @@ export const FormBill = ({ users, dbLocal }) => {
         };
       }
 
-      /* console.log(payment); */
+      // console.log(payment);
 
       const res = await FetchPostData({
-        path: "http://localhost:3001/api/v1/example",
+        path: "api/v1/payments/create",
         data: { payment },
       });
 

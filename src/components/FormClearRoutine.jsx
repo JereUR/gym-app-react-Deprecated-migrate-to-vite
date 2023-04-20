@@ -18,6 +18,7 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
   const [forData, setForData] = useState(null);
   const [dayData, setDayData] = useState(null);
   const [errors, setErrors] = useState({});
+  const [r, setR] = useState(null)
 
   const seeLogos = false;
 
@@ -65,11 +66,22 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
     if (Object.keys(err).length === 0) {
       let ex = [];
 
-      async function getRoutine({ email, day }) {
-        return await FetchGetData(`/${email}/${day}`);
-      }
-      const r = getRoutine(forData, dayData);
-      if (!(r instanceof Error)) {
+      FetchGetData(`api/v1/routines/getuserroutine?email=${forData}&day=${dayData}`)
+      .then(response=>response.json())
+      .then(data => setR(data))
+      .catch(e=>{
+        toast.error(e.messsage, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
+      })
+
+      if(r !== null){
         r.forEach((el) => {
           const e = {
             series: el.series,
@@ -84,19 +96,9 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
           };
           ex.push(e);
         });
-
-        setExercises(ex);
-      } else {
-        toast.error(r.message, {
-          position: "top-right",
-          duration: 6000,
-          style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
       }
+
+      setExercises(ex);
     }
   };
 

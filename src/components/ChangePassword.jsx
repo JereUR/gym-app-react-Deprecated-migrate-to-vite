@@ -64,7 +64,7 @@ export const ChangePassword = ({ username, email }) => {
         newPassword: dataUpdate.newPassword,
       };
 
-      console.log({ user });
+      // console.log({ user });
       const userChange = {
         currentPassword: dataUpdate.currentPassword,
         newPassword: dataUpdate.newPassword,

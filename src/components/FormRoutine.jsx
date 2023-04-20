@@ -34,6 +34,7 @@ const FormRoutine = ({ users, dbLocal }) => {
   const [exercises, setExercises] = useState([]);
   const [errorsExercises, setErrorsExercises] = useState({});
   const [errorsRoutine, setErrorsRoutine] = useState({});
+  const [r, setR] = useState([])
 
   const seeLogos = true;
 
@@ -117,17 +118,11 @@ const FormRoutine = ({ users, dbLocal }) => {
   const handleFor = async (e) => {
     setForData(e.target.value);
 
-    const user = await FetchGetData(`/${e.target.value}`);
-    if (!(user instanceof Error)) {
-      if (user.weight === null || user.height === null) {
-        setErrorFor(
-          `${e.target.value} no ha completado su información adicional. No es posible agregar una rutina al mismo.`
-        );
-      } else {
-        setErrorFor(null);
-      }
-    } else {
-      toast.error(user.message, {
+    const user = await FetchGetData(`api/v1/users/getuserweightheight/${e.target.value}`)
+    .then(response=>response.json())
+    .then()
+    .catch(e=>{
+      toast.error(e.messsage, {
         position: "top-right",
         duration: 6000,
         style: {
@@ -136,7 +131,16 @@ const FormRoutine = ({ users, dbLocal }) => {
           fontWeight: "500",
         },
       });
+    })
+    
+    if (user.weight === null || user.height === null) {
+      setErrorFor(
+        `${e.target.value} no ha completado su información adicional. No es posible agregar una rutina al mismo.`
+      );
+    } else {
+      setErrorFor(null);
     }
+
   };
 
   const handleChangeFor = () => {
@@ -249,12 +253,13 @@ const FormRoutine = ({ users, dbLocal }) => {
       const routineDay = {
         user_email: forData,
         day_week: dayData,
-        exerxises_attributes: exercises,
+        exercises_attributes: exercises,
       };
-      console.log({ routineDay });
+
+      //console.log({ routineDay });
 
       const res = await FetchPostData({
-        path: "/",
+        path: "api/v1/routines/create",
         data: { routineDay },
       });
 
@@ -285,33 +290,47 @@ const FormRoutine = ({ users, dbLocal }) => {
   };
 
   useEffect(() => {
+    let ex=[]
+    
+    if(forData === null || dayData === null) return
+
     if (forData !== null && dayData !== null) {
-      let ex = [];
-
-      async function getRoutine({ email, day }) {
-        return await FetchGetData(`/${email}/${day}`);
-      }
-      const r = getRoutine(forData, dayData);
-      if (!(r instanceof Error)) {
-        r.forEach((el) => {
-          const e = {
-            series: el.series,
-            measure: el.measure,
-            count: el.count,
-            typeExercise: el.exercise,
-            zone: el.zone,
-            photo: el.photo,
-            rest: el.rest,
-            description: el.description,
-            id: "exercise_" + Math.floor(Math.random() * 10000),
-          };
-          ex.push(e);
+      FetchGetData(`api/v1/routines/getuserroutine?email=${forData}&day=${dayData}`)
+      .then(response=>response.json())
+      .then(data => {
+        if(data.length > 0){
+          data.forEach((el) => {
+            console.log({el})
+            const e = {
+              series: el.series,
+              measure: el.measure,
+              count: el.count,
+              name: el.name,
+              zone: el.zone,
+              photo: el.photo,
+              rest: el.rest,
+              description: el.description,
+              id: "exercise_" + Math.floor(Math.random() * 10000),
+            };
+            ex.push(e)
+          });
+  
+          setExercises(ex)
+        }
+      })
+      .catch(e=>{
+        toast.error(e.messsage, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
         });
-
-        setExercises(ex);
-      }
+      })
     }
-  }, [forData, dayData]);
+  }, [forData, dayData]);  
 
   return (
     <Form onSubmit={handleSubmitRoutine}>

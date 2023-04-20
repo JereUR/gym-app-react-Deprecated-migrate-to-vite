@@ -95,6 +95,7 @@ export const SignIn = ({ setUser }) => {
         localStorage.removeItem("remember");
       }
 
+      // console.log(res)
       setUser(res);
 
       clearForm();
