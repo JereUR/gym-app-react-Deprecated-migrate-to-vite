@@ -1,4 +1,4 @@
-export const FetchDeleteData = async (path) => {
+export const FetchDeleteData = async ({path}) => {
     const token=localStorage.getItem("token");
     try {
       const resp = await fetch(`http://localhost:3001/${path}`, {

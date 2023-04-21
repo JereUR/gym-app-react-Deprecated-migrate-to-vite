@@ -9,7 +9,7 @@ import { FetchGetData } from "../helpers/FetchGetData";
 
 const { primaryRed, primaryBlue, secondaryBlue, secondaryRed } = Colors;
 
-export const Bill = ({ email, username, surname, months }) => {
+export const Bill = ({ user, months }) => {
   const [payment, setPayment] = useState(null);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export const Bill = ({ email, username, surname, months }) => {
         },
       });
     })
-  }, [email]);
+  }, [user]);
 
   return (
     <BillContainer>
@@ -54,9 +54,7 @@ export const Bill = ({ email, username, surname, months }) => {
             <BillItem
               key={index}
               bill={el}
-              username={username}
-              surname={surname}
-              email={email}
+              user={user}
               months={months}
             />
           ))

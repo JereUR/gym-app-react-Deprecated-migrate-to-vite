@@ -214,7 +214,7 @@ export const SignUp = ({ setUser }) => {
                   <Input
                     type={viewPassword ? "text" : "password"}
                     placeholder="Ingrese su contraseña"
-                    name="passwordRegister"
+                    name="password"
                     value={dataRegister.passwordRegister}
                     onChange={handleChange}
                   />

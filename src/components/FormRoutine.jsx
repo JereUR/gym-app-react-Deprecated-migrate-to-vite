@@ -256,8 +256,6 @@ const FormRoutine = ({ users, dbLocal }) => {
         exercises_attributes: exercises,
       };
 
-      //console.log({ routineDay });
-
       const res = await FetchPostData({
         path: "api/v1/routines/create",
         data: { routineDay },
@@ -300,13 +298,12 @@ const FormRoutine = ({ users, dbLocal }) => {
       .then(data => {
         if(data.length > 0){
           data.forEach((el) => {
-            console.log({el})
             const e = {
               series: el.series,
               measure: el.measure,
               count: el.count,
               name: el.name,
-              zone: el.zone,
+              body_zone: el.zone,
               photo: el.photo,
               rest: el.rest,
               description: el.description,
@@ -314,9 +311,9 @@ const FormRoutine = ({ users, dbLocal }) => {
             };
             ex.push(e)
           });
-  
-          setExercises(ex)
         }
+
+        setExercises(ex)
       })
       .catch(e=>{
         toast.error(e.messsage, {

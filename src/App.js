@@ -101,9 +101,7 @@ function App() {
                 path="/mis-pagos"
                 element={
                   <Bill
-                    email={user.email}
-                    username={user.username}
-                    surname={user.surname}
+                    user={user}
                     months={dbLocal.months}
                   />
                 }

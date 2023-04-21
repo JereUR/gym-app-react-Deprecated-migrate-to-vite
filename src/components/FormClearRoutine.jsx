@@ -7,7 +7,7 @@ import { toast, Toaster } from "react-hot-toast";
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 import { ExerciseComponent } from "./ExerciseComponent";
-import { FetchPostData } from "../helpers/FetchPostData";
+import { FetchDeleteData } from "../helpers/FetchDeleteData";
 import { FetchGetData } from "../helpers/FetchGetData";
 
 const { errorInput, primaryRed, primaryBlue, secondaryRed, secondaryBlue } =
@@ -64,11 +64,30 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
     setErrors(err);
 
     if (Object.keys(err).length === 0) {
-      let ex = [];
-
+      let ex=[]
+    
       FetchGetData(`api/v1/routines/getuserroutine?email=${forData}&day=${dayData}`)
       .then(response=>response.json())
-      .then(data => setR(data))
+      .then(data => {
+        if(data.length > 0){
+          data.forEach((el) => {
+            const e = {
+              series: el.series,
+              measure: el.measure,
+              count: el.count,
+              name: el.name,
+              body_zone: el.zone,
+              photo: el.photo,
+              rest: el.rest,
+              description: el.description,
+              id: "exercise_" + Math.floor(Math.random() * 10000),
+            };
+            ex.push(e)
+          });
+        }
+
+        setExercises(ex)
+      })
       .catch(e=>{
         toast.error(e.messsage, {
           position: "top-right",
@@ -80,38 +99,15 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
           },
         });
       })
-
-      if(r !== null){
-        r.forEach((el) => {
-          const e = {
-            series: el.series,
-            measure: el.measure,
-            count: el.count,
-            typeExercise: el.exercise,
-            zone: el.zone,
-            photo: el.photo,
-            rest: el.rest,
-            description: el.description,
-            id: "exercise_" + Math.floor(Math.random() * 10000),
-          };
-          ex.push(e);
-        });
-      }
-
-      setExercises(ex);
     }
-  };
+    
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const data = { user_email: forData, day: dayData };
-
-    /* console.log({ data }); */
-
-    const res = await FetchPostData({
-      path: "/",
-      data: { data },
+    const res = await FetchDeleteData({
+      path: `api/v1/routines/deleteuserroutine?email=${forData}&day=${dayData}`,
     });
 
     if (!(res instanceof Error)) {
@@ -127,7 +123,7 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
 
       clearData();
     } else {
-      toast.error(res.messages, {
+      toast.error(res.message, {
         position: "top-right",
         duration: 6000,
         style: {
@@ -188,13 +184,16 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
       <ButtonSeeRoutine type="button" onClick={handleSeeRoutine}>
         Ver Rutina
       </ButtonSeeRoutine>
-      {exercises && (
-        <List>
-          {exercises.map((el) => (
-            <ExerciseComponent key={el.id} el={el} seeLogos={seeLogos} />
-          ))}
-        </List>
-      )}
+      {exercises.length > 0 ? (
+        <ListContainer>
+          {(forData && dayData)&&<Title>Rutina del dia {dbLocal.days.find((el) => el.value === dayData).day} para {users.find(u=> u.email === forData).username}:</Title>}
+          <List>
+            {exercises.map((el) => (
+              <ExerciseComponent key={el.id} el={el} seeLogos={seeLogos} />
+            ))}
+          </List>
+        </ListContainer>
+      ):(<NoData>Sin rutina</NoData>)}
       {errors.exercises && <ErrorInput>{errors.exercises}</ErrorInput>}
       <ButtonSubmit type="submit">Borrar</ButtonSubmit>
       <Toaster />
@@ -301,6 +300,20 @@ const Label = styled.label`
 
 const List = styled.ol``;
 
+const ListContainer = styled.div``;
+
+const NoData = styled.p`
+  font-size: 2.5rem;
+  margin: 3vw 0vw 2vw 0vw;
+  font-style: italic;
+  font-weight: 400;
+  text-align: center;
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.4rem;
+  }
+`;
+
 const Option = styled.option`
   @media screen and (max-width: 480px) {
     font-size: 0.8rem;
@@ -355,4 +368,12 @@ const SelectFirst = styled(Select)`
   @media screen and (max-width: 480px) {
     width: 60vw;
   }
+`;
+
+const Title = styled.p`
+  font-size: 2.5rem;
+  font-weight: 400;
+  text-align: start;
+  margin: 3vw 0.5vw 2vw 1vw;
+  font-style: italic;
 `;

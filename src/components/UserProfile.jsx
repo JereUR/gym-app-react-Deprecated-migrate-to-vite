@@ -101,7 +101,7 @@ export const UserProfile = ({ email }) => {
   };
 
   const handleSignOut = async () => {
-    const res = await FetchDeleteData("logout");
+    const res = await FetchDeleteData({path:"logout"});
 
     if (!(res instanceof Error)) {
       setTimeout(() => {

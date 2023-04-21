@@ -20,12 +20,86 @@ import { useEffect } from "react";
 
 const { primaryBlue, secondaryBlue, colorText } = Colors;
 
-export const BillItem = ({ bill, username, surname, email,months }) => {
+export const BillItem = ({ bill, user, months }) => {
   const [viewPdf, setViewPdf] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [mobile, setMobile] = useState(windowWidth < 800);
   const month = months.find((m) => m.value === bill.month).month
+  const [doc, setDoc] = useState(null)
+  const [instance, updateInstance] = usePDF({ document: doc });
 
+  useEffect(() => {
+    if(user ){
+      const newDoc= (
+        <Document>
+          <Page
+            size="A5"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "white",
+            }}
+          >
+            <View
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "flex-start",
+                textAlign: "center",
+                backgroundColor: "white",
+                padding: 1,
+              }}
+            >
+              <Image
+                src={logo}
+                alt="random image"
+                style={{ maxWidth: "150px", maxHeight: "auto", top: "-10vw" }}
+              />
+              <Text
+                style={{
+                  color: `${primaryBlue}`,
+                  fontSize: "36px",
+                  alignItems: "center",
+                  margin: "auto auto 10vw auto",
+                  fontWeight: "bold",
+                }}
+              >
+                Pago {month} - {bill.year}
+              </Text>
+
+              <Text style={{ textAlign: "justify", marginTop: "30px" }}>
+                Usuario: {user.first_name} {user.last_name}.
+              </Text>
+              <Text style={{ textAlign: "justify", marginTop: "30px" }}>
+                Email: {user.email}.
+              </Text>
+              <Text style={{ textAlign: "justify", marginTop: "30px" }}>
+                Fecha: {bill.day} de {month} del {bill.year}.
+              </Text>
+              <Text style={{ textAlign: "justify", marginTop: "30px" }}>
+                Monto: ${bill.mount}.
+              </Text>
+              <Image
+                src={seal}
+                alt="random image"
+                style={{
+                  maxWidth: "120px",
+                  maxHeight: "120px",
+                  marginLeft: "60%",
+                  top: "10vw",
+                  transform: "rotate(-15)",
+                }}
+              />
+            </View>
+          </Page>
+        </Document>
+      )
+      setDoc(newDoc)
+    }
+  }, [user])
+  
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -41,75 +115,6 @@ export const BillItem = ({ bill, username, surname, email,months }) => {
   useEffect(() => {
     setMobile(windowWidth < 800);
   }, [windowWidth]);
-
-  const doc = (
-    <Document>
-      <Page
-        size="A5"
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "white",
-        }}
-      >
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "flex-start",
-            textAlign: "center",
-            backgroundColor: "white",
-            padding: 1,
-          }}
-        >
-          <Image
-            src={logo}
-            alt="random image"
-            style={{ maxWidth: "150px", maxHeight: "auto", top: "-10vw" }}
-          />
-          <Text
-            style={{
-              color: `${primaryBlue}`,
-              fontSize: "36px",
-              alignItems: "center",
-              margin: "auto auto 10vw auto",
-              fontWeight: "bold",
-            }}
-          >
-            Pago {month} - {bill.year}
-          </Text>
-
-          <Text style={{ textAlign: "justify", marginTop: "30px" }}>
-            Usuario: {username} {surname}.
-          </Text>
-          <Text style={{ textAlign: "justify", marginTop: "30px" }}>
-            Email: {email}.
-          </Text>
-          <Text style={{ textAlign: "justify", marginTop: "30px" }}>
-            Fecha: {bill.day} de {bill.month} del {bill.year}.
-          </Text>
-          <Text style={{ textAlign: "justify", marginTop: "30px" }}>
-            Monto: ${bill.mount}.
-          </Text>
-          <Image
-            src={seal}
-            alt="random image"
-            style={{
-              maxWidth: "120px",
-              maxHeight: "120px",
-              marginLeft: "60%",
-              top: "10vw",
-              transform: "rotate(-15)",
-            }}
-          />
-        </View>
-      </Page>
-    </Document>
-  );
-
-  const [instance, updateInstance] = usePDF({ document: doc });
 
   const handlePdf = () => {
     updateInstance({ document: doc });
@@ -131,7 +136,7 @@ export const BillItem = ({ bill, username, surname, email,months }) => {
           <DownloadButton>
             <PDFDownloadLink
               document={doc}
-              fileName={`Pago ${month} ${bill.year} - ${username} ${surname}`}
+              fileName={`Pago ${month} ${bill.year} - ${user.first_name} ${user.last_name}`}
             >
               {({ blob, url, loading, error }) =>
                 loading ? "Cargando documento..." : <FiDownload />
