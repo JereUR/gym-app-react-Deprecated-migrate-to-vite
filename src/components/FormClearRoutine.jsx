@@ -19,6 +19,7 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
   const [dayData, setDayData] = useState(null);
   const [errors, setErrors] = useState({});
   const [r, setR] = useState(null)
+  const [viewRoutine, setViewRoutine] = useState(false)
 
   const seeLogos = false;
 
@@ -87,6 +88,7 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
         }
 
         setExercises(ex)
+        setViewRoutine(true)
       })
       .catch(e=>{
         toast.error(e.messsage, {
@@ -184,7 +186,7 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
       <ButtonSeeRoutine type="button" onClick={handleSeeRoutine}>
         Ver Rutina
       </ButtonSeeRoutine>
-      {exercises.length > 0 ? (
+      {(exercises.length > 0 && viewRoutine) ? (
         <ListContainer>
           {(forData && dayData)&&<Title>Rutina del dia {dbLocal.days.find((el) => el.value === dayData).day} para {users.find(u=> u.email === forData).username}:</Title>}
           <List>

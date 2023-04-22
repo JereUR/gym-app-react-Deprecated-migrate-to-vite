@@ -11,7 +11,7 @@ export const MealComponent = ({ el, deleteData, data, editData }) => {
   return (
     <MealContainer>
       <MealItem key={el.id}>
-        {el.count} {el.measure} - {el.type}
+        {el.count} {el.measure} - {el.meal}
       </MealItem>
       <IconsContainer>
         <FaEdit
