@@ -8,6 +8,7 @@ import { Colors } from "../constants/Colors";
 import { UseIntersection } from "../helpers/UseIntersection";
 import { FetchGetData } from "../helpers/FetchGetData";
 import { toast, Toaster } from "react-hot-toast";
+import routes from "../static/routes.json";
 
 const { primaryBlue, secondaryBlue, primaryRed } = Colors;
 

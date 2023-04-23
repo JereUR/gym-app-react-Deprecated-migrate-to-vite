@@ -9,6 +9,7 @@ import { FontFamily } from "../constants/Fonts";
 import { ExerciseComponent } from "./ExerciseComponent";
 import { FetchDeleteData } from "../helpers/FetchDeleteData";
 import { FetchGetData } from "../helpers/FetchGetData";
+import routes from "../static/routes.json";
 
 const { errorInput, primaryRed, primaryBlue, secondaryRed, secondaryBlue } =
   Colors;
@@ -18,8 +19,7 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
   const [forData, setForData] = useState(null);
   const [dayData, setDayData] = useState(null);
   const [errors, setErrors] = useState({});
-  const [r, setR] = useState(null)
-  const [viewRoutine, setViewRoutine] = useState(false)
+  const [viewRoutine, setViewRoutine] = useState(false);
 
   const seeLogos = false;
 
@@ -65,51 +65,50 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
     setErrors(err);
 
     if (Object.keys(err).length === 0) {
-      let ex=[]
-    
-      FetchGetData(`api/v1/routines/getuserroutine?email=${forData}&day=${dayData}`)
-      .then(response=>response.json())
-      .then(data => {
-        if(data.length > 0){
-          data.forEach((el) => {
-            const e = {
-              series: el.series,
-              measure: el.measure,
-              count: el.count,
-              name: el.name,
-              body_zone: el.zone,
-              photo: el.photo,
-              rest: el.rest,
-              description: el.description,
-              id: "exercise_" + Math.floor(Math.random() * 10000),
-            };
-            ex.push(e)
-          });
-        }
+      let ex = [];
 
-        setExercises(ex)
-        setViewRoutine(true)
-      })
-      .catch(e=>{
-        toast.error(e.messsage, {
-          position: "top-right",
-          duration: 6000,
-          style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
+      FetchGetData(`${routes.USER_PAYMENTS}?email=${forData}&day=${dayData}`)
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.length > 0) {
+            data.forEach((el) => {
+              const e = {
+                series: el.series,
+                measure: el.measure,
+                count: el.count,
+                name: el.name,
+                body_zone: el.zone,
+                photo: el.photo,
+                rest: el.rest,
+                description: el.description,
+                id: "exercise_" + Math.floor(Math.random() * 10000),
+              };
+              ex.push(e);
+            });
+          }
+
+          setExercises(ex);
+          setViewRoutine(true);
+        })
+        .catch((e) => {
+          toast.error(e.messsage, {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(250, 215, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          });
         });
-      })
     }
-    
-  }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const res = await FetchDeleteData({
-      path: `api/v1/routines/deleteuserroutine?email=${forData}&day=${dayData}`,
+      path: `${routes.USER_DELETE_ROUTINE}?email=${forData}&day=${dayData}`,
     });
 
     if (!(res instanceof Error)) {
@@ -145,11 +144,12 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
             <Label>Para:</Label>
             <SelectFirst onChange={handleFor} id="for-data">
               <Option value="null">Seleccione un usuario</Option>
-              {users!==null && users.map((el, index) => (
-                <Option key={index} value={el.email}>
-                  {el.username} {el.surname} - {el.email}
-                </Option>
-              ))}
+              {users !== null &&
+                users.map((el, index) => (
+                  <Option key={index} value={el.email}>
+                    {el.username} {el.surname} - {el.email}
+                  </Option>
+                ))}
             </SelectFirst>
             {errors.forData && <ErrorInput>{errors.forData}</ErrorInput>}
           </InputContainer>
@@ -186,16 +186,24 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
       <ButtonSeeRoutine type="button" onClick={handleSeeRoutine}>
         Ver Rutina
       </ButtonSeeRoutine>
-      {(exercises.length > 0 && viewRoutine) ? (
+      {exercises.length > 0 && viewRoutine ? (
         <ListContainer>
-          {(forData && dayData)&&<Title>Rutina del dia {dbLocal.days.find((el) => el.value === dayData).day} para {users.find(u=> u.email === forData).username}:</Title>}
+          {forData && dayData && (
+            <Title>
+              Rutina del dia{" "}
+              {dbLocal.days.find((el) => el.value === dayData).day} para{" "}
+              {users.find((u) => u.email === forData).username}:
+            </Title>
+          )}
           <List>
             {exercises.map((el) => (
               <ExerciseComponent key={el.id} el={el} seeLogos={seeLogos} />
             ))}
           </List>
         </ListContainer>
-      ):(<NoData>Sin rutina</NoData>)}
+      ) : (
+        <NoData>Sin rutina</NoData>
+      )}
       {errors.exercises && <ErrorInput>{errors.exercises}</ErrorInput>}
       <ButtonSubmit type="submit">Borrar</ButtonSubmit>
       <Toaster />

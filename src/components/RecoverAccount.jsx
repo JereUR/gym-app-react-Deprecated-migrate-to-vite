@@ -7,6 +7,7 @@ import { useAuth } from "./LoginRoute";
 import { SesionPage } from "./SesionPage";
 import { FetchGetData } from "../helpers/FetchGetData";
 import { Toaster, toast } from "react-hot-toast";
+import routes from "../static/routes.json";
 
 export const useRecover = (user) => {
   return user && user.recover;

@@ -7,6 +7,7 @@ import Modal from "./Modal";
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 import { FetchPostData } from "../helpers/FetchPostData";
+import routes from "../static/routes.json";
 
 const { primaryBlue, primaryRed, secondaryBlue, colorText, errorInput } =
   Colors;
@@ -89,7 +90,7 @@ export const SignUp = ({ setUser }) => {
 
     if (Object.keys(err).length === 0) {
       const res = await FetchPostData({
-        path: "signup",
+        path: routes.SIGN_UP,
         data: { user: dataRegister },
       });
 

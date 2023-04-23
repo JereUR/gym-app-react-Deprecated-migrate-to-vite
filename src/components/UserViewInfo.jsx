@@ -4,11 +4,9 @@ import styled from "styled-components";
 import defaultPhoto from "../assets/default_user.jpg";
 import { Colors } from "../constants/Colors";
 
-
 const { primaryRed, secondaryBlue, secondaryRed, backgroundText } = Colors;
 
 export const UserViewInfo = ({ user }) => {
-
   const getYears = () => {
     var actDate = new Date();
 

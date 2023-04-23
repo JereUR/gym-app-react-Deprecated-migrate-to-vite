@@ -8,6 +8,7 @@ import { Colors } from "../constants/Colors";
 import { UseIntersection } from "../helpers/UseIntersection";
 import { FetchGetData } from "../helpers/FetchGetData";
 import { toast, Toaster } from "react-hot-toast";
+import routes from "../static/routes.json";
 
 const { primaryRed, primaryBlue, secondaryBlue } = Colors;
 
@@ -19,7 +20,7 @@ export const Routine = ({ email, title, addInfo }) => {
 
   const [routineRef, isIntersecting] = UseIntersection({ threshold: 0.5 });
 
- /*  useEffect(() => {
+  /*  useEffect(() => {
     if (email !== null) {
       //Get routine
       async function getRoutine(email) {

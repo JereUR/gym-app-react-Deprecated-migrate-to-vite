@@ -19,6 +19,7 @@ import { ChangePassword } from "./components/ChangePassword";
 import RecoverAccount from "./components/RecoverAccount";
 import dbLocal from "./static/db_local.json";
 import { FetchGetData } from "./helpers/FetchGetData";
+import routes from "./static/routes.json";
 
 const initialData = {
   email: null,
@@ -35,7 +36,7 @@ function App() {
   const res = useRef(null);
 
   useEffect(() => {
-    FetchGetData("api/v1/currentuser")
+    FetchGetData(routes.CURRENT_USER)
       .then((response) => response.json())
       .then((data) => {
         res.current = data;

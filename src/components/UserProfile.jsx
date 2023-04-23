@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useContext } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import styled from "styled-components";
 import { FaEdit } from "react-icons/fa";
@@ -13,6 +13,7 @@ import { UserInfo } from "./UserInfo";
 import { FetchPostImage } from "../helpers/FetchPostImage";
 import { FetchGetData } from "../helpers/FetchGetData";
 import { FetchDeleteData } from "../helpers/FetchDeleteData";
+import routes from "../static/routes.json";
 
 const {
   primaryBlue,
@@ -52,7 +53,7 @@ export const UserProfile = ({ email }) => {
     // console.log(email);
     if (email !== null && email !== undefined) {
       async function getUser(email) {
-        return await FetchGetData(`api/v1/users/getUserProfile/${email}`);
+        return await FetchGetData(`${routes.USER_PROFILE}${email}`);
       }
 
       getUser(email)
@@ -101,7 +102,7 @@ export const UserProfile = ({ email }) => {
   };
 
   const handleSignOut = async () => {
-    const res = await FetchDeleteData({path:"logout"});
+    const res = await FetchDeleteData({ path: routes.LOGOUT });
 
     if (!(res instanceof Error)) {
       setTimeout(() => {
@@ -148,7 +149,7 @@ export const UserProfile = ({ email }) => {
 
     if (userPhoto != null) {
       const res = await FetchPostImage({
-        path: "api/v1/photo",
+        path: routes.USER_PHOTO,
         data: formData,
       });
 

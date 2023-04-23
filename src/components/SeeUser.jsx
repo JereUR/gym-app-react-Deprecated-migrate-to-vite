@@ -6,6 +6,7 @@ import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 import { ViewUserInfo } from "./ViewUserInfo";
 import { FetchGetData } from "../helpers/FetchGetData";
+import routes from "../static/routes.json";
 
 const { primaryRed, primaryBlue } = Colors;
 
@@ -22,22 +23,22 @@ export const SeeUser = ({ users }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await FetchGetData(`api/v1/users/getuserdata/${forData}`)
-    .then(response=>response.json())
-    .then(data=> {
-      setUser(data)
-    })
-    .catch(e=>{
-      toast.error(e.messsage, {
-        position: "top-right",
-        duration: 6000,
-        style: {
-          background: "rgba(250, 215, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
+    await FetchGetData(`${routes.USER_INFO}${forData}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setUser(data);
+      })
+      .catch((e) => {
+        toast.error(e.messsage, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
       });
-    })
 
     setViewDetails(true);
   };
@@ -50,20 +51,19 @@ export const SeeUser = ({ users }) => {
             <Label>Ver datos de:</Label>
             <Select onChange={handleFor} id="for-data">
               <Option value="null">Seleccione un usuario</Option>
-              {users !== null && users.map((el, index) => (
-                <Option key={index} value={el.email}>
-                  {el.username} {el.surname} - {el.email}
-                </Option>
-              ))}
+              {users !== null &&
+                users.map((el, index) => (
+                  <Option key={index} value={el.email}>
+                    {el.username} {el.surname} - {el.email}
+                  </Option>
+                ))}
             </Select>
           </InputContainer>
         </ForPartContainer>
         <ButtonSubmit type="submit">Ver Información</ButtonSubmit>
       </Form>
-      {(viewDetails && user !== null) && (
-        <ViewUserInfo user={user}/>
-      )}
-      <Toaster/>
+      {viewDetails && user !== null && <ViewUserInfo user={user} />}
+      <Toaster />
     </UserInfo>
   );
 };

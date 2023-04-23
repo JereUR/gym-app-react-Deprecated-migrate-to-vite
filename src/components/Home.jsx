@@ -8,6 +8,7 @@ import { Routine } from "./Routine";
 import { Colors } from "../constants/Colors";
 import { FetchGetData } from "../helpers/FetchGetData";
 import { toast, Toaster } from "react-hot-toast";
+import routes from "../static/routes.json";
 
 const { secondaryBlue, secondaryRed } = Colors;
 
@@ -37,23 +38,23 @@ export const Home = ({ months, weight, height }) => {
     //Get proximo pago
     //console.log(email);
     async function getNextPayment() {
-      return await FetchGetData(`api/v1/payments/getnextpayment`);
+      return await FetchGetData(routes.CURRENT_USER_NEXT_PAYMENT);
     }
 
-    const res = getNextPayment()
-    .then(response=>response.json())
-    .then(data=> setNextPayment(data))
-    .catch(e=>{
-      toast.error(e.messsage, {
-        position: "top-right",
-        duration: 6000,
-        style: {
-          background: "rgba(250, 215, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
+    getNextPayment()
+      .then((response) => response.json())
+      .then((data) => setNextPayment(data))
+      .catch((e) => {
+        toast.error(e.messsage, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
       });
-    })
   }, []);
 
   useEffect(() => {
@@ -75,10 +76,10 @@ export const Home = ({ months, weight, height }) => {
   }, [scrollTop]);
 
   useEffect(() => {
-    if ((nextPayment !== null && nextPayment !== undefined)){
-      if(nextPayment.payment!==null && nextPayment.payment!== undefined){
+    if (nextPayment !== null && nextPayment !== undefined) {
+      if (nextPayment.payment !== null && nextPayment.payment !== undefined) {
         let today = new Date();
-      
+
         let userDate = new Date(
           nextPayment.payment.yearNext,
           nextPayment.payment.monthNext,
@@ -109,8 +110,11 @@ export const Home = ({ months, weight, height }) => {
         <ReportPaymentContainer>
           <MessageDebtor>
             ¡Tienes un pago atrasado del día {nextPayment.payment.dayNext} de{" "}
-            {months.find((m) => m.value === nextPayment.payment.monthNext).month} del año{" "}
-            {nextPayment.payment.yearNext}!
+            {
+              months.find((m) => m.value === nextPayment.payment.monthNext)
+                .month
+            }{" "}
+            del año {nextPayment.payment.yearNext}!
           </MessageDebtor>
         </ReportPaymentContainer>
       )}
@@ -119,10 +123,7 @@ export const Home = ({ months, weight, height }) => {
       </RutineContainer>
       <Hr />
       <NutritionalPlanContainer>
-        <NutritionalPlan
-          title="Mi Plan Nutricional"
-          addInfo={addInfo}
-        />
+        <NutritionalPlan title="Mi Plan Nutricional" addInfo={addInfo} />
       </NutritionalPlanContainer>
       <ButtonUp onClick={handleClickScroll} className="scroll-top-btn hidden">
         <AiOutlineArrowUp />

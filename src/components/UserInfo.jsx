@@ -8,6 +8,7 @@ import { Colors } from "../constants/Colors";
 import Modal from "./Modal";
 import { FormAditionalInfo } from "./FormAditionalInfo";
 import { FetchPutData } from "../helpers/FetchPutData";
+import routes from "../static/routes.json";
 
 const { primaryRed, secondaryBlue, secondaryRed } = Colors;
 
@@ -220,7 +221,7 @@ export const UserInfo = ({ user }) => {
       };
 
       const res = await FetchPutData({
-        path: "api/v1/update",
+        path: routes.INFO_UPDATE,
         data: { user: data },
       });
 

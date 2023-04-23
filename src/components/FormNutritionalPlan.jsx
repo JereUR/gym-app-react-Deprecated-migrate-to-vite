@@ -10,6 +10,7 @@ import { FontFamily } from "../constants/Fonts";
 import { MealComponent } from "./MealComponent";
 import { FetchPostData } from "../helpers/FetchPostData";
 import { FetchGetData } from "../helpers/FetchGetData";
+import routes from "../static/routes.json";
 
 const {
   errorInput,
@@ -20,12 +21,14 @@ const {
   success,
 } = Colors;
 
-const initialData = [{
-  count: null,
-  measure: null,
-  meal: null,
-  id: null
-}]
+const initialData = [
+  {
+    count: null,
+    measure: null,
+    meal: null,
+    id: null,
+  },
+];
 
 export const FormNutritionalPlan = ({ users, dbLocal }) => {
   const [forData, setForData] = useState(null);
@@ -128,21 +131,23 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
   const handleFor = async (e) => {
     setForData(e.target.value);
 
-    const user = await FetchGetData(`api/v1/users/getuserweightheight/${e.target.value}`)
-    .then(response=>response.json())
-    .then()
-    .catch(e=>{
-      toast.error(e.messsage, {
-        position: "top-right",
-        duration: 6000,
-        style: {
-          background: "rgba(250, 215, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
+    const user = await FetchGetData(
+      `${routes.USER_WEIGHT_HEIGHT}${e.target.value}`
+    )
+      .then((response) => response.json())
+      .then()
+      .catch((e) => {
+        toast.error(e.messsage, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
       });
-    })
-    
+
     if (user.weight === null || user.height === null) {
       setErrorFor(
         `${e.target.value} no ha completado su información adicional. No es posible agregar un plan nutricional al mismo.`
@@ -201,68 +206,68 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
     let newData = data.filter((el) => el.id !== id);
     switch (data) {
       case breakfast:
-        if(newData.length === 0){
-          setBreakfast(initialData)
-        } else{
+        if (newData.length === 0) {
+          setBreakfast(initialData);
+        } else {
           setBreakfast(newData);
         }
-        
+
         break;
       case lunch:
-        if(newData.length === 0){
-          setLunch(initialData)
-        } else{
+        if (newData.length === 0) {
+          setLunch(initialData);
+        } else {
           setLunch(newData);
         }
-        
+
         break;
       case snack:
-        if(newData.length === 0){
-          setSnack(initialData)
-        } else{
+        if (newData.length === 0) {
+          setSnack(initialData);
+        } else {
           setSnack(newData);
         }
-        
+
         break;
       case dinner:
-        if(newData.length === 0){
-          setDinner(initialData)
-        } else{
+        if (newData.length === 0) {
+          setDinner(initialData);
+        } else {
           setDinner(newData);
         }
-        
+
         break;
       case afterDinner:
-        if(newData.length === 0){
-          setAfterDinner(initialData)
-        } else{
+        if (newData.length === 0) {
+          setAfterDinner(initialData);
+        } else {
           setAfterDinner(newData);
         }
-        
+
         break;
       case preWorkout:
-        if(newData.length === 0){
-          setPreWorkout(initialData)
-        } else{
+        if (newData.length === 0) {
+          setPreWorkout(initialData);
+        } else {
           setPreWorkout(newData);
         }
-        
+
         break;
       case postWorkout:
-        if(newData.length === 0){
-          setPostWorkout(initialData)
-        } else{
+        if (newData.length === 0) {
+          setPostWorkout(initialData);
+        } else {
           setPostWorkout(newData);
         }
-        
+
         break;
       case collation:
-        if(newData.length === 0){
-          setCollation(initialData)
-        } else{
+        if (newData.length === 0) {
+          setCollation(initialData);
+        } else {
           setCollation(newData);
         }
-        
+
         break;
       default:
         break;
@@ -285,12 +290,12 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
             id: "breakfast_" + Math.floor(Math.random() * 10000),
           };
 
-          if(breakfast[0].count === null){
-            setBreakfast([bData])
-          } else{
+          if (breakfast[0].count === null) {
+            setBreakfast([bData]);
+          } else {
             setBreakfast(breakfast.concat(bData));
           }
-          
+
           break;
         case "lunch":
           const lData = {
@@ -300,9 +305,9 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
             id: "lunch_" + Math.floor(Math.random() * 10000),
           };
 
-          if(lunch[0].count === null){
-            setLunch([lData])
-          } else{
+          if (lunch[0].count === null) {
+            setLunch([lData]);
+          } else {
             setLunch(lunch.concat(lData));
           }
 
@@ -315,12 +320,12 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
             id: "snack_" + Math.floor(Math.random() * 10000),
           };
 
-          if(snack[0].count === null){
-            setSnack([sData])
-          } else{
+          if (snack[0].count === null) {
+            setSnack([sData]);
+          } else {
             setSnack(snack.concat(sData));
           }
-          
+
           break;
         case "dinner":
           const dData = {
@@ -330,12 +335,12 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
             id: "dinner_" + Math.floor(Math.random() * 10000),
           };
 
-          if(dinner[0].count === null){
-            setDinner([dData])
-          } else{
+          if (dinner[0].count === null) {
+            setDinner([dData]);
+          } else {
             setDinner(dinner.concat(dData));
           }
-          
+
           break;
         case "after-dinner":
           const aData = {
@@ -345,12 +350,12 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
             id: "after-dinner_" + Math.floor(Math.random() * 10000),
           };
 
-          if(afterDinner[0].count === null){
-            setAfterDinner([aData])
-          } else{
+          if (afterDinner[0].count === null) {
+            setAfterDinner([aData]);
+          } else {
             setAfterDinner(afterDinner.concat(aData));
           }
-          
+
           break;
         case "pre-workout":
           const preData = {
@@ -360,9 +365,9 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
             id: "pre-workout_" + Math.floor(Math.random() * 10000),
           };
 
-          if(preWorkout[0].count === null){
-            setPreWorkout([preData])
-          } else{
+          if (preWorkout[0].count === null) {
+            setPreWorkout([preData]);
+          } else {
             setPreWorkout(preWorkout.concat(preData));
           }
 
@@ -375,9 +380,9 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
             id: "post-workout_" + Math.floor(Math.random() * 10000),
           };
 
-          if(postWorkout[0].count === null){
-            setPostWorkout([postData])
-          } else{
+          if (postWorkout[0].count === null) {
+            setPostWorkout([postData]);
+          } else {
             setPostWorkout(postWorkout.concat(postData));
           }
 
@@ -390,9 +395,9 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
             id: "collation_" + Math.floor(Math.random() * 10000),
           };
 
-          if(collation[0].count === null){
-            setCollation([cData])
-          } else{
+          if (collation[0].count === null) {
+            setCollation([cData]);
+          } else {
             setCollation(collation.concat(cData));
           }
 
@@ -400,7 +405,7 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
         default:
           break;
       }
-      
+
       clearFormMeal();
     }
   };
@@ -428,7 +433,7 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
       //console.log({ planDay });
 
       const res = await FetchPostData({
-        path: "api/v1/nutritionalplans/create",
+        path: routes.CREATE_PLAN,
         data: { planDay },
       });
 
@@ -445,18 +450,15 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
 
         clearData();
       } else {
-        toast.error(
-          res.message,
-          {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          }
-        );
+        toast.error(res.message, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
       }
     }
   };
@@ -471,152 +473,152 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
     let po = [];
     let co = [];
 
-    if(forData === null || dayData === null) return
+    if (forData === null || dayData === null) return;
 
     if (forData !== null && dayData !== null) {
-      FetchGetData(`api/v1/nutritionalplans/getusernutritionalplan?email=${forData}&day=${dayData}`)
-      .then(response => response.json())
-      .then(data => {
-        //console.log({data})
-        if(data.breakfast.length > 0){
-          data.breakfast.forEach((el) => {
-            const m = {
-              measure: el.measure,
-              count: el.count,
-              meal: el.meal,
-              id: "breakfast_" + Math.floor(Math.random() * 10000),
-            };
-            b.push(m);
+      FetchGetData(`${routes.USER_PLAN}?email=${forData}&day=${dayData}`)
+        .then((response) => response.json())
+        .then((data) => {
+          //console.log({data})
+          if (data.breakfast.length > 0) {
+            data.breakfast.forEach((el) => {
+              const m = {
+                measure: el.measure,
+                count: el.count,
+                meal: el.meal,
+                id: "breakfast_" + Math.floor(Math.random() * 10000),
+              };
+              b.push(m);
+            });
+          } else {
+            b = initialData;
+          }
+
+          setBreakfast(b);
+
+          if (data.lunch.length > 0) {
+            data.lunch.forEach((el) => {
+              const m = {
+                measure: el.measure,
+                count: el.count,
+                meal: el.meal,
+                id: "lunch_" + Math.floor(Math.random() * 10000),
+              };
+              l.push(m);
+            });
+          } else {
+            l = initialData;
+          }
+
+          setLunch(l);
+
+          if (data.snack.length > 0) {
+            data.snack.forEach((el) => {
+              const m = {
+                measure: el.measure,
+                count: el.count,
+                meal: el.meal,
+                id: "snack_" + Math.floor(Math.random() * 10000),
+              };
+              s.push(m);
+            });
+          } else {
+            s = initialData;
+          }
+
+          setSnack(s);
+
+          if (data.dinner.length > 0) {
+            data.dinner.forEach((el) => {
+              const m = {
+                measure: el.measure,
+                count: el.count,
+                meal: el.meal,
+                id: "dinner_" + Math.floor(Math.random() * 10000),
+              };
+              d.push(m);
+            });
+          } else {
+            d = initialData;
+          }
+
+          setDinner(d);
+
+          if (data.afterDinner.length > 0) {
+            data.afterDinner.forEach((el) => {
+              const m = {
+                measure: el.measure,
+                count: el.count,
+                meal: el.meal,
+                id: "after-dinner_" + Math.floor(Math.random() * 10000),
+              };
+              ad.push(m);
+            });
+          } else {
+            ad = initialData;
+          }
+
+          setAfterDinner(ad);
+
+          if (data.preWorkout.length > 0) {
+            data.preWorkout.forEach((el) => {
+              const m = {
+                measure: el.measure,
+                count: el.count,
+                meal: el.meal,
+                id: "pre-workout_" + Math.floor(Math.random() * 10000),
+              };
+              pr.push(m);
+            });
+          } else {
+            pr = initialData;
+          }
+
+          setPreWorkout(pr);
+
+          if (data.postWorkout.length > 0) {
+            data.postWorkout.forEach((el) => {
+              const m = {
+                measure: el.measure,
+                count: el.count,
+                meal: el.meal,
+                id: "post-workout_" + Math.floor(Math.random() * 10000),
+              };
+              po.push(m);
+            });
+          } else {
+            po = initialData;
+          }
+
+          setPostWorkout(po);
+
+          if (data.collation.length > 0) {
+            data.collation.forEach((el) => {
+              const m = {
+                measure: el.measure,
+                count: el.count,
+                meal: el.meal,
+                id: "collation_" + Math.floor(Math.random() * 10000),
+              };
+              co.push(m);
+            });
+          } else {
+            co = initialData;
+          }
+
+          setCollation(co);
+        })
+        .catch((e) => {
+          toast.error(e.messsage, {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(250, 215, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
           });
-        } else{
-          b = initialData;
-        }
-
-        setBreakfast(b);
-
-        if(data.lunch.length > 0){
-          data.lunch.forEach((el) => {
-            const m = {
-              measure: el.measure,
-              count: el.count,
-              meal: el.meal,
-              id: "lunch_" + Math.floor(Math.random() * 10000),
-            };
-            l.push(m);
-          });
-        } else{
-          l = initialData;
-        }
-
-        setLunch(l);
-
-        if(data.snack.length > 0){
-          data.snack.forEach((el) => {
-            const m = {
-              measure: el.measure,
-              count: el.count,
-              meal: el.meal,
-              id: "snack_" + Math.floor(Math.random() * 10000),
-            };
-            s.push(m);
-          });
-        } else{
-          s = initialData;
-        }
-
-        setSnack(s);
-
-        if(data.dinner.length > 0){
-          data.dinner.forEach((el) => {
-            const m = {
-              measure: el.measure,
-              count: el.count,
-              meal: el.meal,
-              id: "dinner_" + Math.floor(Math.random() * 10000),
-            };
-            d.push(m);
-          });
-        } else{
-          d = initialData;
-        }
-
-        setDinner(d);
-
-        if(data.afterDinner.length > 0){
-          data.afterDinner.forEach((el) => {
-            const m = {
-              measure: el.measure,
-              count: el.count,
-              meal: el.meal,
-              id: "after-dinner_" + Math.floor(Math.random() * 10000),
-            };
-            ad.push(m);
-          });
-        } else{
-          ad = initialData;
-        }
-
-        setAfterDinner(ad);
-
-        if(data.preWorkout.length > 0){
-          data.preWorkout.forEach((el) => {
-            const m = {
-              measure: el.measure,
-              count: el.count,
-              meal: el.meal,
-              id: "pre-workout_" + Math.floor(Math.random() * 10000),
-            };
-            pr.push(m);
-          });
-        } else{
-          pr = initialData;
-        }
-
-        setPreWorkout(pr);
-
-        if(data.postWorkout.length > 0){
-          data.postWorkout.forEach((el) => {
-            const m = {
-              measure: el.measure,
-              count: el.count,
-              meal: el.meal,
-              id: "post-workout_" + Math.floor(Math.random() * 10000),
-            };
-            po.push(m);
-          });
-        } else{
-          po = initialData;
-        }
-
-        setPostWorkout(po);
-
-        if(data.collation.length > 0){
-          data.collation.forEach((el) => {
-            const m = {
-              measure: el.measure,
-              count: el.count,
-              meal: el.meal,
-              id: "collation_" + Math.floor(Math.random() * 10000),
-            };
-            co.push(m);
-          });
-        } else{
-          co = initialData;
-        }
-
-        setCollation(co);
-      })
-      .catch(e=>{
-        toast.error(e.messsage, {
-          position: "top-right",
-          duration: 6000,
-          style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
         });
-      })
     }
   }, [forData, dayData]);
 
@@ -628,11 +630,12 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
             <Label>Para:</Label>
             <SelectFirst onChange={handleFor}>
               <Option value="null">Seleccione un usuario</Option>
-              {users!==null && users.map((el, index) => (
-                <Option key={index} value={el.email}>
-                  {el.username} {el.surname} - {el.email}
-                </Option>
-              ))}
+              {users !== null &&
+                users.map((el, index) => (
+                  <Option key={index} value={el.email}>
+                    {el.username} {el.surname} - {el.email}
+                  </Option>
+                ))}
             </SelectFirst>
             {errorsPlan.forData && (
               <ErrorInput>{errorsPlan.forData}</ErrorInput>

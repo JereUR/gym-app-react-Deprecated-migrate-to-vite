@@ -24,13 +24,13 @@ export const BillItem = ({ bill, user, months }) => {
   const [viewPdf, setViewPdf] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [mobile, setMobile] = useState(windowWidth < 800);
-  const month = months.find((m) => m.value === bill.month).month
-  const [doc, setDoc] = useState(null)
+  const month = months.find((m) => m.value === bill.month).month;
+  const [doc, setDoc] = useState(null);
   const [instance, updateInstance] = usePDF({ document: doc });
 
   useEffect(() => {
-    if(user ){
-      const newDoc= (
+    if (user) {
+      const newDoc = (
         <Document>
           <Page
             size="A5"
@@ -95,11 +95,11 @@ export const BillItem = ({ bill, user, months }) => {
             </View>
           </Page>
         </Document>
-      )
-      setDoc(newDoc)
+      );
+      setDoc(newDoc);
     }
-  }, [user])
-  
+  }, [user, bill, month]);
+
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);

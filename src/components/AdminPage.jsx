@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import styled from "styled-components";
 import { toast, Toaster } from "react-hot-toast";
 
@@ -11,6 +11,7 @@ import { FetchGetData } from "../helpers/FetchGetData";
 import { DebtorsSection } from "./DebtorsSection";
 import { FormClearRoutine } from "./FormClearRoutine";
 import { FormClearNutritionalPlan } from "./FormClearNutritionalPlan";
+import routes from "../static/routes.json";
 
 const { secondaryBlue, backgroundText } = Colors;
 
@@ -19,24 +20,24 @@ export const AdminPage = ({ dbLocal }) => {
 
   useLayoutEffect(() => {
     async function getUsers() {
-      return await FetchGetData("api/v1/admin");
+      return await FetchGetData(routes.ADMIN_USER);
     }
-  
-    const res = getUsers()
-    .then(response=>response.json())
-    .then(data=> setUsers(data))
-    .catch(e=>{
-      toast.error(e.messsage, {
-        position: "top-right",
-        duration: 6000,
-        style: {
-          background: "rgba(250, 215, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
+
+    getUsers()
+      .then((response) => response.json())
+      .then((data) => setUsers(data))
+      .catch((e) => {
+        toast.error(e.messsage, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
       });
-    })
-  }, [])
+  }, []);
 
   return (
     <AdminContainer>

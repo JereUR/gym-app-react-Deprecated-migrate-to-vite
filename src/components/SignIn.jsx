@@ -9,6 +9,7 @@ import Modal from "./Modal";
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 import { FetchPostData } from "../helpers/FetchPostData";
+import routes from "../static/routes.json";
 
 const { primaryBlue, primaryRed, secondaryBlue, secondaryRed, colorText } =
   Colors;
@@ -82,7 +83,7 @@ export const SignIn = ({ setUser }) => {
     };
 
     const res = await FetchPostData({
-      path: "login",
+      path: routes.LOGIN,
       data: { user },
     });
 
@@ -122,7 +123,7 @@ export const SignIn = ({ setUser }) => {
     e.preventDefault();
 
     const res = await FetchPostData({
-      path: "password",
+      path: routes.RECOVER,
       data: { user: { email: emailRecover } },
     });
 

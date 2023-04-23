@@ -7,6 +7,7 @@ import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 import { FetchPutData } from "../helpers/FetchPutData";
 import { FetchPostData } from "../helpers/FetchPostData";
+import routes from "../static/routes.json";
 
 const initialData = {
   currentPassword: "",
@@ -59,19 +60,13 @@ export const ChangePassword = ({ username, email }) => {
     setErrors(err);
 
     if (Object.keys(err).length === 0) {
-      const user = {
-        currentPassword: dataUpdate.currentPassword,
-        newPassword: dataUpdate.newPassword,
-      };
-
-      // console.log({ user });
       const userChange = {
         currentPassword: dataUpdate.currentPassword,
         newPassword: dataUpdate.newPassword,
       };
 
       const res = await FetchPutData({
-        path: "signup",
+        path: routes.SIGN_UP,
         data: { userChange },
       });
 
@@ -94,7 +89,7 @@ export const ChangePassword = ({ username, email }) => {
         };
 
         const res = await FetchPostData({
-          path: "login",
+          path: routes.LOGIN,
           data: { user },
         });
 

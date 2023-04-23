@@ -9,6 +9,7 @@ import { FontFamily } from "../constants/Fonts";
 import { MealComponent } from "./MealComponent";
 import { FetchGetData } from "../helpers/FetchGetData";
 import { FetchPostData } from "../helpers/FetchPostData";
+import routes from "../static/routes.json";
 
 const { errorInput, primaryRed, primaryBlue, secondaryRed, secondaryBlue } =
   Colors;
@@ -289,11 +290,12 @@ export const FormClearNutritionalPlan = ({ users, dbLocal }) => {
             <Label>Para:</Label>
             <SelectFirst onChange={handleFor} id="for-data">
               <Option value="null">Seleccione un usuario</Option>
-              {users!==null && users.map((el, index) => (
-                <Option key={index} value={el.email}>
-                  {el.username} {el.surname} - {el.email}
-                </Option>
-              ))}
+              {users !== null &&
+                users.map((el, index) => (
+                  <Option key={index} value={el.email}>
+                    {el.username} {el.surname} - {el.email}
+                  </Option>
+                ))}
             </SelectFirst>
             {errors.forData && <ErrorInput>{errors.forData}</ErrorInput>}
           </InputContainer>

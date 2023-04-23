@@ -2,15 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { FaEdit } from "react-icons/fa";
 import { toast, Toaster } from "react-hot-toast";
-import {
-  Document,
-  Page,
-  Text,
-  View,
-  Image,
-  usePDF,
-  BlobProvider,
-} from "@react-pdf/renderer";
+import { Document, Page, Text, View, Image, usePDF } from "@react-pdf/renderer";
 
 import logo from "../assets/logo.png";
 import seal from "../assets/payment-seal.png";
@@ -18,6 +10,7 @@ import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 import { FetchPostData } from "../helpers/FetchPostData";
 import { FetchGetData } from "../helpers/FetchGetData";
+import routes from "../static/routes.json";
 
 const { errorInput, primaryRed, primaryBlue, secondaryRed, secondaryBlue } =
   Colors;
@@ -113,13 +106,12 @@ export const FormBill = ({ users, dbLocal }) => {
   }
 
   function getMonthNow() {
-   return new Date().getMonth();
-    
+    return new Date().getMonth();
   }
 
   const getMonthCustom = (month) => {
     // console.log(month)
-    return dbLocal.months.find(m => m.month === month).value;
+    return dbLocal.months.find((m) => m.month === month).value;
   };
 
   const clearForm = () => {
@@ -140,38 +132,44 @@ export const FormBill = ({ users, dbLocal }) => {
   const onValidate = async () => {
     const errorsForm = {};
 
-    const payment = await FetchGetData(`api/v1/payments/userpayments/${forData}`)
-    .then(response=>response.json())
-    .then()
-    .catch(e=>{
-      toast.error(e.messsage, {
-        position: "top-right",
-        duration: 6000,
-        style: {
-          background: "rgba(250, 215, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
+    const payment = await FetchGetData(`${routes.USER_PAYMENTS}${forData}`)
+      .then((response) => response.json())
+      .then()
+      .catch((e) => {
+        toast.error(e.messsage, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
       });
-    })
 
     if (getYearNow() === year) {
       if (getMonthNow() < month) {
-        errorsForm.form = `La fecha determinada todavía no ha llegado (${day} de ${dbLocal.months.find(m=>m.value===month).month} del ${year})`;
+        errorsForm.form = `La fecha determinada todavía no ha llegado (${day} de ${
+          dbLocal.months.find((m) => m.value === month).month
+        } del ${year})`;
       }
       if (getMonthNow() === month) {
         if (getDayNow() < day) {
-          errorsForm.form = `La fecha determinada todavía no ha llegado (${day} de ${dbLocal.months.find(m=>m.value===month).month} del ${year})`;
+          errorsForm.form = `La fecha determinada todavía no ha llegado (${day} de ${
+            dbLocal.months.find((m) => m.value === month).month
+          } del ${year})`;
         }
       }
     }
 
     if (forData !== null) {
-      payment.forEach(p=>{
-        if(p.month === month && p.year=== year){
-          errorsForm.form = `Ya se ha agregado un pago para el mes ${dbLocal.months.find(m=>m.value===month).month} del año ${year} a ${forData}`;
+      payment.forEach((p) => {
+        if (p.month === month && p.year === year) {
+          errorsForm.form = `Ya se ha agregado un pago para el mes ${
+            dbLocal.months.find((m) => m.value === month).month
+          } del año ${year} a ${forData}`;
         }
-      })
+      });
     }
 
     if (forData === null) {
@@ -207,7 +205,7 @@ export const FormBill = ({ users, dbLocal }) => {
 
   const handleFor = async (e) => {
     setForData(e.target.value);
-    const user = users.find(u=>u.email===e.target.value)
+    const user = users.find((u) => u.email === e.target.value);
 
     setName(user.username);
     setSurname(user.surname);
@@ -255,7 +253,7 @@ export const FormBill = ({ users, dbLocal }) => {
 
     const err = await onValidate();
     setErrors(err);
-    
+
     if (Object.keys(err).length === 0) {
       let payment;
 
@@ -286,7 +284,7 @@ export const FormBill = ({ users, dbLocal }) => {
       // console.log(payment);
 
       const res = await FetchPostData({
-        path: "api/v1/payments/create",
+        path: routes.CREATE_PAYMENT,
         data: { payment },
       });
 
@@ -324,11 +322,12 @@ export const FormBill = ({ users, dbLocal }) => {
             <Label>Para:</Label>
             <SelectFirst onChange={handleFor} id="for-data">
               <Option value="null">Seleccione un usuario</Option>
-              {users !== null && users.map((el, index) => (
-                <Option key={index} value={el.email}>
-                  {el.username} {el.surname} - {el.email}
-                </Option>
-              ))}
+              {users !== null &&
+                users.map((el, index) => (
+                  <Option key={index} value={el.email}>
+                    {el.username} {el.surname} - {el.email}
+                  </Option>
+                ))}
             </SelectFirst>
             {errors.forData && <ErrorInput>{errors.forData}</ErrorInput>}
           </InputContainer>

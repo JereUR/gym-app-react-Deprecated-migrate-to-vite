@@ -1,12 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-import { NutritionalPlan } from "./NutritionalPlan";
-import { Routine } from "./Routine";
 import { UserViewInfo } from "./UserViewInfo";
 
 export const ViewUserInfo = ({ user }) => {
-  console.log({user})
+  console.log({ user });
   return (
     <InfoUser>
       <InfoContainer>
@@ -20,7 +18,7 @@ const InfoContainer = styled.div``;
 
 const InfoUser = styled.div``;
 
-const NutritionalPlanContainer = styled.div`
+/* const NutritionalPlanContainer = styled.div`
   text-align: center;
 
   @media screen and (max-width: 1050px) {
@@ -38,4 +36,4 @@ const RutineContainer = styled.div`
   @media screen and (max-width: 900px) {
     margin: 8vw 4vw 5vw 4vw;
   }
-`;
+`; */

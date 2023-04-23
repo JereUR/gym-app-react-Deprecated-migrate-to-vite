@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 import { RiErrorWarningLine } from "react-icons/ri";
@@ -9,6 +9,7 @@ import { FontFamily } from "../constants/Fonts";
 import { FetchGetData } from "../helpers/FetchGetData";
 import { Toaster, toast } from "react-hot-toast";
 import { FetchPostData } from "../helpers/FetchPostData";
+import routes from "../static/routes.json";
 
 const { secondaryBlue, primaryBlue, primaryRed } = Colors;
 
@@ -21,20 +22,22 @@ export const DebtorsSection = ({ users }) => {
       const today = new Date();
 
       users.forEach(async (user) => {
-        const nextPayment = await FetchGetData(`api/v1/payments/usernextpayment/${user.email}`)
-        .then(response=>response.json())
-        .then()
-        .catch(e=>{
-          toast.error(e.messsage, {
-            position: "top-right",
-            duration: 6000,
-            style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
+        const nextPayment = await FetchGetData(
+          `${routes.GET_NEXT_PAYMENT}${user.email}`
+        )
+          .then((response) => response.json())
+          .then()
+          .catch((e) => {
+            toast.error(e.messsage, {
+              position: "top-right",
+              duration: 6000,
+              style: {
+                background: "rgba(250, 215, 215)",
+                fontSize: "1rem",
+                fontWeight: "500",
+              },
+            });
           });
-        })
 
         if (nextPayment !== null) {
           let userDate = new Date(
@@ -50,7 +53,7 @@ export const DebtorsSection = ({ users }) => {
               email: user.email,
             };
 
-            setDebtorUsers(...debtorUsers, debtorUsers.concat(newData))
+            setDebtorUsers(...debtorUsers, debtorUsers.concat(newData));
           }
         }
       });
@@ -225,11 +228,5 @@ const LogoContainer = styled.div`
     visibility: visible;
   }
 `;
-
-const NoDebtors = styled.p`
-  text-allign: center;
-  font-size: 1.5rem;
-  font-style: italic;
-`
 
 const Span = styled.span``;

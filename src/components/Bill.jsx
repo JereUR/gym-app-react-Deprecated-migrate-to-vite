@@ -6,6 +6,7 @@ import { Toaster, toast } from "react-hot-toast";
 import { Colors } from "../constants/Colors";
 import { BillItem } from "./BillItem";
 import { FetchGetData } from "../helpers/FetchGetData";
+import routes from "../static/routes.json";
 
 const { primaryRed, primaryBlue, secondaryBlue, secondaryRed } = Colors;
 
@@ -13,24 +14,24 @@ export const Bill = ({ user, months }) => {
   const [payment, setPayment] = useState(null);
 
   useEffect(() => {
-    //Get payment
     async function getPayment() {
-      return await FetchGetData(`api/v1/payments/getpayments`);
+      return await FetchGetData(routes.GET_PAYMENTS);
     }
-    const res = getPayment()
-    .then(response=>response.json())
-    .then(data=> setPayment(data))
-    .catch(e=>{
-      toast.error(e.messsage, {
-        position: "top-right",
-        duration: 6000,
-        style: {
-          background: "rgba(250, 215, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
+
+    getPayment()
+      .then((response) => response.json())
+      .then((data) => setPayment(data))
+      .catch((e) => {
+        toast.error(e.messsage, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
       });
-    })
   }, [user]);
 
   return (
@@ -39,8 +40,12 @@ export const Bill = ({ user, months }) => {
         <NoticeTitleNext>Próximo Pago:</NoticeTitleNext>
         {payment ? (
           <Notice>
-            El próximo pago deberá realizarse el día {payment.payment.nextPayment.day}{" "}
-            de {months.find((m) => m.value === payment.payment.nextPayment.month).month}{" "}
+            El próximo pago deberá realizarse el día{" "}
+            {payment.payment.nextPayment.day} de{" "}
+            {
+              months.find((m) => m.value === payment.payment.nextPayment.month)
+                .month
+            }{" "}
             del año {payment.payment.nextPayment.year}.
           </Notice>
         ) : (
@@ -51,12 +56,7 @@ export const Bill = ({ user, months }) => {
         <NoticeTitlePayment>Pagos realizados:</NoticeTitlePayment>
         {payment ? (
           payment.payment.payments.map((el, index) => (
-            <BillItem
-              key={index}
-              bill={el}
-              user={user}
-              months={months}
-            />
+            <BillItem key={index} bill={el} user={user} months={months} />
           ))
         ) : (
           <NoData>Sin pagos disponibles.</NoData>

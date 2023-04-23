@@ -9,6 +9,7 @@ import { FontFamily } from "../constants/Fonts";
 import { ExerciseComponent } from "./ExerciseComponent";
 import { FetchPostData } from "../helpers/FetchPostData";
 import { FetchGetData } from "../helpers/FetchGetData";
+import routes from "../static/routes.json";
 
 const {
   errorInput,
@@ -34,7 +35,6 @@ const FormRoutine = ({ users, dbLocal }) => {
   const [exercises, setExercises] = useState([]);
   const [errorsExercises, setErrorsExercises] = useState({});
   const [errorsRoutine, setErrorsRoutine] = useState({});
-  const [r, setR] = useState([])
 
   const seeLogos = true;
 
@@ -118,21 +118,23 @@ const FormRoutine = ({ users, dbLocal }) => {
   const handleFor = async (e) => {
     setForData(e.target.value);
 
-    const user = await FetchGetData(`api/v1/users/getuserweightheight/${e.target.value}`)
-    .then(response=>response.json())
-    .then()
-    .catch(e=>{
-      toast.error(e.messsage, {
-        position: "top-right",
-        duration: 6000,
-        style: {
-          background: "rgba(250, 215, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
+    const user = await FetchGetData(
+      `${routes.USER_WEIGHT_HEIGHT}${e.target.value}`
+    )
+      .then((response) => response.json())
+      .then()
+      .catch((e) => {
+        toast.error(e.messsage, {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(250, 215, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        });
       });
-    })
-    
+
     if (user.weight === null || user.height === null) {
       setErrorFor(
         `${e.target.value} no ha completado su información adicional. No es posible agregar una rutina al mismo.`
@@ -140,7 +142,6 @@ const FormRoutine = ({ users, dbLocal }) => {
     } else {
       setErrorFor(null);
     }
-
   };
 
   const handleChangeFor = () => {
@@ -257,7 +258,7 @@ const FormRoutine = ({ users, dbLocal }) => {
       };
 
       const res = await FetchPostData({
-        path: "api/v1/routines/create",
+        path: routes.CREATE_ROUTINE,
         data: { routineDay },
       });
 
@@ -288,46 +289,46 @@ const FormRoutine = ({ users, dbLocal }) => {
   };
 
   useEffect(() => {
-    let ex=[]
-    
-    if(forData === null || dayData === null) return
+    let ex = [];
+
+    if (forData === null || dayData === null) return;
 
     if (forData !== null && dayData !== null) {
-      FetchGetData(`api/v1/routines/getuserroutine?email=${forData}&day=${dayData}`)
-      .then(response=>response.json())
-      .then(data => {
-        if(data.length > 0){
-          data.forEach((el) => {
-            const e = {
-              series: el.series,
-              measure: el.measure,
-              count: el.count,
-              name: el.name,
-              body_zone: el.zone,
-              photo: el.photo,
-              rest: el.rest,
-              description: el.description,
-              id: "exercise_" + Math.floor(Math.random() * 10000),
-            };
-            ex.push(e)
-          });
-        }
+      FetchGetData(`${routes.USER_ROUTINE}?email=${forData}&day=${dayData}`)
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.length > 0) {
+            data.forEach((el) => {
+              const e = {
+                series: el.series,
+                measure: el.measure,
+                count: el.count,
+                name: el.name,
+                body_zone: el.zone,
+                photo: el.photo,
+                rest: el.rest,
+                description: el.description,
+                id: "exercise_" + Math.floor(Math.random() * 10000),
+              };
+              ex.push(e);
+            });
+          }
 
-        setExercises(ex)
-      })
-      .catch(e=>{
-        toast.error(e.messsage, {
-          position: "top-right",
-          duration: 6000,
-          style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
+          setExercises(ex);
+        })
+        .catch((e) => {
+          toast.error(e.messsage, {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(250, 215, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          });
         });
-      })
     }
-  }, [forData, dayData]);  
+  }, [forData, dayData]);
 
   return (
     <Form onSubmit={handleSubmitRoutine}>
@@ -337,11 +338,12 @@ const FormRoutine = ({ users, dbLocal }) => {
             <Label>Para:</Label>
             <SelectFirst onChange={handleFor} id="for-data">
               <Option value="null">Seleccione un usuario</Option>
-              {users !==null && users.map((el, index) => (
-                <Option key={index} value={el.email}>
-                  {el.username} {el.surname} - {el.email}
-                </Option>
-              ))}
+              {users !== null &&
+                users.map((el, index) => (
+                  <Option key={index} value={el.email}>
+                    {el.username} {el.surname} - {el.email}
+                  </Option>
+                ))}
             </SelectFirst>
             {errorsRoutine.forData && (
               <ErrorInput>{errorsRoutine.forData}</ErrorInput>
