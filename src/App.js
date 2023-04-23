@@ -99,12 +99,7 @@ function App() {
               <Route
                 exact
                 path="/mis-pagos"
-                element={
-                  <Bill
-                    user={user}
-                    months={dbLocal.months}
-                  />
-                }
+                element={<Bill user={user} months={dbLocal.months} />}
               />
               <Route
                 exact
@@ -114,7 +109,9 @@ function App() {
               <Route
                 exact
                 path="/change-password"
-                element={<ChangePassword username={user.username} email={user.email}/>}
+                element={
+                  <ChangePassword username={user.username} email={user.email} />
+                }
               />
             </Route>
             <Route
