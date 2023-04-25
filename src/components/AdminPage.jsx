@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from "react";
+import React, { useState, useLayoutEffect, useEffect } from "react";
 import styled from "styled-components";
 import { toast, Toaster } from "react-hot-toast";
 
@@ -18,6 +18,8 @@ const { secondaryBlue, backgroundText } = Colors;
 
 export const AdminPage = ({ dbLocal }) => {
   const [users, setUsers] = useState(null);
+  const [activeUsers, setActiveUsers] = useState([])
+  const [notActiveUsers, setNotActiveUsers] = useState([])
 
   useLayoutEffect(() => {
     async function getUsers() {
@@ -40,42 +42,50 @@ export const AdminPage = ({ dbLocal }) => {
       });
   }, []);
 
+  useEffect(() => {
+    if(users !== null){
+      setActiveUsers(users.filter((user) => user.active));
+      setNotActiveUsers(users.filter((user) => !user.active));
+    }
+  }, [users])
+  
+
   return (
     <AdminContainer>
       <AddRoutineContainer>
         <Title>Agregar rutina</Title>
-        <FormRoutine users={users} dbLocal={dbLocal} />
+        <FormRoutine users={activeUsers} dbLocal={dbLocal} />
       </AddRoutineContainer>
       <Hr />
       <ClearRoutineContainer>
         <Title>Borrar rutina</Title>
-        <FormClearRoutine users={users} dbLocal={dbLocal} />
+        <FormClearRoutine users={activeUsers} dbLocal={dbLocal} />
       </ClearRoutineContainer>
       <Hr />
       <AddNutritionalPlan>
         <Title>Agregar plan nutricional</Title>
-        <FormNutritionalPlan users={users} dbLocal={dbLocal} />
+        <FormNutritionalPlan users={activeUsers} dbLocal={dbLocal} />
       </AddNutritionalPlan>
       <Hr />
       <ClearPlanContainer>
         <Title>Borrar plan nutricional</Title>
-        <FormClearNutritionalPlan users={users} dbLocal={dbLocal} />
+        <FormClearNutritionalPlan users={activeUsers} dbLocal={dbLocal} />
       </ClearPlanContainer>
       <BillSection>
         <Title>Agregar pago</Title>
-        <FormBill users={users} dbLocal={dbLocal} />
+        <FormBill users={activeUsers} dbLocal={dbLocal} />
       </BillSection>
       <SeeUserSection>
         <Title>Ver detalles de usuario</Title>
-        <SeeUser users={users} />
+        <SeeUser users={activeUsers} />
       </SeeUserSection>
       <DebtorsContainer>
         <Title>Reportar deudores</Title>
-        <DebtorsSection users={users} />
+        <DebtorsSection users={activeUsers} />
       </DebtorsContainer>
       <ActivateContainer>
         <Title>Dar de baja/alta a usuario</Title>
-        <ActivateUser users={users} />
+        <ActivateUser activeUsers={activeUsers} notActiveUsers={notActiveUsers}/>
       </ActivateContainer>
       <Toaster />
     </AdminContainer>

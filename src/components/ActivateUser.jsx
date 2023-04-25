@@ -12,20 +12,11 @@ import routes from "../static/routes.json";
 const { errorInput, primaryRed, primaryBlue, secondaryRed, secondaryBlue } =
   Colors;
 
-export const ActivateUser = ({ users }) => {
+export const ActivateUser = ({ activeUsers, notActiveUsers }) => {
   const [forDataDesactivate, setForDataDesactivate] = useState(null);
   const [forDataActivate, setForDataActivate] = useState(null);
   const [errorsActivate, setErrorsActivate] = useState({});
   const [errorsDesactivate, setErrorsDesactivate] = useState({});
-  const [activeUsers, setActiveUsers] = useState([])
-  const [notActiveUsers, setNotActiveUsers] = useState([])
-  
-  useEffect(() => {
-    if(users !== null){
-      setActiveUsers(users.filter((user) => user.active));
-      setNotActiveUsers(users.filter((user) => !user.active));
-    }
-  }, [users])
   
   const onValidateActivate = () => {
     let errors = {};

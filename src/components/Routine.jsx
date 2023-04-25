@@ -20,35 +20,35 @@ export const Routine = ({ email, title, addInfo }) => {
 
   const [routineRef, isIntersecting] = UseIntersection({ threshold: 0.5 });
 
-  /*  useEffect(() => {
-    if (email !== null) {
-      //Get routine
-      async function getRoutine(email) {
-        return await FetchGetData(`${email}`);
-      }
-      setLoading(true);
-      const res = getRoutine(email);
-      if (!(res instanceof Error)) {
-        setRoutine(res.data);
-        setLoading(false);
-      } else {
-        toast.error(res.message, {
-          position: "top-right",
-          duration: 6000,
-          style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
-      }
+  useEffect(() => {
+    async function getRoutine() {
+      return await FetchGetData(routes.GET_ROUTINES);
     }
-  }, [email]); */
+      
+    setLoading(true)
+    getRoutine()
+    .then((response) => response.json())
+    .then((data) => {
+      setRoutine(data)
+      setLoading(false)
+    })
+    .catch((e) => {
+      toast.error(e.messsage, {
+        position: "top-right",
+        duration: 6000,
+        style: {
+          background: "rgba(250, 215, 215)",
+          fontSize: "1rem",
+          fontWeight: "500",
+        },
+      });
+    });
+  }, [email]);
 
   const handleView = () => {
     setViewData(!viewData);
   };
-
+  
   return (
     <RoutineContainer>
       <TitleContainer>
@@ -92,26 +92,27 @@ export const Routine = ({ email, title, addInfo }) => {
             <Hr />
             <List>
               {routine.monday.length > 0 ? (
-                routine.monday.map((el, index) => (
-                  <InfoItem key={index}>
+                routine.monday.map((el) => (
+                  el.exercises.map((ex, index)=>(<InfoItem key={index}>
                     <MountAndPhotoContainer>
                       <Mount>
-                        {el.series} x{el.count} {el.measure}
+                        {ex.series} x {ex.count} {ex.measure}
                       </Mount>
-                      {<ExercisePhoto src={el.photo} />}
+                      {<ExercisePhoto src={ex.photo} />}
                     </MountAndPhotoContainer>
                     <ExerciseContainer></ExerciseContainer>
                     <Exercise>
-                      <TypeExercise>{el.exercise}</TypeExercise>
+                      <TypeExercise>{ex.name}</TypeExercise>
                       <ExtraInfo>
-                        {el.rest && `${el.rest} segundos de descanso`}{" "}
-                        {el.description && `- ${el.description}`}
-                        {el.rest === null &&
-                          el.description === null &&
+                        {ex.rest && `${ex.rest} segundos de descanso`}{" "}
+                        {ex.description && `- ${ex.description}`}
+                        {ex.rest === null &&
+                          ex.description === null &&
                           "Sin información adicional."}
                       </ExtraInfo>
                     </Exercise>
-                  </InfoItem>
+                  </InfoItem>))
+                  
                 ))
               ) : (
                 <NoData>
@@ -131,26 +132,27 @@ export const Routine = ({ email, title, addInfo }) => {
             <Hr />
             <List>
               {routine.tuesday.length > 0 ? (
-                routine.tuesday.map((el, index) => (
-                  <InfoItem key={index}>
+                routine.tuesday.map((el) => (
+                  el.exercises.map((ex, index)=>(<InfoItem key={index}>
                     <MountAndPhotoContainer>
                       <Mount>
-                        {el.series} x{el.count} {el.measure}
+                        {ex.series} x {ex.count} {ex.measure}
                       </Mount>
-                      <ExercisePhoto src={el.photo} />
+                      {<ExercisePhoto src={ex.photo} />}
                     </MountAndPhotoContainer>
                     <ExerciseContainer></ExerciseContainer>
                     <Exercise>
-                      <TypeExercise>{el.exercise}</TypeExercise>
+                      <TypeExercise>{ex.name}</TypeExercise>
                       <ExtraInfo>
-                        {el.rest && `${el.rest} segundos de descanso`}{" "}
-                        {el.description && `- ${el.description}`}
-                        {el.rest === null &&
-                          el.description === null &&
+                        {ex.rest && `${ex.rest} segundos de descanso`}{" "}
+                        {ex.description && `- ${ex.description}`}
+                        {ex.rest === null &&
+                          ex.description === null &&
                           "Sin información adicional."}
                       </ExtraInfo>
                     </Exercise>
-                  </InfoItem>
+                  </InfoItem>))
+                  
                 ))
               ) : (
                 <NoData>
@@ -170,26 +172,27 @@ export const Routine = ({ email, title, addInfo }) => {
             <Hr />
             <List>
               {routine.wednesday.length > 0 ? (
-                routine.wednesday.map((el, index) => (
-                  <InfoItem key={index}>
+                routine.wednesday.map((el) => (
+                  el.exercises.map((ex, index)=>(<InfoItem key={index}>
                     <MountAndPhotoContainer>
                       <Mount>
-                        {el.series} x{el.count} {el.measure}
+                        {ex.series} x {ex.count} {ex.measure}
                       </Mount>
-                      <ExercisePhoto src={el.photo} />
+                      {<ExercisePhoto src={ex.photo} />}
                     </MountAndPhotoContainer>
                     <ExerciseContainer></ExerciseContainer>
                     <Exercise>
-                      <TypeExercise>{el.exercise}</TypeExercise>
+                      <TypeExercise>{ex.name}</TypeExercise>
                       <ExtraInfo>
-                        {el.rest && `${el.rest} segundos de descanso`}{" "}
-                        {el.description && `- ${el.description}`}
-                        {el.rest === null &&
-                          el.description === null &&
+                        {ex.rest && `${ex.rest} segundos de descanso`}{" "}
+                        {ex.description && `- ${ex.description}`}
+                        {ex.rest === null &&
+                          ex.description === null &&
                           "Sin información adicional."}
                       </ExtraInfo>
                     </Exercise>
-                  </InfoItem>
+                  </InfoItem>))
+                  
                 ))
               ) : (
                 <NoData>
@@ -209,26 +212,27 @@ export const Routine = ({ email, title, addInfo }) => {
             <Hr />
             <List>
               {routine.thursday.length > 0 ? (
-                routine.thursday.map((el, index) => (
-                  <InfoItem key={index}>
+                routine.thursday.map((el) => (
+                  el.exercises.map((ex, index)=>(<InfoItem key={index}>
                     <MountAndPhotoContainer>
                       <Mount>
-                        {el.series} x{el.count} {el.measure}
+                        {ex.series} x {ex.count} {ex.measure}
                       </Mount>
-                      <ExercisePhoto src={el.photo} />
+                      {<ExercisePhoto src={ex.photo} />}
                     </MountAndPhotoContainer>
                     <ExerciseContainer></ExerciseContainer>
                     <Exercise>
-                      <TypeExercise>{el.exercise}</TypeExercise>
+                      <TypeExercise>{ex.name}</TypeExercise>
                       <ExtraInfo>
-                        {el.rest && `${el.rest} segundos de descanso`}{" "}
-                        {el.description && `- ${el.description}`}
-                        {el.rest === null &&
-                          el.description === null &&
+                        {ex.rest && `${ex.rest} segundos de descanso`}{" "}
+                        {ex.description && `- ${ex.description}`}
+                        {ex.rest === null &&
+                          ex.description === null &&
                           "Sin información adicional."}
                       </ExtraInfo>
                     </Exercise>
-                  </InfoItem>
+                  </InfoItem>))
+                  
                 ))
               ) : (
                 <NoData>
@@ -248,26 +252,27 @@ export const Routine = ({ email, title, addInfo }) => {
             <Hr />
             <List>
               {routine.friday.length > 0 ? (
-                routine.friday.map((el, index) => (
-                  <InfoItem key={index}>
+                routine.friday.map((el) => (
+                  el.exercises.map((ex, index)=>(<InfoItem key={index}>
                     <MountAndPhotoContainer>
                       <Mount>
-                        {el.series} x{el.count} {el.measure}
+                        {ex.series} x {ex.count} {ex.measure}
                       </Mount>
-                      <ExercisePhoto src={el.photo} />
+                      {<ExercisePhoto src={ex.photo} />}
                     </MountAndPhotoContainer>
                     <ExerciseContainer></ExerciseContainer>
                     <Exercise>
-                      <TypeExercise>{el.exercise}</TypeExercise>
+                      <TypeExercise>{ex.name}</TypeExercise>
                       <ExtraInfo>
-                        {el.rest && `${el.rest} segundos de descanso`}{" "}
-                        {el.description && `- ${el.description}`}
-                        {el.rest === null &&
-                          el.description === null &&
+                        {ex.rest && `${ex.rest} segundos de descanso`}{" "}
+                        {ex.description && `- ${ex.description}`}
+                        {ex.rest === null &&
+                          ex.description === null &&
                           "Sin información adicional."}
                       </ExtraInfo>
                     </Exercise>
-                  </InfoItem>
+                  </InfoItem>))
+                  
                 ))
               ) : (
                 <NoData>
@@ -287,26 +292,27 @@ export const Routine = ({ email, title, addInfo }) => {
             <Hr />
             <List>
               {routine.saturday.length > 0 ? (
-                routine.saturday.map((el, index) => (
-                  <InfoItem key={index}>
+                routine.saturday.map((el) => (
+                  el.exercises.map((ex, index)=>(<InfoItem key={index}>
                     <MountAndPhotoContainer>
                       <Mount>
-                        {el.series} x{el.count} {el.measure}
+                        {ex.series} x {ex.count} {ex.measure}
                       </Mount>
-                      <ExercisePhoto src={el.photo} />
+                      {<ExercisePhoto src={ex.photo} />}
                     </MountAndPhotoContainer>
                     <ExerciseContainer></ExerciseContainer>
                     <Exercise>
-                      <TypeExercise>{el.exercise}</TypeExercise>
+                      <TypeExercise>{ex.name}</TypeExercise>
                       <ExtraInfo>
-                        {el.rest && `${el.rest} segundos de descanso`}{" "}
-                        {el.description && `- ${el.description}`}
-                        {el.rest === null &&
-                          el.description === null &&
+                        {ex.rest && `${ex.rest} segundos de descanso`}{" "}
+                        {ex.description && `- ${ex.description}`}
+                        {ex.rest === null &&
+                          ex.description === null &&
                           "Sin información adicional."}
                       </ExtraInfo>
                     </Exercise>
-                  </InfoItem>
+                  </InfoItem>))
+                  
                 ))
               ) : (
                 <NoData>
@@ -326,26 +332,27 @@ export const Routine = ({ email, title, addInfo }) => {
             <Hr />
             <List>
               {routine.sunday.length > 0 ? (
-                routine.sunday.map((el, index) => (
-                  <InfoItem key={index}>
+                routine.sunday.map((el) => (
+                  el.exercises.map((ex, index)=>(<InfoItem key={index}>
                     <MountAndPhotoContainer>
                       <Mount>
-                        {el.series} x{el.count} {el.measure}
+                        {ex.series} x {ex.count} {ex.measure}
                       </Mount>
-                      <ExercisePhoto src={el.photo} />
+                      {<ExercisePhoto src={ex.photo} />}
                     </MountAndPhotoContainer>
                     <ExerciseContainer></ExerciseContainer>
                     <Exercise>
-                      <TypeExercise>{el.exercise}</TypeExercise>
+                      <TypeExercise>{ex.name}</TypeExercise>
                       <ExtraInfo>
-                        {el.rest && `${el.rest} segundos de descanso`}{" "}
-                        {el.description && `- ${el.description}`}
-                        {el.rest === null &&
-                          el.description === null &&
+                        {ex.rest && `${ex.rest} segundos de descanso`}{" "}
+                        {ex.description && `- ${ex.description}`}
+                        {ex.rest === null &&
+                          ex.description === null &&
                           "Sin información adicional."}
                       </ExtraInfo>
                     </Exercise>
-                  </InfoItem>
+                  </InfoItem>))
+                  
                 ))
               ) : (
                 <NoData>
