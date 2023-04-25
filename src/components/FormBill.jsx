@@ -22,6 +22,7 @@ export const FormBill = ({ users, dbLocal }) => {
   const [year, setYear] = useState(null);
   const [mount, setMount] = useState(null);
   const [monthNext, setMonthNext] = useState(null);
+  const [monthText, setMonthText] = useState(null)
   const [name, setName] = useState(null);
   const [surname, setSurname] = useState(null);
   const [errors, setErrors] = useState({});
@@ -63,7 +64,7 @@ export const FormBill = ({ users, dbLocal }) => {
               fontWeight: "bold",
             }}
           >
-            Pago {month} - {year}
+            Pago {monthText} - {year}
           </Text>
 
           <Text style={{ textAlign: "justify", marginTop: "30px" }}>
@@ -73,7 +74,7 @@ export const FormBill = ({ users, dbLocal }) => {
             Email: {forData}.
           </Text>
           <Text style={{ textAlign: "justify", marginTop: "30px" }}>
-            Fecha: {day} de {month} del {year}.
+            Fecha: {day} de {monthText} del {year}.
           </Text>
           <Text style={{ textAlign: "justify", marginTop: "30px" }}>
             Monto: ${mount}.
@@ -222,6 +223,7 @@ export const FormBill = ({ users, dbLocal }) => {
   const handleMonth = (e) => {
     const numberMonth = getMonthCustom(e.target.value);
     setMonth(numberMonth);
+    setMonthText(e.target.value)
 
     if (e.target.value === "Diciembre") {
       setMonthNext(0);
@@ -315,7 +317,7 @@ export const FormBill = ({ users, dbLocal }) => {
   };
 
   return (
-    <FormAddbLocalill onSubmit={handleSubmit}>
+    <FormAddBill onSubmit={handleSubmit}>
       <ForPartContainer>
         {!forData ? (
           <InputContainer>
@@ -414,7 +416,7 @@ export const FormBill = ({ users, dbLocal }) => {
         <ButtonSend type="submit">Enviar</ButtonSend>
       </PaymentContainer>
       <Toaster />
-    </FormAddbLocalill>
+    </FormAddBill>
   );
 };
 
@@ -473,7 +475,7 @@ const ErrorInput = styled.div`
   }
 `;
 
-const FormAddbLocalill = styled.form`
+const FormAddBill = styled.form`
   padding: 0 5vw 0 5vw;
 `;
 

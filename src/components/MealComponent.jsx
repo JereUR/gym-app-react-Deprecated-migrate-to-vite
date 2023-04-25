@@ -7,13 +7,13 @@ import { Colors } from "../constants/Colors";
 
 const { secondaryRed, backgroundSuccess, secondaryBlue } = Colors;
 
-export const MealComponent = ({ el, deleteData, data, editData }) => {
+export const MealComponent = ({ el, deleteData, data, editData, seeLogos }) => {
   return (
     <MealContainer>
       <MealItem key={el.id}>
         {el.count} {el.measure} - {el.meal}
       </MealItem>
-      <IconsContainer>
+      {seeLogos && (<IconsContainer>
         <FaEdit
           className="edit-logo"
           fontSize="1.3rem"
@@ -24,7 +24,7 @@ export const MealComponent = ({ el, deleteData, data, editData }) => {
           fontSize="1.3rem"
           onClick={() => deleteData(el.id, data)}
         />
-      </IconsContainer>
+      </IconsContainer>)}
     </MealContainer>
   );
 };

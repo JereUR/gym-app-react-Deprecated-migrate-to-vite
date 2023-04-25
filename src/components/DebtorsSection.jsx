@@ -144,7 +144,7 @@ const ButtonDebtors = styled.button`
   padding: 10px 20px;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  width: 50%;
+  width: 90%;
   transition: all 0.5s ease-in-out;
 
   svg {

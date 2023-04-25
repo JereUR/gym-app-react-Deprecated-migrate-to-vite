@@ -60,15 +60,27 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
     setDayData(null);
   };
 
-  const handleSeeRoutine = () => {
+  const handleSeeRoutine = async () => {
     const err = onValidate();
     setErrors(err);
 
     if (Object.keys(err).length === 0) {
       let ex = [];
 
-      FetchGetData(`${routes.USER_PAYMENTS}?email=${forData}&day=${dayData}`)
-        .then((response) => response.json())
+      await FetchGetData(`${routes.USER_ROUTINE}?email=${forData}&day=${dayData}`)
+        .then((response) => {
+          if(!response.ok){
+            switch (response.status) {
+              case 423:
+                  throw new Error('El usuario no cuenta con rutina para el día seleccionado.');
+                break;
+            
+              default:
+                break;
+            }
+          }  
+          return response.json()
+        })
         .then((data) => {
           if (data.length > 0) {
             data.forEach((el) => {
@@ -112,7 +124,7 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
     });
 
     if (!(res instanceof Error)) {
-      toast.success(`Rutina de ${forData} del dia ${dayData} eliminada.`, {
+      toast.success(`Rutina de ${forData} del dia ${dbLocal.days.find(d => d.value === dayData).day} eliminada.`, {
         position: "top-right",
         duration: 6000,
         style: {
@@ -186,7 +198,7 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
       <ButtonSeeRoutine type="button" onClick={handleSeeRoutine}>
         Ver Rutina
       </ButtonSeeRoutine>
-      {exercises.length > 0 && viewRoutine ? (
+      {exercises.length > 0 && viewRoutine && (
         <ListContainer>
           {forData && dayData && (
             <Title>
@@ -201,8 +213,6 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
             ))}
           </List>
         </ListContainer>
-      ) : (
-        <NoData>Sin rutina</NoData>
       )}
       {errors.exercises && <ErrorInput>{errors.exercises}</ErrorInput>}
       <ButtonSubmit type="submit">Borrar</ButtonSubmit>

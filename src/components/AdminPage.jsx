@@ -11,6 +11,7 @@ import { FetchGetData } from "../helpers/FetchGetData";
 import { DebtorsSection } from "./DebtorsSection";
 import { FormClearRoutine } from "./FormClearRoutine";
 import { FormClearNutritionalPlan } from "./FormClearNutritionalPlan";
+import { ActivateUser } from "./ActivateUser";
 import routes from "../static/routes.json";
 
 const { secondaryBlue, backgroundText } = Colors;
@@ -72,6 +73,10 @@ export const AdminPage = ({ dbLocal }) => {
         <Title>Reportar deudores</Title>
         <DebtorsSection users={users} />
       </DebtorsContainer>
+      <ActivateContainer>
+        <Title>Dar de baja/alta a usuario</Title>
+        <ActivateUser users={users} />
+      </ActivateContainer>
       <Toaster />
     </AdminContainer>
   );
@@ -79,7 +84,7 @@ export const AdminPage = ({ dbLocal }) => {
 
 const AdminContainer = styled.div``;
 
-const AddRoutineContainer = styled.div`
+const ActivateContainer = styled.div`
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   padding: 1rem 1rem 3rem 1rem;
   margin: 3vw 3vw 3vw 3vw;
@@ -89,6 +94,8 @@ const AddRoutineContainer = styled.div`
     margin: 7vw 4vw 7vw 4vw;
   }
 `;
+
+const AddRoutineContainer = styled(ActivateContainer)``;
 
 const ClearPlanContainer = styled(AddRoutineContainer)``;
 
