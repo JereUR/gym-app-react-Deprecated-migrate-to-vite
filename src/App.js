@@ -140,7 +140,7 @@ function App() {
                 />
               }
             >
-              <Route exact path="/reset" element={<ResetPassword />} />
+              <Route path="/recover/edit" element={<ResetPassword />} />
             </Route>
             <Route
               exact

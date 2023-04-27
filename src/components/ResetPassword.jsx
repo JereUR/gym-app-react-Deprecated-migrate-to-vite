@@ -7,6 +7,7 @@ import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 import { FetchPostData } from "../helpers/FetchPostData";
 import routes from "../static/routes.json";
+import { useLocation } from "react-router-dom";
 
 const initialData = {
   newPassword: "",
@@ -19,6 +20,8 @@ export const ResetPassword = () => {
   const [dataRecovery, setDataRecovery] = useState(initialData);
   const [errors, setErrors] = useState({});
   const [viewPassword, setViewPassword] = useState(false);
+  const { search } = useLocation();
+  const token = new URLSearchParams(search).get("reset_password_token");
 
   const onValidate = () => {
     let errorsForm = {};
@@ -47,9 +50,15 @@ export const ResetPassword = () => {
     setErrors(err);
 
     if (Object.keys(err).length === 0) {
+      const user = {
+        reset_password_toke: token,
+        password: dataRecovery.newPassword,
+        password_confirmation: dataRecovery.confirmPassword,
+      };
+
       const res = await FetchPostData({
-        path: "/",
-        data: { dataRecovery },
+        path: routes.RESET_PASSWORD,
+        data: { user },
       });
 
       if (!(res instanceof Error)) {
