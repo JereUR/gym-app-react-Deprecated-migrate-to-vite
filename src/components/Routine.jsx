@@ -14,7 +14,7 @@ const { primaryRed, primaryBlue, secondaryBlue } = Colors;
 
 export const Routine = ({ email, title, addInfo }) => {
   const [viewData, setViewData] = useState(true);
-  const [routine, setRoutine] = useState(null);
+  const [routine, setRoutine] = useState({});
   const [loading, setLoading] = useState(false);
   const day = getDayNow();
 
@@ -48,7 +48,9 @@ export const Routine = ({ email, title, addInfo }) => {
   const handleView = () => {
     setViewData(!viewData);
   };
-  
+
+console.log(routine)
+
   return (
     <RoutineContainer>
       <TitleContainer>
@@ -76,7 +78,7 @@ export const Routine = ({ email, title, addInfo }) => {
           <i>Cargando rutina....</i>
         </NoRoutine>
       )}
-      {viewData && routine && (
+      {viewData && Object.keys(routine).length !== 0 && (
         <RoutineData
           ref={routineRef}
           className={isIntersecting ? "visible" : "right"}
@@ -363,7 +365,7 @@ export const Routine = ({ email, title, addInfo }) => {
           </RoutineDay>
         </RoutineData>
       )}{" "}
-      {viewData && !routine && <NoRoutine>Sin Información.</NoRoutine>}
+      {viewData && Object.keys(routine).length === 0 && <NoRoutine>Sin Información.</NoRoutine>}
       <Toaster />
     </RoutineContainer>
   );

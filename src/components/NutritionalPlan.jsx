@@ -14,7 +14,7 @@ const { primaryBlue, secondaryBlue, primaryRed } = Colors;
 
 export const NutritionalPlan = ({ email, title, addInfo }) => {
   const [viewData, setViewData] = useState(true);
-  const [plan, setPlan] = useState(null);
+  const [plan, setPlan] = useState({});
   const [loading, setLoading] = useState(false);
   const day = getDayNow();
 
@@ -76,7 +76,7 @@ export const NutritionalPlan = ({ email, title, addInfo }) => {
           <i>Cargando plan nutricional....</i>
         </NoPlan>
       )}
-      {viewData && plan && (
+      {viewData && Object.keys(plan).length !== 0 && (
         <PlanData
           ref={planRef}
           className={isIntersecting ? "visible" : "right"}
@@ -881,7 +881,7 @@ export const NutritionalPlan = ({ email, title, addInfo }) => {
           </PlanDay>
         </PlanData>
       )}{" "}
-      {viewData && !plan && <NoPlan>Sin Información.</NoPlan>}
+      {viewData && Object.keys(plan).length === 0 && <NoPlan>Sin Información.</NoPlan>}
       <Toaster />
     </PlanContainer>
   );
