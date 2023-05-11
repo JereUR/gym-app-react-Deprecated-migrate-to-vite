@@ -73,7 +73,7 @@ export const FormBill = ({ dbLocal, dbUsers }) => {
           </Text>
 
           <Text style={{ textAlign: "justify", marginTop: "30px" }}>
-            Destinatario: {name} {surname}.
+            Usuario: {name} {surname}.
           </Text>
           <Text style={{ textAlign: "justify", marginTop: "30px" }}>
             Email: {forData}.
@@ -91,6 +91,8 @@ export const FormBill = ({ dbLocal, dbUsers }) => {
               maxWidth: "120px",
               maxHeight: "120px",
               marginLeft: "60%",
+              top: "10vw",
+              transform: "rotate(-15)",
             }}
           />
         </View>
@@ -319,7 +321,7 @@ export const FormBill = ({ dbLocal, dbUsers }) => {
             },
           }
         );
-      } 
+      }
     }
   };
 

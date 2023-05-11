@@ -624,9 +624,9 @@ const Input = styled.input`
   padding: 10px;
   width: 18vw;
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 600px) {
     font-size: 1.1rem;
-    width: 55vw;
+    width: 100%;
   }
 
   :focus {
@@ -678,7 +678,7 @@ const Select = styled.select`
   background-repeat: no-repeat;
   background-position: right 10px center;
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 600px) {
     width: 60vw;
     font-size: 1.1rem;
     max-width: 60vw;

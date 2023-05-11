@@ -2,13 +2,10 @@ import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { FaEdit } from "react-icons/fa";
-import { toast, Toaster } from "react-hot-toast";
 
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 import { ExerciseComponent } from "./ExerciseComponent";
-import { FetchPostData } from "../helpers/FetchPostData";
-import { FetchGetData } from "../helpers/FetchGetData";
 
 const { errorInput, primaryRed, primaryBlue, secondaryRed, secondaryBlue } =
   Colors;
@@ -37,6 +34,24 @@ export const FormClearRoutine = ({ /*users={users}*/ dbLocal, dbUsers }) => {
 
     if (dayData === null) {
       errorsForm.dayData = "Debe especificar día de rutina.";
+    }
+
+    return errorsForm;
+  };
+
+  const onValidateDelete = () => {
+    let errorsForm = {};
+
+    if (forData === null) {
+      errorsForm.forData = "Debe especificar destinatario.";
+    }
+
+    if (dayData === null) {
+      errorsForm.dayData = "Debe especificar día de rutina.";
+    }
+
+    if (exercises.length === 0) {
+      errorsForm.routine = "La rutina esta vacia o no se ha buscado todavía.";
     }
 
     return errorsForm;
@@ -90,6 +105,7 @@ export const FormClearRoutine = ({ /*users={users}*/ dbLocal, dbUsers }) => {
       } */
 
       const r = dbUsers.find((u) => u.email === forData).routine[dayData];
+      console.log(r);
 
       r.forEach((el) => {
         const e = {
@@ -113,17 +129,21 @@ export const FormClearRoutine = ({ /*users={users}*/ dbLocal, dbUsers }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const data = { user_email: forData, day: dayData };
+    const err = onValidateDelete();
+    setErrors(err);
 
-    /* console.log({ data }); */
+    if (Object.keys(err).length === 0) {
+      const data = { user_email: forData, day: dayData };
 
-    /* const res = await FetchPostData({
+      /* console.log({ data }); */
+
+      /* const res = await FetchPostData({
         path: "/",
         data: { data },
       });
 
       if (!(res instanceof Error)) {
-        toast.success(`Rutina del dia ${dayData} eliminadaenviada a ${forData}.`, {
+        toast.success(`Rutina de ${forData} del dia ${dayData} eliminada.`, {
           position: "top-right",
           duration: 6000,
           style: {
@@ -136,7 +156,7 @@ export const FormClearRoutine = ({ /*users={users}*/ dbLocal, dbUsers }) => {
         clearData();
       } else {
         toast.error(
-          { res },
+          res.message,
           {
             position: "top-right",
             duration: 6000,
@@ -148,6 +168,7 @@ export const FormClearRoutine = ({ /*users={users}*/ dbLocal, dbUsers }) => {
           }
         );
       } */
+    }
   };
 
   return (
@@ -206,9 +227,8 @@ export const FormClearRoutine = ({ /*users={users}*/ dbLocal, dbUsers }) => {
           ))}
         </List>
       )}
-      {errors.exercises && <ErrorInput>{errors.exercises}</ErrorInput>}
+      {errors.routine && <ErrorInput>{errors.routine}</ErrorInput>}
       <ButtonSubmit type="submit">Borrar</ButtonSubmit>
-      <Toaster />
     </Form>
   );
 };

@@ -5,20 +5,18 @@ import { IconContext } from "react-icons";
 import { FaHome, FaFileInvoiceDollar, FaUserAlt } from "react-icons/fa";
 import { MdAdminPanelSettings } from "react-icons/md";
 
-/* import { useAuthAdmin } from "./AdminRoute";
-import { useAuth } from "./LoginRoute"; */
+import { useAuthAdmin } from "./AdminRoute";
+import { useAuth } from "./LoginRoute";
 import { Colors } from "../constants/Colors";
 import { BurgerButton } from "./BurgerButton";
 
 const { secondaryBlue, colorText } = Colors;
 
-export const MenuHeader = ({ /* user , */ username, login, admin }) => {
-  /* const profilePath = `/usuario/${user.username}`; */
-  const profilePath = `/usuario/${username}`;
-  /* const auth = useAuth(user);
+export const MenuHeader = ({ user }) => {
+  const profilePath = `/usuario/${user.username}`;
+  const auth = useAuth(user);
   const admin = useAuthAdmin(user);
-  const authAdmin = auth && admin; */
-  const authAdmin = login && admin;
+  const authAdmin = auth && admin;
 
   const [clicked, setClicked] = useState(false);
 

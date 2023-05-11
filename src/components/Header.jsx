@@ -1,20 +1,18 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import logo from "../assets/logo.png";
-import { MenuHeader } from "./MenuHeader";
+import logo from '../assets/logo.png';
+import { MenuHeader } from './MenuHeader';
 
-export const Header = ({ /* user */ username,login,admin }) => {
+export const Header = ({ user }) => {
   const redirectHome = () => {
-    window.location.assign("/");
+    window.location.assign('/');
   };
 
   return (
     <HeaderContainer>
       <Logo src={logo} onClick={redirectHome} />
-      <MenuHeader
-        /* user={user} */ username={username} login={login} admin={admin}
-      />
+      <MenuHeader user={user} />
     </HeaderContainer>
   );
 };
@@ -24,8 +22,8 @@ const HeaderContainer = styled.header`
 `;
 
 const Logo = styled.img`
-  width: 390px;
-  height: 100px;
+  width: 300px;
+  height: 75px;
   margin-left: 5vw;
   margin-top: 2vw;
   z-index: 2;

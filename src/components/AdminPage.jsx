@@ -11,6 +11,8 @@ import { FetchPostData } from "../helpers/FetchPostData";
 import { FetchGetData } from "../helpers/FetchGetData";
 import { DebtorsSection } from "./DebtorsSection";
 import { FormClearRoutine } from "./FormClearRoutine";
+import { FormClearNutritionalPlan } from "./FormClearNutritionalPlan";
+import { ActivateUser } from "./ActivateUser";
 
 const { secondaryBlue, backgroundText } = Colors;
 
@@ -64,6 +66,13 @@ export const AdminPage = ({ dbLocal, dbUsers }) => {
         />
       </AddNutritionalPlan>
       <Hr />
+      <ClearPlanContainer>
+        <Title>Borrar plan nutricional</Title>
+        <FormClearNutritionalPlan
+          /*users={users}*/ dbLocal={dbLocal}
+          dbUsers={dbUsers}
+        />
+      </ClearPlanContainer>
       <BillSection>
         <Title>Agregar pago</Title>
         <FormBill /*users={users}*/ dbLocal={dbLocal} dbUsers={dbUsers} />
@@ -76,6 +85,10 @@ export const AdminPage = ({ dbLocal, dbUsers }) => {
         <Title>Reportar deudores</Title>
         <DebtorsSection /*users={users} */ dbUsers={dbUsers} />
       </DebtorsContainer>
+      <ActivateContainer>
+        <Title>Dar de baja/alta a usuario</Title>
+        <ActivateUser dbUsers={dbUsers} />
+      </ActivateContainer>
       <Toaster />
     </AdminContainer>
   );
@@ -83,7 +96,7 @@ export const AdminPage = ({ dbLocal, dbUsers }) => {
 
 const AdminContainer = styled.div``;
 
-const AddRoutineContainer = styled.div`
+const ActivateContainer = styled.div`
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   padding: 1rem 1rem 3rem 1rem;
   margin: 3vw 3vw 3vw 3vw;
@@ -93,6 +106,10 @@ const AddRoutineContainer = styled.div`
     margin: 7vw 4vw 7vw 4vw;
   }
 `;
+
+const AddRoutineContainer = styled(ActivateContainer)``;
+
+const ClearPlanContainer = styled(AddRoutineContainer)``;
 
 const ClearRoutineContainer = styled(AddRoutineContainer)``;
 

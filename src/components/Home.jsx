@@ -1,17 +1,20 @@
-import { React, useState, useEffect } from "react";
-import styled from "styled-components";
-import { AiOutlineArrowUp } from "react-icons/ai";
+import { React, useState, useEffect } from 'react';
+import styled from 'styled-components';
+import { AiOutlineArrowUp } from 'react-icons/ai';
 
-import banner from "../assets/banner_home.jpg";
-import { NutritionalPlan } from "./NutritionalPlan";
-import { Routine } from "./Routine";
-import { Colors } from "../constants/Colors";
-import { FetchGetData } from "../helpers/FetchGetData";
-import { toast, Toaster } from "react-hot-toast";
+import homeHour from '../assets/home-hour.gif';
+import homeSlogan from '../assets/home-slogan.gif';
+import homeInfo from '../assets/home-info.gif';
+import { NutritionalPlan } from './NutritionalPlan';
+import { Routine } from './Routine';
+import { Colors } from '../constants/Colors';
+import { FetchGetData } from '../helpers/FetchGetData';
+import { toast, Toaster } from 'react-hot-toast';
+import { Carousel } from './Carousel';
 
 const { secondaryBlue, secondaryRed } = Colors;
 
-export const Home = ({ /* user,  */ months, exercises, email }) => {
+export const Home = ({ user, months, exercises }) => {
   const [nextPayment, setNextPayment] = useState(null);
   const [weight, setWeight] = useState(null);
   const [height, setHeight] = useState(null);
@@ -19,23 +22,25 @@ export const Home = ({ /* user,  */ months, exercises, email }) => {
   const [addInfo, setAddInfo] = useState(false);
   const [scrollTop, setScrollTop] = useState(0);
 
+  const images = [homeHour, homeInfo, homeSlogan];
+
   const handleNavigation = (scroll) => {
-    const $scrollBtn = document.querySelector(".scroll-top-btn");
+    const $scrollBtn = document.querySelector('.scroll-top-btn');
 
     if ($scrollBtn !== null) {
       if (scroll > 2000) {
-        if ($scrollBtn.classList.contains("hidden")) {
-          $scrollBtn.classList.remove("hidden");
+        if ($scrollBtn.classList.contains('hidden')) {
+          $scrollBtn.classList.remove('hidden');
         }
       } else {
-        if (!$scrollBtn.classList.contains("hidden")) {
-          $scrollBtn.classList.add("hidden");
+        if (!$scrollBtn.classList.contains('hidden')) {
+          $scrollBtn.classList.add('hidden');
         }
       }
     }
   };
 
-  useEffect(() => {
+  /* useEffect(() => {
     //Get proximo pago y weigth y height
     async function getNextPayment(email) {
       return await FetchGetData("/", email);
@@ -59,82 +64,75 @@ export const Home = ({ /* user,  */ months, exercises, email }) => {
         }
       );
     }
-  }, [email]);
+  }, [email]); */
 
   useEffect(() => {
     const onScroll = (event) => {
       setScrollTop(event.target.documentElement.scrollTop);
     };
 
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener('scroll', onScroll);
 
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => handleNavigation(scrollTop));
+    window.addEventListener('scroll', () => handleNavigation(scrollTop));
 
     return () => {
-      window.removeEventListener("scroll", () => handleNavigation(scrollTop));
+      window.removeEventListener('scroll', () => handleNavigation(scrollTop));
     };
   }, [scrollTop]);
 
   useEffect(() => {
-    if (/* user !== null || user !== undefined */ nextPayment !== null) {
+    if (user !== null || user !== undefined) {
       let today = new Date();
 
       let userDate = new Date(
-        /* user.payment. */ nextPayment.year,
-        /* user.payment. */ nextPayment.month,
-        /* user.payment. */ nextPayment.day
+        user.payment.nextPayment.year,
+        user.payment.nextPayment.month,
+        user.payment.nextPayment.day
       );
 
       if (userDate < today) {
         setDebtor(true);
       }
 
-      if (/* user. */ weight === null || /* user. */ height === null) {
+      if (user.weight === null || user.height === null) {
         setAddInfo(true);
       }
     }
-  }, [nextPayment, months, weight, height]);
+  }, [user, months]);
 
   const handleClickScroll = () => {
-    document.querySelector("header").scrollIntoView({ behavior: "smooth" });
+    document.querySelector('header').scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <HomeContainer>
       <BannerContainer>
-        <Banner src={banner} />
+        {/* <Banner src={banner} /> */}
+        <Carousel images={images} />
       </BannerContainer>
       {debtor && (
         <ReportPaymentContainer>
           <MessageDebtor>
-            ¡Tienes un pago atrasado del día{" "}
-            {/* user.payment. */ nextPayment.day} de{" "}
+            ¡Tienes un pago atrasado del día {user.payment.nextPayment.day} de{' '}
             {
-              months.find(
-                (m) => m.value === /* user.payment. */ nextPayment.month
-              ).month
-            }{" "}
-            del año {/* user.payment. */ nextPayment.year}!
+              months.find((m) => m.value === user.payment.nextPayment.month)
+                .month
+            }{' '}
+            del año {user.payment.nextPayment.year}!
           </MessageDebtor>
         </ReportPaymentContainer>
       )}
       <RutineContainer>
-        <Routine
-          email={email}
-          /* user={user} */
-          title="Mis Rutinas"
-          addInfo={addInfo}
-        />
+        <Routine user={user} title="Mis Rutinas" addInfo={addInfo} />
       </RutineContainer>
       <Hr />
       <NutritionalPlanContainer>
         <NutritionalPlan
-          email={email}
-          /* user={user} */
+          user={user}
           title="Mi Plan Nutricional"
           addInfo={addInfo}
         />

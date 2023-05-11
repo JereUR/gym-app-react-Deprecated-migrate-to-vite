@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { RiErrorWarningLine } from "react-icons/ri";
 import { BsArrowBarUp, BsArrowBarDown } from "react-icons/bs";
@@ -6,20 +6,17 @@ import { BsArrowBarUp, BsArrowBarDown } from "react-icons/bs";
 import { getDayNow } from "../helpers/GetDay";
 import { Colors } from "../constants/Colors";
 import { UseIntersection } from "../helpers/UseIntersection";
-import { FetchGetData } from "../helpers/FetchGetData";
-import { toast, Toaster } from "react-hot-toast";
 
 const { primaryBlue, secondaryBlue, primaryRed } = Colors;
 
-export const NutritionalPlan = ({ email /* user */, title, addInfo }) => {
+export const NutritionalPlan = ({ user, title, addInfo }) => {
   const [viewData, setViewData] = useState(true);
-  const [plan, setPlan] = useState(null);
   const [loading, setLoading] = useState(false);
   const day = getDayNow();
 
   const [planRef, isIntersecting] = UseIntersection({ threshold: 0.5 });
 
-  useEffect(() => {
+  /* useEffect(() => {
     //Get plan
     async function getPlan(email) {
       return await FetchGetData("/", email);
@@ -40,7 +37,7 @@ export const NutritionalPlan = ({ email /* user */, title, addInfo }) => {
         },
       });
     }
-  }, [email]);
+  }, [email]); */
 
   const handleView = () => {
     setViewData(!viewData);
@@ -73,899 +70,784 @@ export const NutritionalPlan = ({ email /* user */, title, addInfo }) => {
           <i>Cargando plan nutricional....</i>
         </NoPlan>
       )}
-      {viewData &&
-        /* user. */ (plan ? (
-          <PlanData
-            ref={planRef}
-            className={isIntersecting ? "visible" : "right"}
-          >
-            <PlanDay>
-              {day === 1 ? (
-                <DayWeekNow>
-                  Lunes <Today>(Hoy)</Today>
-                </DayWeekNow>
+      {viewData && user.nutricionalPlan && (
+        <PlanData
+          ref={planRef}
+          className={isIntersecting ? "visible" : "right"}
+        >
+          <PlanDay>
+            {day === 1 ? (
+              <DayWeekNow>
+                Lunes <Today>(Hoy)</Today>
+              </DayWeekNow>
+            ) : (
+              <DayWeek>Lunes</DayWeek>
+            )}
+            <Hr />
+            <List>
+              <TextMeal>Desayuno</TextMeal>
+              {user.nutricionalPlan.monday[0].breakfast.length > 0 ? (
+                user.nutricionalPlan.monday[0].breakfast.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
               ) : (
-                <DayWeek>Lunes</DayWeek>
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
               )}
-              <Hr />
-              <List>
-                <TextMeal>Desayuno</TextMeal>
-                {
-                  /* user. */ plan.monday[0].breakfast.length > 0 ? (
-                    /* user. */ plan.monday[0].breakfast.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Almuerzo</TextMeal>
-                {
-                  /* user. */ plan.monday[1].lunch.length > 0 ? (
-                    /* user. */ plan.monday[1].lunch.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Merienda</TextMeal>
-                {
-                  /* user. */ plan.monday[2].snack.length > 0 ? (
-                    /* user. */ plan.monday[2].snack.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Cena</TextMeal>
-                {
-                  /* user. */ plan.monday[3].dinner.length > 0 ? (
-                    /* user. */ plan.monday[3].dinner.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Post-cena</TextMeal>
-                {
-                  /* user. */ plan.monday[4].afterDinner.length > 0 ? (
-                    /* user. */ plan.monday[4].afterDinner.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Pre-entreno</TextMeal>
-                {
-                  /* user. */ plan.monday[5].preWorkout.length > 0 ? (
-                    /* user. */ plan.monday[5].preWorkout.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Post-entreno</TextMeal>
-                {
-                  /* user. */ plan.monday[6].postWorkout.length > 0 ? (
-                    /* user. */ plan.monday[6].postWorkout.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Colación</TextMeal>
-                {
-                  /* user. */ plan.monday[7].collation.length > 0 ? (
-                    /* user. */ plan.monday[7].collation.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-              </List>
-            </PlanDay>
-            <PlanDay>
-              {day === 2 ? (
-                <DayWeekNow>
-                  Martes <Today>(Hoy)</Today>
-                </DayWeekNow>
+              <TextMeal>Almuerzo</TextMeal>
+              {user.nutricionalPlan.monday[1].lunch.length > 0 ? (
+                user.nutricionalPlan.monday[1].lunch.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
               ) : (
-                <DayWeek>Martes</DayWeek>
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
               )}
-              <Hr />
-              <List>
-                <TextMeal>Desayuno</TextMeal>
-                {
-                  /* user. */ plan.tuesday[0].breakfast.length > 0 ? (
-                    /* user. */ plan.tuesday[0].breakfast.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Almuerzo</TextMeal>
-                {
-                  /* user. */ plan.tuesday[1].lunch.length > 0 ? (
-                    /* user. */ plan.tuesday[1].lunch.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Merienda</TextMeal>
-                {
-                  /* user. */ plan.tuesday[2].snack.length > 0 ? (
-                    /* user. */ plan.tuesday[2].snack.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Cena</TextMeal>
-                {
-                  /* user. */ plan.tuesday[3].dinner.length > 0 ? (
-                    /* user. */ plan.tuesday[3].dinner.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Post-cena</TextMeal>
-                {
-                  /* user. */ plan.tuesday[4].afterDinner.length > 0 ? (
-                    /* user. */ plan.tuesday[4].afterDinner.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Pre-entreno</TextMeal>
-                {
-                  /* user. */ plan.tuesday[5].preWorkout.length > 0 ? (
-                    /* user. */ plan.tuesday[5].preWorkout.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Post-entreno</TextMeal>
-                {
-                  /* user. */ plan.tuesday[6].postWorkout.length > 0 ? (
-                    /* user. */ plan.tuesday[6].postWorkout.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Colación</TextMeal>
-                {
-                  /* user. */ plan.tuesday[7].collation.length > 0 ? (
-                    /* user. */ plan.tuesday[7].collation.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-              </List>
-            </PlanDay>
-            <PlanDay>
-              {day === 3 ? (
-                <DayWeekNow>
-                  Miércoles <Today>(Hoy)</Today>
-                </DayWeekNow>
+              <TextMeal>Merienda</TextMeal>
+              {user.nutricionalPlan.monday[2].snack.length > 0 ? (
+                user.nutricionalPlan.monday[2].snack.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
               ) : (
-                <DayWeek>Miércoles</DayWeek>
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
               )}
-              <Hr />
-              <List>
-                <TextMeal>Desayuno</TextMeal>
-                {
-                  /* user. */ plan.wednesday[0].breakfast.length > 0 ? (
-                    /* user. */ plan.wednesday[0].breakfast.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Almuerzo</TextMeal>
-                {
-                  /* user. */ plan.wednesday[1].lunch.length > 0 ? (
-                    /* user. */ plan.wednesday[1].lunch.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Merienda</TextMeal>
-                {
-                  /* user. */ plan.wednesday[2].snack.length > 0 ? (
-                    /* user. */ plan.wednesday[2].snack.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Cena</TextMeal>
-                {
-                  /* user. */ plan.wednesday[3].dinner.length > 0 ? (
-                    /* user. */ plan.wednesday[3].dinner.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Post-cena</TextMeal>
-                {
-                  /* user. */ plan.wednesday[4].afterDinner.length > 0 ? (
-                    /* user. */ plan.wednesday[4].afterDinner.map(
-                      (el, index) => (
-                        <InfoItem key={index}>
-                          {el.mount} - {el.meal}
-                        </InfoItem>
-                      )
-                    )
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Pre-entreno</TextMeal>
-                {
-                  /* user. */ plan.wednesday[5].preWorkout.length > 0 ? (
-                    /* user. */ plan.wednesday[5].preWorkout.map(
-                      (el, index) => (
-                        <InfoItem key={index}>
-                          {el.mount} - {el.meal}
-                        </InfoItem>
-                      )
-                    )
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Post-entreno</TextMeal>
-                {
-                  /* user. */ plan.wednesday[6].postWorkout.length > 0 ? (
-                    /* user. */ plan.wednesday[6].postWorkout.map(
-                      (el, index) => (
-                        <InfoItem key={index}>
-                          {el.mount} - {el.meal}
-                        </InfoItem>
-                      )
-                    )
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Colación</TextMeal>
-                {
-                  /* user. */ plan.wednesday[7].collation.length > 0 ? (
-                    /* user. */ plan.wednesday[7].collation.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-              </List>
-            </PlanDay>
-            <PlanDay>
-              {day === 4 ? (
-                <DayWeekNow>
-                  Jueves <Today>(Hoy)</Today>
-                </DayWeekNow>
+              <TextMeal>Cena</TextMeal>
+              {user.nutricionalPlan.monday[3].dinner.length > 0 ? (
+                user.nutricionalPlan.monday[3].dinner.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
               ) : (
-                <DayWeek>Jueves</DayWeek>
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
               )}
-              <Hr />
-              <List>
-                <TextMeal>Desayuno</TextMeal>
-                {
-                  /* user. */ plan.thursday[0].breakfast.length > 0 ? (
-                    /* user. */ plan.thursday[0].breakfast.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Almuerzo</TextMeal>
-                {
-                  /* user. */ plan.thursday[1].lunch.length > 0 ? (
-                    /* user. */ plan.thursday[1].lunch.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Merienda</TextMeal>
-                {
-                  /* user. */ plan.thursday[2].snack.length > 0 ? (
-                    /* user. */ plan.thursday[2].snack.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Cena</TextMeal>
-                {
-                  /* user. */ plan.thursday[3].dinner.length > 0 ? (
-                    /* user. */ plan.thursday[3].dinner.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Post-cena</TextMeal>
-                {
-                  /* user. */ plan.thursday[4].afterDinner.length > 0 ? (
-                    /* user. */ plan.thursday[4].afterDinner.map(
-                      (el, index) => (
-                        <InfoItem key={index}>
-                          {el.mount} - {el.meal}
-                        </InfoItem>
-                      )
-                    )
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Pre-entreno</TextMeal>
-                {
-                  /* user. */ plan.thursday[5].preWorkout.length > 0 ? (
-                    /* user. */ plan.thursday[5].preWorkout.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Post-entreno</TextMeal>
-                {
-                  /* user. */ plan.thursday[6].postWorkout.length > 0 ? (
-                    /* user. */ plan.thursday[6].postWorkout.map(
-                      (el, index) => (
-                        <InfoItem key={index}>
-                          {el.mount} - {el.meal}
-                        </InfoItem>
-                      )
-                    )
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Colación</TextMeal>
-                {
-                  /* user. */ plan.thursday[7].collation.length > 0 ? (
-                    /* user. */ plan.thursday[7].collation.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-              </List>
-            </PlanDay>
-            <PlanDay>
-              {day === 5 ? (
-                <DayWeekNow>
-                  Viernes <Today>(Hoy)</Today>
-                </DayWeekNow>
+              <TextMeal>Post-cena</TextMeal>
+              {user.nutricionalPlan.monday[4].afterDinner.length > 0 ? (
+                user.nutricionalPlan.monday[4].afterDinner.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
               ) : (
-                <DayWeek>Viernes</DayWeek>
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
               )}
-              <Hr />
-              <List>
-                <TextMeal>Desayuno</TextMeal>
-                {
-                  /* user. */ plan.friday[0].breakfast.length > 0 ? (
-                    /* user. */ plan.friday[0].breakfast.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Almuerzo</TextMeal>
-                {
-                  /* user. */ plan.friday[1].lunch.length > 0 ? (
-                    /* user. */ plan.friday[1].lunch.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Merienda</TextMeal>
-                {
-                  /* user. */ plan.friday[2].snack.length > 0 ? (
-                    /* user. */ plan.friday[2].snack.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Cena</TextMeal>
-                {
-                  /* user. */ plan.friday[3].dinner.length > 0 ? (
-                    /* user. */ plan.friday[3].dinner.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Post-cena</TextMeal>
-                {
-                  /* user. */ plan.friday[4].afterDinner.length > 0 ? (
-                    /* user. */ plan.friday[4].afterDinner.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Pre-entreno</TextMeal>
-                {
-                  /* user. */ plan.friday[5].preWorkout.length > 0 ? (
-                    /* user. */ plan.friday[5].preWorkout.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Post-entreno</TextMeal>
-                {
-                  /* user. */ plan.friday[6].postWorkout.length > 0 ? (
-                    /* user. */ plan.friday[6].postWorkout.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Colación</TextMeal>
-                {
-                  /* user. */ plan.friday[7].collation.length > 0 ? (
-                    /* user. */ plan.friday[7].collation.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-              </List>
-            </PlanDay>
-            <PlanDay>
-              {day === 6 ? (
-                <DayWeekNow>
-                  Sábado <Today>(Hoy)</Today>
-                </DayWeekNow>
+              <TextMeal>Pre-entreno</TextMeal>
+              {user.nutricionalPlan.monday[5].preWorkout.length > 0 ? (
+                user.nutricionalPlan.monday[5].preWorkout.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
               ) : (
-                <DayWeek>Sábado</DayWeek>
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
               )}
-              <Hr />
-              <List>
-                <TextMeal>Desayuno</TextMeal>
-                {
-                  /* user. */ plan.saturday[0].breakfast.length > 0 ? (
-                    /* user. */ plan.saturday[0].breakfast.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Almuerzo</TextMeal>
-                {
-                  /* user. */ plan.saturday[1].lunch.length > 0 ? (
-                    /* user. */ plan.saturday[1].lunch.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Merienda</TextMeal>
-                {
-                  /* user. */ plan.saturday[2].snack.length > 0 ? (
-                    /* user. */ plan.saturday[2].snack.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Cena</TextMeal>
-                {
-                  /* user. */ plan.saturday[3].dinner.length > 0 ? (
-                    /* user. */ plan.saturday[3].dinner.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Post-cena</TextMeal>
-                {
-                  /* user. */ plan.saturday[4].afterDinner.length > 0 ? (
-                    /* user. */ plan.saturday[4].afterDinner.map(
-                      (el, index) => (
-                        <InfoItem key={index}>
-                          {el.mount} - {el.meal}
-                        </InfoItem>
-                      )
-                    )
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Pre-entreno</TextMeal>
-                {
-                  /* user. */ plan.saturday[5].preWorkout.length > 0 ? (
-                    /* user. */ plan.saturday[5].preWorkout.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Post-entreno</TextMeal>
-                {
-                  /* user. */ plan.saturday[6].postWorkout.length > 0 ? (
-                    /* user. */ plan.saturday[6].postWorkout.map(
-                      (el, index) => (
-                        <InfoItem key={index}>
-                          {el.mount} - {el.meal}
-                        </InfoItem>
-                      )
-                    )
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-                <TextMeal>Colación</TextMeal>
-                {
-                  /* user. */ plan.saturday[7].collation.length > 0 ? (
-                    /* user. */ plan.saturday[7].collation.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-              </List>
-            </PlanDay>
-            <PlanDay>
-              {day === 0 ? (
-                <DayWeekNow>
-                  Domingo <Today>(Hoy)</Today>
-                </DayWeekNow>
+              <TextMeal>Post-entreno</TextMeal>
+              {user.nutricionalPlan.monday[6].postWorkout.length > 0 ? (
+                user.nutricionalPlan.monday[6].postWorkout.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
               ) : (
-                <DayWeek>Domingo</DayWeek>
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
               )}
-              <Hr />
-              <List>
-                <TextMeal>Desayuno</TextMeal>
-                {
-                  /* user. */ plan.sunday[0].breakfast.length > 0 ? (
-                    /* user. */ plan.sunday[0].breakfast.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
+              <TextMeal>Colación</TextMeal>
+              {user.nutricionalPlan.monday[7].collation.length > 0 ? (
+                user.nutricionalPlan.monday[7].collation.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+            </List>
+          </PlanDay>
+          <PlanDay>
+            {day === 2 ? (
+              <DayWeekNow>
+                Martes <Today>(Hoy)</Today>
+              </DayWeekNow>
+            ) : (
+              <DayWeek>Martes</DayWeek>
+            )}
+            <Hr />
+            <List>
+              <TextMeal>Desayuno</TextMeal>
+              {user.nutricionalPlan.tuesday[0].breakfast.length > 0 ? (
+                user.nutricionalPlan.tuesday[0].breakfast.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Almuerzo</TextMeal>
+              {user.nutricionalPlan.tuesday[1].lunch.length > 0 ? (
+                user.nutricionalPlan.tuesday[1].lunch.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Merienda</TextMeal>
+              {user.nutricionalPlan.tuesday[2].snack.length > 0 ? (
+                user.nutricionalPlan.tuesday[2].snack.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Cena</TextMeal>
+              {user.nutricionalPlan.tuesday[3].dinner.length > 0 ? (
+                user.nutricionalPlan.tuesday[3].dinner.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Post-cena</TextMeal>
+              {user.nutricionalPlan.tuesday[4].afterDinner.length > 0 ? (
+                user.nutricionalPlan.tuesday[4].afterDinner.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Pre-entreno</TextMeal>
+              {user.nutricionalPlan.tuesday[5].preWorkout.length > 0 ? (
+                user.nutricionalPlan.tuesday[5].preWorkout.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Post-entreno</TextMeal>
+              {user.nutricionalPlan.tuesday[6].postWorkout.length > 0 ? (
+                user.nutricionalPlan.tuesday[6].postWorkout.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Colación</TextMeal>
+              {user.nutricionalPlan.tuesday[7].collation.length > 0 ? (
+                user.nutricionalPlan.tuesday[7].collation.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+            </List>
+          </PlanDay>
+          <PlanDay>
+            {day === 3 ? (
+              <DayWeekNow>
+                Miércoles <Today>(Hoy)</Today>
+              </DayWeekNow>
+            ) : (
+              <DayWeek>Miércoles</DayWeek>
+            )}
+            <Hr />
+            <List>
+              <TextMeal>Desayuno</TextMeal>
+              {user.nutricionalPlan.wednesday[0].breakfast.length > 0 ? (
+                user.nutricionalPlan.wednesday[0].breakfast.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Almuerzo</TextMeal>
+              {user.nutricionalPlan.wednesday[1].lunch.length > 0 ? (
+                user.nutricionalPlan.wednesday[1].lunch.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Merienda</TextMeal>
+              {user.nutricionalPlan.wednesday[2].snack.length > 0 ? (
+                user.nutricionalPlan.wednesday[2].snack.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Cena</TextMeal>
+              {user.nutricionalPlan.wednesday[3].dinner.length > 0 ? (
+                user.nutricionalPlan.wednesday[3].dinner.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Post-cena</TextMeal>
+              {user.nutricionalPlan.wednesday[4].afterDinner.length > 0 ? (
+                user.nutricionalPlan.wednesday[4].afterDinner.map(
+                  (el, index) => (
+                    <InfoItem key={index}>
+                      {el.mount} - {el.meal}
+                    </InfoItem>
                   )
-                }
-                <TextMeal>Almuerzo</TextMeal>
-                {
-                  /* user. */ plan.sunday[1].lunch.length > 0 ? (
-                    /* user. */ plan.sunday[1].lunch.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
+                )
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Pre-entreno</TextMeal>
+              {user.nutricionalPlan.wednesday[5].preWorkout.length > 0 ? (
+                user.nutricionalPlan.wednesday[5].preWorkout.map(
+                  (el, index) => (
+                    <InfoItem key={index}>
+                      {el.mount} - {el.meal}
+                    </InfoItem>
                   )
-                }
-                <TextMeal>Merienda</TextMeal>
-                {
-                  /* user. */ plan.sunday[2].snack.length > 0 ? (
-                    /* user. */ plan.sunday[2].snack.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
+                )
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Post-entreno</TextMeal>
+              {user.nutricionalPlan.wednesday[6].postWorkout.length > 0 ? (
+                user.nutricionalPlan.wednesday[6].postWorkout.map(
+                  (el, index) => (
+                    <InfoItem key={index}>
+                      {el.mount} - {el.meal}
+                    </InfoItem>
                   )
-                }
-                <TextMeal>Cena</TextMeal>
-                {
-                  /* user. */ plan.sunday[3].dinner.length > 0 ? (
-                    /* user. */ plan.sunday[3].dinner.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
+                )
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Colación</TextMeal>
+              {user.nutricionalPlan.wednesday[7].collation.length > 0 ? (
+                user.nutricionalPlan.wednesday[7].collation.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+            </List>
+          </PlanDay>
+          <PlanDay>
+            {day === 4 ? (
+              <DayWeekNow>
+                Jueves <Today>(Hoy)</Today>
+              </DayWeekNow>
+            ) : (
+              <DayWeek>Jueves</DayWeek>
+            )}
+            <Hr />
+            <List>
+              <TextMeal>Desayuno</TextMeal>
+              {user.nutricionalPlan.thursday[0].breakfast.length > 0 ? (
+                user.nutricionalPlan.thursday[0].breakfast.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Almuerzo</TextMeal>
+              {user.nutricionalPlan.thursday[1].lunch.length > 0 ? (
+                user.nutricionalPlan.thursday[1].lunch.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Merienda</TextMeal>
+              {user.nutricionalPlan.thursday[2].snack.length > 0 ? (
+                user.nutricionalPlan.thursday[2].snack.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Cena</TextMeal>
+              {user.nutricionalPlan.thursday[3].dinner.length > 0 ? (
+                user.nutricionalPlan.thursday[3].dinner.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Post-cena</TextMeal>
+              {user.nutricionalPlan.thursday[4].afterDinner.length > 0 ? (
+                user.nutricionalPlan.thursday[4].afterDinner.map(
+                  (el, index) => (
+                    <InfoItem key={index}>
+                      {el.mount} - {el.meal}
+                    </InfoItem>
                   )
-                }
-                <TextMeal>Post-cena</TextMeal>
-                {
-                  /* user. */ plan.sunday[4].afterDinner.length > 0 ? (
-                    /* user. */ plan.sunday[4].afterDinner.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
+                )
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Pre-entreno</TextMeal>
+              {user.nutricionalPlan.thursday[5].preWorkout.length > 0 ? (
+                user.nutricionalPlan.thursday[5].preWorkout.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Post-entreno</TextMeal>
+              {user.nutricionalPlan.thursday[6].postWorkout.length > 0 ? (
+                user.nutricionalPlan.thursday[6].postWorkout.map(
+                  (el, index) => (
+                    <InfoItem key={index}>
+                      {el.mount} - {el.meal}
+                    </InfoItem>
                   )
-                }
-                <TextMeal>Pre-entreno</TextMeal>
-                {
-                  /* user. */ plan.sunday[5].preWorkout.length > 0 ? (
-                    /* user. */ plan.sunday[5].preWorkout.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
+                )
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Colación</TextMeal>
+              {user.nutricionalPlan.thursday[7].collation.length > 0 ? (
+                user.nutricionalPlan.thursday[7].collation.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+            </List>
+          </PlanDay>
+          <PlanDay>
+            {day === 5 ? (
+              <DayWeekNow>
+                Viernes <Today>(Hoy)</Today>
+              </DayWeekNow>
+            ) : (
+              <DayWeek>Viernes</DayWeek>
+            )}
+            <Hr />
+            <List>
+              <TextMeal>Desayuno</TextMeal>
+              {user.nutricionalPlan.friday[0].breakfast.length > 0 ? (
+                user.nutricionalPlan.friday[0].breakfast.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Almuerzo</TextMeal>
+              {user.nutricionalPlan.friday[1].lunch.length > 0 ? (
+                user.nutricionalPlan.friday[1].lunch.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Merienda</TextMeal>
+              {user.nutricionalPlan.friday[2].snack.length > 0 ? (
+                user.nutricionalPlan.friday[2].snack.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Cena</TextMeal>
+              {user.nutricionalPlan.friday[3].dinner.length > 0 ? (
+                user.nutricionalPlan.friday[3].dinner.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Post-cena</TextMeal>
+              {user.nutricionalPlan.friday[4].afterDinner.length > 0 ? (
+                user.nutricionalPlan.friday[4].afterDinner.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Pre-entreno</TextMeal>
+              {user.nutricionalPlan.friday[5].preWorkout.length > 0 ? (
+                user.nutricionalPlan.friday[5].preWorkout.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Post-entreno</TextMeal>
+              {user.nutricionalPlan.friday[6].postWorkout.length > 0 ? (
+                user.nutricionalPlan.friday[6].postWorkout.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Colación</TextMeal>
+              {user.nutricionalPlan.friday[7].collation.length > 0 ? (
+                user.nutricionalPlan.friday[7].collation.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+            </List>
+          </PlanDay>
+          <PlanDay>
+            {day === 6 ? (
+              <DayWeekNow>
+                Sábado <Today>(Hoy)</Today>
+              </DayWeekNow>
+            ) : (
+              <DayWeek>Sábado</DayWeek>
+            )}
+            <Hr />
+            <List>
+              <TextMeal>Desayuno</TextMeal>
+              {user.nutricionalPlan.saturday[0].breakfast.length > 0 ? (
+                user.nutricionalPlan.saturday[0].breakfast.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Almuerzo</TextMeal>
+              {user.nutricionalPlan.saturday[1].lunch.length > 0 ? (
+                user.nutricionalPlan.saturday[1].lunch.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Merienda</TextMeal>
+              {user.nutricionalPlan.saturday[2].snack.length > 0 ? (
+                user.nutricionalPlan.saturday[2].snack.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Cena</TextMeal>
+              {user.nutricionalPlan.saturday[3].dinner.length > 0 ? (
+                user.nutricionalPlan.saturday[3].dinner.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Post-cena</TextMeal>
+              {user.nutricionalPlan.saturday[4].afterDinner.length > 0 ? (
+                user.nutricionalPlan.saturday[4].afterDinner.map(
+                  (el, index) => (
+                    <InfoItem key={index}>
+                      {el.mount} - {el.meal}
+                    </InfoItem>
                   )
-                }
-                <TextMeal>Post-entreno</TextMeal>
-                {
-                  /* user. */ plan.sunday[6].postWorkout.length > 0 ? (
-                    /* user. */ plan.sunday[6].postWorkout.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
+                )
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Pre-entreno</TextMeal>
+              {user.nutricionalPlan.saturday[5].preWorkout.length > 0 ? (
+                user.nutricionalPlan.saturday[5].preWorkout.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Post-entreno</TextMeal>
+              {user.nutricionalPlan.saturday[6].postWorkout.length > 0 ? (
+                user.nutricionalPlan.saturday[6].postWorkout.map(
+                  (el, index) => (
+                    <InfoItem key={index}>
+                      {el.mount} - {el.meal}
+                    </InfoItem>
                   )
-                }
-                <TextMeal>Colación</TextMeal>
-                {
-                  /* user. */ plan.sunday[7].collation.length > 0 ? (
-                    /* user. */ plan.sunday[7].collation.map((el, index) => (
-                      <InfoItem key={index}>
-                        {el.mount} - {el.meal}
-                      </InfoItem>
-                    ))
-                  ) : (
-                    <NoData>
-                      <TextNoData>Sin Información.</TextNoData>
-                    </NoData>
-                  )
-                }
-              </List>
-            </PlanDay>
-          </PlanData>
-        ) : (
-          <NoPlan>Sin Información.</NoPlan>
-        ))}
-      <Toaster />
+                )
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Colación</TextMeal>
+              {user.nutricionalPlan.saturday[7].collation.length > 0 ? (
+                user.nutricionalPlan.saturday[7].collation.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+            </List>
+          </PlanDay>
+          <PlanDay>
+            {day === 0 ? (
+              <DayWeekNow>
+                Domingo <Today>(Hoy)</Today>
+              </DayWeekNow>
+            ) : (
+              <DayWeek>Domingo</DayWeek>
+            )}
+            <Hr />
+            <List>
+              <TextMeal>Desayuno</TextMeal>
+              {user.nutricionalPlan.sunday[0].breakfast.length > 0 ? (
+                user.nutricionalPlan.sunday[0].breakfast.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Almuerzo</TextMeal>
+              {user.nutricionalPlan.sunday[1].lunch.length > 0 ? (
+                user.nutricionalPlan.sunday[1].lunch.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Merienda</TextMeal>
+              {user.nutricionalPlan.sunday[2].snack.length > 0 ? (
+                user.nutricionalPlan.sunday[2].snack.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Cena</TextMeal>
+              {user.nutricionalPlan.sunday[3].dinner.length > 0 ? (
+                user.nutricionalPlan.sunday[3].dinner.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Post-cena</TextMeal>
+              {user.nutricionalPlan.sunday[4].afterDinner.length > 0 ? (
+                user.nutricionalPlan.sunday[4].afterDinner.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Pre-entreno</TextMeal>
+              {user.nutricionalPlan.sunday[5].preWorkout.length > 0 ? (
+                user.nutricionalPlan.sunday[5].preWorkout.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Post-entreno</TextMeal>
+              {user.nutricionalPlan.sunday[6].postWorkout.length > 0 ? (
+                user.nutricionalPlan.sunday[6].postWorkout.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+              <TextMeal>Colación</TextMeal>
+              {user.nutricionalPlan.sunday[7].collation.length > 0 ? (
+                user.nutricionalPlan.sunday[7].collation.map((el, index) => (
+                  <InfoItem key={index}>
+                    {el.mount} - {el.meal}
+                  </InfoItem>
+                ))
+              ) : (
+                <NoData>
+                  <TextNoData>Sin Información.</TextNoData>
+                </NoData>
+              )}
+            </List>
+          </PlanDay>
+        </PlanData>
+      )}
+      {viewData && !user.nutricionalPlan && <NoPlan>Sin Información.</NoPlan>}
     </PlanContainer>
   );
 };
@@ -1011,20 +893,22 @@ const LogoContainer = styled.div`
 
   .report {
     font-size: 2rem;
+    margin-left: 5%;
     color: black;
     position: absolute;
-    margin-left: 2vw;
-    margin-right: 1vw;
+
+    @media screen and (max-width: 600px) {
+      margin-left: -15vw;
+    }
 
     @media screen and (max-width: 480px) {
-      margin-left: -2vw;
     }
   }
 
   .tooltip {
     visibility: hidden;
     position: absolute;
-    transform: translate(23%, -110%);
+    transform: translate(42%, -110%);
     background-color: black;
     color: white;
     padding: 0.7rem;
@@ -1032,27 +916,18 @@ const LogoContainer = styled.div`
     font-size: 0.8rem;
 
     @media screen and (max-width: 1600px) {
-      transform: translate(50%, -100%);
-      border-radius: 15px 15px 0 15px;
-    }
-
-    @media screen and (max-width: 1200px) {
-      transform: translate(10%, -100%);
-      border-radius: 15px 15px 0 15px;
+      transform: translate(35%, -100%);
+      width: max-content;
     }
 
     @media screen and (max-width: 1000px) {
-      transform: translate(-5%, -100%);
+      transform: translate(-90%, -150%);
       border-radius: 15px 15px 0 15px;
+      font-size: 0.6rem;
     }
 
-    @media screen and (max-width: 900px) {
-      transform: translate(-30%, -100%);
-      border-radius: 15px 15px 0 15px;
-    }
-
-    @media screen and (max-width: 480px) {
-      transform: translate(-105%, -100%);
+    @media screen and (max-width: 600px) {
+      transform: translate(-125%, -140%);
       width: max-content;
     }
   }
@@ -1186,6 +1061,12 @@ const Title = styled.p`
 
     @media screen and (max-width: 1380px) {
       font-size: 3.2rem;
+      left: 5vw;
+    }
+
+    @media screen and (max-width: 850px) {
+      font-size: 3.2rem;
+      left: 8vw;
     }
 
     @media screen and (max-width: 480px) {

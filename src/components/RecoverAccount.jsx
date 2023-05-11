@@ -1,19 +1,19 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { Outlet } from "react-router-dom";
+import React from 'react'
+import { useState, useEffect } from 'react'
+import { Outlet } from 'react-router-dom'
 
-import { Home } from "./Home";
-import { useAuth } from "./LoginRoute";
-import { SesionPage } from "./SesionPage";
+import { Home } from './Home'
+import { useAuth } from './LoginRoute'
+import { SesionPage } from './SesionPage'
 
 export const useRecover = (user) => {
-  return user && user.recover;
-};
+  return user && user.recover
+}
 
 const RecoverAccount = ({ /*email, login*/ user, months }) => {
   /* const [isRecover, setIsRecover] = useState(null); */
-  const isRecover = useRecover(user);
-  const isLogin = useAuth();
+  const isRecover = useRecover(user)
+  const isLogin = useAuth()
 
   /*  useEffect(() => {
     //Get recover
@@ -39,15 +39,15 @@ const RecoverAccount = ({ /*email, login*/ user, months }) => {
     }
   }, [email]); */
 
-  if (isLogin) {
+  if (!isLogin) {
     return isRecover ? (
       <Outlet />
     ) : (
       <Home /*email={email}*/ user={user} months={months} />
-    );
+    )
   }
 
-  return <SesionPage />;
-};
+  return <SesionPage />
+}
 
-export default RecoverAccount;
+export default RecoverAccount

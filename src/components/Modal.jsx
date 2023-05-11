@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import { Colors } from "../constants/Colors";
+import React from 'react'
+import styled from 'styled-components'
+import { Colors } from '../constants/Colors'
 
-const { colorText, secondaryBlue } = Colors;
+const { colorText, secondaryBlue } = Colors
 
 const Modal = ({ children, state, setState, title }) => {
   return (
@@ -34,10 +34,10 @@ const Modal = ({ children, state, setState, title }) => {
         </Overlay>
       )}
     </>
-  );
-};
+  )
+}
 
-export default Modal;
+export default Modal
 
 const CloseButton = styled.button`
   position: absolute;
@@ -60,7 +60,7 @@ const CloseButton = styled.button`
     width: 100%;
     height: 100%;
   }
-`;
+`
 
 const ModalContainer = styled.div`
   min-height: 200px;
@@ -71,13 +71,14 @@ const ModalContainer = styled.div`
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 20px;
   overflow-y: scroll;
+  max-width: 80%;
 
   @media screen and (max-width: 480px) {
     width: 80%;
     position: absolute;
     max-height: 700px;
   }
-`;
+`
 
 const ModalHeader = styled.div`
   display: flex;
@@ -98,7 +99,7 @@ const ModalHeader = styled.div`
       font-size: 1.6rem;
     }
   }
-`;
+`
 
 const Overlay = styled.div`
   width: 100vw;
@@ -121,4 +122,4 @@ const Overlay = styled.div`
     width: 103vw;
     height: 103vh;
   }
-`;
+`

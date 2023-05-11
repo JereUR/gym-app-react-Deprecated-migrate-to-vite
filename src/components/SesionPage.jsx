@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components'
 
-import frontPage from "../assets/gym-front-page.jpg";
-import { SignIn } from "./SignIn";
-import { SignUp } from "./SignUp";
+import frontPage from '../assets/gym-front-page.jpg'
+import { SignIn } from './SignIn'
+import { SignUp } from './SignUp'
 
 export const SesionPage = (/* { user, months } */) => {
   return (
@@ -22,8 +22,8 @@ export const SesionPage = (/* { user, months } */) => {
         <SignUp />
       </FormData>
     </Container>
-  );
-};
+  )
+}
 
 const Container = styled.div`
   display: flex;
@@ -41,7 +41,7 @@ const Container = styled.div`
     margin-top: 15vw;
     margin-left: 5vw;
   }
-`;
+`
 
 const FormData = styled.div`
   flex: 1;
@@ -76,7 +76,7 @@ const FormData = styled.div`
     text-align: center;
     margin: 30% -1vw;
   }
-`;
+`
 
 const Hr = styled.hr`
   @media screen and (max-width: 480px) {
@@ -89,12 +89,12 @@ const Hr = styled.hr`
     margin-top: 1vh;
     margin-bottom: 1vh;
   }
-`;
+`
 
 const LogoContainer = styled.div`
   display: flex;
   justify-content: center;
-`;
+`
 
 const LogoImg = styled.img`
   width: 30vw;
@@ -112,7 +112,7 @@ const LogoImg = styled.img`
     width: 40vw;
     height: calc(var(--width) / 1.5);
   }
-`;
+`
 
 const LogoSection = styled.div`
   flex: 1;
@@ -125,12 +125,12 @@ const LogoSection = styled.div`
   @media screen and (max-width: 900px) {
     display: none;
   }
-`;
+`
 
 const TextContainer = styled.div`
   width: 20vw;
   margin-left: 25%;
-`;
+`
 
 const TextContent = styled.p`
   font-size: 20px;
@@ -139,4 +139,4 @@ const TextContent = styled.p`
   @media screen and (max-width: 1380px) {
     margin-left: 5vw;
   }
-`;
+`
